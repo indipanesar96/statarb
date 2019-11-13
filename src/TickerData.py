@@ -8,6 +8,6 @@ class TickerData(object):
         """
         :rtype: object
         """
-        d = Scraper.scrape(ticker, start_date, end_date)
+        d = Scraper.scrape_or_read(ticker, start_date, end_date)
         self.returns: pd.Series = d[0]
         self.cumulative_returns: pd.Series = d[1]
