@@ -15,8 +15,8 @@ class Scraper:
         :return: returns a tuple of returns and Cumulative returns
         '''
 
-        folder_name = "yahoo-finance-data"
-        filename = ticker + '_' + str(start_date) + '_' + str(end_date) + ".xlsx"
+        folder_name: str = "yahoo-finance-data"
+        filename: str = ticker + '_' + str(start_date) + '_' + str(end_date) + ".xlsx"
 
         parent_dir: Path = Path.cwd().parent
         parent_dir.joinpath(folder_name).mkdir(exist_ok=True)
@@ -26,7 +26,7 @@ class Scraper:
             return cls.__read(full_location, ticker)
 
         except FileNotFoundError as _:
-            print(f"{filename} wasn't found in {parent_dir}. \n\t Pulling data from Yahoo Finance for")
+            print(f"{filename} wasn't found in {parent_dir}. \n\t - pulling data from Yahoo Finance")
             return cls.__scrape(full_location, ticker, start_date, end_date)
 
     @classmethod
@@ -36,8 +36,10 @@ class Scraper:
                                 name=ticker + " Return")
         cum_return = pd.read_excel(str(full_location), squeeze=True, header=0, usecols=[0, 2], index_col=0,
                                    name=ticker + " Cumulative Return")
+        ave_return = returns.mean()
+        std_of_returns = returns.std()
 
-        return returns, cum_return
+        return returns, cum_return, ave_return, std_of_returns
 
     @classmethod
     def __save(cls, returns: pd.Series, cum_return: pd.Series, full_path: Path):
@@ -50,9 +52,14 @@ class Scraper:
     @classmethod
     def __scrape(cls, full_location: Path, ticker: str, start_date: date, end_date: date):
 
-        close_prices = yf.download(ticker, str(start_date), str(end_date)).Close
+        close_prices: pd.Series = yf.download(ticker, str(start_date), str(end_date)).Close
         returns: pd.Series = close_prices.pct_change().rename(ticker + " Return")
+
         cum_return: pd.Series = returns.cumsum().rename(ticker + " Cumulative Return")
+
+        ave_return = returns.mean()
+        std_of_returns = returns.std()
+
         cls.__save(returns, cum_return, full_location)
 
-        return returns, cum_return
+        return returns, cum_return, ave_return, std_of_returns

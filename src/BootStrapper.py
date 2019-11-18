@@ -2,13 +2,17 @@ from src.TickerData import TickerData
 from datetime import date
 from src.Plotter import Plotter
 from typing import Set, List, Tuple
+import yfinance as yf
+import sys
+
+import matplotlib.pyplot as plt
 
 # should probably use an enum class here
 single_stock_tickers: Set[str] = ('MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP', 'AES', 'AMG',
                                   'AFL', 'A', 'APD', 'AKAM', 'ALK', 'ALB', 'ARE', 'ALXN', 'ALGN', 'ALLE', 'AGN', 'ADS',
                                   'LNT', 'ALL', 'GOOGL', 'GOOG', 'MO', 'AMZN', 'AMCR', 'AEE', 'AAL', 'AEP', 'AXP',
                                   'AIG', 'AMT', 'AWK', 'AMP', 'ABC', 'AME', 'AMGN', 'APH', 'ADI', 'ANSS', 'ANTM', 'AON',
-                                  'AOS', 'APA', 'AIV', 'AAPL', 'AMAT', 'APTV', 'ADM', 'ARNC', 'ANET', 'AJG', 'AIZ',
+                                  # 'AOS', 'APA', 'AIV', 'AAPL', 'AMAT', 'APTV', 'ADM', 'ARNC', 'ANET', 'AJG', 'AIZ',
                                   'ATO', 'T', 'ADSK', 'ADP', 'AZO', 'AVB', 'AVY', 'BKR', 'BLL', 'BAC', 'BK', 'BAX',
                                   'BBT', 'BDX', 'BRK', 'BBY', 'BIIB', 'BLK', 'HRB', 'BA', 'BKNG', 'BWA', 'BXP', 'BSX',
                                   'BMY', 'AVGO', 'BR', 'BF', 'CHRW', 'COG', 'CDNS', 'CPB', 'COF', 'CPRI', 'CAH', 'KMX',
@@ -51,12 +55,29 @@ single_stock_tickers: Set[str] = ('MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', '
 start_date: date = date(2018, 1, 1)
 end_date: date = date(2019, 1, 1)
 
-single_stock_data: Tuple[TickerData] = tuple(
-    TickerData(ticker, start_date, end_date) for ticker in single_stock_tickers[:3])
+# close_prices = yf.download(['WCG', 'WFC'], str(start_date), str(end_date)).Close
+# msft = yf.Tickers('MSFT')
+
+n_stocks = 10
+single_stock_data: List[TickerData] = list(
+    TickerData(ticker, start_date, end_date) for ticker in single_stock_tickers[:n_stocks - 1]
+)
 
 spy: TickerData = TickerData('SPY', start_date, end_date)  # https://www.etf.com/SPY
-# vti: TickerData = TickerData('VTI', start_date, end_date)  # https://www.etf.com/VTI#overview
-# ubio: TickerData = TickerData('UBIO', start_date, end_date)  # https://www.etf.com/UBIO
-# soxl: TickerData = TickerData('SOXL', start_date, end_date)  # https://www.etf.com/SOXL
+vti: TickerData = TickerData('VTI', start_date, end_date)  # https://www.etf.com/VTI#overview
+ubio: TickerData = TickerData('UBIO', start_date, end_date)  # https://www.etf.com/UBIO
+soxl: TickerData = TickerData('SOXL', start_date, end_date)  # https://www.etf.com/SOXL
 
-Plotter.plot(spy)
+data_to_be_plotted: List[TickerData] = [spy, vti] + single_stock_data
+
+plt.figure()
+
+for d in data_to_be_plotted:
+    plt.scatter(d.ave_return, d.std_of_returns, label=d.ticker)
+
+plt.ylim(-1, 1)
+plt.title("Ave return vs ave volatility")
+plt.legend(loc = r"best")
+plt.tight_layout()
+plt.show()
+# Plotter.plot(data_to_be_plotted)
