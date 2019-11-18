@@ -46,8 +46,20 @@ ticker = c('MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP', 'A
            'XRX', 'XLNX', 'XYL', 'YUM', 'ZBH', 'ZION', 'ZTS')
 tickerlist = vector()
 for (stock in ticker) {tickerlist = c(tickerlist, paste(stock, 'US Equity', collapse = ' '))}
-fields = vector('LAST_PRICE','PX_OPEN','VOLUME')#,'EQY_WEIGHTED_AVG_PX','PX_HIGH','PX_LOW','PX_ASK','PX_BID','LAST_PRICE','BEST_EBITDA','BEST_PE_RATIO')
-bbgdata = bdh(con        = con,
-              options    = NULL,
-              securities = 'YUM US Equity', fields = 'LAST_PRICE',
-              start.date = as.Date("2018-01-01"), end.date = as.Date('2018-12-31'))
+bbgdata1 = bdh(securities = tickerlist, fields = c('LAST_PRICE','PX_OPEN','VOLUME','PX_HIGH','PX_LOW'),
+              start.date = as.Date("2015-01-01"), end.date = as.Date('2018-12-31'))
+bbgdata2 = bdh(securities = tickerlist, fields = c('PX_ASK','PX_BID','PE_RATIO','PX_TO_BOOK_RATIO'),
+              start.date = as.Date("2015-01-01"), end.date = as.Date('2018-12-31'))
+result = list()
+export = data.frame()
+for (index in seq(length(bbgdata1))) {
+  print(index)
+  data1 = as.data.frame(bbgdata1[[index]])
+  data2 = as.data.frame(bbgdata2[[index]])
+  data = merge(data1,data2,by = 'date', all = TRUE)
+  data = merge(names(bbgdata1)[index],data)
+  colnames(data)[1] = 'ticker'
+  #result = c(result, list(data))
+  export = rbind(export, data)
+}
+write.csv(export,'BBGData.csv')
