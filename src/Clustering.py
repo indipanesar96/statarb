@@ -1,3 +1,4 @@
+import itertools
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -23,6 +24,11 @@ class Clustering:
         self.data = data
 
     def dbscan(self):
+        '''
+        return a dict {str: list of tuples}
+        key: cluster number Cx, x=1,2,...,n
+        value:  a list of tuples of the pairs in the same cluster [(1,3),(1,6)...]
+        '''
         X = StandardScaler().fit_transform(self.data)
         dbscan = DBSCAN(min_samples=2).fit(X)
         labels = dbscan.labels_
@@ -39,11 +45,17 @@ class Clustering:
             xy = X[class_member_mask & core_samples_mask]
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=14)
 
-            xy = X[class_member_mask & ~core_samples_mask]
+            xy = X[class_member_mask & ~core_samples_mask] # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
 
-        plt.title('Clustering')
-        plt.show()
+        #plt.title('Clustering')
+        #plt.show()
+        clusters = {}
+        pairs = []
+        for i in itertools.combinations(dbscan.core_sample_indices_, 2):
+            pairs.append(i)
+        clusters['C0'] = pairs
+        return clusters
 
 
 X = np.array([[-0.00023248654202514808, -0.0002619913655537728, -0.0007353652382561316,
@@ -57,4 +69,4 @@ X = np.array([[-0.00023248654202514808, -0.0002619913655537728, -0.0007353652382
 X = (X*100).transpose()
 df = pd.DataFrame(X)
 clustering = Clustering(df)
-clustering.dbscan()
+print(clustering.dbscan())
