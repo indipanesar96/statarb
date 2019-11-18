@@ -1,6 +1,6 @@
-from src.TickerData import TickerData
+from TickerData import TickerData
 from datetime import date
-from src.Plotter import Plotter
+from Plotter import Plotter
 from typing import Set, List, Tuple
 import yfinance as yf
 import sys
@@ -73,6 +73,7 @@ data_to_be_plotted: List[TickerData] = [spy, vti] + single_stock_data
 plt.figure()
 
 for d in data_to_be_plotted:
+    print(d.ave_return, d.std_of_returns)
     plt.scatter(d.ave_return, d.std_of_returns, label=d.ticker)
 
 plt.ylim(-1, 1)

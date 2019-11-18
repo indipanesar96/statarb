@@ -1,4 +1,4 @@
-from src.TickerData import TickerData
+from TickerData import TickerData
 import matplotlib.pyplot as plt
 from typing import List
 

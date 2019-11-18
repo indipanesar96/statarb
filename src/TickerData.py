@@ -1,6 +1,6 @@
 import pandas as pd
 from datetime import date
-from src.Scraper import Scraper
+from Scraper import Scraper
 from datetime import date
 
 
