@@ -1,3 +1,5 @@
+#run on bloomberg terminal
+#open bloomberg application, log in, run bloomberg/BBCOMM from START MENU
 library(Rblpapi)
 library(xts)
 con <- blpConnect()
@@ -45,11 +47,15 @@ ticker = c('MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP', 'A
            'WCG', 'WFC', 'WELL', 'WDC', 'WU', 'WRK', 'WY', 'WHR', 'WMB', 'WLTW', 'WYNN', 'XEL',
            'XRX', 'XLNX', 'XYL', 'YUM', 'ZBH', 'ZION', 'ZTS')
 tickerlist = vector()
-for (stock in ticker) {tickerlist = c(tickerlist, paste(stock, 'US Equity', collapse = ' '))}
+for (stock in ticker) {tickerlist = c(tickerlist, paste(stock, 'US Equity', collapse = ' '))} #generate ticker vector with ticker name for bloomberg
+
+#request data from bloomberg, if request more than 5 attributes at one time the connection will crush
 bbgdata1 = bdh(securities = tickerlist, fields = c('LAST_PRICE','PX_OPEN','VOLUME','PX_HIGH','PX_LOW'),
               start.date = as.Date("2015-01-01"), end.date = as.Date('2018-12-31'))
 bbgdata2 = bdh(securities = tickerlist, fields = c('PX_ASK','PX_BID','PE_RATIO','PX_TO_BOOK_RATIO'),
               start.date = as.Date("2015-01-01"), end.date = as.Date('2018-12-31'))
+
+#organize data for csv output
 result = list()
 export = data.frame()
 for (index in seq(length(bbgdata1))) {
@@ -62,4 +68,5 @@ for (index in seq(length(bbgdata1))) {
   #result = c(result, list(data))
   export = rbind(export, data)
 }
+#csv output
 write.csv(export,'BBGData.csv')
