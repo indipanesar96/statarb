@@ -1,3 +1,4 @@
+import itertools
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -23,6 +24,11 @@ class Clustering:
         self.data = data
 
     def dbscan(self):
+        '''
+        return a dict {str: list of tuples}
+        key: cluster number Cx, x=1,2,...,n
+        value:  a list of tuples of the pairs in the same cluster [(1,3),(1,6)...]
+        '''
         X = StandardScaler().fit_transform(self.data)
         dbscan = DBSCAN(min_samples=2).fit(X)
         labels = dbscan.labels_
@@ -39,13 +45,21 @@ class Clustering:
             xy = X[class_member_mask & core_samples_mask]
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=14)
 
-            xy = X[class_member_mask & ~core_samples_mask]
+            xy = X[class_member_mask & ~core_samples_mask] # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
 
-        plt.title('Clustering')
-        plt.show()
+        #plt.title('Clustering')
+        #plt.show()
+        tickers = ['SPY', 'VTI', 'MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP']
+        clusters = {}
+        pairs = []
+        for i in itertools.combinations(dbscan.core_sample_indices_, 2):
+            pair = (tickers[i[0]], tickers[i[1]])
+            pairs.append(pair)
+        clusters['C0'] = pairs
+        return clusters
 
-
+# copy this part
 X = np.array([[-0.00023248654202514808, -0.0002619913655537728, -0.0007353652382561316,
                0.000927608494770463, -1.6138875340238285e-05, 0.002550805923079642,
                -0.00023947155846431434, -0.0010109697057888135, 0.0012156648131022442,
@@ -56,5 +70,8 @@ X = np.array([[-0.00023248654202514808, -0.0002619913655537728, -0.0007353652382
                0.039604644320766706, 0.019937860959241452]])
 X = (X*100).transpose()
 df = pd.DataFrame(X)
+# from Clustering import Clustering
 clustering = Clustering(df)
-clustering.dbscan()
+cluster_dict = clustering.dbscan()
+print(cluster_dict)
+# copy this part

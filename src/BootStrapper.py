@@ -12,7 +12,7 @@ single_stock_tickers: Set[str] = ('MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', '
                                   'AFL', 'A', 'APD', 'AKAM', 'ALK', 'ALB', 'ARE', 'ALXN', 'ALGN', 'ALLE', 'AGN', 'ADS',
                                   'LNT', 'ALL', 'GOOGL', 'GOOG', 'MO', 'AMZN', 'AMCR', 'AEE', 'AAL', 'AEP', 'AXP',
                                   'AIG', 'AMT', 'AWK', 'AMP', 'ABC', 'AME', 'AMGN', 'APH', 'ADI', 'ANSS', 'ANTM', 'AON',
-                                  # 'AOS', 'APA', 'AIV', 'AAPL', 'AMAT', 'APTV', 'ADM', 'ARNC', 'ANET', 'AJG', 'AIZ',
+                                  'AOS', 'APA', 'AIV', 'AAPL', 'AMAT', 'APTV', 'ADM', 'ARNC', 'ANET', 'AJG', 'AIZ',
                                   'ATO', 'T', 'ADSK', 'ADP', 'AZO', 'AVB', 'AVY', 'BKR', 'BLL', 'BAC', 'BK', 'BAX',
                                   'BBT', 'BDX', 'BRK', 'BBY', 'BIIB', 'BLK', 'HRB', 'BA', 'BKNG', 'BWA', 'BXP', 'BSX',
                                   'BMY', 'AVGO', 'BR', 'BF', 'CHRW', 'COG', 'CDNS', 'CPB', 'COF', 'CPRI', 'CAH', 'KMX',
@@ -68,6 +68,8 @@ vti: TickerData = TickerData('VTI', start_date, end_date)  # https://www.etf.com
 ubio: TickerData = TickerData('UBIO', start_date, end_date)  # https://www.etf.com/UBIO
 soxl: TickerData = TickerData('SOXL', start_date, end_date)  # https://www.etf.com/SOXL
 
+#for i in single_stock_data:
+#    print(i.ticker)
 data_to_be_plotted: List[TickerData] = [spy, vti] + single_stock_data
 
 plt.figure()
