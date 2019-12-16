@@ -17,7 +17,7 @@ class Executor:
 
         pass
 
-    def open_positions(self, reduced_pairs: Tuple[str, str], reversions)-> Df:
+    def open_positions(self, reduced_pairs: Tuple[str, str], reversions, current_risk_metrics) -> Df:
         '''
         use prices from self.t_minus_one_data (to know what to buy at)
         :param reduced_pairs:
