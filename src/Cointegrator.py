@@ -71,7 +71,9 @@ class Cointegrator:
         hl_test = half_life_test(residuals)
 
         # call hurst_exponent_test function on residuals vector
+        hurst_exp = hurst_exponent_test(residuals)
 
+        ###### to be refined with addition of thresholds as inputs and desired output ######
 
 
     def half_life_test(self, residuals):
