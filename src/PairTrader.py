@@ -43,7 +43,7 @@ class PairTrader:
         cointegrator = Cointegrator(executor)
         clusterer = Clustering()
         risk_manager = RiskManager()
-        filterer = Filters()
+        filterer = Filters(t_minus_one_data, 1)
         plotter = Plotter()
 
         self.portfolio = repository.pull_initial()
