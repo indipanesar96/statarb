@@ -96,6 +96,7 @@ def get_all_data():
 
     underlying_df = get_bloomberg_data(ticker_list, function_list, start_date, end_date)
     ETF_df = get_bloomberg_data(ETF_list, function_list, start_date, end_date)
+    #
     underlying_df.to_csv(dirO + '/underlying_bloomberg_data' + end_date + '.csv')
     ETF_df.to_csv(dirO + '/ETF_bloomberg_data' + end_date + '.csv')
 
