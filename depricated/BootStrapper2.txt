@@ -1,0 +1,38 @@
+ liq pref= 0
+
+ sd_to drop trade = 2
+ sd to trade = 2.5
+
+ close out sd = 0.5
+
+
+i=0 -- start of simulation (day 1 of backtesting data eg day -5)
+
+
+
+for i in range(how mnay days we have):
+
+    read data(i)
+        - progress the rolling window by one day
+
+    if i!=0:
+        check portfolio
+
+    examine positions of anything in portfolio (risk method as check risk / current exposure)
+        - any positions open, their tickers need to be passed as
+        - {security1 (the one we longed): security2 (the one we shorted} to the clustering function, so it knows to exclude them in clustering
+        - these need to go straight into cointegration analysis
+
+    perform clustering()
+
+    backtesting from the rssult of clustering call
+
+    cointegration analysis(hgcdvcjhdk)
+
+    normalise u_t from result of cointegration
+
+    book trade ()
+
+    check risk / current exposure
+
+    plot and save current metrics (sset returns, cumulative returns, kurtosis, skew, vol, max drawdown etc.)
