@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
+from collections import OrderedDict
 
 
 class Clustering:
@@ -12,7 +13,7 @@ class Clustering:
     def __init__(self, data):
         self.data = data
 
-    def dbscan(self) -> OrderedDict[int, Tuple[str]]:
+    def dbscan(self) -> OrderedDict:
         '''
         return a dict {str: list of tuples}
         key: cluster number Cx, x=1,2,...,n
@@ -34,7 +35,7 @@ class Clustering:
             xy = X[class_member_mask & core_samples_mask]
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=14)
 
-            xy = X[class_member_mask & ~core_samples_mask] # binary one's complement
+            xy = X[class_member_mask & ~core_samples_mask]  # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
 
         tickers = ['SPY', 'VTI', 'MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP']
@@ -46,8 +47,8 @@ class Clustering:
         clusters['C0'] = pairs
         return clusters
 
-    def kmeans(self) -> OrderedDict[int, Tuple[str]]:
+    def kmeans(self) -> OrderedDict:
         pass
 
-    def optics(self) -> OrderedDict[int, Tuple[str]]:
+    def optics(self) -> OrderedDict:
         pass
