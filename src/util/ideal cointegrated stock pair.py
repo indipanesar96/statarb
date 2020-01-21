@@ -8,7 +8,7 @@ import statsmodels.api as sm
 from statsmodels.tsa.api import adfuller
 
 # just set the seed for the random number generator
-np.random.seed(107)
+np.random.seed(99)
 
 # Generate daily log returns (i.e., log differences for consecutive days closing price)
 # for approximately 4 years (250 trading days per year)
@@ -18,7 +18,7 @@ standard_normal_vector = np.random.normal(0, 1, 1000)
 # to be estimated in real case), diffusion 0.30 (reasonable yearly volatility for risky asset,
 # be estimated in real case)
 sigma = 0.30
-mu = 0.10
+mu = 0.01
 
 # if unit is one year (consistent with order of magnitude of mu and sigma) , then day= 1/250
 dt = 1/250
@@ -41,7 +41,7 @@ plt.show()
 Y = [45]
 Y_t = Y[0]
 beta = 1.2
-alpha = .003
+alpha = .0001
 dt = 1 / 250
 
 ###### defining specs of OU ########
@@ -52,7 +52,7 @@ k = 250 / 15  # means that avg time of mean reversion is 15 days
 v = 0.3
 
 ###### simulating OU #######
-np.random.seed(1)
+np.random.seed(23)
 standard_normal_vector_2 = np.random.normal(0, 1, 1000)
 U = [0]
 for i in range(1000):

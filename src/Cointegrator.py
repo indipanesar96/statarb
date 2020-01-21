@@ -43,29 +43,20 @@ class Cointegrator:
                                    ) -> Dict[int, Tuple[str]]:
         pass
 
-    def cointegration_analysis_rough(self, Y, X):
-        # compute log prices and lag-log prices for last 60 days
-        log_y = np.array(np.log(Y[-120:]))
-        log_x = np.array(np.log(X[-120:]))
-
-        lagged_log_y = np.array(np.log(Y[-121:-1]))
-        lagged_log_x = np.array(np.log(X[-121:-1]))
-
-        log_returns_y = log_y - lagged_log_y
-        log_returns_x = log_x - lagged_log_x
-
-        # add vector of 1s to account for intercept in regression
-        x = sm.add_constant(log_returns_x)
-
-        # do cointegration regression of "verticalized" vectors
-        model = sm.OLS(log_returns_y.reshape(-1,1), x.reshape(-1,1))
+    def cointegration_analysis_rough(Y, X):
+        """
+        perform ADF test, Half-life and Hurst
+        return ADF test p-value, average time of mean reversion, Hurst exponent, beta
+        """
+        # do cointegration regression of twp price time series
+        model = sm.OLS(Y[-200:], X[-200:])
         results = model.fit()
-        residuals = results.resid
+        residuals = np.array(results.resid)
+        beta = results.params[1]
 
         # do Augmented-Dickey Fuller test and save p-value
         adf_results = adfuller(residuals)
         adf_p_value = adf_results[1]
-
 
         # call half_life_test function on residuals vector
         hl_test = half_life_test(residuals)
@@ -73,27 +64,28 @@ class Cointegrator:
         # call hurst_exponent_test function on residuals vector
         hurst_exp = hurst_exponent_test(residuals)
 
-        ###### to be refined with addition of thresholds as inputs and desired output ######
+        return adf_p_value, hl_test, hurst_exp, beta
 
-
-    def half_life_test(self, residuals):
+    def half_life_test(residuals):
         """
         Calculates the half life of the residuals to check average time of mean reversion
         """
         # calculate the vector of lagged residuals
         lagged_residuals = residuals[:-1]
-        delta_residuals = residuals[1:] - lagged_residuals
+        delta_residuals = (residuals[1:] - lagged_residuals)
         regressors = sm.add_constant(lagged_residuals)
 
-        # do regression of "verticalized" delta residuals against lagged residuals
-        model = sm.OLS(delta_residuals.reshape(-1, 1), regressors.reshape(-1, 1))
+        # do regression of delta residuals against lagged residuals
+        model = sm.OLS(delta_residuals, regressors)
         results_1 = model.fit()
         pi = results_1.params[1]
 
-        HL_test = np.log(2)/ (-pi)
+        # calculate average time of mean reversion from average speed of mean reversion as per formula
+        HL_test = np.log(2) / (-pi)
+
         return HL_test
 
-    def hurst_exponent_test(self, residuals):
+    def hurst_exponent_test(residuals):
         """
         Returns the Hurst Exponent of the time series vector
         """
@@ -116,8 +108,8 @@ class Cointegrator:
 
         #  regress (log of) variance_delta_vector against tau_vector
         results_2 = np.polyfit(np.log10(np.asarray(tau_vector)),
-                       np.log10(np.asarray(variance_delta_vector).clip(min=0.0000000001)),
-                       1)
+                               np.log10(np.asarray(variance_delta_vector).clip(min=0.0000000001)),
+                               1)
         # return the calculated hurst exponent (regression coefficient divided by 2 as per formula)
-        return results_2[0] /2
+        return results_2[0] / 2
 
