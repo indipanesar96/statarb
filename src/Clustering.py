@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import DBSCAN
 from sklearn.datasets import make_blobs
 from sklearn.preprocessing import StandardScaler
+from collections import OrderedDict
 
 
 class Clustering:
@@ -38,7 +39,7 @@ class Clustering:
             xy = X[class_member_mask & core_samples_mask]
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=14)
 
-            xy = X[class_member_mask & ~core_samples_mask] # binary one's complement
+            xy = X[class_member_mask & ~core_samples_mask]  # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
 
         plt.title('Estimated number of clusters: %d' % n_clusters)

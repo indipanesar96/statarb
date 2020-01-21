@@ -75,5 +75,5 @@ def main():
     tickers = np.unique(tick_nasdaq).tolist()
     tickers = [x.strip('\n') for x in tickers]
     df = pd.DataFrame(tickers)
-    df.to_csv('C:/Users/tyehu/PycharmProjects/statarb/Resources/Stock_names.csv', index=False, header=False) # remove indexed columns and rows so just get the tickers
+    df.to_csv('C:/Users/tyehu/PycharmProjects/statarb/resources/sandp_nasdaq_nyc.csv', index=False, header=False) # remove indexed columns and rows so just get the tickers
     return df
