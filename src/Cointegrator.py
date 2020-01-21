@@ -37,16 +37,29 @@ class Cointegrator:
 
         pass
 
-    def run_cointegration_analysis(self,
-                                   clustering_results : Dict[int, Tuple[str]] ,
-                                   cointegration
-                                   ) -> Dict[int, Tuple[str]]:
-        pass
-
-    def cointegration_analysis_rough(Y, X):
+    def run_cointegrator(self, clustering_results : Dict[int, Tuple[str]],) -> Dict[int, Tuple[str]]:
         """
-        perform ADF test, Half-life and Hurst
-        return ADF test p-value, average time of mean reversion, Hurst exponent, beta
+        iteratively test for cointegration all the pairs within each cluster;
+        return dictionary with a 2-element list of tickers as key, and a list
+        """
+        cointegrated_pairs = []
+        for cluster in clustering_results.values():
+            for pair in cluster:
+
+            ## Call Thom's function with price column and convert to numpy arrays y, x
+            cointegration_parameters = cointegration_analysis(y, x)
+            cointegrated_pairs.append([list(pair),cointegration_parameters])
+
+
+
+
+
+    def cointegration_analysis(Y, X):
+        """
+        perform ADF test, Half-life and Hurst on pair of price time series
+        return ADF test p-value, average time of mean reversion, Hurst exponent, beta,
+        list containing 1. last-day residual, 2. mean, 3. stdv of residual vector
+        (this is going to be useful for signal generation once we decide the thresholds)
         """
         # do cointegration regression of twp price time series
         model = sm.OLS(Y[-200:], X[-200:])
@@ -64,7 +77,7 @@ class Cointegrator:
         # call hurst_exponent_test function on residuals vector
         hurst_exp = hurst_exponent_test(residuals)
 
-        return adf_p_value, hl_test, hurst_exp, beta
+        return adf_p_value, hl_test, hurst_exp, beta, [residuals[-1],np.mean(residuals), np.std(residuals)]
 
     def half_life_test(residuals):
         """
