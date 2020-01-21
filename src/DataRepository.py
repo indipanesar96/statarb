@@ -25,8 +25,18 @@ class DataRepository:
     def pull_initial(self) -> Tuple[Df]:
         pass
 
-    def get_data_for_coint(self):
+    def get_data_for_coint(self, stock_ticker, ETF_ticker): -> Df:
         pass
+        # pulls price data for relevant stocks
+    def get_data_for_clustering(self, n): -> Df:
+        pass
+        # average data over latest n days for all stocks
+        #stocks and data as row - as feature is a column
+    def leverage(self):
+        pass
+    def ROE(self):
+        pass
+
 
     # @classmethod
     # def __read(cls, full_location: Path, ticker: str):
