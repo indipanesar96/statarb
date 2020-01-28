@@ -1,4 +1,5 @@
 from typing import Tuple
+import pandas as pd
 from pandas import DataFrame as Df
 from pandas import read_excel
 import datetime
@@ -21,8 +22,7 @@ class DataRepository:
         self.window_end = self.window_start + window_size
 
     def retrieve_window(self) -> Df:
-        file_name = f"{self.window_start.year}_sp500_ticker_data.csv"
-        sp_500_loc = f"./resources/SP500/{file_name}"
+        sp_500_loc = f"./resources/SP500/sp_500_ticker_data_all.csv"
 
         etf_loc = f"./resources/ETF_data/2008-2019_ETF_data.csv"
 
@@ -37,20 +37,38 @@ class DataRepository:
         pass
 
     def get_data_for_coint(self, stock_ticker: str, ETF_ticker: str) -> Df:
-        pass
+        stock_price_data = self[[stock_ticker + ' Last']]
+        ETF_price_data = self[[ETF_ticker + ' Last']]
+        data = pd.merger(type = 'outer', stock_price_data, ETF_price_data)
+        return data
+        # pulls price data for relevant tickers
+    def get_data_for_clustering(self, tickers: list, tolerance: float): -> Df:
+        # scan for nas
+
+        return df
 
     # pulls price data for relevant stocks
 
-    def get_data_for_clustering(self, n) -> Df:
-        pass
-
     # average data over latest n days for all stocks
     # stocks and data as row - as feature is a column
-    def leverage(self):
-        pass
+    def leverage(self, stock_ticker: str):
+        self['Leverage'] = self[stock_ticker + ' Total Debt']/ self[stock_ticker+ ' Total Assets']
 
-    def ROE(self):
-        pass
+    def roe(self, stock_ticker: str):
+        self['ROE'] = self[stock_ticker + ' Net Income'] / self[stock_ticker + ' Shareholders equity']
+    def fill_nas(self, stock_ticker: str):
+        earnings_data = []
+        for x in earnings_data:
+            self = self[stock_ticker + ' ' + x].fillna(method = 'ffill')
+        return self
+    def repeat_for_tickers(self, tickers: list):
+        for x in tickers:
+            self.fill_nas(self, x)
+            self.roe(self, x)
+            self.leverage(self,x)
+            self.fill_nas(self,x)
+
+
 
 # @classmethod
 # def __read(cls, full_location: Path, ticker: str):
