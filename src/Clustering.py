@@ -29,6 +29,7 @@ class Clustering:
         unique_labels = set(labels)
         n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
         n_noise = list(labels).count(-1)
+        #somethign
 
         colors = [plt.cm.Spectral(each) for each in np.linspace(0, 1, len(unique_labels))]
         for k, col in zip(unique_labels, colors):
