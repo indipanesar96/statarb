@@ -2,13 +2,16 @@ from pandas import Series as Sr
 import pandas as pd
 import numpy as np
 import datetime as dt
+from src.Window import Window
 
 class Filters:
 
-    def __init__(self, data, threshold_sigma):
-        self.data = data # historic data from which we calculate the history
+    def __init__(self, current_window : Window):
+        self.current_window = current_window
+        # historic data from which we calculate the history
         # volumes so we know what constitutes a shock)
-        self.threshold_sigma = threshold_sigma #how many stdvs away from mean we classify a shock - to be perturbed
+        # self.threshold_sigma = threshold_sigma
+        #how many stdvs away from mean we classify a shock - to be perturbed
 
     def apply_volume_shock_filter(self, pairs):
         # pairs structure: {[ticker, ETFTicker]: [size of short, size of long]}

@@ -8,9 +8,6 @@ import numpy as np
 
 class Cointegrator:
 
-    def __init__(self, executor: Executor):
-        self.executor = executor
-
     def check_holdings(self, current_holdings: Df):
         '''
         Receives a dataframe of current holdings to check if the pairs are no longer co integrated
@@ -46,15 +43,14 @@ class Cointegrator:
         for cluster in clustering_results.values():
             for pair in cluster:
 
-            ## Call Thom's function with price column and convert to numpy arrays y, x
-            cointegration_parameters = cointegration_analysis(y, x)
-            cointegrated_pairs.append([list(pair),cointegration_parameters])
+                ## Call Thom's function with price column and convert to numpy arrays y, x
+                # cointegration_parameters = self.cointegration_analysis(y, x)
+                # cointegrated_pairs.append([list(pair),cointegration_parameters])
+                pass
+        pass
 
 
-
-
-
-    def cointegration_analysis(Y, X):
+    def cointegration_analysis(self, Y, X):
         """
         perform ADF test, Half-life and Hurst on pair of price time series
         return ADF test p-value, average time of mean reversion, Hurst exponent, beta,

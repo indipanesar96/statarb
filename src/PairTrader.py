@@ -1,97 +1,120 @@
-from typing import Tuple, Dict
-from src.DataRepository import DataRepository
-from src.Cointegrator import Cointegrator
-from src.Clustering import Clustering
-from src.Plotter import Plotter
-from src.Filters import Filters
-from src.Executor import Executor
-from src.RiskManager import RiskManager
-from pandas import DataFrame as Df
-import pandas as pd
-from pandas import Series as Se
 import datetime
+from datetime import date, timedelta
+from typing import Optional, List
+
+from pandas import DataFrame
+from src.Clusterer import Clusterer
+from src.Cointegrator import Cointegrator
+from src.DataRepository import DataRepository
+from src.Filters import Filters
+from src.Window import Window
+
+'''
+This project now runs in a virtual environment (3.7), for module/python version controlling (better for when we handover to next year's team).
+Go to settings (ctrl + alt + s or cmd + ,) and ensure youre using the virtual env (under Project Interpreter)
+
+The most basic of PyCharm shortcuts you may/may not already know that'll make your lives easier when navigating:
+    - cmd + B (b for browse) or cmd+click on an object to take you to its definition (ctrl + B/click for windows)
+    - cmd + [ = last cursor position (ctrl + alt + left arrow)
+    - cmd + ] = next cursor position (ctrl + alt + right arrow)
+    - cmd + k (k for Kommit, ie Commit) to commit (ctrl for windows)
+    - cmd + shift + k to push a commit up to the sky (ctrl for windows)
+    - cmd + t (t for updaTe) to pull down the latest commits from the sky (ctrl for windows)
+    - shift + F6 (with fn key for mac) to do a project-level refactor
+    - alt + enter is your friend - pulls up a useful cursor-context menu
+    - cmd + alt + L = autoformat (ctrl for windows) [DO THIS BEFORE EVERY COMMIT PLS]
+    - cmd + alt + O = optimise imports (ctrl for windows) [DO THIS BEFORE EVERY COMMIT PLS]
+
+./depricated needs to go; I'll remove it in a week or so (and delete this line after). Take out any code you may and 
+implement it in asap please.
+
+Bits of python you may not have seen before:
+    - method name preceeded with __ is so a subclass doesn't override a private method of a superclass
+        don't have to actually worry about this as I don't think we have any inheritance yet, it's just good practice 
+         e.g. https://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
+    - DataLocations is an example of an Enum class. More info: https://www.tutorialspoint.com/enum-in-python 
+    - The strong typing (anywhere you see variable_name: variable_type, eg 'List', 'Tuple', 'Optional' etc from the typing module)
+        aren't actually required, theyre just useful within PyCharm to make sure you don't shove a string into an int (or worse) 
+         and throw an AttributeError or TypeError at runtime. 
+        
+If there's any code you can't figure out after some googling remember PyCharm's annotate feature. Right click on the line number
+(in fact, any line of any checked in file) you're struggling with and click 'Annotate'. It'll tell you who checked it into the repo. Ask them directly. 
+Failing that, contact me.
+
+Of course if there's any code I (I make a lot of mistakes) or anyone else has written that you think is incorrect/could be made better, 
+do contact them/change it yourself - this is a learning experience for us all. If it turns out it was correct all along you can use some git magic 
+to get it back. Once it's commited it's never lost.
+'''
 
 
 class PairTrader:
 
     def __init__(self,
-                 window_size: datetime.timedelta = datetime.timedelta(days=60),
-                 open_thresh: float = 1.0,
-                 close_thresh: float = 2.0,
-                 holding_period: int = 15,
-                 sim_days: int = None):
-        '''
-        :param window_size: the size of the window over which we run clustering and
-                            cointegration analysis to inform the trader on decisions
-        :param open_thresh: how many standard deviations away from mean the cointegation signal needs to be before
-                            deciding to open a long/short pair position (in magnitude)
-        :param close_thresh: how many standard deviations away from mean the cointegation signal needs to be before
-                            deciding to close a long/short pair position (in magnitude)
-        :param sim_days: The total length of the simulation/backtesting period. If None, the trader will trade over the
-                        full extent of the dataset imported
+                 start_date: date = datetime.date(2008, 1, 1),
+                 window_length: timedelta = timedelta(days=90),
+                 end_date: Optional[date] = None):
+        # If end_date is None, run for the entirety of the dataset
+        # Window is the lookback period (from t=-window_length-1 to t=-1 (yesterday) over which we analyse data
+        # to inform us on trades to make on t=0 (today). We assume an expanding window for now.
 
-                        #whats max trading threshold per day? how do we start the portfolio??? all cash?
-        '''
-        self.window_size: datetime.timedelta = window_size
-        self.open_thresh: float = open_thresh
-        self.close_thresh: float = close_thresh
-        self.sim_days: int = sim_days
-        self.portfolio: Df = Df()
+        self.repository = DataRepository()
+        inital_window = Window(window_start=start_date,
+                               window_length=window_length,
+                               repository=self.repository)
+
+        self.start_date: date = start_date
+        self.window_length: timedelta = window_length
+        self.end_date: date = end_date
+
+        # Portfolio might need to be its own object later, cross that bridge when we come to it
+        self.portfolio: Optional[DataFrame] = None
+        self.current_window: Window = inital_window
+
+        # Is this required? Isn't history just all data since self.start_date? (for an expanding window)
+        # Indi thinking to himself
+        self.history: List[Window] = [inital_window]
+        self.today = self.start_date + self.window_length + timedelta(days=1)
+
+        # Days since the start of backtest
+        self.days_alive: int = 0
+        self.clusterer = Clusterer()
+        self.cointegrator = Cointegrator()
+        self.filters = Filters(inital_window)
 
     def trade(self):
-        repository = DataRepository(self.window_size)
-        first_window = repository.retrieve_window()
-        executor = Executor(pd.empty())
-        cointegrator = Cointegrator(executor)
-        clusterer = Clustering(pd.empty())
-        risk_manager = RiskManager()
-        filterer = Filters(pd.empty(), 1)
-        plotter = Plotter()
+        print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
-        self.portfolio = repository.pull_initial()
+        # Using DBScan for now, ensemble later
+        cluster_results = self.clusterer.DBScan(self.current_window)
 
-        def evolve(day_number: int) -> Df:
-            if day_number != 0:
-                # all other stop losses here / term limit checks etc
-                self.portfolio = cointegrator.check_holdings(self.portfolio)
-                day_open_risk_metrics = risk_manager.current_exposure(self.portfolio)
-            else:
-                day_open_risk_metrics = None
+        # Take cluster results and pass into Cointegrator
 
-            clustering_results: Dict[int, Tuple[str]] = clusterer.dbscan()
+        # Take cointegrated signals and pass into Filter = filtered signal
 
-            price_data_for_cointegration = repository.get_data_for_coint('blank', 'blank')
+        # Take filtered signal
 
-            pairs, reversions = cointegrator.run_cointegration_analysis(clustering_results,
-                                                                        price_data_for_cointegration)
+        # roll forward/expand window
+        self.__evolve()
 
-            reduced_pairs, reduced_reversions = filterer.apply_volume_shock_filter(pairs)
+    def __evolve(self):
+        # Do all the things to push the window forward to next working day
 
-            self.portfolio = executor.open_positions(reduced_pairs, reduced_reversions, day_open_risk_metrics)
+        # Adjust static parameters
+        self.today += timedelta(days=1)
+        self.window_length += timedelta(days=1)
+        self.days_alive += 1
 
-            post_trade_risk_metrics = risk_manager.current_exposure(self.portfolio)
+        # Extend window object by one day (expanding)
+        self.current_window = self.current_window.evolve()
 
-            plotter.plot(self.portfolio, post_trade_risk_metrics)
-
-            return self.portfolio
-
-        # the portfolio at each timestep
-        holdings_series = list(map(lambda n: evolve(n), (i for i in range(self.sim_days))))
-
-        pass
+        # If it's a weekend, evolve again
+        if self.today.weekday() >= 5:
+            self.__evolve()
 
 
 if __name__ == '__main__':
-    # feeling out the parameter space
-    PairTrader(open_thresh=0.1,
-               close_thresh=1.8,
-               sim_days=60).trade()
-    PairTrader(open_thresh=0.2,
-               close_thresh=1.7,
-               holding_period=10,
-               sim_days=None).trade()
-
-    # with this design pattern we can instantiate multiple PairTraders (ie multiple backtest in sequence)
-    # with different parameters and attributes, to compare the results as the system gets more complicated
-    # it becomes a 'complex system' c.f. https://en.wikipedia.org/wiki/Complex_system
-    # we build the system, poke at it with different initial parameters and see how that affects the output it spits out
+    PairTrader(
+        start_date=date(2008, 1, 1),
+        window_length=timedelta(days=120),
+        end_date=None,
+    ).trade()
