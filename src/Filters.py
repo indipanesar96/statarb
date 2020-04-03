@@ -1,21 +1,29 @@
-from pandas import Series as Sr
 import pandas as pd
 import numpy as np
+from typing import Optional
 import datetime as dt
 from src.Window import Window
+import datetime as dt
+from typing import Optional
+
+import numpy as np
+import pandas as pd
+
+from src.Window import Window
+
 
 class Filters:
 
-    def __init__(self, current_window : Window):
-        self.current_window = current_window
+    def __init__(self, current_window: Window = None):
+        self.current_window = Optional[current_window]
         # historic data from which we calculate the history
         # volumes so we know what constitutes a shock)
         # self.threshold_sigma = threshold_sigma
-        #how many stdvs away from mean we classify a shock - to be perturbed
+        # how many stdvs away from mean we classify a shock - to be perturbed
 
     def apply_volume_shock_filter(self, pairs):
         # pairs structure: {[ticker, ETFTicker]: [size of short, size of long]}
-        reduced_pairs =pairs.copy()
+        reduced_pairs = pairs.copy()
         # iter through input pairs to be traded, apply volume shock filter
         #     function call to determine volume shock state or not for each ticker, etf pair
         #             function returns tuple of booleans = states
@@ -31,7 +39,6 @@ class Filters:
                 del reduced_pairs[ticker_pair]
         return reduced_pairs
 
-
     def __is_volume_shock(self, ticker):
 
         # vlume data for ticker : Sr  = self.data[key value pair[key]].volume[date range]
@@ -40,8 +47,8 @@ class Filters:
         # should be replaced by fetching volume data from api
         # volumedf = data_fetching_api(ticker, dt.datetime.today().strftime('%Y-%m-%d'), 250)
         volumedf = pd.DataFrame(np.random.rand(250, 1), columns=['vol'],
-                                index = pd.date_range(periods = 250,
-                                                      end = dt.datetime.today().strftime('%Y-%m-%d') ))
+                                index=pd.date_range(periods=250,
+                                                    end=dt.datetime.today().strftime('%Y-%m-%d')))
         std = volumedf.vol.std()
         mean = volumedf.vol.mean()
         # create random vol today, should be replaced
@@ -52,4 +59,3 @@ class Filters:
             return True
         else:
             return False
-

@@ -1,12 +1,17 @@
-from pandas import DataFrame as Df
-from src.Executor import Executor
-from pandas import DataFrame as Df
 from typing import Dict, Tuple
-import statsmodels.api as sm
-from statsmodels.tsa.api import adfuller
+
 import numpy as np
+import statsmodels.api as sm
+from pandas import DataFrame as Df
+from statsmodels.tsa.api import adfuller
+
+from src.DataRepository import DataRepository
+
 
 class Cointegrator:
+
+    def __init__(self, repository):
+        self.repository: DataRepository = repository
 
     def check_holdings(self, current_holdings: Df):
         '''
@@ -30,11 +35,9 @@ class Cointegrator:
             return new dataframe of holdings with the one position closed
         '''
 
-
-
         pass
 
-    def run_cointegrator(self, clustering_results : Dict[int, Tuple[str]],) -> Dict[int, Tuple[str]]:
+    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]], ) -> Dict[int, Tuple[str]]:
         """
         iteratively test for cointegration all the pairs within each cluster;
         return dictionary with a 2-element list of tickers as key, and a list
@@ -42,13 +45,14 @@ class Cointegrator:
         cointegrated_pairs = []
         for cluster in clustering_results.values():
             for pair in cluster:
+                t1 = self.repository.get_time_series(start_date, end_date, pair[0])
+                t2 = self.repository.get_time_series(start_date, end_date, pair[1])
 
                 ## Call Thom's function with price column and convert to numpy arrays y, x
                 # cointegration_parameters = self.cointegration_analysis(y, x)
                 # cointegrated_pairs.append([list(pair),cointegration_parameters])
                 pass
         pass
-
 
     def cointegration_analysis(self, Y, X):
         """
@@ -73,7 +77,7 @@ class Cointegrator:
         # call hurst_exponent_test function on residuals vector
         hurst_exp = hurst_exponent_test(residuals)
 
-        return adf_p_value, hl_test, hurst_exp, beta, [residuals[-1],np.mean(residuals), np.std(residuals)]
+        return adf_p_value, hl_test, hurst_exp, beta, [residuals[-1], np.mean(residuals), np.std(residuals)]
 
     def half_life_test(residuals):
         """
@@ -121,4 +125,3 @@ class Cointegrator:
                                1)
         # return the calculated hurst exponent (regression coefficient divided by 2 as per formula)
         return results_2[0] / 2
-

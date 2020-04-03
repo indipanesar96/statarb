@@ -1,7 +1,8 @@
+import re
 from datetime import date
 from enum import Enum, unique
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, Set
 
 import pandas as pd
 from pandas import DataFrame
@@ -17,6 +18,8 @@ class DataRepository:
     def __init__(self):
         # Loads data on first get call
         self.all_data: Dict[DataLocations, Optional[DataFrame]] = {DataLocations.SNP: None, DataLocations.ETFs: None}
+        self.tickers: Dict[DataLocations, Optional[Set[str]]] = {DataLocations.SNP: None, DataLocations.ETFs: None}
+        self.features: Dict[DataLocations, Optional[Set[str]]] = {DataLocations.SNP: None, DataLocations.ETFs: None}
 
     def get(self,
             datatype: DataLocations,
@@ -43,7 +46,16 @@ class DataRepository:
                         header=0,
                         index_col=0)
 
-        d.index = pd.to_datetime(d.index, format='%Y-%m-%d')
+        d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
+
+        match_results = [re.findall(r"(\w+)", col) for col in d.columns]
+        tickers = [r[0].upper() for r in match_results]
+        features = [r[-1].upper() for r in match_results]
+
+        self.tickers[datatype] = set(tickers)
+        self.features[datatype] = set(features)
+
+        d.columns = [' '.join((i, j)) for i, j in zip(tickers, features)]
 
         self.all_data[datatype] = d
 
@@ -81,6 +93,13 @@ class DataRepository:
     #         self.leverage(self,x)
     #         self.fill_nas(self,x)
     #
+
+    def get_time_series(self, start_date: date, end_date: date, datatype: DataLocations, ticker: str, feature: str):
+
+        # get rid of 'US Equity' string in col headings
+        all_data = self.all_data[datatype][f"{ticker} {feature}"]
+
+        raise NotImplementedError
 
 # @classmethod
 # def __read(cls, full_location: Path, ticker: str):
