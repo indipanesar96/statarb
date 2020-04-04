@@ -35,6 +35,32 @@ class DataRepository:
 
         return data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]
 
+    '''
+    dp = DataRepository()
+    DataRepository.get() returns a 3 dimensional dataframe
+    
+    after retrieving full dataset, you can use pandas.IndexSlice to select tickers and features
+    
+    pandas documentation: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.IndexSlice.html?highlight=indexslice#pandas.IndexSlice
+    
+    example:
+    
+    data = DataRepository.get(DataLocations.SNP, window_start = '2018-01-01', window_end = '2018-1-30')
+    
+    # all features for stock ['AMCR', 'EVRG']: 
+    data.loc[:, pd.IndexSlice[ ['AMCR','EVRG'] , :] ]
+    
+    # all ticker's ['EBITDA', 'EARN_FOR_COMMON']
+    data.loc[:, pd.IndexSlice[ :, ['EBITDA', 'EARN_FOR_COMMON'] ]]
+    
+    # ['EBITDA', 'EARN_FOR_COMMON'] of ['AMCR', 'EVRG']
+    data.loc[:, pd.IndexSlice[ ['AMCR', 'EVRG'] , ['EBITDA', 'EARN_FOR_COMMON'] ]]
+    
+    '''
+
+
+
+
     def __get_from_disk_and_store(self, datatype: DataLocations):
         print(f"In DataRepository, reading CSV from disk for: {datatype.name}")
 
@@ -55,7 +81,10 @@ class DataRepository:
         self.tickers[datatype] = set(tickers)
         self.features[datatype] = set(features)
 
-        d.columns = [' '.join((i, j)) for i, j in zip(tickers, features)]
+        tuples = list(zip(tickers, features))
+        multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
+        d.columns = multi_column
+        # d.columns = [' '.join((i, j)) for i, j in zip(tickers, features)]
 
         self.all_data[datatype] = d
 
