@@ -45,7 +45,9 @@ class DataRepository:
     
     example:
     
-    data = DataRepository.get(DataLocations.SNP, window_start = '2018-01-01', window_end = '2018-1-30')
+    under class PairTrader:
+    
+    data = self.repository.all_data[DataLocations.SNP]
     
     # all features for stock ['AMCR', 'EVRG']: 
     data.loc[:, pd.IndexSlice[ ['AMCR','EVRG'] , :] ]
