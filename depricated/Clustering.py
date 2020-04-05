@@ -23,18 +23,21 @@ class Clustering:
         the data should be a dataframe with rows as the tickers and columns as the features
         '''
         self.data = data
+        self.data_length = len(data)
 
-    def dbscan(self):
+    def dbscan(self, min_samples = 2):
         '''
         return a dict {str: list of tuples}
         key: cluster number Cx, x=1,2,...,n
         value:  a list of tuples of the pairs in the same cluster [(1,3),(1,6)...]
         '''
         X = StandardScaler().fit_transform(self.data)
-        dbscan = DBSCAN(min_samples=2).fit(X)
-        labels = dbscan.labels_
+        dbscan = DBSCAN(min_samples=min_samples).fit(X)
+        self.dbscan_labels = labels = dbscan.labels_
         core_samples_mask = np.zeros_like(dbscan.labels_, dtype=bool)
-        core_samples_mask[dbscan.core_sample_indices_] = True
+        self.dbscan_core = dbscan.core_sample_indices_
+        self.dbscan_core_length = len(dbscan.core_sample_indices_)
+        core_samples_mask[self.dbscan_core] = True
 
         unique_labels = set(labels)
         colors = [plt.cm.Spectral(each) for each in np.linspace(0, 1, len(unique_labels))]
@@ -49,7 +52,7 @@ class Clustering:
             xy = X[class_member_mask & ~core_samples_mask] # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
 
-        tickers = ['SPY', 'VTI', 'MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP']
+        #tickers = ['SPY', 'VTI', 'MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP']
         clusters = {}
         pairs = []
         for i in itertools.combinations(dbscan.core_sample_indices_, 2):
@@ -59,15 +62,10 @@ class Clustering:
         return clusters
 
 # copy this part
-X = np.array([[-0.00023248654202514808, -0.0002619913655537728, -0.0007353652382561316,
-               0.000927608494770463, -1.6138875340238285e-05, 0.002550805923079642,
-               -0.00023947155846431434, -0.0010109697057888135, 0.0012156648131022442,
-               0.0028625379820238846, 0.0017762952097903223],
-              [0.010804362321813862, 0.010659257923463653, 0.015054761602112271,
-               0.014041917637427424, 0.022177242755590354, 0.03000175909230052,
-               0.01473112795795041, 0.023506840970410097, 0.022376491785068883,
-               0.039604644320766706, 0.019937860959241452]])
-X = (X*100).transpose()
+centers = [[1, 1], [-1, -1], [1, -1]]
+X, labels_true = make_blobs(n_samples=50, centers=centers, cluster_std=0.4,
+                            random_state=0)
+#X = StandardScaler().fit_transform(X)
 df = pd.DataFrame(X)
 # from Clustering import Clustering
 clustering = Clustering(df)
