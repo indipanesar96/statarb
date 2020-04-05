@@ -35,30 +35,7 @@ class DataRepository:
 
         return data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]
 
-    '''
-    dp = DataRepository()
-    DataRepository.get() returns a 3 dimensional dataframe
-    
-    after retrieving full dataset, you can use pandas.IndexSlice to select tickers and features
-    
-    pandas documentation: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.IndexSlice.html?highlight=indexslice#pandas.IndexSlice
-    
-    example:
-    
-    under class PairTrader:
-    
-    data = self.repository.all_data[DataLocations.SNP]
-    
-    # all features for stock ['AMCR', 'EVRG']: 
-    data.loc[:, pd.IndexSlice[ ['AMCR','EVRG'] , :] ]
-    
-    # all ticker's ['EBITDA', 'EARN_FOR_COMMON']
-    data.loc[:, pd.IndexSlice[ :, ['EBITDA', 'EARN_FOR_COMMON'] ]]
-    
-    # ['EBITDA', 'EARN_FOR_COMMON'] of ['AMCR', 'EVRG']
-    data.loc[:, pd.IndexSlice[ ['AMCR', 'EVRG'] , ['EBITDA', 'EARN_FOR_COMMON'] ]]
-    
-    '''
+
 
     def get_for_clustering(self, req_tickers: List[str], req_features: List[str]):
 

@@ -59,3 +59,5 @@ class Filters:
             return True
         else:
             return False
+
+# if __name = __main
