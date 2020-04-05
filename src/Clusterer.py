@@ -19,8 +19,8 @@ class Clusterer:
         # To store the clusters of tickers we found the previous day. On day 1 this will be None.
         # Same as return type of DBscan Method
         # Type:
+        #    return a dict {int: list of ticker couples} like the following:
         # {1: [('AAPL', 'GOOG'),('MSFT', 'GOOG'),('MSFT', 'AAPL')]}
-        #    return a dict {int: list of tuples}
         #    key: cluster number Cx, x=1,2,...,n
 
         self.data = data
