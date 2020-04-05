@@ -77,9 +77,11 @@ class PairTrader:
             # Using DBScan for now, ensemble later
             # cluster_results = self.clusterer.DBScan(self.current_window)
 
-            # Take cluster results and pass into Cointegrator
+            # Take cluster results and pass into Cointegrator and return signals
 
             # Take cointegrated signals and pass into Filter = filtered signal
+            # use something like: signal = self.cointegrator.run_cointegrator(cluster_results)
+
 
             # Take filtered signal
 
@@ -111,5 +113,6 @@ if __name__ == '__main__':
         start_date=date(2014, 10, 1),
         window_length=timedelta(days=300),
         end_date=None
-        # features_we_care_about=[]
+    adf_confidence_level = "1%",
+    max_mean_rev_time = 15
     ).trade()

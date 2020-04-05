@@ -46,6 +46,11 @@ class Cointegrator:
         iteratively test for cointegration all the pairs within each cluster;
         return dictionary with a 2-element list of tickers as key, and a list
         """
+        # clustering_results should look like something similar:
+        # {
+        # 1: [('AAPL', 'GOOG'),('MSFT', 'GOOG'),('MSFT', 'AAPL')],
+        # 2: [('AMGN', 'MMM')]
+        # }
         cointegrated_pairs = []
         for cluster in clustering_results.values():
             for pair in cluster:
@@ -69,6 +74,8 @@ class Cointegrator:
                 cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
 
                 # please make sure the logic is consistent and try some example values
+
+        return #signal
 
 
 

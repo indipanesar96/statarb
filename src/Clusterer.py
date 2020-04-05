@@ -20,7 +20,10 @@ class Clusterer:
         # Same as return type of DBscan Method
         # Type:
         #    return a dict {int: list of ticker couples} like the following:
-        # {1: [('AAPL', 'GOOG'),('MSFT', 'GOOG'),('MSFT', 'AAPL')]}
+        # {
+        # 1: [('AAPL', 'GOOG'),('MSFT', 'GOOG'),('MSFT', 'AAPL')],
+        # 2: [('AMGN', 'MMM')]
+        # }
         #    key: cluster number Cx, x=1,2,...,n
 
         self.data = data
