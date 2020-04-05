@@ -8,7 +8,7 @@ from statsmodels.tsa.api import adfuller
 
 from src.DataRepository import DataRepository
 
-
+##
 class Cointegrator:
 
     def __init__(self, repository):
