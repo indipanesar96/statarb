@@ -22,7 +22,13 @@ class PairTrader:
     def __init__(self,
                  start_date: date = datetime.date(2008, 1, 1),
                  window_length: timedelta = timedelta(days=90),
-                 end_date: Optional[date] = None):
+                 end_date: Optional[date] = None,
+                 adf_confidence_level: str = adf_confidence_level,
+                 max_mean_rev_time: float = max_mean_rev_time):
+
+
+
+
         # If end_date is None, run for the entirety of the dataset
         # Window is the lookback period (from t=-window_length-1 to t=-1 (yesterday) over which we analyse data
         # to inform us on trades to make on t=0 (today). We assume an expanding window for now.
@@ -34,6 +40,8 @@ class PairTrader:
 
         self.start_date: date = start_date
         self.window_length: timedelta = window_length
+        self.adf_confidence_level: str = adf_confidence_level  #specify as string percentage like "5%" or "1%"
+        self.max_mean_rev_time: float = max_mean_rev_time
 
         if end_date is None:
             # Last SNP date, hard coded for now...
@@ -57,7 +65,7 @@ class PairTrader:
         # Days since the start of backtest
         self.days_alive: int = 0
         # self.clusterer = Clusterer()
-        self.cointegrator = Cointegrator(self.repository)
+        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time)
         self.filters = Filters()
 
     def trade(self):

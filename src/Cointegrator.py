@@ -66,7 +66,7 @@ class Cointegrator:
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
 
-                cointegrated_pairs.append([list(pair), cointegration_parameters])
+                cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
 
                 # please make sure the logic is consistent and try some example values
 
@@ -81,7 +81,6 @@ class Cointegrator:
         list containing 1. last-day residual, 2. scaler function to scale last-day residual
         (this is going to be useful for signal generation once we decide the thresholds)
         """
-        X, Y = np.array(X), np.array(Y)
         # do cointegration regression of two price time series
         results = LinearRegression().fit(X, Y)
         residuals = Y - results.predict(X)  # e = y - y^
