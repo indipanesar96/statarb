@@ -46,21 +46,36 @@ class Cointegrator:
         cointegrated_pairs = []
         for cluster in clustering_results.values():
             for pair in cluster:
-                # t1 = self.repository.get_time_series(start_date, end_date, pair[0])
-                # t2 = self.repository.get_time_series(start_date, end_date, pair[1])
+                # t1 = whatever Simon's function is on pair[0] -->the first ticker in the pair
+                # t2 = whatever Simon's function is on pair[1]-->the first ticker in the pair
 
-                ## Call Thom's function with price column and convert to numpy arrays y, x
-                # cointegration_parameters = self.cointegration_analysis(y, x)
-                # cointegrated_pairs.append([list(pair),cointegration_parameters])
-                pass
-        pass
+                cointegration_parameters = self.cointegration_analysis(t1, t2)
+                adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta = cointegration_parameters[:5]
+                latest_residual, residual_scaler = cointegration_parameters[5][0], cointegration_parameters[5][1]
+
+                ######### cointegration check ###########
+                #### check if adf_statistic less than self.adf_critical_values[adf_confidence_level] and return something
+                #### if less, it means they are cointegrated of course
+
+                ######### Half life check #############
+                #### check if half life is less than self.max_mean_rev_time
+
+                ######### Hurst exponent check #############
+                #### check if half life is less than 0.5 --> if yes, then we are happy
+
+                cointegrated_pairs.append([list(pair), cointegration_parameters])
+
+                # please make sure the logic is consistent and try some example values
+
+
 
     # need X, Y as one-column dataframes and NOT pd.Series as input
     def cointegration_analysis(self, X, Y):
         """
         perform ADF test, Half-life and Hurst on pair of price time series
-        return ADF test p-value, average time of mean reversion, Hurst exponent, beta,
-        list containing 1. last-day residual, 2. mean, 3. stdv of residual vector
+        return ADF test, ADF critical values for difference confidence levels,
+        average time of mean reversion (half-life), Hurst exponent, beta,
+        list containing 1. last-day residual, 2. scaler function to scale last-day residual
         (this is going to be useful for signal generation once we decide the thresholds)
         """
         X, Y = np.array(X), np.array(Y)
@@ -69,7 +84,7 @@ class Cointegrator:
         residuals = Y - results.predict(X)  # e = y - y^
         beta = float(results.coef_[0])
 
-        # do Augmented-Dickey Fuller test and save p-value
+        # do Augmented-Dickey Fuller test and save adf_statistic, adf_critical_values
         adf_results = adfuller(residuals)
         adf_test_statistic, adf_critical_values = adf_results[0], adf_results[4]
         # critical values are in the following dictionary form:
@@ -118,7 +133,7 @@ class Cointegrator:
         # Create the range of lag values
         lags = range(2, 100)
 
-        #  Step through the different lags
+        #  step through the different lags
         for lag in lags:
             #  produce deltas using residuals and respective n-lag
             delta_res = residuals[lag:] - residuals[:-lag]
@@ -128,10 +143,15 @@ class Cointegrator:
             #  Calculate the variance of the delta and append it into a list
             variance_delta_vector.append(np.var(delta_res))
 
+        # avoid 0 values for variance_delta_vector
         variance_delta_vector = [value if value != 0 else 1e-10 for elem in variance_delta_vector]
         #  regress (10-base log of) variance_delta_vector against tau_vector
-        results = LinearRegression().fit(np.array(tau_vector).reshape(-1, 1), variance_delta_vector)
+        results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector))
 
         reg_coef = float(results.coef_[0])
+
         # return the calculated hurst exponent (regression coefficient divided by 2 as per formula)
+        # if interested, see explanation here:
+        # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
+
         return reg_coef / 2
