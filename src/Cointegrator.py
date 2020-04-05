@@ -1,8 +1,9 @@
 from typing import Dict, Tuple
 
 import numpy as np
-import statsmodels.api as sm
-from pandas import DataFrame as Df
+from pandas import DataFrame
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
 from src.DataRepository import DataRepository
@@ -13,11 +14,11 @@ class Cointegrator:
     def __init__(self, repository):
         self.repository: DataRepository = repository
 
-    def check_holdings(self, current_holdings: Df):
+    def check_holdings(self, current_holdings: DataFrame):
         '''
-        Receives a dataframe of current holdings to check if the pairs are no longer co integrated
+        Receives a dataframe of current holdings to check if the pairs are no longer cointegrated
 
-        If all of the current holdings are still cointegrated, do nothing except print a log line and return inital df
+        If all of the current holdings are still cointegrated, do nothing except print a log line and return initial DataFrame
         If any current holdings fail cointegration, calls the executor to close a position
 
         :param current_holdings:
@@ -54,44 +55,52 @@ class Cointegrator:
                 pass
         pass
 
-    def cointegration_analysis(self, Y, X):
+    # need X, Y as one-column dataframes and NOT pd.Series as input
+    def cointegration_analysis(self, X, Y):
         """
         perform ADF test, Half-life and Hurst on pair of price time series
         return ADF test p-value, average time of mean reversion, Hurst exponent, beta,
         list containing 1. last-day residual, 2. mean, 3. stdv of residual vector
         (this is going to be useful for signal generation once we decide the thresholds)
         """
-        # do cointegration regression of twp price time series
-        model = sm.OLS(Y[-200:], X[-200:])
-        results = model.fit()
-        residuals = np.array(results.resid)
-        beta = results.params[1]
+        X, Y = np.array(X), np.array(Y)
+        # do cointegration regression of two price time series
+        results = LinearRegression().fit(X, Y)
+        residuals = Y - results.predict(X)  # e = y - y^
+        beta = float(results.coef_[0])
 
         # do Augmented-Dickey Fuller test and save p-value
         adf_results = adfuller(residuals)
-        adf_p_value = adf_results[1]
+        adf_test_statistic, adf_critical_values = adf_results[0], adf_results[4]
+        # critical values are in the following dictionary form:
+        # {'1%': -3.4304385694773387,
+        #  '5%': -2.8615791461685034,
+        #  '10%': -2.566790836162312}
 
-        # call half_life_test function on residuals vector
+        # call half_life_test function on residuals to compute half life
         hl_test = half_life_test(residuals)
 
-        # call hurst_exponent_test function on residuals vector
+        # call hurst_exponent_test function on residuals to compute hurst exponent
         hurst_exp = hurst_exponent_test(residuals)
 
-        return adf_p_value, hl_test, hurst_exp, beta, [residuals[-1], np.mean(residuals), np.std(residuals)]
+        # save latest residual and scaler function in case we want to scale it
+        latest_residual = residuals[-1]
+        residual_scaler = StandardScaler()
+        residual_scaler.fit(residuals)
+
+        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, [latest_residual, residual_scaler]
 
     def half_life_test(residuals):
         """
         Calculates the half life of the residuals to check average time of mean reversion
         """
         # calculate the vector of lagged residuals
-        lagged_residuals = residuals[:-1]
-        delta_residuals = (residuals[1:] - lagged_residuals)
-        regressors = sm.add_constant(lagged_residuals)
+        lagged_residuals = residuals[:-1]  # independent variable
+        delta_residuals = (residuals[1:] - lagged_residuals)  # dependent variable
 
         # do regression of delta residuals against lagged residuals
-        model = sm.OLS(delta_residuals, regressors)
-        results_1 = model.fit()
-        pi = results_1.params[1]
+        results = LinearRegression().fit(lagged_residuals, delta_residuals)
+        pi = float(results.coef_[0])
 
         # calculate average time of mean reversion from average speed of mean reversion as per formula
         HL_test = np.log(2) / (-pi)
@@ -114,14 +123,15 @@ class Cointegrator:
             #  produce deltas using residuals and respective n-lag
             delta_res = residuals[lag:] - residuals[:-lag]
 
-            #  append the different lags into a vector
+            #  append the different lags into a list
             tau_vector.append(lag)
-            #  Calculate the variance of the delta and append it into a vector
+            #  Calculate the variance of the delta and append it into a list
             variance_delta_vector.append(np.var(delta_res))
 
-        #  regress (log of) variance_delta_vector against tau_vector
-        results_2 = np.polyfit(np.log10(np.asarray(tau_vector)),
-                               np.log10(np.asarray(variance_delta_vector).clip(min=0.0000000001)),
-                               1)
+        variance_delta_vector = [value if value != 0 else 1e-10 for elem in variance_delta_vector]
+        #  regress (10-base log of) variance_delta_vector against tau_vector
+        results = LinearRegression().fit(np.array(tau_vector).reshape(-1, 1), variance_delta_vector)
+
+        reg_coef = float(results.coef_[0])
         # return the calculated hurst exponent (regression coefficient divided by 2 as per formula)
-        return results_2[0] / 2
+        return reg_coef / 2

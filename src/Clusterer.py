@@ -16,8 +16,8 @@ class Clusterer:
         # To store the clusters of tickers we found the previous day. On day 1 this will be None.
         # Same as return type of DBscan Method
         # Type:
+        #    return a dict {int: list of ticker couples} like the following:
         # {1: [('AAPL', 'GOOG'),('MSFT', 'GOOG'),('MSFT', 'AAPL')]}
-        #    return a dict {int: list of tuples}
         #    key: cluster number Cx, x=1,2,...,n
 
         self.clusters = clusters
@@ -34,10 +34,9 @@ class Clusterer:
         core_samples_mask[dbscan.core_sample_indices_] = True
 
         unique_labels = set(labels)
-        n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
-        n_noise = list(labels).count(-1)
+        n_clusters = len(unique_labels) - (1 if -1 in labels else 0)
+        n_noise = list(labels).count(-1)  #why are we computing this? delete if non relevant
 
-        # somethign
 
         colors = [plt.cm.Spectral(each) for each in np.linspace(0, 1, len(unique_labels))]
         for k, col in zip(unique_labels, colors):
