@@ -58,8 +58,9 @@ class Cointegrator:
                 # t2 = whatever Simon's function is on pair[1]-->the first ticker in the pair
 
                 cointegration_parameters = self.cointegration_analysis(t1, t2)
-                adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta = cointegration_parameters[:5]
-                latest_residual, residual_scaler = cointegration_parameters[5][0], cointegration_parameters[5][1]
+                adf_test_statistic, adf_critical_values, hl_test, \
+                hurst_exp, beta, latest_residual_scaled = cointegration_parameters
+
 
                 ######### cointegration check ###########
                 #### check if adf_statistic less than self.adf_critical_values[adf_confidence_level] and return something
@@ -88,9 +89,12 @@ class Cointegrator:
         list containing 1. last-day residual, 2. scaler function to scale last-day residual
         (this is going to be useful for signal generation once we decide the thresholds)
         """
-        # do cointegration regression of two price time series
-        results = LinearRegression().fit(X, Y)
-        residuals = Y - results.predict(X)  # e = y - y^
+        # do cointegration regression of log-prices time series
+        log_x = X.applymap(lambda k: np.log(k))
+        log_y = Y.applymap(lambda k: np.log(k))
+
+        results = LinearRegression().fit(log_x, log_y)
+        residuals = log_y - results.predict(log_x)  # e = y - y^
         beta = float(results.coef_[0])
 
         # do Augmented-Dickey Fuller test and save adf_statistic, adf_critical_values
@@ -111,8 +115,9 @@ class Cointegrator:
         latest_residual = residuals[-1]
         residual_scaler = StandardScaler()
         residual_scaler.fit(residuals)
+        latest_residual_scaled = residual_scaler.transform(latest_residual)
 
-        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, [latest_residual, residual_scaler]
+        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled
 
     def half_life_test(self, residuals):
         """

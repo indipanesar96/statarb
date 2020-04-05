@@ -1,11 +1,9 @@
 import numpy as np
 import pandas as pd
 import math
-import statsmodels
-from statsmodels.tsa.stattools import coint
 import matplotlib.pyplot as plt
-import statsmodels.api as sm
-from statsmodels.tsa.api import adfuller
+from sklearn.linear_model import LinearRegression
+
 
 # just set the seed for the random number generator
 np.random.seed(99)
@@ -16,11 +14,12 @@ standard_normal_vector = np.random.normal(0, 1, 1000)
 
 # initialize stock price vector at 50, drift 0.10 (reasonable yearly drift for risky asset,
 # to be estimated in real case), diffusion 0.30 (reasonable yearly volatility for risky asset,
-# be estimated in real case)
+# to be estimated in real case)
 sigma = 0.30
 mu = 0.01
 
-# if unit is one year (consistent with order of magnitude of mu and sigma) , then day= 1/250
+# if unit is one year, then day= 1/250
+# this is consistent with order of magnitude of (yearly) drift and (yearly) volatility
 dt = 1/250
 
 X = [50]
@@ -48,10 +47,10 @@ dt = 1 / 250
 # speed of mean-reversion for OU process followed by residuals:
 k = 250 / 15  # means that avg time of mean reversion is 15 days
 
-# diffusion v
-v = 0.3
+# diffusion v for the joint process
+v = 0.30
 
-###### simulating OU #######
+###### simulating Ornestein-Uhlenbeck (OU) #######
 np.random.seed(23)
 standard_normal_vector_2 = np.random.normal(0, 1, 1000)
 U = [0]
@@ -72,17 +71,16 @@ Y = pd.Series(np.array(Y), name='Y')
 pd.concat([X, Y], axis=1).plot(figsize=(12, 5))
 plt.show()
 
-#calculate log price and log return
+#calculate log prices
 log_y = np.array(np.log(Y)).reshape(-1,1)
 log_x = np.array(np.log(X)).reshape(-1,1)
 
-y = np.array([log_y[i+1]-log_y[i] for i in range(len(log_y)-1)]).reshape(-1,1)
-x = np.array([log_x[i+1]-log_x[i] for i in range(len(log_x)-1)]).reshape(-1,1)
-x_ = sm.add_constant(x) #add column of 1s to account for intercept
+# calculate log returns
+r_y = np.array([log_y[i+1]-log_y[i] for i in range(len(log_y)-1)]).reshape(-1,1)
+r_x = np.array([log_x[i+1]-log_x[i] for i in range(len(log_x)-1)]).reshape(-1,1)
 
-model = sm.OLS(y, x_)
-results = model.fit()
-results.summary()
 
-results.params[1]
+results = LinearRegression().fit(r_x, r_y)
+beta = float(results.coef_[0])
+print(beta)
 
