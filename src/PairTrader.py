@@ -113,6 +113,6 @@ if __name__ == '__main__':
         start_date=date(2014, 10, 1),
         window_length=timedelta(days=300),
         end_date=None
-    adf_confidence_level = "1%",
-    max_mean_rev_time = 15
+        adf_confidence_level = "1%",
+        max_mean_rev_time = 15
     ).trade()
