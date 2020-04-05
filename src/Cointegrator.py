@@ -46,8 +46,8 @@ class Cointegrator:
         cointegrated_pairs = []
         for cluster in clustering_results.values():
             for pair in cluster:
-                t1 = self.repository.get_time_series(start_date, end_date, pair[0])
-                t2 = self.repository.get_time_series(start_date, end_date, pair[1])
+                # t1 = self.repository.get_time_series(start_date, end_date, pair[0])
+                # t2 = self.repository.get_time_series(start_date, end_date, pair[1])
 
                 ## Call Thom's function with price column and convert to numpy arrays y, x
                 # cointegration_parameters = self.cointegration_analysis(y, x)
@@ -78,10 +78,10 @@ class Cointegrator:
         #  '10%': -2.566790836162312}
 
         # call half_life_test function on residuals to compute half life
-        hl_test = half_life_test(residuals)
+        hl_test = self.half_life_test(residuals)
 
         # call hurst_exponent_test function on residuals to compute hurst exponent
-        hurst_exp = hurst_exponent_test(residuals)
+        hurst_exp = self.hurst_exponent_test(residuals)
 
         # save latest residual and scaler function in case we want to scale it
         latest_residual = residuals[-1]
@@ -90,7 +90,7 @@ class Cointegrator:
 
         return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, [latest_residual, residual_scaler]
 
-    def half_life_test(residuals):
+    def half_life_test(self, residuals):
         """
         Calculates the half life of the residuals to check average time of mean reversion
         """
@@ -107,7 +107,7 @@ class Cointegrator:
 
         return HL_test
 
-    def hurst_exponent_test(residuals):
+    def hurst_exponent_test(self, residuals):
         """
         Returns the Hurst Exponent of the time series vector
         """

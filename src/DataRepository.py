@@ -2,7 +2,7 @@ import re
 from datetime import date
 from enum import Enum, unique
 from pathlib import Path
-from typing import Dict, Optional, Set
+from typing import Dict, Optional, Set, List
 
 import pandas as pd
 from pandas import DataFrame
@@ -60,8 +60,12 @@ class DataRepository:
     
     '''
 
+    def get_for_clustering(self, req_tickers: List[str], req_features: List[str]):
 
+        # all features for stock ['AMCR', 'EVRG']:
+        # data.loc[:, pd.IndexSlice[req_tickers, :]]
 
+        raise NotImplementedError
 
     def __get_from_disk_and_store(self, datatype: DataLocations):
         print(f"In DataRepository, reading CSV from disk for: {datatype.name}")

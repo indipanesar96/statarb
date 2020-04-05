@@ -1,15 +1,15 @@
 import itertools
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-
 from sklearn.cluster import DBSCAN
-from sklearn import metrics
+from sklearn.cluster import KMeans
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
 
-#from src.Window import Window
+
+# from src.Window import Window
 
 
 class Clusterer:
@@ -28,8 +28,7 @@ class Clusterer:
         self.clusters = clusters
         self.cluster_history = [None]
 
-
-    def dbscan(self, eps, min_samples):#, window: Window):
+    def dbscan(self, eps, min_samples):  # , window: Window):
         # replace data with window.etf_data or similarly for SNP
 
         X = StandardScaler().fit_transform(self.data)
@@ -44,7 +43,7 @@ class Clusterer:
         self.unique_labels = unique_labels = set(labels)
         self.n_clusters = n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
         self.n_noise = n_noise = list(labels).count(-1)
-        self.noise = np.where(labels==-1)[0]
+        self.noise = np.where(labels == -1)[0]
 
         # something
 
@@ -83,7 +82,7 @@ class Clusterer:
         self.data_denoised = data_denoised
         self.data_denoised_length = len(data_denoised)
         self.kmeans_labels = km_labels = kmeans.labels_
-        #unique_labels = set(km_labels)
+        # unique_labels = set(km_labels)
         clusters = {}
         for j in range(n_clusters):
             pairs = []
@@ -93,19 +92,17 @@ class Clusterer:
             clusters['C' + str(j)] = pairs
         return clusters
 
-
     def optics(self):
         pass
 
-
     def plot(self):
-        #X_0 = self.data_denoised[np.where(self.kmeans_labels==0)[0]]
+        # X_0 = self.data_denoised[np.where(self.kmeans_labels==0)[0]]
         plt.figure(figsize=(20, 20))
 
         plt.subplot(211)
         for i in range(self.n_clusters):
-            W = self.data_denoised[np.where(self.kmeans_labels==i)[0]]
-            plt.scatter(W[:,0], W[:,1])
+            W = self.data_denoised[np.where(self.kmeans_labels == i)[0]]
+            plt.scatter(W[:, 0], W[:, 1])
         plt.title("KMeans")
 
         colors = [plt.cm.Spectral(each) for each in np.linspace(0, 1, len(self.unique_labels))]
@@ -118,42 +115,31 @@ class Clusterer:
             xy = X[class_member_mask & self.dbscan_core_mask]
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=14)
 
-            xy = X[class_member_mask & ~self.dbscan_core_mask] # binary one's complement
+            xy = X[class_member_mask & ~self.dbscan_core_mask]  # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
 
         plt.title("DBSCAN")
         plt.show()
 
 
-# Simone you may refer to the following code to see how to use the class
-centers = [[1, 1], [-1, -1], [1, -1]]
-X, labels_true = make_blobs(n_samples=50, centers=centers, cluster_std=0.4,
-                            random_state=0)
-#X = StandardScaler().fit_transform(X)
-df = pd.DataFrame(X)
-# from Clustering import Clustering
-clustering = Clusterer(df)
-dbscan_clusters = clustering.dbscan(eps=0.35, min_samples=3)
-print("DBSCAN Clusters: ", dbscan_clusters, "\n")
-print("DBSCAN Labels: ", clustering.dbscan_labels, "\n")
-print("Noise: ", clustering.noise, "\n")
-#print(clustering.dbscan_labels)
-X_denoised = X[clustering.dbscan_core_mask]
-#print(X_denoised[0])
-kmeans_clusters = clustering.kmeans(X_denoised, 3)
-print("KMEANS Clusters: ", kmeans_clusters, "\n")
-print("KMEANS Labels: ", clustering.kmeans_labels, "\n")
-#print(clustering.kmeans_labels)
-clustering.plot()
-
-
-
-# if __name__ == '__main__':
-#
-#     centers = [[1, 1], [-1, -1], [1, -1]]
-#     X, labels_true = make_blobs(n_samples=50, centers=centers, cluster_std=0.4,
-#                                 random_state=0)
-#     X = StandardScaler().fit_transform(X)
-#     clustering = Clusterer(X)
-#     cluster_dict = clustering.DBScan()
-#     print(cluster_dict)
+if __name__ == '__main__':
+    # Simone you may refer to the following code to see how to use the class
+    centers = [[1, 1], [-1, -1], [1, -1]]
+    X, labels_true = make_blobs(n_samples=50, centers=centers, cluster_std=0.4,
+                                random_state=0)
+    # X = StandardScaler().fit_transform(X)
+    df = pd.DataFrame(X)
+    # from Clustering import Clustering
+    clustering = Clusterer(df)
+    dbscan_clusters = clustering.dbscan(eps=0.35, min_samples=3)
+    print("DBSCAN Clusters: ", dbscan_clusters, "\n")
+    print("DBSCAN Labels: ", clustering.dbscan_labels, "\n")
+    print("Noise: ", clustering.noise, "\n")
+    # print(clustering.dbscan_labels)
+    X_denoised = X[clustering.dbscan_core_mask]
+    # print(X_denoised[0])
+    kmeans_clusters = clustering.kmeans(X_denoised, 3)
+    print("KMEANS Clusters: ", kmeans_clusters, "\n")
+    print("KMEANS Labels: ", clustering.kmeans_labels, "\n")
+    # print(clustering.kmeans_labels)
+    clustering.plot()
