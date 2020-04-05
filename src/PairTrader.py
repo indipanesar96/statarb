@@ -23,8 +23,8 @@ class PairTrader:
                  start_date: date = datetime.date(2008, 1, 1),
                  window_length: timedelta = timedelta(days=90),
                  end_date: Optional[date] = None,
-                 adf_confidence_level: str = adf_confidence_level,
-                 max_mean_rev_time: float = max_mean_rev_time):
+                 adf_confidence_level: str = "1%",
+                 max_mean_rev_time: float = 15):
 
 
 
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     PairTrader(
         start_date=date(2014, 10, 1),
         window_length=timedelta(days=300),
-        end_date=None
-        adf_confidence_level = "1%",
-        max_mean_rev_time = 15
+        end_date=None,
+        adf_confidence_level = str("1%"),
+        max_mean_rev_time = float(15)
     ).trade()
