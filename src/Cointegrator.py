@@ -11,8 +11,11 @@ from src.DataRepository import DataRepository
 ##
 class Cointegrator:
 
-    def __init__(self, repository):
+    def __init__(self, repository, adf_confidence_level, max_mean_rev_time):
         self.repository: DataRepository = repository
+        self.adf_confidence_level:str = adf_confidence_level
+        self.max_mean_rev_time : float = max_mean_rev_time
+
 
     def check_holdings(self, current_holdings: DataFrame):
         '''
