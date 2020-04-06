@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
 from src.DataRepository import DataRepository
-
+from src.util.FakeCointegratedPair import cointegrated_pair_generator
 ##
 class Cointegrator:
 
@@ -106,16 +106,17 @@ class Cointegrator:
         #  '10%': -2.566790836162312}
 
         # call half_life_test function on residuals to compute half life
-        hl_test = self.half_life_test(residuals)
+        hl_test = self.half_life_test(np.array(residuals))
 
         # call hurst_exponent_test function on residuals to compute hurst exponent
-        hurst_exp = self.hurst_exponent_test(residuals)
+        hurst_exp = self.hurst_exponent_test(np.array(residuals))
 
-        # save latest residual and scaler function in case we want to scale it
-        latest_residual = residuals[-1]
-        residual_scaler = StandardScaler()
-        residual_scaler.fit(residuals)
-        latest_residual_scaled = residual_scaler.transform(latest_residual)
+
+        # standardize residuals through StandardScaler() and save latest_residual_scaled
+        scaler = StandardScaler()
+        scaler.fit(residuals)
+        residuals_scaled = scaler.transform(residuals)
+        latest_residual_scaled = float(residuals_scaled[-1])
 
         return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled
 
@@ -158,14 +159,33 @@ class Cointegrator:
             variance_delta_vector.append(np.var(delta_res))
 
         # avoid 0 values for variance_delta_vector
-        variance_delta_vector = [value if value != 0 else 1e-10 for elem in variance_delta_vector]
+        variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
         #  regress (10-base log of) variance_delta_vector against tau_vector
         results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector))
 
         reg_coef = float(results.coef_[0])
-
         # return the calculated hurst exponent (regression coefficient divided by 2 as per formula)
         # if interested, see explanation here:
         # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
 
         return reg_coef / 2
+
+
+if __name__ == '__main__':
+
+    X,Y = cointegrated_pair_generator()[0:2]
+    coint = Cointegrator(
+        repository =DataRepository(),
+        adf_confidence_level = "1%",
+        max_mean_rev_time = 15
+    )
+    results = coint.cointegration_analysis(X, Y)
+
+    adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results
+    print("ADF statistic is ", adf_test_statistic, ", hopefully lower than critical value")
+    print("Critical value for confidence ", coint.adf_confidence_level,
+          ", is: ", adf_critical_values[coint.adf_confidence_level])
+    print("half life test is: ", hl_test)
+    print("hurst exponent is:  ", hurst_exp)
+    print("beta of regression is: ", beta)
+    print("latest scaled residual is: ",latest_residual_scaled)
