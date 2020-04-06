@@ -6,15 +6,21 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
-from src.DataRepository import DataRepository
-from src.util.FakeCointegratedPair import cointegrated_pair_generator
+from src.Window import Window
+from src.DataRepository import DataRepository, DataLocations
+
+
 ##
 class Cointegrator:
 
-    def __init__(self, repository, adf_confidence_level, max_mean_rev_time):
+    def __init__(self, repository, window, adf_confidence_level, max_mean_rev_time, entry_z, exit_z):
         self.repository: DataRepository = repository
-        self.adf_confidence_level:str = adf_confidence_level
+        self.window: Window = window
+        self.adf_confidence_level: str = adf_confidence_level
         self.max_mean_rev_time : float = max_mean_rev_time
+        self.entry_z = entry_z
+        self.exit_z = exit_z
+
 
 
     def check_holdings(self, current_holdings: DataFrame):
@@ -54,15 +60,23 @@ class Cointegrator:
         cointegrated_pairs = []
         for cluster in clustering_results.values():
             for pair in cluster:
-                # t1 = whatever Simon's function is on pair[0] -->the first ticker in the pair
-                # t2 = whatever Simon's function is on pair[1]-->the first ticker in the pair
+                # t1 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[0], feature: 'Last_Price')
+                # t2 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[1], feature: 'Last_Price')
+                t1 = self.window.window_end.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price')
+                t2 = self.window.window_end.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price')
+                # t1 = whatever Simon's function is on pair[0] -->   the first ticker in the pair
+                # t2 = whatever Simon's function is on pair[1] -->   the second ticker in the pair
+                #  get_time_series(self, start_date: date, end_date: date, datatype: DataLocations, ticker: str, feature: str)
+
+
+
 
                 cointegration_parameters = self.cointegration_analysis(t1, t2)
                 adf_test_statistic, adf_critical_values, hl_test, \
                 hurst_exp, beta, latest_residual_scaled = cointegration_parameters
 
 
-                ######### cointegration check ###########
+                ######### Cointegration Check ###########
                 #### check if adf_statistic less than self.adf_critical_values[adf_confidence_level] and return something
                 #### if less, it means they are cointegrated of course
 
@@ -71,16 +85,60 @@ class Cointegrator:
 
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
+                if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
+                    cointegrated_pairs.append(list(pair))
 
-                cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
-
+                    # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
+    def Signals(self, stock1, stock2, z_score, beta, entry_z, exit_z):
+        stock1_holding = 0
+        stock2_holding = 0
+        stock1_holding_list = []
+        stock2_holding_list = []
+        for i in range(1, len(stock1)):
+            if z_score[i] <= exit_z and z_score[i-1] >= exit_z and stock1_holding == 0: # Short stock1, long stock2
+                stock1_holding = -1
+                stock2_holding = beta
+                short_price = stock1[i]
+            elif z_score[i] >= -exit_z and z_score[i-1] <= -exit_z and stock1_holding==0: # Long stock1, short stock2
+                stock1_holding = 1
+                stock2_holding = -beta
+                short_price = stock2[i]
+            elif (())
 
-        return #signal
+            # Short stock1, long stock2
+
+        #return #signal
+    def z_score_trade(self, zscore):
+        '''
+        Determine whether to trade if the entry or exit zscore
+        threshold has been exceeded.
+        '''
+        # If we are not in the market
+        if self.invested is None:
+            if zscore < -self.entry_z:
+                # Long
+                print("Go Long")
+                self.go_long_units()
+                self.invested = 'long'
+            elif zscore > self.entry_z:
+                # Short
+                print("Go Short")
+                self.go_short_units()
+                self.invested = 'short'
+        # If we already in the market
+        if self.invested is not None:
+            if self.invested == 'long' and zscore >= -self.exit_z:
+                print("Close Long")
+                self.go_short_units()
+                self.invested = None
+            elif self.invested == 'short' and zscore <= self.exit_z:
+                print("Close Short")
+                self.go_long_units()
+                self.invested == None
 
 
 
-    # need X, Y as one-column dataframes and NOT pd.Series as input
     def cointegration_analysis(self, X, Y):
         """
         perform ADF test, Half-life and Hurst on pair of price time series
@@ -106,17 +164,16 @@ class Cointegrator:
         #  '10%': -2.566790836162312}
 
         # call half_life_test function on residuals to compute half life
-        hl_test = self.half_life_test(np.array(residuals))
+        hl_test = self.half_life_test(residuals)
 
         # call hurst_exponent_test function on residuals to compute hurst exponent
-        hurst_exp = self.hurst_exponent_test(np.array(residuals))
+        hurst_exp = self.hurst_exponent_test(residuals)
 
-
-        # standardize residuals through StandardScaler() and save latest_residual_scaled
-        scaler = StandardScaler()
-        scaler.fit(residuals)
-        residuals_scaled = scaler.transform(residuals)
-        latest_residual_scaled = float(residuals_scaled[-1])
+        # save latest residual and scaler function in case we want to scale it
+        latest_residual = residuals[-1]
+        residual_scaler = StandardScaler()
+        residual_scaler.fit(residuals)
+        latest_residual_scaled = residual_scaler.transform(latest_residual)
 
         return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled
 
@@ -159,33 +216,14 @@ class Cointegrator:
             variance_delta_vector.append(np.var(delta_res))
 
         # avoid 0 values for variance_delta_vector
-        variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
+        variance_delta_vector = [value if value != 0 else 1e-10 for elem in variance_delta_vector]
         #  regress (10-base log of) variance_delta_vector against tau_vector
         results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector))
 
         reg_coef = float(results.coef_[0])
+
         # return the calculated hurst exponent (regression coefficient divided by 2 as per formula)
         # if interested, see explanation here:
         # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
 
         return reg_coef / 2
-
-
-if __name__ == '__main__':
-
-    X,Y = cointegrated_pair_generator()[0:2]
-    coint = Cointegrator(
-        repository =DataRepository(),
-        adf_confidence_level = "1%",
-        max_mean_rev_time = 15
-    )
-    results = coint.cointegration_analysis(X, Y)
-
-    adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results
-    print("ADF statistic is ", adf_test_statistic, ", hopefully lower than critical value")
-    print("Critical value for confidence ", coint.adf_confidence_level,
-          ", is: ", adf_critical_values[coint.adf_confidence_level])
-    print("half life test is: ", hl_test)
-    print("hurst exponent is:  ", hurst_exp)
-    print("beta of regression is: ", beta)
-    print("latest scaled residual is: ",latest_residual_scaled)

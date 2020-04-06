@@ -46,13 +46,13 @@ class Window:
         function to get data, with tickers and features specified
 
         universe: 'SNP' or 'ETFs'
-        tickers: a list of string or None, if None, return all tickers
+        tickers:  a list of string or None, if None, return all tickers
         features: a list of string or None, if None, return all features
 
         examples (run under PairTrader.py):
 
         1. all features for tickers ['ALLE', 'WU']
-        ddata = self.current_window.get_data(universe = 'SNP', tickers = ['ALLE', 'WU'])
+        data = self.current_window.get_data(universe = 'SNP', tickers = ['ALLE', 'WU'])
 
         2. all tickers' ['ASK', 'BID']
         data = self.current_window.get_data(universe = 'SNP', features = ['ASK', 'BID'])

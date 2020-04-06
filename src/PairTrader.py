@@ -5,12 +5,10 @@ from typing import Optional, List
 import pandas as pd
 from pandas import DataFrame
 
-from src.Clusterer import Clusterer
 from src.Cointegrator import Cointegrator
 from src.DataRepository import DataRepository
 from src.Filters import Filters
 from src.Window import Window
-
 
 
 # 1. Features common to ETF and SNP for clustering -? calls to yfinance
@@ -64,7 +62,7 @@ class PairTrader:
         snp_end_date = date(year=2020, month=12, day=31)
         # Days since the start of backtest
         self.days_alive: int = 0
-        # self.clusterer = Clusterer()
+        self.clusterer = Clusterer()
         self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time)
         self.filters = Filters()
 
