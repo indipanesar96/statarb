@@ -20,6 +20,7 @@ class Cointegrator:
         self.max_mean_rev_time : float = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z:  float = exit_z
+        self.invested = None
 
 
 
@@ -62,19 +63,14 @@ class Cointegrator:
             for pair in cluster:
                 # t1 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[0], feature: 'Last_Price')
                 # t2 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[1], feature: 'Last_Price')
-                t1 = self.window.window_end.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price')
-                t2 = self.window.window_end.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price')
-                # t1 = whatever Simon's function is on pair[0] -->   the first ticker in the pair
-                # t2 = whatever Simon's function is on pair[1] -->   the second ticker in the pair
-                #  get_time_series(self, start_date: date, end_date: date, datatype: DataLocations, ticker: str, feature: str)
-
-
+                t1 = self.current_window.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price')
+                t2 = self.current_window.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price')
 
 
                 cointegration_parameters = self.cointegration_analysis(t1, t2)
                 adf_test_statistic, adf_critical_values, hl_test, \
                 hurst_exp, beta, latest_residual_scaled = cointegration_parameters
-
+                zscore = latest_residual_scaled
 
                 ######### Cointegration Check ###########
                 #### check if adf_statistic less than self.adf_critical_values[adf_confidence_level] and return something
@@ -86,14 +82,43 @@ class Cointegrator:
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
                 if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
-                    cointegrated_pairs.append([list(pair)])
+                    stock1_holding = 0
+                    stock2_holding = 0
+                    stock_holding_list = []
+                    # If we are not in the market
+                    if self.invested is None:
+                        if zscore < -self.entry_z:
+                            # Long Entry
+                            # Short stock1, long stock2
+                            stock1_holding = -1
+                            stock2_holding = beta
+                            self.invested = "long"
 
+                        elif zscore > self.entry_z:
+                            # Short Entry
+                            # Long stock1, short stock2
+                            stock1_holding = 1
+                            stock2_holding = -beta
+                            self.invested = "short"
+
+                    # If we are in the market
+                    if self.invested is not None:
+                        if self.invested == "long" and zscore >= -self.exit_z:
+                            stock1_holding = 0
+                            stock2_holding = 0
+                            self.invested = None
+                        elif self.invested == "short" and zscore <= self.exit_z:
+                            stock1_holding = 0
+                            stock2_holding = 0
+                            self.invested = None
+                    stock_holding_list.append([stock1_holding, stock2_holding])
+                cointegrated_pairs.append([list(pair), stock_holding_list])
                     # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
+        return cointegrated_pairs
+        #return signals
 
-
-        # return #signal
-
+    '''
     # zscore = latest_residual_scaled (defined in cointegration_analysis)
     def Signals(self,z_score, beta, entry_z, exit_z, stock1, stock2):
         stock1_holding = 0
@@ -121,6 +146,7 @@ class Cointegrator:
 
 
         #return #signal
+    '''
     '''
     def z_score_trade(self, zscore):
         #
