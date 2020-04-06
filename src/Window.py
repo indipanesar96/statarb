@@ -1,10 +1,11 @@
 from datetime import date, timedelta
-
-from src.DataRepository import DataRepository, DataLocations
+from typing import Optional, List
 
 import pandas as pd
 
-from typing import Optional, List
+from src.DataRepository import DataRepository, Universes
+from src.util.Features import Features
+from src.util.Tickers import Tickers
 
 
 class Window:
@@ -21,6 +22,7 @@ class Window:
         # Window object contains information about timings for the window as well as SNP and ETF data for that period.
         self.window_end: date = self.window_start + self.window_length
 
+        # After construction of the object we also have self.etf_data nd self.snp_data
         self.__get_window_data(self.window_start, self.window_end)
 
     def evolve(self):
@@ -31,64 +33,65 @@ class Window:
         return self
 
     def __get_window_data(self, start: date, end: date):
-        self.etf_data = self.repository.get(DataLocations.ETFs, start, end)
-        self.snp_data = self.repository.get(DataLocations.SNP, start, end)
-
+        self.etf_data = self.repository.get(Universes.ETFs, start, end)
+        self.snp_data = self.repository.get(Universes.SNP, start, end)
 
     def get_data(self,
-                 universe : str, # 'SNP' or 'ETFs'
-                 tickers :  Optional[List[str]] = None,
-                 features : Optional[List[str]] = None,
+                 universe: Universes,
+                 tickers: Optional[List[Tickers]] = None,
+                 features: Optional[List[Features]] = None,
                  ):
-
 
         '''
         function to get data, with tickers and features specified
 
-        universe: 'SNP' or 'ETFs'
-        tickers:  a list of string or None, if None, return all tickers
-        features: a list of string or None, if None, return all features
+        universe: Universe.SNP or Universe.ETFs
+        tickers: a list of Tickers or None, if None, return all tickers
+        features: a list of Features or None, if None, return all features
+
+        Note it takes lists of Tickers and Features but must be called with:
+            - lists of SnpTickers and SnpFeatures
+                        OR
+            - lists of EtfTickers and EtfFeatures
+        This is because:
+            - SnpTickers and EtfTickers both inherit from Tickers
+                        AND
+            - SnpFeaturesand EtfFeatures both inherit from Features
 
         examples (run under PairTrader.py):
 
         1. all features for tickers ['ALLE', 'WU']
-        data = self.current_window.get_data(universe = 'SNP', tickers = ['ALLE', 'WU'])
+        self.current_window.get_data(Universes.SNP, [SnpTickers.ALLE, SnpTickers.WU])
 
         2. all tickers' ['ASK', 'BID']
-        data = self.current_window.get_data(universe = 'SNP', features = ['ASK', 'BID'])
+        self.current_window.get_data(Universes.SNP, features=[SnpFeatures.ASK, SnpFeatures.BID])
 
         3. ['BID','LOW'] for ['FITE','ARKW'], which is from ETF universe
-        data = self.current_window.get_data(universe='ETFs', tickers = ['FITE','ARKW'], features = ['BID','LOW'])
-
-        ########################################################################
-
-        note: you can use following to get available tickers and features
-
-        from src.DataRepository import DataRepository, DataLocations
-
-        # all available features for ETFs
-        self.current_window.repository.features[DataLocations.ETFs]
-
-        # all available tickers for SNP
-        self.current_window.repository.tickers[DataLocations.SNP]
+        self.current_window.get_data(Universes.ETFs,
+                                    tickers = [EtfTickers.FITE,EtfTickers.ARKW],
+                                    features = [EtfFeatures.BID, EtfFeatures.LOW]
 
         '''
 
-        if universe =='SNP':
-            data = self.repository.all_data[DataLocations.SNP]
-        elif universe == 'ETFs':
-            data = self.repository.all_data[DataLocations.ETFs]
+        if tickers is None and features is None:
+
+            if universe == Universes.SNP:
+                return self.snp_data
+            if universe == Universes.ETFs:
+                return self.etf_data
+
+        if universe is Universes.SNP:
+            data = self.snp_data
         else:
-            print ('wrong security universe!')
-            return None
+            data = self.etf_data
 
-        data = data.loc[self.window_start : self.window_end,:]
+        # I will change this to index off the enums instead of strings
+        features = [f.value for f in features]
+        tickers = [t.value for t in tickers]
 
-        if (tickers == None) & (features == None):
-            return data
-        elif (features == None):
-            return data.loc[:, pd.IndexSlice[ tickers , :] ]
-        elif (tickers == None):
+        if features is None:
+            return data.loc[:, pd.IndexSlice[tickers, :]]
+        elif tickers is None:
             return data.loc[:, pd.IndexSlice[:, features]]
         else:
-            return data.loc[:, pd.IndexSlice[ tickers , features ]]
+            return data.loc[:, pd.IndexSlice[tickers, features]]

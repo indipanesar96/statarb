@@ -9,7 +9,7 @@ from pandas import DataFrame
 
 
 @unique
-class DataLocations(Enum):
+class Universes(Enum):
     SNP = Path(f"../resources/SP500/sp_500_ticker_data_all.csv")
     ETFs = Path(f"../resources/ETF_data/2008-2019_ETF_data.csv")
 
@@ -17,12 +17,12 @@ class DataLocations(Enum):
 class DataRepository:
     def __init__(self):
         # Loads data on first get call
-        self.all_data: Dict[DataLocations, Optional[DataFrame]] = {DataLocations.SNP: None, DataLocations.ETFs: None}
-        self.tickers: Dict[DataLocations, Optional[Set[str]]] = {DataLocations.SNP: None, DataLocations.ETFs: None}
-        self.features: Dict[DataLocations, Optional[Set[str]]] = {DataLocations.SNP: None, DataLocations.ETFs: None}
+        self.all_data: Dict[Universes, Optional[DataFrame]] = {Universes.SNP: None, Universes.ETFs: None}
+        self.tickers: Dict[Universes, Optional[Set[str]]] = {Universes.SNP: None, Universes.ETFs: None}
+        self.features: Dict[Universes, Optional[Set[str]]] = {Universes.SNP: None, Universes.ETFs: None}
 
     def get(self,
-            datatype: DataLocations,
+            datatype: Universes,
             window_start: date,
             window_end: date):
 
@@ -35,8 +35,6 @@ class DataRepository:
 
         return data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]
 
-
-
     def get_for_clustering(self, req_tickers: List[str], req_features: List[str]):
 
         # all features for stock ['AMCR', 'EVRG']:
@@ -44,7 +42,7 @@ class DataRepository:
 
         raise NotImplementedError
 
-    def __get_from_disk_and_store(self, datatype: DataLocations):
+    def __get_from_disk_and_store(self, datatype: Universes):
         print(f"In DataRepository, reading CSV from disk for: {datatype.name}")
 
         # Currently we just load all data into memory - not horrific for now but definitely needs to be changed in
@@ -106,7 +104,7 @@ class DataRepository:
     #         self.fill_nas(self,x)
     #
 
-    def get_time_series(self, start_date: date, end_date: date, datatype: DataLocations, ticker: str, feature: str):
+    def get_time_series(self, start_date: date, end_date: date, datatype: Universes, ticker: str, feature: str):
 
         # get rid of 'US Equity' string in col headings
         all_data = self.all_data[datatype][f"{ticker} {feature}"]
