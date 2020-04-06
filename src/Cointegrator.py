@@ -90,23 +90,35 @@ class Cointegrator:
 
                     # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
+
+
+        # return #signal
     def Signals(self, stock1, stock2, z_score, beta, entry_z, exit_z):
         stock1_holding = 0
         stock2_holding = 0
         stock1_holding_list = []
         stock2_holding_list = []
         for i in range(1, len(stock1)):
-            if z_score[i] <= exit_z and z_score[i-1] >= exit_z and stock1_holding == 0: # Short stock1, long stock2
+            if z_score[i] <= entry_z and z_score[i-1] >= entry_z and stock1_holding == 0:
+                # Short stock1, long stock2
                 stock1_holding = -1
                 stock2_holding = beta
                 short_price = stock1[i]
-            elif z_score[i] >= -exit_z and z_score[i-1] <= -exit_z and stock1_holding==0: # Long stock1, short stock2
+            elif z_score[i] >= -entry_z and z_score[i-1] <= -entry_z and stock1_holding==0:
+                # Long stock1, short stock2
                 stock1_holding = 1
                 stock2_holding = -beta
                 short_price = stock2[i]
-            elif (())
+            elif ((z_score[i-1] > exit_z and z_score[i] < exit_z) or (z_score[i-1] < -exit_z and z_score[i] >= -exit_z)) #or (abs(z_score[i] > limit)) and stock1_holding != 0:
+                # Close Position
+                stock1_holding = 0
+                stock2_holding = 0
 
-            # Short stock1, long stock2
+            stock1_holding_list.append(stock1_holding)
+            stock2_holding_list.append(stock2_holding)
+
+        return stock1_holding_list, stock2_holding_list
+
 
         #return #signal
     def z_score_trade(self, zscore):
@@ -136,7 +148,6 @@ class Cointegrator:
                 print("Close Short")
                 self.go_long_units()
                 self.invested == None
-
 
 
     def cointegration_analysis(self, X, Y):
