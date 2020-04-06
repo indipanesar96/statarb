@@ -110,7 +110,7 @@ class Cointegrator:
                 stock1_holding = 1
                 stock2_holding = -beta
                 #short_price = stock2[i]
-            elif ((z_score[i-1] > exit_z and z_score[i] < exit_z) or (z_score[i-1] < -exit_z and z_score[i] >= -exit_z)) #or (abs(z_score[i] > limit)) and stock1_holding != 0: (Risk Management?)
+            elif ((z_score[i-1] > exit_z and z_score[i] < exit_z) or (z_score[i-1] < -exit_z and z_score[i] >= -exit_z)):#or (abs(z_score[i] > limit)) and stock1_holding != 0: (Risk Management?)
                 # Close Position
                 stock1_holding = 0
                 stock2_holding = 0
@@ -121,11 +121,12 @@ class Cointegrator:
 
 
         #return #signal
+    '''
     def z_score_trade(self, zscore):
-        '''
+        #
         Determine whether to trade if the entry or exit zscore
         threshold has been exceeded.
-        '''
+        #
         # If we are not in the market
         if self.invested is None:
             if zscore < -self.entry_z:
@@ -148,7 +149,7 @@ class Cointegrator:
                 print("Close Short")
                 self.go_long_units()
                 self.invested == None
-
+    '''
 
     def cointegration_analysis(self, X, Y):
         """
