@@ -18,8 +18,8 @@ class Cointegrator:
         self.window: Window = window
         self.adf_confidence_level: str = adf_confidence_level
         self.max_mean_rev_time : float = max_mean_rev_time
-        self.entry_z = entry_z
-        self.exit_z = exit_z
+        self.entry_z: float = entry_z
+        self.exit_z:  float = exit_z
 
 
 
@@ -86,38 +86,38 @@ class Cointegrator:
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
                 if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
-                    cointegrated_pairs.append(list(pair))
+                    cointegrated_pairs.append([list(pair)])
 
                     # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
 
 
         # return #signal
-    def Signals(self, stock1, stock2, z_score, beta, entry_z, exit_z):
+
+    # zscore = latest_residual_scaled (defined in cointegration_analysis)
+    def Signals(self,z_score, beta, entry_z, exit_z, stock1, stock2):
         stock1_holding = 0
         stock2_holding = 0
-        stock1_holding_list = []
-        stock2_holding_list = []
+        stock_holding_list = []
         for i in range(1, len(stock1)):
             if z_score[i] <= entry_z and z_score[i-1] >= entry_z and stock1_holding == 0:
                 # Short stock1, long stock2
                 stock1_holding = -1
                 stock2_holding = beta
-                short_price = stock1[i]
-            elif z_score[i] >= -entry_z and z_score[i-1] <= -entry_z and stock1_holding==0:
+                #short_price = stock1[i]
+            elif z_score[i] >= -entry_z and z_score[i-1] <= -entry_z and stock1_holding == 0:
                 # Long stock1, short stock2
                 stock1_holding = 1
                 stock2_holding = -beta
-                short_price = stock2[i]
-            elif ((z_score[i-1] > exit_z and z_score[i] < exit_z) or (z_score[i-1] < -exit_z and z_score[i] >= -exit_z)) #or (abs(z_score[i] > limit)) and stock1_holding != 0:
+                #short_price = stock2[i]
+            elif ((z_score[i-1] > exit_z and z_score[i] < exit_z) or (z_score[i-1] < -exit_z and z_score[i] >= -exit_z)) #or (abs(z_score[i] > limit)) and stock1_holding != 0: (Risk Management?)
                 # Close Position
                 stock1_holding = 0
                 stock2_holding = 0
 
-            stock1_holding_list.append(stock1_holding)
-            stock2_holding_list.append(stock2_holding)
+            stock_holding_list.append([stock1_holding, stock2_holding])
 
-        return stock1_holding_list, stock2_holding_list
+        return stock_holding_list
 
 
         #return #signal

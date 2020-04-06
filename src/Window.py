@@ -37,7 +37,7 @@ class Window:
 
     def get_data(self,
                  universe : str, # 'SNP' or 'ETFs'
-                 tickers : Optional[List[str]] = None,
+                 tickers :  Optional[List[str]] = None,
                  features : Optional[List[str]] = None,
                  ):
 
