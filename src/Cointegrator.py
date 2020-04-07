@@ -1,5 +1,7 @@
 from typing import Dict, Tuple
 from typing import Optional
+from math import log
+import statsmodels.api as sm
 
 import numpy as np
 from pandas import DataFrame
@@ -64,8 +66,8 @@ class Cointegrator:
             for pair in cluster:
                 # t1 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[0], feature: 'Last_Price')
                 # t2 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[1], feature: 'Last_Price')
-                t1 = self.current_window.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price')
-                t2 = self.current_window.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price')
+                t1 = self.current_window.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price').tolist()
+                t2 = self.current_window.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price').tolist()
 
 
                 cointegration_parameters = self.cointegration_analysis(t1, t2) # (X,Y)
@@ -119,7 +121,10 @@ class Cointegrator:
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
-                    #stock_holding_list.append([stock1_holding, stock2_holding])
+                else:
+                    # Not conintegrated
+                    stock1_holding = 0
+                    stock1_holding = 0
                 cointegrated_pairs.append([list(pair), [stock1_holding, stock2_holding]])
                 # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
@@ -143,6 +148,9 @@ class Cointegrator:
     
     ###Kalman Filter
     '''
+
+
+
 
     '''
     # zscore = latest_residual_scaled (defined in cointegration_analysis)
@@ -212,12 +220,17 @@ class Cointegrator:
         (this is going to be useful for signal generation once we decide the thresholds)
         """
         # do cointegration regression of log-prices time series
-        log_x = X.applymap(lambda k: np.log(k))
-        log_y = Y.applymap(lambda k: np.log(k))
+        log_x = [log(i) for i in X]
+        log_y = [log(i) for i in Y]
+        #log_x = X.applymap(lambda k: np.log(k))
+        #log_y = Y.applymap(lambda k: np.log(k))
 
-        results = LinearRegression().fit(log_x, log_y)
-        residuals = log_y - results.predict(log_x)  # e = y - y^
-        beta = float(results.coef_[0])
+        #results = LinearRegression().fit(log_x, log_y)
+        #residuals = log_y - results.predict(log_x)  # e = y - y^
+        #beta = float(results.coef_[0])
+        model = sm.OLS(log_y, log_x).fit()
+        beta = float(model.params[0])
+        residuals = np.asarray(log_y) - beta * np.asarray(log_x)
 
         # do Augmented-Dickey Fuller test and save adf_statistic, adf_critical_values
         adf_results = adfuller(residuals)
@@ -236,10 +249,9 @@ class Cointegrator:
         # save latest residual and scaler function in case we want to scale it
         latest_residual = residuals[-1]
         residual_scaler = StandardScaler()
-        residual_scaler.fit(residuals)
-        latest_residual_scaled = residual_scaler.transform(latest_residual)
-
-        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled
+        residual_scaler.fit(residuals.reshape(-1, 1))
+        latest_residual_scaled = residual_scaler.transform(latest_residual.reshape(-1, 1))
+        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled.tolist()[0][0]
 
     def half_life_test(self, residuals):
         """
@@ -250,7 +262,7 @@ class Cointegrator:
         delta_residuals = (residuals[1:] - lagged_residuals)  # dependent variable
 
         # do regression of delta residuals against lagged residuals
-        results = LinearRegression().fit(lagged_residuals, delta_residuals)
+        results = LinearRegression().fit(lagged_residuals.reshape(-1, 1), delta_residuals.reshape(-1, 1))
         pi = float(results.coef_[0])
 
         # calculate average time of mean reversion from average speed of mean reversion as per formula
@@ -280,9 +292,9 @@ class Cointegrator:
             variance_delta_vector.append(np.var(delta_res))
 
         # avoid 0 values for variance_delta_vector
-        variance_delta_vector = [value if value != 0 else 1e-10 for elem in variance_delta_vector]
+        variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
         #  regress (10-base log of) variance_delta_vector against tau_vector
-        results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector))
+        results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector).reshape(-1, 1))
 
         reg_coef = float(results.coef_[0])
 
