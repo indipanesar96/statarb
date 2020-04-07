@@ -1,4 +1,5 @@
 from typing import Dict, Tuple
+from typing import Optional
 
 import numpy as np
 from pandas import DataFrame
@@ -7,15 +8,15 @@ from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
 from src.Window import Window
-from src.DataRepository import DataRepository, DataLocations
+from src.DataRepository import DataRepository
 
 
 ##
 class Cointegrator:
 
-    def __init__(self, repository, window, adf_confidence_level, max_mean_rev_time, entry_z, exit_z):
+    def __init__(self, repository, adf_confidence_level, max_mean_rev_time, entry_z, exit_z, current_window: Window = None):
         self.repository: DataRepository = repository
-        self.window: Window = window
+        self.current_window: Optional[current_window]
         self.adf_confidence_level: str = adf_confidence_level
         self.max_mean_rev_time : float = max_mean_rev_time
         self.entry_z: float = entry_z
@@ -81,6 +82,7 @@ class Cointegrator:
 
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
+
                 if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
                     stock1_holding = 0
                     stock2_holding = 0
@@ -112,8 +114,10 @@ class Cointegrator:
                             stock2_holding = 0
                             self.invested = None
                     stock_holding_list.append([stock1_holding, stock2_holding])
+                else:
+                    pass
                 cointegrated_pairs.append([list(pair), stock_holding_list])
-                    # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
+                # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
         return cointegrated_pairs
         #return signals

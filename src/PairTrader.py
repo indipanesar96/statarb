@@ -21,8 +21,13 @@ class PairTrader:
                  start_date: date = datetime.date(2008, 1, 1),
                  window_length: timedelta = timedelta(days=90),
                  end_date: Optional[date] = None,
-                 adf_confidence_level: str = "1%",
-                 max_mean_rev_time: float = 15):
+                 adf_confidence_level: str = "5%",
+                 max_mean_rev_time: float = 15,
+                 entry_z: float = 1.5,
+                 exit_z: float = 0.5):
+
+
+
 
         # If end_date is None, run for the entirety of the dataset
         # Window is the lookback period (from t=-window_length-1 to t=-1 (yesterday) over which we analyse data
@@ -35,8 +40,10 @@ class PairTrader:
 
         self.start_date: date = start_date
         self.window_length: timedelta = window_length
-        self.adf_confidence_level: str = adf_confidence_level  # specify as string percentage like "5%" or "1%"
+        self.adf_confidence_level: str = adf_confidence_level  #specify as string percentage like "5%" or "1%"
         self.max_mean_rev_time: float = max_mean_rev_time
+        self.entry_z = entry_z
+        self.exit_z = exit_z
 
         if end_date is None:
             # Last SNP date, hard coded for now...
@@ -60,14 +67,14 @@ class PairTrader:
         # Days since the start of backtest
         self.days_alive: int = 0
         self.clusterer = Clusterer()
-        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time)
+        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time, self.entry_z, self.exit_z)
         self.filters = Filters()
 
     def trade(self):
         for _ in self.date_range:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
-            x = 10
+            x=10
 
             # Using DBScan for now, ensemble later
             # cluster_results = self.clusterer.DBScan(self.current_window)
@@ -76,6 +83,7 @@ class PairTrader:
 
             # Take cointegrated signals and pass into Filter = filtered signal
             # use something like: signal = self.cointegrator.run_cointegrator(cluster_results)
+
 
             # Take filtered signal
 
@@ -107,6 +115,8 @@ if __name__ == '__main__':
         start_date=date(2014, 10, 1),
         window_length=timedelta(days=300),
         end_date=None,
-        adf_confidence_level=str("1%"),
-        max_mean_rev_time=float(15)
+        adf_confidence_level = str("1%"),
+        max_mean_rev_time = float(15),
+        entry_z = 1.5,
+        exit_z = 0.5
     ).trade()
