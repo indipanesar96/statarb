@@ -125,6 +125,24 @@ class Cointegrator:
                 # please make sure the logic is consistent and try some example values
         return cointegrated_pairs
         #return signals
+    '''
+    zscore represents the standardized residual error of the prediction at current window,
+    while entry_z and exit_z represent thresholds for entering the market and exitting the 
+    market at current window
+    (entry_z and exit_z could be set mathematically, i.e., entry_z = two standard deviation of 
+     the zscore, and exit_z = one standard deviation of the zscore)
+    the rules are specified as follows:
+    1. if zscore < - entry_z - Long the spread: 
+    Short beta unit of stock1 and long 1 unit of stock2 
+    2. if zscore > entry_z - Short the spread:
+    Long beta unit of stock1 and short 1 unit of stock2
+    3. if zscore >= exit_z - Exit long: 
+    Close all positions of stock1 and stock2 
+    4. if zscore <= exit_z - Exit short:
+    Close all positions of stock1 and stock2
+    
+    ###Kalman Filter
+    '''
 
     '''
     # zscore = latest_residual_scaled (defined in cointegration_analysis)
@@ -184,7 +202,6 @@ class Cointegrator:
                 self.go_long_units()
                 self.invested == None
     '''
-    ######
 
     def cointegration_analysis(self, X, Y):
         """
