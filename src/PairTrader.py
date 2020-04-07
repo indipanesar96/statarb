@@ -42,8 +42,8 @@ class PairTrader:
         self.window_length: timedelta = window_length
         self.adf_confidence_level: str = adf_confidence_level  #specify as string percentage like "5%" or "1%"
         self.max_mean_rev_time: float = max_mean_rev_time
-        self.entry_z = entry_z
-        self.exit_z = exit_z
+        self.entry_z: float = entry_z
+        self.exit_z: float = exit_z
 
         if end_date is None:
             # Last SNP date, hard coded for now...

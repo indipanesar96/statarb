@@ -51,7 +51,7 @@ class Cointegrator:
 
     def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]], ) -> Dict[int, Tuple[str]]:
         """
-        iteratively test for cointegration all the pairs within each cluster;
+        iteratively test for cointegration for all the pairs within each cluster;
         return dictionary with a 2-element list of tickers as key, and a list
         """
         # clustering_results should look like something similar:
@@ -68,7 +68,7 @@ class Cointegrator:
                 t2 = self.current_window.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price')
 
 
-                cointegration_parameters = self.cointegration_analysis(t1, t2)
+                cointegration_parameters = self.cointegration_analysis(t1, t2) # (X,Y)
                 adf_test_statistic, adf_critical_values, hl_test, \
                 hurst_exp, beta, latest_residual_scaled = cointegration_parameters
                 zscore = latest_residual_scaled
@@ -86,37 +86,41 @@ class Cointegrator:
                 if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
                     stock1_holding = 0
                     stock2_holding = 0
-                    stock_holding_list = []
+                    #stock_holding_list = []
                     # If we are not in the market
                     if self.invested is None:
                         if zscore < -self.entry_z:
                             # Long Entry
                             # Short stock1, long stock2
-                            stock1_holding = -1
-                            stock2_holding = beta
+                            print("Opening Long: %s" % self.current_window)
+                            stock1_holding = -beta
+                            stock2_holding = 1
                             self.invested = "long"
 
                         elif zscore > self.entry_z:
                             # Short Entry
                             # Long stock1, short stock2
-                            stock1_holding = 1
-                            stock2_holding = -beta
+                            print("Opening Short: %s" % self.current_window)
+                            stock1_holding = beta
+                            stock2_holding = -1
                             self.invested = "short"
 
                     # If we are in the market
                     if self.invested is not None:
                         if self.invested == "long" and zscore >= -self.exit_z:
+                            # Close Position
+                            print("Closing Long: %s" % self.current_window)
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
                         elif self.invested == "short" and zscore <= self.exit_z:
+                            # Close Position
+                            print("Closing Short: %s"% self.current_window)
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
-                    stock_holding_list.append([stock1_holding, stock2_holding])
-                else:
-                    pass
-                cointegrated_pairs.append([list(pair), stock_holding_list])
+                    #stock_holding_list.append([stock1_holding, stock2_holding])
+                cointegrated_pairs.append([list(pair), [stock1_holding, stock2_holding]])
                 # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
         return cointegrated_pairs
@@ -181,7 +185,7 @@ class Cointegrator:
                 self.invested == None
     '''
     ######
-    
+
     def cointegration_analysis(self, X, Y):
         """
         perform ADF test, Half-life and Hurst on pair of price time series
