@@ -180,7 +180,8 @@ class Cointegrator:
                 self.go_long_units()
                 self.invested == None
     '''
-
+    ######
+    
     def cointegration_analysis(self, X, Y):
         """
         perform ADF test, Half-life and Hurst on pair of price time series
