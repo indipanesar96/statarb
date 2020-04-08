@@ -1,7 +1,5 @@
 from typing import Dict, Tuple
 from typing import Optional
-from math import log
-import statsmodels.api as sm
 
 import numpy as np
 from pandas import DataFrame
@@ -9,8 +7,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
-from src.Window import Window
 from src.DataRepository import DataRepository
+from src.Window import Window
 from src.util.FakeCointegratedPair import cointegrated_pair_generator
 
 
@@ -238,17 +236,12 @@ class Cointegrator:
         (this is going to be useful for signal generation once we decide the thresholds)
         """
         # do cointegration regression of log-prices time series
-        log_x = [log(i) for i in X]
-        log_y = [log(i) for i in Y]
-        #log_x = X.applymap(lambda k: np.log(k))
-        #log_y = Y.applymap(lambda k: np.log(k))
+        log_x = X.applymap(lambda k: np.log(k))
+        log_y = Y.applymap(lambda k: np.log(k))
 
-        #results = LinearRegression().fit(log_x, log_y)
-        #residuals = log_y - results.predict(log_x)  # e = y - y^
-        #beta = float(results.coef_[0])
-        model = sm.OLS(log_y, log_x).fit()
-        beta = float(model.params[0])
-        residuals = np.asarray(log_y) - beta * np.asarray(log_x)
+        results = LinearRegression().fit(log_x, log_y)
+        residuals = log_y - results.predict(log_x)  # e = y - y^
+        beta = float(results.coef_[0])
 
         # do Augmented-Dickey Fuller test and save adf_statistic, adf_critical_values
         adf_results = adfuller(residuals)
@@ -259,28 +252,30 @@ class Cointegrator:
         #  '10%': -2.566790836162312}
 
         # call half_life_test function on residuals to compute half life
-        hl_test = self.half_life_test(residuals)
+        hl_test = self.half_life_test(np.array(residuals))
 
         # call hurst_exponent_test function on residuals to compute hurst exponent
-        hurst_exp = self.hurst_exponent_test(residuals)
+        hurst_exp = self.hurst_exponent_test(np.array(residuals))
 
-        # save latest residual and scaler function in case we want to scale it
-        latest_residual = residuals[-1]
-        residual_scaler = StandardScaler()
-        residual_scaler.fit(residuals.reshape(-1, 1))
-        latest_residual_scaled = residual_scaler.transform(latest_residual.reshape(-1, 1))
-        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled.tolist()[0][0]
+        # standardize residuals through StandardScaler() and save latest_residual_scaled
+        scaler = StandardScaler()
+        scaler.fit(residuals)
+        residuals_scaled = scaler.transform(residuals)
+        latest_residual_scaled = float(residuals_scaled[-1])
+
+        return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled
 
     def half_life_test(self, residuals):
         """
         Calculates the half life of the residuals to check average time of mean reversion
         """
         # calculate the vector of lagged residuals
+        print(type(residuals))
         lagged_residuals = residuals[:-1]  # independent variable
         delta_residuals = (residuals[1:] - lagged_residuals)  # dependent variable
 
         # do regression of delta residuals against lagged residuals
-        results = LinearRegression().fit(lagged_residuals.reshape(-1, 1), delta_residuals.reshape(-1, 1))
+        results = LinearRegression().fit(lagged_residuals, delta_residuals)
         pi = float(results.coef_[0])
 
         # calculate average time of mean reversion from average speed of mean reversion as per formula
@@ -312,7 +307,7 @@ class Cointegrator:
         # avoid 0 values for variance_delta_vector
         variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
         #  regress (10-base log of) variance_delta_vector against tau_vector
-        results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector).reshape(-1, 1))
+        results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector))
 
         reg_coef = float(results.coef_[0])
 
@@ -328,7 +323,9 @@ if __name__ == '__main__':
     coint = Cointegrator(
         repository =DataRepository(),
         adf_confidence_level = "1%",
-        max_mean_rev_time = 15
+        max_mean_rev_time = 15,
+        entry_z = 2,
+        exit_z = 0.5
     )
     results = coint.cointegration_analysis(X, Y)
 
