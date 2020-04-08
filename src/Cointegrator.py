@@ -11,6 +11,7 @@ from statsmodels.tsa.api import adfuller
 
 from src.Window import Window
 from src.DataRepository import DataRepository
+from src.util.FakeCointegratedPair import cointegrated_pair_generator
 
 
 ##
@@ -320,3 +321,22 @@ class Cointegrator:
         # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
 
         return reg_coef / 2
+
+if __name__ == '__main__':
+
+    X,Y = cointegrated_pair_generator()[0:2]
+    coint = Cointegrator(
+        repository =DataRepository(),
+        adf_confidence_level = "1%",
+        max_mean_rev_time = 15
+    )
+    results = coint.cointegration_analysis(X, Y)
+
+    adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results
+    print("ADF statistic is ", adf_test_statistic, ", hopefully lower than critical value")
+    print("Critical value for confidence ", coint.adf_confidence_level,
+          ", is: ", adf_critical_values[coint.adf_confidence_level])
+    print("half life test is: ", hl_test)
+    print("hurst exponent is:  ", hurst_exp)
+    print("beta of regression is: ", beta)
+    print("latest scaled residual is: ",latest_residual_scaled)
