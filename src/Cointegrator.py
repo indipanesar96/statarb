@@ -51,10 +51,10 @@ class Cointegrator:
 
         pass
 
-    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]], ) -> Dict[int, Tuple[str]]:
+    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]]): #-> Dict[int, Tuple[str]]
         """
         iteratively test for cointegration for all the pairs within each cluster;
-        return dictionary with a 2-element list of tickers as key, and a list
+        return dictionary with a 2-element list of tickers as key, and a list of current holdings and current position (e.g. {["AAPL","GOOG"]: [beta, -1, "long"]})
         """
         # clustering_results should look like something similar:
         # {
@@ -62,6 +62,8 @@ class Cointegrator:
         # 2: [('AMGN', 'MMM')]
         # }
         cointegrated_pairs = []
+        stock1_holding = 0
+        stock2_holding = 0
         for cluster in clustering_results.values():
             for pair in cluster:
                 # t1 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[0], feature: 'Last_Price')
@@ -85,9 +87,9 @@ class Cointegrator:
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
 
-                if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
-                    stock1_holding = 0
-                    stock2_holding = 0
+                if adf_test_statistic <= adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
+                    # stock1_holding = 0
+                    # stock2_holding = 0
                     #stock_holding_list = []
                     # If we are not in the market
                     if self.invested is None:
@@ -109,12 +111,24 @@ class Cointegrator:
 
                     # If we are in the market
                     if self.invested is not None:
-                        if self.invested == "long" and zscore >= -self.exit_z:
+                        if self.invested == "long" and zscore < -self.entry_z:
+                            # Holding Postion
+                            print("Holding Long: %s" % self.current_window)
+                            stock1_holding = -beta # or equal to the previous window -beta
+                            stock2_holding = 1
+                            self.invested = "long"
+                        elif self.invested == "long" and zscore >= -self.exit_z:
                             # Close Position
                             print("Closing Long: %s" % self.current_window)
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
+                        elif self.invested == "short" and zscore > self.exit_z:
+                            # Holding Position
+                            print("Holding Short: %s" % self.current_window)
+                            stock1_holding = beta # or equal to the previous window beta
+                            stock2_holding = -1
+                            self.invested = "short"
                         elif self.invested == "short" and zscore <= self.exit_z:
                             # Close Position
                             print("Closing Short: %s"% self.current_window)
@@ -123,13 +137,16 @@ class Cointegrator:
                             self.invested = None
                 else:
                     # Not conintegrated
+                    print("Not Conintegrated: %s" % self.current_window)
                     stock1_holding = 0
                     stock1_holding = 0
-                cointegrated_pairs.append([list(pair), [stock1_holding, stock2_holding]])
+                    self.invested = None
+                cointegrated_pairs.append({list(pair): [stock1_holding, stock2_holding, self.invested]})
                 # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
         return cointegrated_pairs
         #return signals
+
     '''
     zscore represents the standardized residual error of the prediction at current window,
     while entry_z and exit_z represent thresholds for entering the market and exitting the 
