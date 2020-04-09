@@ -2,7 +2,7 @@ import re
 from datetime import date
 from enum import Enum, unique
 from pathlib import Path
-from typing import Dict, Optional, Set, List
+from typing import Dict, Optional, Set
 
 import pandas as pd
 from pandas import DataFrame
@@ -31,17 +31,25 @@ class DataRepository:
         else:
             data_for_all_time = self.all_data[datatype]
 
+        # If statement is to ensure we only pull back weekdays from the self.all_data
+        date_range_filter_mask = [i.date() for i in iter(pd.date_range(start=window_start, end=window_end)) if
+                                  i.weekday() < 5]
 
-        date_range_filter_mask = [i.date() for i in iter(pd.date_range(start=window_start, end=window_end))]
+        all_data_for_window = data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]
 
-        return data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]
+        # alive_tickers = []
+        # for ticker in self.tickers[datatype]:
+        #     column = all_data_for_window.loc[:, ticker].iloc[:, 0]
+        #
+        #     is_nans = [True if math.isnan(i) else False for i in column]
+        #
+        #     if not all(is_nans):
+        #         # ticker is alive for this window
+        #         alive_tickers.append(ticker)
 
-    def get_for_clustering(self, req_tickers: List[str], req_features: List[str]):
+        # return all_data_for_window[all_data_for_window.index.isin(alive_tickers)]
 
-        # all features for stock ['AMCR', 'EVRG']:
-        # data.loc[:, pd.IndexSlice[req_tickers, :]]
-
-        raise NotImplementedError
+        return all_data_for_window
 
     def __get_from_disk_and_store(self, datatype: Universes):
         print(f"In DataRepository, reading CSV from disk for: {datatype.name}")

@@ -41,7 +41,8 @@ class PairTrader:
 
         if end_date is None:
             # Last SNP date, hard coded for now...
-            self.end_date = date(year=2020, month=12, day=31)
+            snp_end_date = date(year=2020, month=12, day=31)
+            self.end_date = snp_end_date
         else:
             self.end_date = end_date
 
@@ -54,7 +55,6 @@ class PairTrader:
         self.history: List[Window] = [initial_window]
 
         self.today = self.start_date + self.window_length + timedelta(days=1)
-        snp_end_date = date(year=2020, month=12, day=31)
         # Days since the start of backtest
         self.days_alive: int = 0
         self.clusterer = Clusterer()
@@ -112,7 +112,7 @@ class PairTrader:
 if __name__ == '__main__':
     PairTrader(
         start_date=date(2008, 1, 1),
-        window_length=timedelta(days=90),
+        window_length=timedelta(days=10),
         end_date=None,
         adf_confidence_level=str("1%"),
         max_mean_rev_time=float(15),
