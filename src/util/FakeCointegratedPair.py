@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -66,3 +67,11 @@ def cointegrated_pair_generator(sigma=0.3, mu=0.1, X_0=50,
 
     return X, Y, U
 
+
+if __name__ == '__main__':
+    X, Y, U = cointegrated_pair_generator(sigma=0.9, mu=0.1, X_0=50,
+                                          Y_0=45, alpha=0.01, beta=1.2,
+                                          k=250 / 15, v=0.3, window=1000, seed=99)
+
+    pd.concat([X, Y], axis=1).plot()
+    plt.show()
