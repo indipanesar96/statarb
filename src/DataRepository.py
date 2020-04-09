@@ -66,7 +66,6 @@ class DataRepository:
         tuples = list(zip(tickers, features))
         multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
         d.columns = multi_column
-        # d.columns = [' '.join((i, j)) for i, j in zip(tickers, features)]
 
         self.all_data[datatype] = d
 

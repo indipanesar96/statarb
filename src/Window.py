@@ -61,7 +61,7 @@ class Window:
         This is because:
             - SnpTickers and EtfTickers both inherit from Tickers
                         AND
-            - SnpFeaturesand EtfFeatures both inherit from Features
+            - SnpFeatures and EtfFeatures both inherit from Features
 
         examples (run under PairTrader.py):
 
@@ -79,9 +79,9 @@ class Window:
 
         if tickers is None and features is None:
 
-            if universe == Universes.SNP:
+            if universe is Universes.SNP:
                 return self.snp_data
-            if universe == Universes.ETFs:
+            if universe is Universes.ETFs:
                 return self.etf_data
 
         if universe is Universes.SNP:

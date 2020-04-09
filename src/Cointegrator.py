@@ -1,5 +1,5 @@
+from datetime import date, timedelta
 from typing import Dict, Tuple
-from typing import Optional
 
 import numpy as np
 from pandas import DataFrame
@@ -8,8 +8,10 @@ from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
 from src.DataRepository import DataRepository
+from src.DataRepository import Universes
 from src.Window import Window
 from src.util.FakeCointegratedPair import cointegrated_pair_generator
+from src.util.Features import SnpFeatures
 
 
 # from Window import Window
@@ -20,15 +22,16 @@ from src.util.FakeCointegratedPair import cointegrated_pair_generator
 ##
 class Cointegrator:
 
-    def __init__(self, repository, adf_confidence_level, max_mean_rev_time, entry_z, exit_z,
-                 current_window: Window = None):
+    def __init__(self, repository, adf_confidence_level, max_mean_rev_time, entry_z, exit_z, current_window,
+                 previous_window):
         self.repository: DataRepository = repository
-        self.current_window: Optional[current_window]
+        self.current_window: current_window = current_window
         self.adf_confidence_level: str = adf_confidence_level
         self.max_mean_rev_time: float = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
         self.invested = None
+        self.previous_window: Window = previous_window
 
     def check_holdings(self, current_holdings: DataFrame):
         '''
@@ -54,25 +57,24 @@ class Cointegrator:
 
         pass
 
-    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]]):  # -> Dict[int, Tuple[str]]
+    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]]) -> Dict[int, Tuple[str]]:
         """
         iteratively test for cointegration for all the pairs within each cluster;
         return dictionary with a 2-element list of tickers as key, and a list of current holdings and current position (e.g. {["AAPL","GOOG"]: [beta, -1, "long"]})
         """
         # clustering_results should look like something similar:
-        # {
-        # 1: [('AAPL', 'GOOG'),('MSFT', 'GOOG'),('MSFT', 'AAPL')],
-        # 2: [('AMGN', 'MMM')]
-        # }
+        #  {0: [(<SnpTickers.AAPL: 'AAPL'>, <SnpTickers.MSFT: 'MSFT'>), (<SnpTickers.AAPL: 'AAPL'>, <SnpTickers.FB: 'FB'>)] }
+        #  {1: [(<SnpTickers.AAPL: 'AAPL'>, <SnpTickers.FB: 'FB'>), (<SnpTickers.MSFT: 'MSFT'>, <SnpTickers.FB: 'FB'>)] }
+
         cointegrated_pairs = []
         stock1_holding = 0
         stock2_holding = 0
         for cluster in clustering_results.values():
             for pair in cluster:
-                # t1 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[0], feature: 'Last_Price')
-                # t2 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[1], feature: 'Last_Price')
-                t1 = self.current_window.get_data(universe='SNP', tickers=pair[0], features='Last_Price').tolist()
-                t2 = self.current_window.get_data(universe='SNP', tickers=pair[1], features='Last_Price').tolist()
+                t1 = self.current_window.get_data(universe=Universes.SNP, tickers=[pair[0]],
+                                                  features=[SnpFeatures.LAST_PRICE])
+                t2 = self.current_window.get_data(universe=Universes.SNP, tickers=[pair[1]],
+                                                  features=[SnpFeatures.LAST_PRICE])
 
                 cointegration_parameters = self.cointegration_analysis(t1, t2)  # (X,Y)
                 adf_test_statistic, adf_critical_values, hl_test, \
@@ -99,7 +101,7 @@ class Cointegrator:
                         if zscore < -self.entry_z:
                             # Long Entry
                             # Short stock1, long stock2
-                            print("Opening Long: %s" % self.current_window)
+
                             stock1_holding = -beta
                             stock2_holding = 1
                             self.invested = "long"
@@ -107,34 +109,34 @@ class Cointegrator:
                         elif zscore > self.entry_z:
                             # Short Entry
                             # Long stock1, short stock2
-                            print("Opening Short: %s" % self.current_window)
+
                             stock1_holding = beta
                             stock2_holding = -1
                             self.invested = "short"
 
                     # If we are in the market
-                    if self.invested is not None:
+                    else:
                         if self.invested == "long" and zscore < -self.entry_z:
                             # Holding Postion
-                            print("Holding Long: %s" % self.current_window)
+
                             stock1_holding = -beta  # or equal to the previous window -beta
                             stock2_holding = 1
                             self.invested = "long"
                         elif self.invested == "long" and zscore >= -self.exit_z:
                             # Close Position
-                            print("Closing Long: %s" % self.current_window)
+
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
                         elif self.invested == "short" and zscore > self.exit_z:
                             # Holding Position
-                            print("Holding Short: %s" % self.current_window)
+
                             stock1_holding = beta  # or equal to the previous window beta
                             stock2_holding = -1
                             self.invested = "short"
                         elif self.invested == "short" and zscore <= self.exit_z:
                             # Close Position
-                            print("Closing Short: %s" % self.current_window)
+
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
@@ -229,6 +231,7 @@ class Cointegrator:
     '''
 
     def cointegration_analysis(self, X, Y):
+
         """
         perform ADF test, Half-life and Hurst on pair of price time series
         return ADF test, ADF critical values for difference confidence levels,
@@ -320,14 +323,13 @@ class Cointegrator:
 
 
 if __name__ == '__main__':
+    win = Window(window_start=date(2008, 1, 1),
+                 window_length=timedelta(days=90),
+                 repository=DataRepository())
+
     X, Y = cointegrated_pair_generator()[0:2]
-    coint = Cointegrator(
-        repository=DataRepository(),
-        adf_confidence_level="1%",
-        max_mean_rev_time=15,
-        entry_z=2,
-        exit_z=0.5
-    )
+    coint = Cointegrator(repository=DataRepository(), adf_confidence_level="1%", max_mean_rev_time=15, entry_z=2,
+                         exit_z=0.5, current_window=win, previous_window=self.history[-1])
     results = coint.cointegration_analysis(X, Y)
 
     adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results
