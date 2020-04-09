@@ -6,6 +6,8 @@ from typing import Dict, Optional, Set, List
 
 import pandas as pd
 from pandas import DataFrame
+import numpy as np
+import datetime
 
 
 @unique
@@ -36,12 +38,19 @@ class DataRepository:
 
         return data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]
 
-    def get_for_clustering(self, req_tickers: List[str], req_features: List[str]):
+    def get_for_clustering(self, datatype: Universes, req_tickers: List[str], req_features: List[str], start_date, end_date):
 
         # all features for stock ['AMCR', 'EVRG']:
         # data.loc[:, pd.IndexSlice[req_tickers, :]]
+        #self.repeat_for_tickers(datatype, req_tickers, start_date, end_date)
+        data = pd.DataFrame(self.get(datatype, start_date, end_date))
+        data = data[req_tickers]
+        cols = data.mean().to_numpy()
+        cluster = np.reshape(cols,(len(req_tickers),len(req_features)))
+        return cluster
 
-        raise NotImplementedError
+
+
 
     def __get_from_disk_and_store(self, datatype: Universes):
         print(f"In DataRepository, reading CSV from disk for: {datatype.name}")
@@ -71,6 +80,35 @@ class DataRepository:
         self.all_data[datatype] = d
 
         return d
+    def get_time_series(self, start_date: date, end_date: date, datatype: Universes, ticker: str, feature: str):
+
+        # get rid of 'US Equity' string in col headings
+        all_data = self.all_data[datatype][f"{ticker} {feature}"]
+
+        raise NotImplementedError
+    #create functions for comparison
+    # def intraday_volatility(self, datatype: Universes, ticker: str, start_date, end_date):
+    #     data = self.get(self, datatype, start_date, end_date)
+    #
+    #     self.all_data[datatype][f"{ticker}"{'VOLATILITY'}] = self.all_data[datatype][ticker + ' OPEN', ticker + ' HIGH', ticker +' LOW', ticker+' LAST_PRICE' ][start_date:end_date].std(axis= 0)
+    #
+    # def leverage(self, datatype: Universes,  ticker: str,  start_date, end_date ):
+    #     self.all_data[datatype][f"{ticker}" {'LEVERAGE'}] = self.all_data[datatype][f"{ticker}"{' SHORT_AND_LONG_TERM_DEBT'}]/ self.all_data[datatype][f"{ticker}"{'TOTAL_ASSETS'}]
+    #
+    # def repeat_for_tickers(self, datatype: Universes, tickers: List[str], start_date, end_date):
+    #     for x in tickers:
+    #         self.backfill(self, datatype, x, start_date, end_date)
+    #         self.roe(self, datatype, x, start_date, end_date)
+    #         self.leverage(self, datatype, x, start_date, end_date)
+    #         self.intraday_volatility(self, datatype, x, start_date, end_date)
+    #
+    # def roe(self, datatype: Universes, ticker:str, start_date, end_date):
+    #     self.all_data[datatype][f"{ticker}"{'ROE'}] = self.all_data[datatype][f"{ticker}"{'EARN_FOR_COMMON'}]/ self.all_data[datatype][f"{ticker}" {'TOTAL_EQUITY'}]
+    #
+    # def backfill(self, datatype: Universes, ticker:str, start_date, end_date, features: List[str]):
+    #     for feature in features:
+    #         self.all_data[datatype][f"{ticker} {feature}"].fillna(method = 'ffill')
+
 
     # def get_data_for_coint(self, stock_ticker: str, ETF_ticker: str) -> Df:
     #     stock_price_data = self[[stock_ticker + ' Last']]
@@ -105,13 +143,6 @@ class DataRepository:
     #         self.fill_nas(self,x)
     #
 
-    def get_time_series(self, start_date: date, end_date: date, datatype: Universes, ticker: str, feature: str):
-
-        # get rid of 'US Equity' string in col headings
-        all_data = self.all_data[datatype][f"{ticker} {feature}"]
-
-        raise NotImplementedError
-
 # @classmethod
 # def __read(cls, full_location: Path, ticker: str):
 #
@@ -145,4 +176,4 @@ class DataRepository:
 #
 #     cls.__save(returns, cum_return, full_location)
 #
-#     return returns, cum_return, ave_return, std_of_returns
+#     return returns, cum_return, ave_return, std_of_retur
