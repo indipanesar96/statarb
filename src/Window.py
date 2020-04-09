@@ -6,6 +6,8 @@ import pandas as pd
 from src.DataRepository import DataRepository, Universes
 from src.util.Features import Features
 from src.util.Tickers import Tickers
+
+
 # from DataRepository import DataRepository, Universes
 # from util.Features import Features
 # from util.Tickers import Tickers
@@ -63,7 +65,6 @@ class Window:
 
         examples (run under PairTrader.py):
 
-        1. all features for tickers ['ALLE', 'WU']
         self.current_window.get_data(Universes.SNP, [SnpTickers.ALLE, SnpTickers.WU])
 
         2. all tickers' ['ASK', 'BID']
@@ -71,7 +72,7 @@ class Window:
 
         3. ['BID','LOW'] for ['FITE','ARKW'], which is from ETF universe
         self.current_window.get_data(Universes.ETFs,
-                                    tickers = [EtfTickers.FITE,EtfTickers.ARKW],
+                                    tickers = [EtfTickers.FITE , EtfTickers.ARKW],
                                     features = [EtfFeatures.BID, EtfFeatures.LOW]
 
         '''

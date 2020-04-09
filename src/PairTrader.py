@@ -1,20 +1,14 @@
-import datetime
 from datetime import date, timedelta
 from typing import Optional, List
 
 import pandas as pd
 from pandas import DataFrame
 
-from src.Cointegrator import Cointegrator
-from src.DataRepository import DataRepository, Universes
 from src.Clusterer import Clusterer
+from src.Cointegrator import Cointegrator
+from src.DataRepository import DataRepository
 from src.Filters import Filters
 from src.Window import Window
-# from Cointegrator import Cointegrator
-# from DataRepository import DataRepository, Universes
-# from Clusterer import Clusterer
-# from Filters import Filters
-# from Window import Window
 
 
 # 1. Features common to ETF and SNP for clustering -? calls to yfinance
@@ -32,9 +26,6 @@ class PairTrader:
                  entry_z: float = 1.5,
                  exit_z: float = 0.5):
 
-
-
-
         # If end_date is None, run for the entirety of the dataset
         # Window is the lookback period (from t=-window_length-1 to t=-1 (yesterday) over which we analyse data
         # to inform us on trades to make on t=0 (today). We assume an expanding window for now.
@@ -46,7 +37,7 @@ class PairTrader:
 
         self.start_date: date = start_date
         self.window_length: timedelta = window_length
-        self.adf_confidence_level: str = adf_confidence_level  #specify as string percentage like "5%" or "1%"
+        self.adf_confidence_level: str = adf_confidence_level  # specify as string percentage like "5%" or "1%"
         self.max_mean_rev_time: float = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
@@ -75,21 +66,23 @@ class PairTrader:
 
         ### Jay Part
         self.clusterer = Clusterer()
-        dbscan_clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=initial_window) # this uses stimulated data for testing purpose
-        #self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
+        dbscan_clusters = self.clusterer.dbscan(eps=2.5, min_samples=2,
+                                                window=initial_window)  # this uses stimulated data for testing purpose
+        # self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
         print(dbscan_clusters)
         print(self.clusterer.dbscan_labels)
-        #print(self.clusterer.kmeans_labels)
+        # print(self.clusterer.kmeans_labels)
         ###
 
-        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time, self.entry_z, self.exit_z)
+        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time,
+                                         self.entry_z, self.exit_z)
         self.filters = Filters()
 
     def trade(self):
         for _ in self.date_range:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
-            x=10
+            x = 10
 
             # Using DBScan for now, ensemble later
             # cluster_results = self.clusterer.DBScan(self.current_window)
@@ -98,7 +91,6 @@ class PairTrader:
 
             # Take cointegrated signals and pass into Filter = filtered signal
             # use something like: signal = self.cointegrator.run_cointegrator(cluster_results)
-
 
             # Take filtered signal
 
@@ -126,12 +118,12 @@ class PairTrader:
 
 
 if __name__ == '__main__':
-    trader  = PairTrader(
+    trader = PairTrader(
         start_date=date(2008, 1, 1),
         window_length=timedelta(days=90),
         end_date=None,
-        adf_confidence_level = str("1%"),
-        max_mean_rev_time = float(15),
-        entry_z = 1.5,
-        exit_z = 0.5
-    )
+        adf_confidence_level=str("1%"),
+        max_mean_rev_time=float(15),
+        entry_z=1.5,
+        exit_z=0.5
+    ).trade()
