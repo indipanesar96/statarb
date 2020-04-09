@@ -6,9 +6,15 @@ import pandas as pd
 from pandas import DataFrame
 
 from src.Cointegrator import Cointegrator
-from src.DataRepository import DataRepository
+from src.DataRepository import DataRepository, Universes
+from src.Clusterer import Clusterer
 from src.Filters import Filters
 from src.Window import Window
+# from Cointegrator import Cointegrator
+# from DataRepository import DataRepository, Universes
+# from Clusterer import Clusterer
+# from Filters import Filters
+# from Window import Window
 
 
 # 1. Features common to ETF and SNP for clustering -? calls to yfinance
@@ -18,7 +24,7 @@ from src.Window import Window
 class PairTrader:
 
     def __init__(self,
-                 start_date: date = datetime.date(2008, 1, 1),
+                 start_date: date = date(2008, 1, 1),
                  window_length: timedelta = timedelta(days=90),
                  end_date: Optional[date] = None,
                  adf_confidence_level: str = "5%",
@@ -66,7 +72,15 @@ class PairTrader:
         snp_end_date = date(year=2020, month=12, day=31)
         # Days since the start of backtest
         self.days_alive: int = 0
+
+        ### Jay Part
         self.clusterer = Clusterer()
+        self.clusterer.dbscan(eps=2.0, min_samples=2, window=initial_window) # this uses stimulated data for testing purpose
+        #self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
+        print(self.clusterer.dbscan_labels)
+        #print(self.clusterer.kmeans_labels)
+        ###
+
         self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time, self.entry_z, self.exit_z)
         self.filters = Filters()
 
@@ -111,12 +125,12 @@ class PairTrader:
 
 
 if __name__ == '__main__':
-    PairTrader(
-        start_date=date(2014, 10, 1),
-        window_length=timedelta(days=300),
+    trader  = PairTrader(
+        start_date=date(2008, 1, 1),
+        window_length=timedelta(days=90),
         end_date=None,
         adf_confidence_level = str("1%"),
         max_mean_rev_time = float(15),
         entry_z = 1.5,
         exit_z = 0.5
-    ).trade()
+    )
