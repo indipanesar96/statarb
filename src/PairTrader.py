@@ -75,8 +75,9 @@ class PairTrader:
 
         ### Jay Part
         self.clusterer = Clusterer()
-        self.clusterer.dbscan(eps=2.0, min_samples=2, window=initial_window) # this uses stimulated data for testing purpose
+        dbscan_clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=initial_window) # this uses stimulated data for testing purpose
         #self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
+        print(dbscan_clusters)
         print(self.clusterer.dbscan_labels)
         #print(self.clusterer.kmeans_labels)
         ###

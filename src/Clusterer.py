@@ -43,8 +43,11 @@ class Clusterer:
                     SnpTickers.IBM, SnpTickers.AMZN,
                     SnpTickers.MS, SnpTickers.GS, SnpTickers.AXP,
                     SnpTickers.BLK, SnpTickers.C]
+        self.tickers = tickers
         features = [SnpFeatures.LAST_PRICE, SnpFeatures.EBITDA, SnpFeatures.PE_RATIO,
                     SnpFeatures.SHORT_AND_LONG_TERM_DEBT, SnpFeatures.TOTAL_ASSETS, SnpFeatures.TOTAL_EQUITY]
+        self.features = features
+
         data = window.get_data(Universes.SNP, tickers, features)
         data = data.replace("", np.nan)
         print(data)
@@ -93,13 +96,13 @@ class Clusterer:
         self.n_noise = n_noise = list(labels).count(-1)
         self.noise = np.where(labels == -1)[0]
 
-
-        # tickers = ['SPY', 'VTI', 'MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'ATVI', 'ADBE', 'AMD', 'AAP']
         clusters = {}
         for j in range(n_clusters):
             pairs = []
             for i in itertools.combinations(np.where(labels == j)[0], 2):
                 pair = (i[0], i[1])
+                if window != None:
+                    pair = (self.tickers[i[0]], self.tickers[i[1]])
                 pairs.append(pair)
             clusters['C' + str(j)] = pairs
 
