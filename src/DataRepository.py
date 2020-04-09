@@ -31,6 +31,7 @@ class DataRepository:
         else:
             data_for_all_time = self.all_data[datatype]
 
+
         date_range_filter_mask = [i.date() for i in iter(pd.date_range(start=window_start, end=window_end))]
 
         return data_for_all_time[data_for_all_time.index.isin(date_range_filter_mask)]

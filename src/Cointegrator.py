@@ -7,10 +7,12 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
-from src.Window import Window
 from src.DataRepository import DataRepository
+from src.Window import Window
+from src.util.FakeCointegratedPair import cointegrated_pair_generator
 # from Window import Window
 # from DataRepository import DataRepository
+# from util.FakeCointegratedPair import cointegrated_pair_generator
 
 
 ##
@@ -51,10 +53,10 @@ class Cointegrator:
 
         pass
 
-    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]], ) -> Dict[int, Tuple[str]]:
+    def run_cointegrator(self, clustering_results: Dict[int, Tuple[str]]): #-> Dict[int, Tuple[str]]
         """
         iteratively test for cointegration for all the pairs within each cluster;
-        return dictionary with a 2-element list of tickers as key, and a list
+        return dictionary with a 2-element list of tickers as key, and a list of current holdings and current position (e.g. {["AAPL","GOOG"]: [beta, -1, "long"]})
         """
         # clustering_results should look like something similar:
         # {
@@ -62,12 +64,14 @@ class Cointegrator:
         # 2: [('AMGN', 'MMM')]
         # }
         cointegrated_pairs = []
+        stock1_holding = 0
+        stock2_holding = 0
         for cluster in clustering_results.values():
             for pair in cluster:
                 # t1 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[0], feature: 'Last_Price')
                 # t2 = get_time_series(start_date: window_start, end_date: window_end, datatype: 'SNP', ticker: pair[1], feature: 'Last_Price')
-                t1 = self.current_window.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price')
-                t2 = self.current_window.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price')
+                t1 = self.current_window.get_data(universe='SNP', tickers = pair[0], features = 'Last_Price').tolist()
+                t2 = self.current_window.get_data(universe='SNP', tickers = pair[1], features = 'Last_Price').tolist()
 
 
                 cointegration_parameters = self.cointegration_analysis(t1, t2) # (X,Y)
@@ -85,9 +89,9 @@ class Cointegrator:
                 ######### Hurst exponent check #############
                 #### check if half life is less than 0.5 --> if yes, then we are happy
 
-                if adf_test_statistic <= self.adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
-                    stock1_holding = 0
-                    stock2_holding = 0
+                if adf_test_statistic <= adf_critical_values['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
+                    # stock1_holding = 0
+                    # stock2_holding = 0
                     #stock_holding_list = []
                     # If we are not in the market
                     if self.invested is None:
@@ -109,24 +113,42 @@ class Cointegrator:
 
                     # If we are in the market
                     if self.invested is not None:
-                        if self.invested == "long" and zscore >= -self.exit_z:
+                        if self.invested == "long" and zscore < -self.entry_z:
+                            # Holding Postion
+                            print("Holding Long: %s" % self.current_window)
+                            stock1_holding = -beta # or equal to the previous window -beta
+                            stock2_holding = 1
+                            self.invested = "long"
+                        elif self.invested == "long" and zscore >= -self.exit_z:
                             # Close Position
                             print("Closing Long: %s" % self.current_window)
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
+                        elif self.invested == "short" and zscore > self.exit_z:
+                            # Holding Position
+                            print("Holding Short: %s" % self.current_window)
+                            stock1_holding = beta # or equal to the previous window beta
+                            stock2_holding = -1
+                            self.invested = "short"
                         elif self.invested == "short" and zscore <= self.exit_z:
                             # Close Position
                             print("Closing Short: %s"% self.current_window)
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
-                    #stock_holding_list.append([stock1_holding, stock2_holding])
-                cointegrated_pairs.append([list(pair), [stock1_holding, stock2_holding]])
+                else:
+                    # Not conintegrated
+                    print("Not Conintegrated: %s" % self.current_window)
+                    stock1_holding = 0
+                    stock1_holding = 0
+                    self.invested = None
+                cointegrated_pairs.append({list(pair): [stock1_holding, stock2_holding, self.invested]})
                 # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
         return cointegrated_pairs
         #return signals
+
     '''
     zscore represents the standardized residual error of the prediction at current window,
     while entry_z and exit_z represent thresholds for entering the market and exitting the
@@ -145,6 +167,9 @@ class Cointegrator:
 
     ###Kalman Filter
     '''
+
+
+
 
     '''
     # zscore = latest_residual_scaled (defined in cointegration_analysis)
@@ -230,16 +255,16 @@ class Cointegrator:
         #  '10%': -2.566790836162312}
 
         # call half_life_test function on residuals to compute half life
-        hl_test = self.half_life_test(residuals)
+        hl_test = self.half_life_test(np.array(residuals))
 
         # call hurst_exponent_test function on residuals to compute hurst exponent
-        hurst_exp = self.hurst_exponent_test(residuals)
+        hurst_exp = self.hurst_exponent_test(np.array(residuals))
 
-        # save latest residual and scaler function in case we want to scale it
-        latest_residual = residuals[-1]
-        residual_scaler = StandardScaler()
-        residual_scaler.fit(residuals)
-        latest_residual_scaled = residual_scaler.transform(latest_residual)
+        # standardize residuals through StandardScaler() and save latest_residual_scaled
+        scaler = StandardScaler()
+        scaler.fit(residuals)
+        residuals_scaled = scaler.transform(residuals)
+        latest_residual_scaled = float(residuals_scaled[-1])
 
         return adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled
 
@@ -248,6 +273,7 @@ class Cointegrator:
         Calculates the half life of the residuals to check average time of mean reversion
         """
         # calculate the vector of lagged residuals
+        print(type(residuals))
         lagged_residuals = residuals[:-1]  # independent variable
         delta_residuals = (residuals[1:] - lagged_residuals)  # dependent variable
 
@@ -282,7 +308,7 @@ class Cointegrator:
             variance_delta_vector.append(np.var(delta_res))
 
         # avoid 0 values for variance_delta_vector
-        variance_delta_vector = [value if value != 0 else 1e-10 for elem in variance_delta_vector]
+        variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
         #  regress (10-base log of) variance_delta_vector against tau_vector
         results = LinearRegression().fit(np.log10(tau_vector).reshape(-1, 1), np.log10(variance_delta_vector))
 
@@ -293,3 +319,24 @@ class Cointegrator:
         # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
 
         return reg_coef / 2
+
+if __name__ == '__main__':
+
+    X,Y = cointegrated_pair_generator()[0:2]
+    coint = Cointegrator(
+        repository =DataRepository(),
+        adf_confidence_level = "1%",
+        max_mean_rev_time = 15,
+        entry_z = 2,
+        exit_z = 0.5
+    )
+    results = coint.cointegration_analysis(X, Y)
+
+    adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results
+    print("ADF statistic is ", adf_test_statistic, ", hopefully lower than critical value")
+    print("Critical value for confidence ", coint.adf_confidence_level,
+          ", is: ", adf_critical_values[coint.adf_confidence_level])
+    print("half life test is: ", hl_test)
+    print("hurst exponent is:  ", hurst_exp)
+    print("beta of regression is: ", beta)
+    print("latest scaled residual is: ",latest_residual_scaled)
