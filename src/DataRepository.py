@@ -79,6 +79,35 @@ class DataRepository:
 
         return d
 
+    def get_time_series(self, start_date: date, end_date: date, datatype: Universes, ticker: str, feature: str):
+
+        # get rid of 'US Equity' string in col headings
+        all_data = self.all_data[datatype][f"{ticker} {feature}"]
+        return all_data
+
+        #raise NotImplementedError
+    def get_cluster(self, datatype: Universes, req_ticker: List[str], req_feature:List[str]):
+        data = pd.DataFrame(self.all_data[datatype][f"{req_ticker} {req_feature}"])
+        data = self.backfill(data)
+        # select stocks with all features
+        column_names = data.columns.tolist()
+        corr_tick = [x for x in req_ticker if column_names.count(str(x)) == len(req_feature)]
+        corr_col = [x for x in column_names if x corr_tick]
+        data = data[data[corr_col]]
+        #average if more than 90% of data not nan
+        missing = data.isnull().sum() * 100 / len(data)
+        missing_cols = missing[missing>=90]
+        data = data.isin(missing_cols)
+        data = data.mean()
+        d = np.reshape(data, (len(corr_tick), len(req_feature)))
+        cluster = pd.DataFrame(d, index = corr_tick, columns = req_feature)
+        return cluster
+    def backfill(self, data:DataFrame):
+        for column in data.columns.tolist()
+            feature = column.split(',')
+            if feature in ['EBITDA',  'Earn_for_Common', 'Short_and_Long_Term_Debt', 'Total_Assets', 'Total_Total']
+                data[column].fillna(method = 'ffill')
+        return data
     # def get_data_for_coint(self, stock_ticker: str, ETF_ticker: str) -> Df:
     #     stock_price_data = self[[stock_ticker + ' Last']]
     #     ETF_price_data = self[[ETF_ticker + ' Last']]
@@ -111,14 +140,6 @@ class DataRepository:
     #         self.leverage(self,x)
     #         self.fill_nas(self,x)
     #
-
-    def get_time_series(self, start_date: date, end_date: date, datatype: Universes, ticker: str, feature: str):
-
-        # get rid of 'US Equity' string in col headings
-        all_data = self.all_data[datatype][f"{ticker} {feature}"]
-
-        raise NotImplementedError
-
 # @classmethod
 # def __read(cls, full_location: Path, ticker: str):
 #
