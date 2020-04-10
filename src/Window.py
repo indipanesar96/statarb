@@ -25,7 +25,22 @@ class Window:
         self.repository: DataRepository = repository
 
         # Window object contains information about timings for the window as well as SNP and ETF data for that period.
-        self.window_end: date = self.window_start + self.window_length
+
+        def __get_weekdays_for_window(start_date: date, window_size: timedelta) -> List[date]:
+            # Ensures we have a window with window__size trading days
+            weekdays: List[date] = []
+            counter = 0
+            while len(weekdays) < window_size.days:
+                maybe_weekday = start_date + timedelta(days=counter)
+                # 0 = Monday, 6 = Sunday
+                if maybe_weekday.weekday() < 5:
+                    weekdays.append(maybe_weekday)
+                counter += 1
+            return weekdays
+
+        self.window_trading_days = __get_weekdays_for_window(start_date=window_start, window_size=window_length)
+
+        self.window_end: date = self.window_trading_days[-1]
 
         # After construction of the object we also have self.etf_data nd self.snp_data
         self.__get_window_data(self.window_start, self.window_end)
@@ -61,7 +76,7 @@ class Window:
         This is because:
             - SnpTickers and EtfTickers both inherit from Tickers
                         AND
-            - SnpFeaturesand EtfFeatures both inherit from Features
+            - SnpFeatures and EtfFeatures both inherit from Features
 
         examples (run under PairTrader.py):
 
@@ -79,9 +94,9 @@ class Window:
 
         if tickers is None and features is None:
 
-            if universe == Universes.SNP:
+            if universe is Universes.SNP:
                 return self.snp_data
-            if universe == Universes.ETFs:
+            if universe is Universes.ETFs:
                 return self.etf_data
 
         if universe is Universes.SNP:

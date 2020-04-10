@@ -1,7 +1,3 @@
-import pandas as pd
-import numpy as np
-from typing import Optional
-import datetime as dt
 import datetime as dt
 from typing import Optional
 
@@ -9,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 from src.Window import Window
-# from Window import Window
+
 
 class Filters:
 

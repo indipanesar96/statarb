@@ -8,11 +8,8 @@ from src.Clusterer import Clusterer
 from src.Cointegrator import Cointegrator
 from src.DataRepository import DataRepository
 from src.Filters import Filters
+from src.RiskManager import RiskManager
 from src.Window import Window
-
-
-# 1. Features common to ETF and SNP for clustering -? calls to yfinance
-# 2. cluster on stock stock pair if not
 
 
 class PairTrader:
@@ -37,14 +34,15 @@ class PairTrader:
 
         self.start_date: date = start_date
         self.window_length: timedelta = window_length
-        self.adf_confidence_level: str = adf_confidence_level  # specify as string percentage like "5%" or "1%"
+        self.adf_confidence_level: str = adf_confidence_level  # e.g. "5%" or "1%"
         self.max_mean_rev_time: float = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
 
         if end_date is None:
             # Last SNP date, hard coded for now...
-            self.end_date = date(year=2020, month=12, day=31)
+            snp_end_date = date(year=2020, month=12, day=31)
+            self.end_date = snp_end_date
         else:
             self.end_date = end_date
 
@@ -54,40 +52,34 @@ class PairTrader:
         self.portfolio: Optional[DataFrame] = None
         self.current_window: Window = initial_window
 
-        # Is this required? Isn't history just all data since self.start_date? (for an expanding window)
-        # Indi thinking to himself
-
         self.history: List[Window] = [initial_window]
 
         self.today = self.start_date + self.window_length + timedelta(days=1)
-        snp_end_date = date(year=2020, month=12, day=31)
         # Days since the start of backtest
         self.days_alive: int = 0
-
-        ### Jay Part
         self.clusterer = Clusterer()
-        dbscan_clusters = self.clusterer.dbscan(eps=2.5, min_samples=2,
-                                                window=initial_window)  # this uses stimulated data for testing purpose
-        # self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
-        print(dbscan_clusters)
-        print(self.clusterer.dbscan_labels)
-        # print(self.clusterer.kmeans_labels)
-        ###
-
-        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time,
-                                         self.entry_z, self.exit_z)
+        self.cointegrator = Cointegrator(self.repository,
+                                         self.adf_confidence_level,
+                                         self.max_mean_rev_time,
+                                         self.entry_z,
+                                         self.exit_z,
+                                         initial_window,
+                                         self.history[-1])
+        self.risk_manager = RiskManager()
         self.filters = Filters()
 
     def trade(self):
         for _ in self.date_range:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
-            x = 10
+            # this uses stimulated data for testing purpose
+            clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=self.current_window)
 
-            # Using DBScan for now, ensemble later
-            # cluster_results = self.clusterer.DBScan(self.current_window)
+            # self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
+            print(clusters)
+            print(self.clusterer.dbscan_labels)
 
-            # Take cluster results and pass into Cointegrator and return signals
+            x = self.cointegrator.run_cointegrator(clusters)
 
             # Take cointegrated signals and pass into Filter = filtered signal
             # use something like: signal = self.cointegrator.run_cointegrator(cluster_results)
@@ -118,9 +110,9 @@ class PairTrader:
 
 
 if __name__ == '__main__':
-    trader = PairTrader(
+    PairTrader(
         start_date=date(2008, 1, 1),
-        window_length=timedelta(days=90),
+        window_length=timedelta(days=10),
         end_date=None,
         adf_confidence_level=str("1%"),
         max_mean_rev_time=float(15),

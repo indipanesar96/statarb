@@ -3,18 +3,19 @@ import itertools
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-# pd.options.display.max_columns = None
-# pd.options.display.max_rows = None
-from datetime import date, timedelta
+
+pd.options.display.max_columns = None
+pd.options.display.max_rows = None
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import KMeans
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn.preprocessing import StandardScaler
 
-from src.util.Tickers import SnpTickers
-from util.Features import SnpFeatures
-from src.Window import Window
 from src.DataRepository import Universes
+from src.util.Features import SnpFeatures
+from src.util.Tickers import SnpTickers
+
+
 # from util.Tickers import SnpTickers
 # from util.Features import SnpFeatures
 # from Window import Window
@@ -40,9 +41,9 @@ class Clusterer:
 
     def generate_data(self, window):
         tickers = [SnpTickers.AAPL, SnpTickers.MSFT, SnpTickers.FB,
-                    SnpTickers.IBM, SnpTickers.AMZN,
-                    SnpTickers.MS, SnpTickers.GS, SnpTickers.AXP,
-                    SnpTickers.BLK, SnpTickers.C]
+                   SnpTickers.IBM, SnpTickers.AMZN,
+                   SnpTickers.MS, SnpTickers.GS, SnpTickers.AXP,
+                   SnpTickers.BLK, SnpTickers.C]
         self.tickers = tickers
         features = [SnpFeatures.LAST_PRICE, SnpFeatures.EBITDA, SnpFeatures.PE_RATIO,
                     SnpFeatures.SHORT_AND_LONG_TERM_DEBT, SnpFeatures.TOTAL_ASSETS, SnpFeatures.TOTAL_EQUITY]
@@ -52,38 +53,35 @@ class Clusterer:
         data = data.replace("", np.nan)
         print(data)
         non_nan_count = data.count()
-        non_nan_count = np.array([i+1 if i==0 else i for i in non_nan_count])
+        non_nan_count = np.array([i + 1 if i == 0 else i for i in non_nan_count])
         print(non_nan_count)
         # data = data.fillna(0)
         data = data.sum(axis=0, skipna=True)
-        print(data/non_nan_count)
-        data = np.array(data/non_nan_count).reshape(len(tickers), len(features))
+        print(data / non_nan_count)
+        data = np.array(data / non_nan_count).reshape(len(tickers), len(features))
         print(data)
         self.data = data
         self.data_length = len(data)
         return data
 
-
     def dbscan(self, min_samples, eps=None, window=None):
         self.window = window
-        data = None
-        if window == None:
+        if window is None:
             centers = [[2, 2], [-4, -2], [1, -6]]
             data, labels_true = make_blobs(n_samples=100, centers=centers, cluster_std=0.88, random_state=0)
             df = pd.DataFrame(data)
             self.data = data = StandardScaler().fit_transform(df)
             self.data_length = len(data)
         else:
-            # pass
             self.data = data = StandardScaler().fit_transform(self.generate_data(window))
             self.data_length = len(data)
         print(data)
 
-        dbscan = None
-        if eps == None:
+        if eps is None:
             dbscan = DBSCAN(min_samples=min_samples).fit(data)
         else:
             dbscan = DBSCAN(eps=eps, min_samples=min_samples).fit(data)
+
         self.dbscan_labels = labels = dbscan.labels_
         core_samples_mask = np.zeros_like(dbscan.labels_, dtype=bool)
         core_samples_mask[dbscan.core_sample_indices_] = True
@@ -91,9 +89,9 @@ class Clusterer:
         self.dbscan_core_length = len(dbscan.core_sample_indices_)
         self.dbscan_core_mask = core_samples_mask
 
-        self.unique_labels = unique_labels = set(labels)
+        self.unique_labels = set(labels)
         self.n_clusters = n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
-        self.n_noise = n_noise = list(labels).count(-1)
+        self.n_noise = list(labels).count(-1)
         self.noise = np.where(labels == -1)[0]
 
         clusters = {}
@@ -101,10 +99,10 @@ class Clusterer:
             pairs = []
             for i in itertools.combinations(np.where(labels == j)[0], 2):
                 pair = (i[0], i[1])
-                if window != None:
+                if window is not None:
                     pair = (self.tickers[i[0]], self.tickers[i[1]])
                 pairs.append(pair)
-            clusters['C' + str(j)] = pairs
+            clusters[j] = pairs
 
         # some code here to update the class variables
         # self.cluster_history.append(clusters)
@@ -119,18 +117,14 @@ class Clusterer:
         self.data_denoised = data_denoised
         self.data_denoised_length = len(data_denoised)
         self.kmeans_labels = km_labels = kmeans.labels_
-        # unique_labels = set(km_labels)
         clusters = {}
         for j in range(n_clusters):
             pairs = []
             for i in itertools.combinations(np.where(km_labels == j)[0], 2):
                 pair = (i[0], i[1])
                 pairs.append(pair)
-            clusters['C' + str(j)] = pairs
+            clusters[j] = pairs
         return clusters
-
-    def optics(self):
-        pass
 
     def plot(self):
         # X_0 = self.data_denoised[np.where(self.kmeans_labels==0)[0]]
