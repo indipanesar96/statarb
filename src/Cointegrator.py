@@ -290,7 +290,7 @@ class Cointegrator:
         Returns the Hurst Exponent of the time series vector
         """
         # initialize empty vector for different lags indicated as tau
-        tau_vectozr = []
+        tau_vector = []
         # initialize empty vector for variances of deltas characterized by different lags
         variance_delta_vector = []
         # Create the range of lag values
