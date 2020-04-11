@@ -128,7 +128,7 @@ class Cointegrator:
                             stock1_holding = 0
                             stock2_holding = 0
                             self.invested = None
-                        elif self.invested == "short" and zscore > self.exit_z:
+                        elif self.invested == "short" and zscore > self.entry_z:
                             # Holding Position
 
                             stock1_holding = beta  # or equal to the previous window beta
@@ -142,7 +142,6 @@ class Cointegrator:
                             self.invested = None
                 else:
                     # Not conintegrated
-                    print("Not Conintegrated: %s" % self.current_window)
                     stock1_holding = 0
                     stock1_holding = 0
                     self.invested = None
@@ -291,7 +290,7 @@ class Cointegrator:
         Returns the Hurst Exponent of the time series vector
         """
         # initialize empty vector for different lags indicated as tau
-        tau_vector = []
+        tau_vectozr = []
         # initialize empty vector for variances of deltas characterized by different lags
         variance_delta_vector = []
         # Create the range of lag values
