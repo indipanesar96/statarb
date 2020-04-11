@@ -103,11 +103,27 @@ class DataRepository:
         cluster = pd.DataFrame(d, index = corr_tick, columns = req_feature)
         return cluster
     def backfill(self, data:DataFrame):
-        for column in data.columns.tolist()
-            feature = column.split(',')
-            if feature in ['EBITDA',  'Earn_for_Common', 'Short_and_Long_Term_Debt', 'Total_Assets', 'Total_Total']
-                data[column].fillna(method = 'ffill')
+        data = pd.DataFrame(self.all_data).fillna(method = 'ffill')
         return data
+    def intraday_vol(self, datatype: Universes, ticker):
+        features = ['Open', 'Last_Price', 'High', 'Low']
+        data = pd.DataFrame(self.all_data[datatype][f"{ticker} {features}"])
+        daily_vol = data.std(axis = 0)
+        return daily_vol
+
+    def ROE(self, datatype: Universes, ticker):
+        NI_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Earn_for_Common'}"])
+        Mcap_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Total_Equity'}"])
+        ROE = NI_data/Mcap_data
+        return ROE.fillna(method = 'ffill')
+    def leverage(self, datatype:Universes, ticker):
+        TA_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Total_Assets'}"])
+        TE_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Total_Equity'}"])
+        leverage = TA_data/TE_data
+        return leverage.fillna(method= 'ffill')
+
+
+
     # def get_data_for_coint(self, stock_ticker: str, ETF_ticker: str) -> Df:
     #     stock_price_data = self[[stock_ticker + ' Last']]
     #     ETF_price_data = self[[ETF_ticker + ' Last']]
