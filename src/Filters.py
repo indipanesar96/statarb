@@ -1,3 +1,7 @@
+import pandas as pd
+import numpy as np
+from typing import Optional
+import datetime as dt
 import datetime as dt
 from typing import Optional
 
@@ -6,6 +10,10 @@ import pandas as pd
 
 from src.Window import Window
 
+import src.util.Tickers as Tickers
+import src.util.Features as Features
+from from src.DataRepository import Universes
+# from Window import Window
 
 class Filters:
 
@@ -17,7 +25,7 @@ class Filters:
         # how many stdvs away from mean we classify a shock - to be perturbed
 
     def apply_volume_shock_filter(self, pairs):
-        # pairs structure: {[ticker, ETFTicker]: [size of short, size of long]}
+        # pairs structure: List[List[ListTickers.EtfTickers or Tickers.SnpTickers, expecting 2 items]]]
         reduced_pairs = pairs.copy()
         # iter through input pairs to be traded, apply volume shock filter
         #     function call to determine volume shock state or not for each ticker, etf pair
@@ -28,10 +36,10 @@ class Filters:
         #         remove this key:value paor
         #         dictionary.drop(key:value pair)
         for ticker_pair in pairs.keys():
-            stock_shock = self.__is_volume_shock(reduced_pairs[0])
-            etf_shock = self.__is_volume_shock(reduced_pairs[1])
-            if stock_shock != etf_shock:
-                del reduced_pairs[ticker_pair]
+            first_shock = self.__is_volume_shock(reduced_pairs[0])
+            second_shock = self.__is_volume_shock(reduced_pairs[1])
+            if first_shock != second_shock:
+                reduced_pairs.remove(ticker_pair)
         return reduced_pairs
 
     def __is_volume_shock(self, ticker):
@@ -44,6 +52,11 @@ class Filters:
         volumedf = pd.DataFrame(np.random.rand(250, 1), columns=['vol'],
                                 index=pd.date_range(periods=250,
                                                     end=dt.datetime.today().strftime('%Y-%m-%d')))
+        if ticker in Tickers.EtfTickers:
+            volumedf = self.current_window.get_data(Universes.ETFs,
+                                    tickers = [ticker],
+                                    features = [Tickers.BID, EtfFeatures.LOW]
+
         std = volumedf.vol.std()
         mean = volumedf.vol.mean()
         # create random vol today, should be replaced
