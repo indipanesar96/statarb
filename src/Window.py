@@ -31,10 +31,10 @@ class Window:
             weekdays: List[date] = []
             counter = 0
             while len(weekdays) < window_size.days:
-                maybe_weekday = start_date + timedelta(days=counter)
+                current_weekday = start_date + timedelta(days=counter)
                 # 0 = Monday, 6 = Sunday
-                if maybe_weekday.weekday() < 5:
-                    weekdays.append(maybe_weekday)
+                if current_weekday.weekday() < 5:
+                    weekdays.append(current_weekday)
                 counter += 1
             return weekdays
 

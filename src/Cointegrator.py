@@ -328,7 +328,7 @@ if __name__ == '__main__':
 
     X, Y = cointegrated_pair_generator()[0:2]
     coint = Cointegrator(repository=DataRepository(), adf_confidence_level="1%", max_mean_rev_time=15, entry_z=2,
-                         exit_z=0.5, current_window=win, previous_window=self.history[-1])
+                         exit_z=0.5, current_window=win, previous_window=win) #inaccurate but still ok for testing fake
     results = coint.cointegration_analysis(X, Y)
 
     adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results

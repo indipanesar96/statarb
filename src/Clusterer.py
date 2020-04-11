@@ -51,15 +51,15 @@ class Clusterer:
 
         data = window.get_data(Universes.SNP, tickers, features)
         data = data.replace("", np.nan)
-        print(data)
+        #print(data)
         non_nan_count = data.count()
         non_nan_count = np.array([i + 1 if i == 0 else i for i in non_nan_count])
-        print(non_nan_count)
+        #print(non_nan_count)
         # data = data.fillna(0)
         data = data.sum(axis=0, skipna=True)
-        print(data / non_nan_count)
+        #print(data / non_nan_count)
         data = np.array(data / non_nan_count).reshape(len(tickers), len(features))
-        print(data)
+        #print(data)
         self.data = data
         self.data_length = len(data)
         return data
@@ -75,7 +75,7 @@ class Clusterer:
         else:
             self.data = data = StandardScaler().fit_transform(self.generate_data(window))
             self.data_length = len(data)
-        print(data)
+        #print(data)
 
         if eps is None:
             dbscan = DBSCAN(min_samples=min_samples).fit(data)
