@@ -86,13 +86,17 @@ class DataRepository:
         return all_data
 
         #raise NotImplementedError
-    def get_cluster(self, datatype: Universes, req_ticker: List[str], req_feature:List[str]):
-        data = pd.DataFrame(self.all_data[datatype][f"{req_ticker} {req_feature}"])
-        data = self.backfill(data)
+    def get_cluster(self, datatype: Universes, req_ticker: list, req_feature:list):
+        d = {}
+        for ticker in req_ticker:
+            for feature in req_feature:
+                d[ticker+" "+feature] = self.all_data[datatype][f"{ticker} {feature}"]
+        df = pd.Dataframe(d)
+        data = self.backfill(df)
         # select stocks with all features
         column_names = data.columns.tolist()
         corr_tick = [x for x in req_ticker if column_names.count(str(x)) == len(req_feature)]
-        corr_col = [x for x in column_names if x corr_tick]
+        corr_col = [x for x in column_names if x in corr_tick]
         data = data[data[corr_col]]
         #average if more than 90% of data not nan
         missing = data.isnull().sum() * 100 / len(data)
