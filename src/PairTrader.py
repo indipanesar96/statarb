@@ -2,12 +2,12 @@ from datetime import date, timedelta
 from typing import Optional, List
 
 import pandas as pd
-from pandas import DataFrame
 
 from src.Clusterer import Clusterer
-from src.Cointegrator import Cointegrator
+from src.Cointegrator2 import Cointegrator2
 from src.DataRepository import DataRepository
 from src.Filters import Filters
+from src.Portfolio import Portfolio
 from src.RiskManager import RiskManager
 from src.Window import Window
 
@@ -24,8 +24,9 @@ class PairTrader:
                  exit_z: float = 0.5):
 
         # If end_date is None, run for the entirety of the dataset
-        # Window is the lookback period (from t=-window_length-1 to t=-1 (yesterday) over which we analyse data
-        # to inform us on trades to make on t=0 (today). We assume an expanding window for now.
+        # Window is the lookback period (from t=window_length to t=0 (today) over which we analyse data
+        # to inform us on trades to make on t=0 (today).
+        # We assume an expanding window for now.
 
         self.repository = DataRepository()
         initial_window = Window(window_start=start_date,
@@ -48,8 +49,7 @@ class PairTrader:
 
         self.date_range = [i.date() for i in iter(pd.date_range(start=start_date, end=self.end_date))]
 
-        # Portfolio might need to be its own object later, cross that bridge when we come to it
-        self.portfolio: Optional[DataFrame] = None
+        self.portfolio: Portfolio = Portfolio(100_000, start_date)
         self.current_window: Window = initial_window
 
         self.history: List[Window] = [initial_window]
@@ -58,13 +58,13 @@ class PairTrader:
         # Days since the start of backtest
         self.days_alive: int = 0
         self.clusterer = Clusterer()
-        self.cointegrator = Cointegrator(self.repository,
-                                         self.adf_confidence_level,
-                                         self.max_mean_rev_time,
-                                         self.entry_z,
-                                         self.exit_z,
-                                         initial_window,
-                                         self.history[-1])
+        self.cointegrator = Cointegrator2(self.repository,
+                                          self.adf_confidence_level,
+                                          self.max_mean_rev_time,
+                                          self.entry_z,
+                                          self.exit_z,
+                                          initial_window,
+                                          self.history[-1])
         self.risk_manager = RiskManager()
         self.filters = Filters()
 
@@ -72,21 +72,24 @@ class PairTrader:
         for _ in self.date_range:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
-            # this uses stimulated data for testing purpose
             clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=self.current_window)
 
-            # self.clusterer.kmeans(self.clusterer.n_clusters) # this uses stimulated data for testing purpose
-            print(clusters)
-            print(self.clusterer.dbscan_labels)
-
-            x = self.cointegrator.run_cointegrator(clusters)
+            x = self.cointegrator.sig_gen(clusters)
 
             # Take cointegrated signals and pass into Filter = filtered signal
-            # use something like: signal = self.cointegrator.run_cointegrator(cluster_results)
+            # should return pairs of cointegrated stocks, with their weightings
 
             # Take filtered signal
+            # input datatype = output datatype
 
-            # roll forward/expand window
+            # RiskManager
+            # input = output from filterer
+            # Can we afford it? do we have enough cash? checkd exposure etc, VaR within limits etc?
+            # if ok, pass any remaining pairs to executor
+
+            # Executor,
+            # opens positions passed to it form filterer
+            # executor needs to update the portfolio
 
             print(
                 f"Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
@@ -111,8 +114,8 @@ class PairTrader:
 
 if __name__ == '__main__':
     PairTrader(
-        start_date=date(2008, 1, 1),
-        window_length=timedelta(days=10),
+        start_date=date(2008, 1, 2),
+        window_length=timedelta(days=63),  # 63 trading days per quarter
         end_date=None,
         adf_confidence_level=str("1%"),
         max_mean_rev_time=float(15),

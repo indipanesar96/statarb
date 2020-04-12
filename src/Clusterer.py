@@ -8,17 +8,14 @@ pd.options.display.max_columns = None
 pd.options.display.max_rows = None
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import KMeans
-from sklearn.datasets.samples_generator import make_blobs
 from sklearn.preprocessing import StandardScaler
 
 from src.DataRepository import Universes
 from src.util.Features import SnpFeatures
-from src.util.Tickers import SnpTickers
 
 
 # from util.Tickers import SnpTickers
 # from util.Features import SnpFeatures
-# from Window import Window
 # from DataRepository import Universes
 
 
@@ -39,48 +36,34 @@ class Clusterer:
         self.clusters = clusters
         self.cluster_history = [None]
 
-    def generate_data(self, window):
-        tickers = [SnpTickers.AAPL, SnpTickers.MSFT, SnpTickers.FB,
-                   SnpTickers.IBM, SnpTickers.AMZN,
-                   SnpTickers.MS, SnpTickers.GS, SnpTickers.AXP,
-                   SnpTickers.BLK, SnpTickers.C]
-        self.tickers = tickers
-        features = [SnpFeatures.LAST_PRICE, SnpFeatures.EBITDA, SnpFeatures.PE_RATIO,
-                    SnpFeatures.SHORT_AND_LONG_TERM_DEBT, SnpFeatures.TOTAL_ASSETS, SnpFeatures.TOTAL_EQUITY]
-        self.features = features
+    def average_over_time(self, window):
 
-        data = window.get_data(Universes.SNP, tickers, features)
-        data = data.replace("", np.nan)
-        #print(data)
-        non_nan_count = data.count()
-        non_nan_count = np.array([i + 1 if i == 0 else i for i in non_nan_count])
-        #print(non_nan_count)
-        # data = data.fillna(0)
-        data = data.sum(axis=0, skipna=True)
-        #print(data / non_nan_count)
-        data = np.array(data / non_nan_count).reshape(len(tickers), len(features))
-        #print(data)
-        self.data = data
-        self.data_length = len(data)
-        return data
+        snp_features = [
+            SnpFeatures.ASK,
+            SnpFeatures.BID,
+            SnpFeatures.LAST_PRICE,
+            SnpFeatures.LOW,
+            SnpFeatures.OPEN,
+        ]
+        self.features = snp_features
+
+        data = window.get_data(Universes.SNP, None, snp_features)
+
+        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(snp_features))
+
+        self.data_previously_clustered_on = averaged_over_time
+        self.data_length = len(averaged_over_time)
+        return averaged_over_time
 
     def dbscan(self, min_samples, eps=None, window=None):
-        self.window = window
-        if window is None:
-            centers = [[2, 2], [-4, -2], [1, -6]]
-            data, labels_true = make_blobs(n_samples=100, centers=centers, cluster_std=0.88, random_state=0)
-            df = pd.DataFrame(data)
-            self.data = data = StandardScaler().fit_transform(df)
-            self.data_length = len(data)
-        else:
-            self.data = data = StandardScaler().fit_transform(self.generate_data(window))
-            self.data_length = len(data)
-        #print(data)
 
-        if eps is None:
-            dbscan = DBSCAN(min_samples=min_samples).fit(data)
-        else:
-            dbscan = DBSCAN(eps=eps, min_samples=min_samples).fit(data)
+        self.window = window
+        self.tickers = window.snp_live_tickers
+
+        flat_data = self.average_over_time(window)
+        self.normalised = StandardScaler().fit_transform(flat_data)
+
+        dbscan = DBSCAN(eps=eps, min_samples=min_samples).fit(self.normalised)
 
         self.dbscan_labels = labels = dbscan.labels_
         core_samples_mask = np.zeros_like(dbscan.labels_, dtype=bool)
@@ -104,15 +87,12 @@ class Clusterer:
                 pairs.append(pair)
             clusters[j] = pairs
 
-        # some code here to update the class variables
-        # self.cluster_history.append(clusters)
-        # self.clusters =clusters
         return clusters
 
     def kmeans(self, n_clusters, random_state=0):
         data_denoised = None
         if self.window == None:
-            data_denoised = self.data[self.dbscan_core_mask]
+            data_denoised = self.flat_data[self.dbscan_core_mask]
         kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(data_denoised)
         self.data_denoised = data_denoised
         self.data_denoised_length = len(data_denoised)
@@ -137,10 +117,10 @@ class Clusterer:
                 col = [0, 0, 0, 1]
             class_member_mask = (self.dbscan_labels == k)
 
-            xy = self.data[class_member_mask & self.dbscan_core_mask]
+            xy = self.flat_data[class_member_mask & self.dbscan_core_mask]
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=14)
 
-            xy = self.data[class_member_mask & ~self.dbscan_core_mask]  # binary one's complement
+            xy = self.flat_data[class_member_mask & ~self.dbscan_core_mask]  # binary one's complement
             plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col), markeredgecolor='k', markersize=6)
         plt.title("DBSCAN")
 
