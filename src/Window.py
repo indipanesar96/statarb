@@ -2,7 +2,7 @@ from datetime import date, timedelta
 from typing import Optional, List
 
 import pandas as pd
-from itertools import chain
+from pandas import DataFrame
 
 from src.DataRepository import DataRepository, Universes
 from src.util.Features import Features
@@ -26,42 +26,46 @@ class Window:
         self.repository: DataRepository = repository
 
         # Window object contains information about timings for the window as well as SNP and ETF data for that period.
+        # After construction of the object we also have self.etf_data nd self.snp_data and the live tickers for each
 
-        def __get_weekdays_for_window(start_date: date, window_size: timedelta) -> List[date]:
-            # Ensures we have a window with window__size trading days
-            weekdays: List[date] = []
-            counter = 0
-            while len(weekdays) < window_size.days:
-                current_weekday = start_date + timedelta(days=counter)
-                # 0 = Monday, 6 = Sunday
-                if current_weekday.weekday() < 5:
-                    weekdays.append(current_weekday)
-                counter += 1
-            return weekdays
-
-        self.window_trading_days = __get_weekdays_for_window(start_date=window_start, window_size=window_length)
-
+        self.window_trading_days = self.__get_weekdays_for_window(start_date=window_start, window_size=window_length)
         self.window_end: date = self.window_trading_days[-1]
+        self.__get_window_data(self.window_trading_days)
 
-        # After construction of the object we also have self.etf_data nd self.snp_data
-        self.__get_window_data(self.window_start, self.window_end)
+    def __get_weekdays_for_window(self, start_date: date, window_size: timedelta) -> List[date]:
+        # Ensures we have a window with window__size trading days
+        weekdays: List[date] = []
+        counter = 0
+        while len(weekdays) < window_size.days:
+            current_weekday = start_date + timedelta(days=counter)
+            # 0 = Monday, 6 = Sunday
+            if current_weekday.weekday() < 5:
+                weekdays.append(current_weekday)
+            counter += 1
+        return weekdays
 
     def evolve(self):
         # Purely side-effectual; the function just mutates the object
         self.window_length += timedelta(days=1)
         self.window_end += timedelta(days=1)
-        self.__get_window_data(self.window_start, self.window_end)
+        self.__get_window_data(self.window_trading_days)
         return self
 
-    def __get_window_data(self, start: date, end: date):
-        self.etf_data = self.repository.get(Universes.ETFs, start, end)
-        self.snp_data = self.repository.get(Universes.SNP, start, end)
+    def __get_window_data(self, trading_dates: List[date]):
+        etf_live_tickers, etf_data = self.repository.get(Universes.ETFs, trading_dates)
+        snp_live_tickers, snp_data = self.repository.get(Universes.SNP, trading_dates)
+
+        self.etf_data = etf_data
+        self.snp_data = snp_data
+
+        self.etf_live_tickers = etf_live_tickers
+        self.snp_live_tickers = snp_live_tickers
 
     def get_data(self,
                  universe: Universes,
                  tickers: Optional[List[Tickers]] = None,
                  features: Optional[List[Features]] = None,
-                 ):
+                 ) -> DataFrame:
 
         '''
         function to get data, with tickers and features specified
@@ -94,7 +98,6 @@ class Window:
         '''
 
         if tickers is None and features is None:
-
             if universe is Universes.SNP:
                 return self.snp_data
             if universe is Universes.ETFs:
@@ -105,15 +108,14 @@ class Window:
         else:
             data = self.etf_data
 
-        # I will change this to index off the enums instead of strings
-        features = [f.value for f in features]
-        tickers = [t.value for t in tickers]
-        test = any(elem in features for elem in chain.from_iterable(self.repository.price_features.values()))
-        if features is None:
+        if tickers is not None and features is None:
+
             return data.loc[:, pd.IndexSlice[tickers, :]]
-        elif tickers is None:
+
+        elif tickers is None and features is not None:
+
             return data.loc[:, pd.IndexSlice[:, features]]
-        elif  len(features) == 1 and test:
-             return data.loc[:, pd.IndexSlice[tickers, features]].dropna()
-        else:
+
+        elif tickers is not None and features is not None:
+
             return data.loc[:, pd.IndexSlice[tickers, features]]

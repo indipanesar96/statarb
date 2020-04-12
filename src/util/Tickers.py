@@ -1,7 +1,10 @@
 from enum import Enum, unique
 
+
 @unique
 class Tickers(Enum): pass
+
+
 # in case we want to add functionality later
 # and so functions can accept Snp and Etf ticekrs
 
