@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from typing import Optional, List
 
 import pandas as pd
+from itertools import chain
 
 from src.DataRepository import DataRepository, Universes
 from src.util.Features import Features
@@ -107,10 +108,12 @@ class Window:
         # I will change this to index off the enums instead of strings
         features = [f.value for f in features]
         tickers = [t.value for t in tickers]
-
+        test = any(elem in features for elem in chain.from_iterable(self.repository.price_features.values()))
         if features is None:
             return data.loc[:, pd.IndexSlice[tickers, :]]
         elif tickers is None:
             return data.loc[:, pd.IndexSlice[:, features]]
+        elif  len(features) == 1 and test:
+             return data.loc[:, pd.IndexSlice[tickers, features]].dropna()
         else:
             return data.loc[:, pd.IndexSlice[tickers, features]]
