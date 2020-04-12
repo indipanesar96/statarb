@@ -13,13 +13,13 @@ class Universes(Enum):
     SNP = Path(f"../resources/SP500/sp_500_ticker_data_all.csv")
     ETFs = Path(f"../resources/ETF_data/2008-2019_ETF_data.csv")
 
-
 class DataRepository:
     def __init__(self):
         # Loads data on first get call
         self.all_data: Dict[Universes, Optional[DataFrame]] = {Universes.SNP: None, Universes.ETFs: None}
         self.tickers: Dict[Universes, Optional[Set[str]]] = {Universes.SNP: None, Universes.ETFs: None}
         self.features: Dict[Universes, Optional[Set[str]]] = {Universes.SNP: None, Universes.ETFs: None}
+        self.price_features: Dict[Universes, Optional[Set[str]]] = {Universes.SNP: None, Universes.ETFs: None}
 
     def get(self,
             datatype: Universes,
@@ -67,9 +67,11 @@ class DataRepository:
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
         tickers = [r[0].upper() for r in match_results]
         features = [r[-1].upper() for r in match_results]
+        price_features = ['OPEN', 'CLOSE', 'HIGH', 'LOW', 'BID', 'ASK', 'LAST_PRICE']
 
         self.tickers[datatype] = set(tickers)
         self.features[datatype] = set(features)
+        self.price_features[datatype] = set(price_features)
 
         tuples = list(zip(tickers, features))
         multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
@@ -92,7 +94,7 @@ class DataRepository:
             for feature in req_feature:
                 d[ticker+" "+feature] = self.all_data[datatype][f"{ticker} {feature}"]
         df = pd.Dataframe(d)
-        data = self.backfill(df)
+        data = self.forward_fill(df)
         # select stocks with all features
         column_names = data.columns.tolist()
         corr_tick = [x for x in req_ticker if column_names.count(str(x)) == len(req_feature)]
@@ -106,23 +108,23 @@ class DataRepository:
         d = np.reshape(data, (len(corr_tick), len(req_feature)))
         cluster = pd.DataFrame(d, index = corr_tick, columns = req_feature)
         return cluster
-    def backfill(self, data:DataFrame):
+    def forward_fill(self, data:DataFrame):
         data = pd.DataFrame(self.all_data).fillna(method = 'ffill')
         return data
     def intraday_vol(self, datatype: Universes, ticker):
-        features = ['Open', 'Last_Price', 'High', 'Low']
+        features = ['OPEN', 'LAST_PRICE', 'HIGH', 'LOW']
         data = pd.DataFrame(self.all_data[datatype][f"{ticker} {features}"])
         daily_vol = data.std(axis = 0)
         return daily_vol
 
     def ROE(self, datatype: Universes, ticker):
-        NI_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Earn_for_Common'}"])
-        Mcap_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Total_Equity'}"])
+        NI_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'EARN_FOR_COMMON'}"])
+        Mcap_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'TOTAL_EQUITY'}"])
         ROE = NI_data/Mcap_data
         return ROE.fillna(method = 'ffill')
     def leverage(self, datatype:Universes, ticker):
-        TA_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Total_Assets'}"])
-        TE_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'Total_Equity'}"])
+        TA_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'TOTAL_ASSETS'}"])
+        TE_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'TOTAL_EQUITY'}"])
         leverage = TA_data/TE_data
         return leverage.fillna(method= 'ffill')
 
