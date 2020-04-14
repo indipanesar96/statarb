@@ -40,7 +40,7 @@ class Clusterer:
 
         data = window.get_data(Universes.SNP, None, None)
 
-        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(Features) - 1)
+        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(Features))
 
         self.data_previously_clustered_on = averaged_over_time
         self.data_length = len(averaged_over_time)
