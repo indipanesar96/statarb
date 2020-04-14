@@ -323,7 +323,7 @@ class Cointegrator:
 
 if __name__ == '__main__':
     win = Window(window_start=date(2008, 1, 1),
-                 window_length=timedelta(days=90),
+                 trading_win_len=timedelta(days=90),
                  repository=DataRepository())
 
     X, Y = cointegrated_pair_generator()[0:2]

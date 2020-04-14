@@ -8,14 +8,14 @@ from typing import Dict, Optional, Set, List
 import pandas as pd
 from pandas import DataFrame
 
-from src.util.Features import EtfFeatures, SnpFeatures, Features
+from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
 
 
 @unique
 class Universes(Enum):
-    SNP = Path(f"../resources/SP500/sp_500_ticker_data_all.csv")
-    ETFs = Path(f"../resources/ETF_data/2008-2019_ETF_data.csv")
+    ETFs = Path(f"../resources/all_etfs.csv")
+    SNP = Path(f"../resources/all_snp.csv")
 
 
 class DataRepository:
@@ -24,6 +24,7 @@ class DataRepository:
         self.all_data: Dict[Universes, Optional[DataFrame]] = {Universes.SNP: None, Universes.ETFs: None}
         self.tickers: Dict[Universes, Optional[Set[Tickers]]] = {Universes.SNP: None, Universes.ETFs: None}
         self.features: Dict[Universes, Optional[Set[Features]]] = {Universes.SNP: None, Universes.ETFs: None}
+        self.all_dates: List[date] = self.__load_dates(Universes.SNP)
 
     def get_tickers(self):
         return self.tickers
@@ -52,15 +53,19 @@ class DataRepository:
         # If they're all nan, we assume the ticker didnt exist then, and so remove from the window
         # If there are some (or no) nans then the ticker is live
 
-        alive_tickers = []
-        for ticker in self.tickers[datatype]:
+        alive_tickers = [i for i in self.tickers[datatype]]
+        junk_val = 'XXXXX'
+        for idx, ticker in enumerate(self.tickers[datatype]):
 
             column = alive_and_dead_ticker_data.loc[:, ticker].iloc[:, 0]
             is_nans = [True if math.isnan(i) else False for i in column]
 
-            if not all(is_nans):
+            if any(is_nans):
                 # ticker is alive for this window
-                alive_tickers.append(ticker)
+                alive_tickers[idx] = junk_val
+
+        alive_tickers = [i for i in alive_tickers if i != junk_val]
+
         return alive_tickers, alive_and_dead_ticker_data.loc[:, pd.IndexSlice[alive_tickers, :]]
 
     def __get_from_disk_and_store(self, datatype: Universes):
@@ -80,17 +85,13 @@ class DataRepository:
 
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
-            features = [SnpFeatures(r[-1].upper()) for r in match_results]
+            features = [Features(r[-1].upper()) for r in match_results]
         else:
             tickers = [EtfTickers(r[0].upper()) for r in match_results]
-            features = [EtfFeatures(r[-1].upper()) for r in match_results]
+            features = [Features(r[-1].upper()) for r in match_results]
 
         self.tickers[datatype] = set(tickers)
         self.features[datatype] = set(features)
-
-        # self.price_features[datatype] = set(price_features)
-        # this isnt requried since the price features are common to both universes and
-        # so we just use the Features Enum
 
         tuples = list(zip(tickers, features))
         multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
@@ -134,3 +135,12 @@ class DataRepository:
         else:
             print("An ETF can't have a Leverage Ratio. I am in src.Datarepository.ROE")
             raise KeyError
+
+    def __load_dates(self, datatype: Universes) -> List[date]:
+        d = pd.read_csv(datatype.value,
+                        squeeze=True,
+                        header=0,
+                        index_col=0,
+                        usecols=[0])
+
+        return [i.date() for i in pd.to_datetime(d.index, format='%d/%m/%Y')]

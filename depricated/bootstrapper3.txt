@@ -1,9 +1,0 @@
-initialise constants
-
-
-cluserting here
-
-
-
-for i in range(days we came about):
-

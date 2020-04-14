@@ -5,7 +5,7 @@ from pandas import DataFrame
 
 from src.DataRepository import Universes, DataRepository
 from src.Window import Window
-from src.util.Features import SnpFeatures
+from src.util.Features import Features
 from src.util.Tickers import SnpTickers
 
 
@@ -30,7 +30,7 @@ class Portfolio:
 
     def open_position(self, ticker1, ticker2, quantity1, quantity2, window):
         cur_price = window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
-                                    features=[SnpFeatures.LAST_PRICE])
+                                    features=[Features.LAST_PRICE])
 
         commission = self.t_cost * (abs(quantity1) + abs(quantity2))
         asset_value = cur_price.iloc[-1, 0] * quantity1 + cur_price.iloc[-1, 1] * quantity2
@@ -48,7 +48,7 @@ class Portfolio:
 
     def close_position(self, ticker1, ticker2, window):
         cur_price = window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
-                                    features=[SnpFeatures.LAST_PRICE])
+                                    features=[Features.LAST_PRICE])
         for pair in self.cur_positions:
             if pair.asset1 == ticker1 and pair.asset2 == ticker2:
                 self.logger.info('Closing position...')
@@ -70,7 +70,7 @@ class Portfolio:
 
         for pair in self.cur_positions:
             cur_price = window.get_data(universe=Universes.SNP, tickers=[pair.asset1, pair.asset2],
-                                        features=[SnpFeatures.LAST_PRICE])
+                                        features=[Features.LAST_PRICE])
             asset_value = cur_price.iloc[-1, 0] * pair.quantity1 + cur_price.iloc[-1, 1] * pair.quantity2
             pair.update_position_pnl(asset_value)
             cur_port_val += asset_value
@@ -127,7 +127,7 @@ class Position:
 
 
 if __name__ == '__main__':
-    current_window = Window(window_start=date(2008, 1, 1), window_length=timedelta(days=90),
+    current_window = Window(window_start=date(2008, 1, 1), trading_win_len=timedelta(days=90),
                             repository=DataRepository())
 
     port = Portfolio(10000, current_window)

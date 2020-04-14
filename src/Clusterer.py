@@ -11,7 +11,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
 from src.DataRepository import Universes
-from src.util.Features import SnpFeatures
+from src.util.Features import Features
 
 
 # from util.Tickers import SnpTickers
@@ -38,18 +38,9 @@ class Clusterer:
 
     def average_over_time(self, window):
 
-        snp_features = [
-            SnpFeatures.ASK,
-            SnpFeatures.BID,
-            SnpFeatures.LAST_PRICE,
-            SnpFeatures.LOW,
-            SnpFeatures.OPEN,
-        ]
-        self.features = snp_features
+        data = window.get_data(Universes.SNP, None, None)
 
-        data = window.get_data(Universes.SNP, None, snp_features)
-
-        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(snp_features))
+        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(Features) - 1)
 
         self.data_previously_clustered_on = averaged_over_time
         self.data_length = len(averaged_over_time)
