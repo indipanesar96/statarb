@@ -12,8 +12,19 @@ from statsmodels.tsa.api import adfuller
 from src.DataRepository import DataRepository
 from src.DataRepository import Universes
 from src.Window import Window
-from src.util.Features import SnpFeatures
+from src.util.Features import Features
 from src.util.Tickers import Tickers
+
+
+class CointegratedPair:
+
+    def __init__(self,
+                 pair: Tuple[Tickers],
+                 beta: float,
+                 most_recent_deviation: float):
+        self.pair: Tuple[Tickers] = pair
+        self.beta: float = beta
+        self.most_recent_deviation: float = most_recent_deviation
 
 
 @unique
@@ -43,27 +54,27 @@ class Cointegrator2:
 
         self.invested = None
 
-    def sig_gen(self, clustering_results: Dict[int, Tuple[Tuple[Tickers]]]):
-        # all poss combinations of pairs
-        # run cointegration_analysis
+    def generate_pairs(self, clustering_results: Dict[int, Tuple[Tuple[Tickers]]]):
+        # run cointegration_analysis on all poss combinations of pairs
 
-        signal = []
+        cointegrated_pairs = []
         prev_time = time.time()
         n_tested = 0
         n_cointegrated = 0
+
         for cluster in clustering_results.values():
             for pair in cluster:
-
                 if n_tested % 100 == 0:
-                    print(
-                        f'Currently checking cointegration for {[i.name for i in pair]}. Checked {n_tested}. Number cointegrated {n_cointegrated}. Time elapsed: {(time.time() - prev_time):.4f}')
+                    print(f'Currently checking cointegration for {[i.name for i in pair]}. '
+                          f'Checked {n_tested}. Number cointegrated {n_cointegrated}. '
+                          f'Time elapsed (s): {(time.time() - prev_time):.4f}')
 
                 t1 = self.current_window.get_data(universe=Universes.SNP,
                                                   tickers=[pair[0]],
-                                                  features=[SnpFeatures.LAST_PRICE])
+                                                  features=[Features.CLOSE])
                 t2 = self.current_window.get_data(universe=Universes.SNP,
                                                   tickers=[pair[1]],
-                                                  features=[SnpFeatures.LAST_PRICE])
+                                                  features=[Features.CLOSE])
 
                 residuals, beta = self.__lin_reg(t1, t2)
 
@@ -81,16 +92,14 @@ class Cointegrator2:
 
                 if is_cointegrated:
                     n_cointegrated += 1
-                signal.append(is_cointegrated)
+                    cointegrated_pairs.append(CointegratedPair(pair, beta, most_recent_deviation))
+                    print(f"{[i.name for i in pair]} are cointegrated. "
+                          f"ADF test stat: {adf_test_statistic:.4f} "
+                          f"Critical value @ {adf_critical_values[self.adf_confidence_level.value]:.4f}")
+
                 n_tested += 1
 
-        x = 10
-
-        pass
-
-    def __classify_coint_results(self):
-
-        pass
+        return cointegrated_pairs
 
     def __return_current_deviation(self, residuals: array) -> float:
         scaler = StandardScaler()
@@ -175,7 +184,7 @@ class Cointegrator2:
                           max_mean_rev_time: int,
                           he_test: float):
 
-        adf = adf_test_statistic < adf_critical_values[adf_confidence_level]
+        adf = adf_test_statistic < adf_critical_values[adf_confidence_level.value]
         hl = hl_test < max_mean_rev_time
         he = he_test < 0.5
 

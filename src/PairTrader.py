@@ -4,7 +4,7 @@ from typing import Optional, List
 import pandas as pd
 
 from src.Clusterer import Clusterer
-from src.Cointegrator2 import Cointegrator2
+from src.Cointegrator2 import Cointegrator2, AdfPrecisions, CointegratedPair
 from src.DataRepository import DataRepository
 from src.Filters import Filters
 from src.Portfolio import Portfolio
@@ -15,11 +15,11 @@ from src.Window import Window
 class PairTrader:
 
     def __init__(self,
-                 start_date: date = date(2008, 1, 1),
-                 window_length: timedelta = timedelta(days=90),
-                 end_date: Optional[date] = None,
-                 adf_confidence_level: str = "5%",
-                 max_mean_rev_time: float = 15,
+                 backtest_start: date = date(2008, 1, 1),
+                 trading_window_length: timedelta = timedelta(days=90),
+                 backtest_end: Optional[date] = None,
+                 adf_confidence_level: AdfPrecisions = AdfPrecisions.FIVE_PCT,
+                 max_mean_rev_time: int = 15,
                  entry_z: float = 1.5,
                  exit_z: float = 0.5):
 
@@ -28,35 +28,28 @@ class PairTrader:
         # to inform us on trades to make on t=0 (today).
         # We assume an expanding window for now.
 
-        self.repository = DataRepository()
-        initial_window = Window(window_start=start_date,
-                                window_length=window_length,
-                                repository=self.repository)
-
-        self.start_date: date = start_date
-        self.window_length: timedelta = window_length
-        self.adf_confidence_level: str = adf_confidence_level  # e.g. "5%" or "1%"
-        self.max_mean_rev_time: float = max_mean_rev_time
+        self.backtest_start: date = backtest_start
+        self.window_length: timedelta = trading_window_length
+        self.adf_confidence_level: AdfPrecisions = adf_confidence_level  # e.g. "5%" or "1%"
+        self.max_mean_rev_time: int = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
 
-        if end_date is None:
-            # Last SNP date, hard coded for now...
-            snp_end_date = date(year=2020, month=12, day=31)
-            self.end_date = snp_end_date
-        else:
-            self.end_date = end_date
+        # Last SNP date, hard coded for now...
+        self.backtest_end = date(year=2020, month=12, day=31) if backtest_end is None else backtest_end
 
-        self.date_range = [i.date() for i in iter(pd.date_range(start=start_date, end=self.end_date))]
+        self.repository = DataRepository()
+        initial_window = Window(window_start=backtest_start,
+                                trading_win_len=trading_window_length,
+                                repository=self.repository)
 
-        self.portfolio: Portfolio = Portfolio(100_000, start_date)
         self.current_window: Window = initial_window
-
         self.history: List[Window] = [initial_window]
 
-        self.today = self.start_date + self.window_length + timedelta(days=1)
-        # Days since the start of backtest
-        self.days_alive: int = 0
+        self.trading_days = initial_window.window_trading_days
+        self.today = self.trading_days[-1]
+        self.days_alive: int = (self.today - self.backtest_start).days
+
         self.clusterer = Clusterer()
         self.cointegrator = Cointegrator2(self.repository,
                                           self.adf_confidence_level,
@@ -67,14 +60,16 @@ class PairTrader:
                                           self.history[-1])
         self.risk_manager = RiskManager()
         self.filters = Filters()
+        self.portfolio: Portfolio = Portfolio(100_000, backtest_start)
 
     def trade(self):
-        for _ in self.date_range:
+        while self.today < self.backtest_end:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
             clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=self.current_window)
 
-            x = self.cointegrator.sig_gen(clusters)
+            cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters)
+
 
             # Take cointegrated signals and pass into Filter = filtered signal
             # should return pairs of cointegrated stocks, with their weightings
@@ -114,11 +109,11 @@ class PairTrader:
 
 if __name__ == '__main__':
     PairTrader(
-        start_date=date(2008, 1, 2),
-        window_length=timedelta(days=63),  # 63 trading days per quarter
-        end_date=None,
-        adf_confidence_level=str("1%"),
-        max_mean_rev_time=float(15),
+        backtest_start=date(2008, 1, 2), # start on 2nd jan because 1st is a holiday
+        trading_window_length=timedelta(days=10),  # 63 trading days per quarter
+        backtest_end=None,
+        adf_confidence_level=AdfPrecisions.ONE_PCT,
+        max_mean_rev_time=15,
         entry_z=1.5,
         exit_z=0.5
     ).trade()

@@ -7,7 +7,7 @@ from pandas import DataFrame
 from src.DataRepository import DataRepository, Universes
 from src.util.Features import Features
 from src.util.Tickers import Tickers
-
+import numpy as np
 
 # from DataRepository import DataRepository, Universes
 # from util.Features import Features
@@ -18,31 +18,23 @@ class Window:
 
     def __init__(self,
                  window_start: date,
-                 window_length: timedelta,
+                 trading_win_len: timedelta,
                  repository: DataRepository):
 
         self.window_start: date = window_start
-        self.window_length: timedelta = window_length
+        self.window_length: timedelta = trading_win_len
         self.repository: DataRepository = repository
+
+        start_idx = np.where(np.array(self.repository.all_dates[:10]) == window_start)[0][0]
+
+        self.window_trading_days = self.repository.all_dates[start_idx: start_idx + trading_win_len.days]
+        self.window_end: date = self.window_trading_days[-1]
 
         # Window object contains information about timings for the window as well as SNP and ETF data for that period.
         # After construction of the object we also have self.etf_data nd self.snp_data and the live tickers for each
 
-        self.window_trading_days = self.__get_weekdays_for_window(start_date=window_start, window_size=window_length)
-        self.window_end: date = self.window_trading_days[-1]
         self.__get_window_data(self.window_trading_days)
 
-    def __get_weekdays_for_window(self, start_date: date, window_size: timedelta) -> List[date]:
-        # Ensures we have a window with window__size trading days
-        weekdays: List[date] = []
-        counter = 0
-        while len(weekdays) < window_size.days:
-            current_weekday = start_date + timedelta(days=counter)
-            # 0 = Monday, 6 = Sunday
-            if current_weekday.weekday() < 5:
-                weekdays.append(current_weekday)
-            counter += 1
-        return weekdays
 
     def evolve(self):
         # Purely side-effectual; the function just mutates the object
