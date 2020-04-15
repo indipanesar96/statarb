@@ -12,7 +12,7 @@ from src.Window import Window
 
 import src.util.Tickers as Tickers
 import src.util.Features as Features
-from from src.DataRepository import Universes
+from src.DataRepository import Universes
 # from Window import Window
 
 class Filters:
@@ -55,7 +55,7 @@ class Filters:
         if ticker in Tickers.EtfTickers:
             volumedf = self.current_window.get_data(Universes.ETFs,
                                     tickers = [ticker],
-                                    features = [Tickers.BID, EtfFeatures.LOW]
+                                    features = [Features.VOLUME])
 
         std = volumedf.vol.std()
         mean = volumedf.vol.mean()
