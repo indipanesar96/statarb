@@ -11,21 +11,22 @@ import pandas as pd
 from src.Window import Window
 
 import src.util.Tickers as Tickers
-import src.util.Features as Features
+from src.util.Features import Features
 from src.DataRepository import Universes
 # from Window import Window
 
 class Filters:
 
-    def __init__(self, current_window: Window = None):
-        self.current_window = Optional[current_window]
+    def __init__(self, threshold_sigma = 1):
+        self.current_window = None
         # historic data from which we calculate the history
         # volumes so we know what constitutes a shock)
-        # self.threshold_sigma = threshold_sigma
+        self.threshold_sigma = threshold_sigma
         # how many stdvs away from mean we classify a shock - to be perturbed
 
-    def apply_volume_shock_filter(self, pairs):
+    def run_volume_shock_filter(self, pairs, current_window):
         # pairs structure: List[List[ListTickers.EtfTickers or Tickers.SnpTickers, expecting 2 items]]]
+        self.current_window = current_window
         reduced_pairs = pairs.copy()
         # iter through input pairs to be traded, apply volume shock filter
         #     function call to determine volume shock state or not for each ticker, etf pair
@@ -35,11 +36,11 @@ class Filters:
         #
         #         remove this key:value paor
         #         dictionary.drop(key:value pair)
-        for ticker_pair in pairs.keys():
-            first_shock = self.__is_volume_shock(reduced_pairs[0])
-            second_shock = self.__is_volume_shock(reduced_pairs[1])
+        for pair in pairs:
+            first_shock = self.__is_volume_shock(pair[0][0])
+            second_shock = self.__is_volume_shock(pair[0][1])
             if first_shock != second_shock:
-                reduced_pairs.remove(ticker_pair)
+                reduced_pairs.remove(pair)
         return reduced_pairs
 
     def __is_volume_shock(self, ticker):
@@ -49,23 +50,57 @@ class Filters:
         # create a random time series for testing
         # should be replaced by fetching volume data from api
         # volumedf = data_fetching_api(ticker, dt.datetime.today().strftime('%Y-%m-%d'), 250)
-        volumedf = pd.DataFrame(np.random.rand(250, 1), columns=['vol'],
+        '''
+        pd.DataFrame(np.random.rand(250, 1), columns=['vol'],
                                 index=pd.date_range(periods=250,
                                                     end=dt.datetime.today().strftime('%Y-%m-%d')))
+        '''
         if ticker in Tickers.EtfTickers:
-            volumedf = self.current_window.get_data(Universes.ETFs,
+            volume = self.current_window.get_data(Universes.ETFs,
+                                    tickers = [ticker],
+                                    features = [Features.VOLUME])
+        elif ticker in Tickers.SnpTickers:
+            volume = self.current_window.get_data(Universes.SNP,
                                     tickers = [ticker],
                                     features = [Features.VOLUME])
 
-        std = volumedf.vol.std()
-        mean = volumedf.vol.mean()
+
+        hist_vol = volume[:-1]
+        today_vol = volume[-1:]
+        std = hist_vol.std()
+        mean = hist_vol.mean()
         # create random vol today, should be replaced
-        today_vol = np.random.rand()
 
         # return True or False
-        if today_vol > mean + self.threshold_sigma * std:
+        shock = (today_vol > mean + self.threshold_sigma * std).values[0][0]
+        if shock:
             return True
         else:
             return False
 
-# if __name = __main
+from src.util.Tickers import SnpTickers
+from src.DataRepository import DataRepository
+from datetime import date, timedelta
+
+if __name__ == '__main__':
+    win = Window(window_start=date(2008, 1, 2),
+                 trading_win_len=timedelta(days=90),
+                 repository=DataRepository())
+
+    test_input = [
+        [
+            [SnpTickers.CRM, SnpTickers.WU],
+            [1, -1.5,  # long short size
+             None,  # self.invested
+             0.1]  # expected return
+        ],
+
+        [
+            [SnpTickers.ABC, SnpTickers.ABT],
+            [-0.5, 1,
+             None,
+             0.15]
+        ]
+    ]
+    ft = Filters()
+    test_result = ft.run_volume_shock_filter(test_input, current_window = win)
