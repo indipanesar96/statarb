@@ -93,8 +93,8 @@ if __name__ == '__main__':
         ]
                   ]
 
-    rm = RiskManager(cointegrated_pairs = test_input, current_window = win)
-    rm.run_risk_manager()
+    rm = RiskManager()
+    rm.run_risk_manager(cointegrated_pairs = test_input, current_window = win)
 
 
 
