@@ -15,7 +15,7 @@ from src.Window import Window
 class PairTrader:
 
     def __init__(self,
-                 backtest_start: date = date(2008, 1, 1),
+                 backtest_start: date = date(2008, 1, 2),
                  trading_window_length: timedelta = timedelta(days=90),
                  backtest_end: Optional[date] = None,
                  adf_confidence_level: AdfPrecisions = AdfPrecisions.FIVE_PCT,
@@ -102,14 +102,10 @@ class PairTrader:
 
         self.current_window = self.current_window.evolve()
 
-        # If it's a weekend, evolve again
-        if self.today.weekday() >= 5:
-            self.__evolve()
-
 
 if __name__ == '__main__':
     PairTrader(
-        backtest_start=date(2008, 1, 2), # start on 2nd jan because 1st is a holiday
+        backtest_start=date(2008, 1, 2), # must be a trading day
         trading_window_length=timedelta(days=10),  # 63 trading days per quarter
         backtest_end=None,
         adf_confidence_level=AdfPrecisions.ONE_PCT,

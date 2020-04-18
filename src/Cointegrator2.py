@@ -29,9 +29,9 @@ class CointegratedPair:
 
 @unique
 class AdfPrecisions(Enum):
-    ONE_PCT = '1%'
-    FIVE_PCT = '5%'
-    TEN_PCT = '10%'
+    ONE_PCT = r'1%'
+    FIVE_PCT = r'5%'
+    TEN_PCT = r'10%'
 
 
 class Cointegrator2:
