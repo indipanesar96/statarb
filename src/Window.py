@@ -1,18 +1,18 @@
 from datetime import date, timedelta
-from typing import Optional, List
+from typing import List, Optional
 
+import numpy as np
 import pandas as pd
 from pandas import DataFrame
 
 from src.DataRepository import DataRepository, Universes
 from src.util.Features import Features
 from src.util.Tickers import Tickers
-import numpy as np
+
 
 # from DataRepository import DataRepository, Universes
 # from util.Features import Features
 # from util.Tickers import Tickers
-
 
 class Window:
 
@@ -21,27 +21,33 @@ class Window:
                  trading_win_len: timedelta,
                  repository: DataRepository):
 
+        # Window object contains information about timings for the window as well as SNP and ETF data for that period.
+        # After construction of the object we also have self.etf_data nd self.snp_data and the live tickers for each
+
         self.window_start: date = window_start
         self.window_length: timedelta = trading_win_len
         self.repository: DataRepository = repository
 
-        start_idx = np.where(np.array(self.repository.all_dates[:10]) == window_start)[0][0]
+        try:
+            start_idx = np.where(np.array(self.repository.all_dates) == window_start)[0][0]
+        except IndexError:
+            print(f"The backtest start date, {window_start}, is not a trading day. \nPlease re-run with a trading day.")
+            raise KeyError
 
-        self.window_trading_days = self.repository.all_dates[start_idx: start_idx + trading_win_len.days]
-        self.window_end: date = self.window_trading_days[-1]
-
-        # Window object contains information about timings for the window as well as SNP and ETF data for that period.
-        # After construction of the object we also have self.etf_data nd self.snp_data and the live tickers for each
-
+        self.window_trading_days = self.__get_window_trading_days(start_idx, trading_win_len)
         self.__get_window_data(self.window_trading_days)
 
+    def __get_window_trading_days(self, start_idx: int, window_length: timedelta):
+
+        window_trading_days = self.repository.all_dates[start_idx: start_idx + window_length.days]
+        self.window_end: date = window_trading_days[-1]
+
+        return window_trading_days
 
     def evolve(self):
-        # Purely side-effectual; the function just mutates the object
-        self.window_length += timedelta(days=1)
-        self.window_end += timedelta(days=1)
-        self.__get_window_data(self.window_trading_days)
-        return self
+        return Window(window_start=self.window_start,
+                      trading_win_len=self.window_length + timedelta(days=1),
+                      repository=self.repository)
 
     def __get_window_data(self, trading_dates: List[date]):
         etf_live_tickers, etf_data = self.repository.get(Universes.ETFs, trading_dates)
