@@ -28,6 +28,7 @@ class Portfolio:
         self.logger = logging.getLogger(__name__)
         self.current_window = window
         self.port_hist = list()
+        self.rebalance_threshold = float(1)
 
     def reset_values(self):
         self.cur_cash = self.init_cash
@@ -72,6 +73,26 @@ class Portfolio:
                 self.logger.info('Asset 2: %s @$%s Quantity: %s', ticker2, cur_price.iloc[-1, 1], -pair.quantity2)
                 self.logger.info('Realised PnL for position: %s' % pair.pnl)
 
+    def rebalance(self, ticker1, ticker2, quantity1, quantity2):
+        cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
+                                                 features=[Features.CLOSE])
+
+        for pair in self.cur_positions:
+            if pair.asset1 == ticker1 and pair.asset2 == ticker2:
+                quantity1 -= pair.quantity1
+                quantity2 -= pair.quantity2
+                if abs(quantity1) + abs(quantity2) >= self.rebalance_threshold:
+                    commission = self.t_cost * (abs(quantity1) + abs(quantity2))
+                    asset_value = cur_price.iloc[-1, 0] * quantity1 + cur_price.iloc[-1, 1] * quantity2
+
+                    self.logger.info('Rebalancing position...')
+                    pair = Position(ticker1, ticker2, quantity1, quantity2, asset_value, commission)
+                    self.cur_cash -= asset_value + commission
+                    self.port_value += asset_value
+                    self.logger.info('Asset 1: %s @$%s Quantity: %s', ticker1, cur_price.iloc[-1, 0], quantity1)
+                    self.logger.info('Asset 2: %s @$%s Quantity: %s', ticker2, cur_price.iloc[-1, 1], quantity2)
+                    self.logger.info('Cash balance: $%s', self.cur_cash)
+
     def update_portfolio(self):
         cur_port_val = 0
 
@@ -86,7 +107,7 @@ class Portfolio:
         self.port_hist.append([self.current_window.window_end, self.cur_cash, self.port_value, self.realised_pnl])
 
     def evolve(self):
-        self.current_window.evolve()
+        self.current_window = self.current_window.evolve()
 
     def get_current_positions(self):
         return self.cur_positions
@@ -143,8 +164,8 @@ class Position:
         self.pos_hist.append([window.window_end, self.current_value, self.pnl])
 
     def close_trade(self, value, window):
-        self.current_value = value
         self.pnl += value - self.current_value - self.commission
+        self.current_value = value
         self.closed = True
         self.pos_hist.append([window.window_end, self.current_value, self.pnl])
 
@@ -173,6 +194,6 @@ if __name__ == '__main__':
 
     print(port.get_port_hist())
 
-    # positions = port.get_hist_positions()
-    # print(positions[0].asset1, positions[0].asset2)
-    # print(positions[0].get_pos_hist())
+    positions = port.get_hist_positions()
+    print(positions[0].asset1, positions[0].asset2)
+    print(positions[0].get_pos_hist())
