@@ -7,6 +7,7 @@ from typing import Dict, Optional, Set, List
 
 import pandas as pd
 from pandas import DataFrame
+import numpy as np
 
 from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
@@ -105,6 +106,17 @@ class DataRepository:
     def forward_fill(cls, df: DataFrame):
         return pd.DataFrame(df).fillna(method='ffill')
 
+    def wap(self, datatype: Universes, ticker:Tickers, feature: Features):
+        data_vol = self.all_data[datatype][f"{ticker.value} {Features.VOLUME.value}"]
+        data_price = self.all_data[datatype][f"{ticker.value} {feature.value}"]
+        #generate volume weighted prices
+        vwap = np.cumsum(data_vol*data_price) / np.cumsum(data_vol)
+        #generate time weighted prices
+        times = self.all_dates
+        times = max(times) - times +1
+        twap = data_price/ times
+        return pd.DataFrame(data={str(ticker.value) +" VWAP": vwap, str(ticker.value) +" TWAP": twap}, index = self.all_dates)
+
     def intraday_vol(self, datatype: Universes, ticker: Tickers):
         features = [Features.OPEN.value,
                     Features.LAST_PRICE.value,
@@ -113,6 +125,7 @@ class DataRepository:
         data = pd.DataFrame(self.all_data[datatype][f"{ticker.value} {features}"])
         daily_vol = data.std(axis=0)
         return daily_vol
+
 
     def ROE(self, datatype: Universes, ticker):
 
