@@ -24,6 +24,7 @@ from src.util.Tickers import SnpTickers
 class Storage:
     signal_list = list()
     qty_list = list()
+    current_value_list = list()
     invested = None
 
 class Executor:
@@ -136,10 +137,15 @@ class Executor:
 
     #   pass
 
-    def units(self):
+    def units(self, X, Y):
         qty_1 =  int(floor(Storage.signal_list[-1][0]*self.qty))
         qty_2 =  int(Storage.signal_list[-1][1]*self.qty)
+        current_value_1 = self.current_window.get_data(universe=Universes.SNP, tickers=[X],
+                                          features=[Features.CLOSE]).values[-1] * qty_1
+        current_value_2 = self.current_window.get_data(universe=Universes.SNP, tickers=[Y],
+                                          features=[Features.CLOSE]).values[-1] * qty_2
         Storage.qty_list.append([qty_1, qty_2])
+        Storage.current_value_list.append([current_value_1, current_value_2])
 
 
     #def open_positions(self, reduced_pairs: Tuple[str, str], reversions, current_risk_metrics) -> Df:
@@ -157,20 +163,17 @@ if __name__ == '__main__':
                   trading_win_len=timedelta(days=90),
                   repository=DataRepository())
     window_start = date(2008, 1, 15)
-    window_end = date(2008,1,20)
-    def daterange(start_date, end_date):
-        for n in range(int((end_date - start_date).days)):
-            yield start_date + timedelta(n)
-    for i in daterange(window_start, window_end):
+    window_end = date(2008,1,30)
+    for i in range(int((window_end - window_start).days)):
         coin = Cointegrator(repository=DataRepository(), adf_confidence_level=AdfPrecisions.ONE_PCT,
                             max_mean_rev_time=15, entry_z=1.5, exit_z=0.5, current_window=win, previous_window=win,
                             window_end=win.window_end)
         EXE = Executor(repository=DataRepository(), current_window=win, entry_z=2.5, exit_z=1.5,
-                       window_end=win.window_end, cointegrator=coin, qty =1000)
+                       window_end=win.window_end, cointegrator=coin, qty =100)
         EXE.trade_signals(SnpTickers.CTAS, SnpTickers.NVDA)
-        EXE.units()
+        EXE.units(SnpTickers.CTAS, SnpTickers.NVDA)
         win = win.evolve()
     print(Storage.signal_list)
     print(Storage.qty_list)
-
+    print(Storage.current_value_list)
 
