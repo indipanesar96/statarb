@@ -163,13 +163,13 @@ if __name__ == '__main__':
                   trading_win_len=timedelta(days=90),
                   repository=DataRepository())
     window_start = date(2008, 1, 15)
-    window_end = date(2008,1,20)
+    window_end = date(2008,1,30)
     for i in range(int((window_end - window_start).days)):
         coin = Cointegrator(repository=DataRepository(), adf_confidence_level=AdfPrecisions.ONE_PCT,
                             max_mean_rev_time=15, entry_z=1.5, exit_z=0.5, current_window=win, previous_window=win,
                             window_end=win.window_end)
         EXE = Executor(repository=DataRepository(), current_window=win, entry_z=2.5, exit_z=1.5,
-                       window_end=win.window_end, cointegrator=coin, qty =1000)
+                       window_end=win.window_end, cointegrator=coin, qty =100)
         EXE.trade_signals(SnpTickers.CTAS, SnpTickers.NVDA)
         EXE.units(SnpTickers.CTAS, SnpTickers.NVDA)
         win = win.evolve()
