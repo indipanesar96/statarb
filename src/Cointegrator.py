@@ -11,27 +11,33 @@ from src.DataRepository import DataRepository
 from src.DataRepository import Universes
 from src.Window import Window
 from src.util.FakeCointegratedPair import cointegrated_pair_generator
-from src.util.Features import SnpFeatures
+#from src.util.Features import SnpFeatures
+from src.util.Features import Features
+from src.util.Tickers import Tickers
+from src.util.Tickers import SnpTickers
+
 
 
 # from Window import Window
 # from DataRepository import DataRepository
 # from util.FakeCointegratedPair import cointegrated_pair_generator
 
+Holding_list = []
 
 ##
 class Cointegrator:
 
     def __init__(self, repository, adf_confidence_level, max_mean_rev_time, entry_z, exit_z, current_window,
-                 previous_window):
+                 previous_window, window_end):
         self.repository: DataRepository = repository
-        self.current_window: current_window = current_window
+        self.current_window: Window = current_window
         self.adf_confidence_level: str = adf_confidence_level
         self.max_mean_rev_time: float = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
         self.invested = None
         self.previous_window: Window = previous_window
+        self.window_end: date = window_end
 
     def check_holdings(self, current_holdings: DataFrame):
         '''
@@ -145,7 +151,7 @@ class Cointegrator:
                     stock1_holding = 0
                     stock1_holding = 0
                     self.invested = None
-                cointegrated_pairs.append({list(pair): [stock1_holding, stock2_holding, self.invested]})
+                #cointegrated_pairs.append({list(pair): [stock1_holding, stock2_holding, self.invested]})
                 # cointegrated_pairs.append([list(pair), today_signal]) # to be defined above
                 # please make sure the logic is consistent and try some example values
         return cointegrated_pairs
@@ -169,7 +175,6 @@ class Cointegrator:
     
     ###Kalman Filter
     '''
-
     '''
     # zscore = latest_residual_scaled (defined in cointegration_analysis)
     def Signals(self,z_score, beta, entry_z, exit_z, stock1, stock2):
@@ -228,6 +233,91 @@ class Cointegrator:
                 self.go_long_units()
                 self.invested == None
     '''
+    # SnpTickers.CTAS SnpTickers.NVDA
+    def run_cointegrator_2(self, coint1, coint2):
+        t1 = self.current_window.get_data(universe=Universes.SNP, tickers=[coint1],
+                                          features=[Features.CLOSE])
+        t2 = self.current_window.get_data(universe=Universes.SNP, tickers=[coint2],
+                                          features=[Features.CLOSE])
+        print(self.current_window.window_end)
+        print(t1)
+        print(t2)
+        cointegration_parameters = self.cointegration_analysis(t1, t2)  # (X,Y)
+        adf_test_statistic, adf_critical_values, hl_test, \
+        hurst_exp, beta, latest_residual_scaled = cointegration_parameters
+        zscore = latest_residual_scaled
+        print(beta)
+        print(zscore)
+        print(self.entry_z)
+        print(self.invested)
+        if adf_test_statistic <= adf_critical_values ['5%'] and hl_test <= self.max_mean_rev_time and hurst_exp <= 0.5:
+            print('a')
+            # stock1_holding = 0
+            # stock2_holding = 0
+            # stock_holding_list = []
+            # If we are not in the market
+            if self.invested is None:
+                print('b')
+                if zscore < -self.entry_z: # Long Entry # Short stock1, long stock2
+                    stock1_holding = -beta
+                    stock2_holding = 1
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('1')
+                    self.invested = "long"
+
+                elif zscore > self.entry_z: # Short Entry # Long stock1, short stock2
+                    stock1_holding = beta
+                    stock2_holding = -1
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('2')
+                    self.invested = "short"
+                    print(self.invested)
+
+                else:
+                    stock1_holding = 0
+                    stock2_holding = 0
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('3')
+                    self.invested = None
+
+
+            # If we are in the market
+            elif self.invested is not None:
+                print('c')
+                if self.invested == "long" and zscore < -self.exit_z: # Holding Postion
+                    stock1_holding = -beta  # or equal to the previous window -beta
+                    stock2_holding = 1
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('3')
+                    self.invested = "long"
+                elif self.invested == "long" and zscore >= -self.exit_z: # Close Position
+                    stock1_holding = 0
+                    stock2_holding = 0
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('4')
+                    self.invested = None
+                elif self.invested == "short" and zscore > self.exit_z: # Holding Position
+                    stock1_holding = beta  # or equal to the previous window beta
+                    stock2_holding = -1
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('5')
+                    self.invested = "short"
+                    print(self.invested)
+                elif self.invested == "short" and zscore <= self.exit_z: # Close Position
+                    stock1_holding = 0
+                    stock2_holding = 0
+                    Holding_list.append([stock1_holding, stock2_holding])
+                    print('6')
+                    self.invested = None
+        else:
+            # Not conintegrated
+            stock1_holding = 0
+            stock2_holding = 0
+            Holding_list.append([stock1_holding, stock2_holding])
+            print('7')
+            self.invested = None
+
+
 
     def cointegration_analysis(self, X, Y):
 
@@ -258,7 +348,8 @@ class Cointegrator:
         hl_test = self.half_life_test(np.array(residuals))
 
         # call hurst_exponent_test function on residuals to compute hurst exponent
-        hurst_exp = self.hurst_exponent_test(np.array(residuals))
+        #hurst_exp = self.hurst_exponent_test(np.array(residuals))
+        hurst_exp = 0.3
 
         # standardize residuals through StandardScaler() and save latest_residual_scaled
         scaler = StandardScaler()
@@ -321,6 +412,10 @@ class Cointegrator:
         return reg_coef / 2
 
 
+
+
+
+'''
 if __name__ == '__main__':
     win = Window(window_start=date(2008, 1, 1),
                  trading_win_len=timedelta(days=90),
@@ -330,7 +425,6 @@ if __name__ == '__main__':
     coint = Cointegrator(repository=DataRepository(), adf_confidence_level="1%", max_mean_rev_time=15, entry_z=2,
                          exit_z=0.5, current_window=win, previous_window=win) #inaccurate but still ok for testing fake
     results = coint.cointegration_analysis(X, Y)
-
     adf_test_statistic, adf_critical_values, hl_test, hurst_exp, beta, latest_residual_scaled = results
     print("ADF statistic is ", adf_test_statistic, ", hopefully lower than critical value")
     print("Critical value for confidence ", coint.adf_confidence_level,
@@ -339,3 +433,31 @@ if __name__ == '__main__':
     print("hurst exponent is:  ", hurst_exp)
     print("beta of regression is: ", beta)
     print("latest scaled residual is: ", latest_residual_scaled)
+'''
+
+if __name__ == '__main__':
+    '''
+    win = Window(window_start=date(2008, 1, 15),
+                 trading_win_len=timedelta(days=90),
+                 repository=DataRepository())
+    coint = Cointegrator(repository=DataRepository(), adf_confidence_level="1%", max_mean_rev_time=15, entry_z=1,
+    exit_z=0.5, current_window=win.evolve(), previous_window=win)
+    '''
+    # 2.5523122023495732, -1
+    win = Window(window_start=date(2008, 1, 15),
+                 trading_win_len=timedelta(days=90),
+                 repository=DataRepository())
+
+    window_start = date(2008, 1, 15)
+    window_end = date(2008,1,20)
+    def daterange(start_date, end_date):
+        for n in range(int((end_date - start_date).days)):
+            yield start_date + timedelta(n)
+
+    for i in daterange(window_start, window_end):
+        coint = Cointegrator(repository=DataRepository(), adf_confidence_level="1%", max_mean_rev_time=15, entry_z=1.5,
+                             exit_z=0.5, current_window=win, previous_window=win, window_end = win.window_end)
+        coint.run_cointegrator_2(SnpTickers.CTAS, SnpTickers.NVDA)
+        win = win.evolve()
+        #win = win.evolve_rolling()
+    print(Holding_list)

@@ -20,7 +20,9 @@ from src.util.Tickers import Tickers
 from src.Clusterer import Clusterer
 from src.util.Tickers import SnpTickers
 
-
+class Storage:
+    signal_list = list()
+    invested = None
 
 class Executor:
 
@@ -32,8 +34,8 @@ class Executor:
         self.window_end: date = window_end
         #self.cointegrator2: Cointegrator2 = cointegrator2
         self.cointegrator: Cointegrator = cointegrator
-        self.Holding_list = list()
-        self.invested = None
+        #self.Holding_list = list()
+        #self.invested = None
         #self.qty: int = qty
 
 
@@ -45,74 +47,73 @@ class Executor:
                                           features=[Features.CLOSE])
         t2 = self.current_window.get_data(universe=Universes.SNP, tickers=[Y],
                                           features=[Features.CLOSE])
-        # beta = self.cointegrator.__lin_reg(t1, t2)[1]
-        # residual = self.cointegrator.__lin_reg(t1, t2)[0]
-        # zscore = self.cointegrator.__return_current_deviation(residual)
+        #beta = self.cointegrator2.__lin_reg(t1, t2)[1]
+        #residual = self.cointegrator.__lin_reg(t1, t2)[0]
+        #zscore = self.cointegrator.__return_current_deviation(residual)
         cointegration_parameters = self.cointegrator.cointegration_analysis(t1, t2)  # (X,Y)
         adf_test_statistic, adf_critical_values, hl_test, \
         hurst_exp, beta, latest_residual_scaled = cointegration_parameters
         zscore = latest_residual_scaled
         print(beta)
         print(zscore)
-        print(self.invested)
+        print(Storage.invested)
         # If we are not in the market
-        if self.invested is None:
+        if Storage.invested is None:
             if zscore < -self.entry_z: # Long Entry # Short stock1, long stock2
                 stock1_holding = -beta
                 stock2_holding = 1
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('1')
-                self.invested = "long"
+                Storage.invested = "long"
 
             elif zscore > self.entry_z: # Short Entry # Long stock1, short stock2
                 stock1_holding = beta
                 stock2_holding = -1
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('2')
-                self.invested = "short"
+                Storage.invested = "short"
 
             else:
                 stock1_holding = 0
                 stock2_holding = 0
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('3')
-                self.invested = None
+                Storage.invested = None
 
 
         # If we are in the market
-        elif self.invested is not None:
-            if self.invested == "long" and zscore < -self.exit_z: # Holding Postion
-                stock1_holding = -self.Holding_list[-1][0]  # or equal to the previous window -beta
+        elif Storage.invested is not None:
+            if Storage.invested == "long" and zscore < -self.exit_z: # Holding Postion
+                stock1_holding = -Storage.signal_list[-1][0]  # or equal to the previous window -beta
                 stock2_holding = 1
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('4')
-                self.invested = "long"
-            elif self.invested == "long" and zscore >= -self.exit_z: # Close Position
-                stock1_holding = self.Holding_list[-1][0]
+                Storage.invested = "long"
+            elif Storage.invested == "long" and zscore >= -self.exit_z: # Close Position
+                stock1_holding = Storage.signal_list[-1][0]
                 stock2_holding = -1
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('5')
-                self.invested = None
-            elif self.invested == "short" and zscore > self.exit_z: # Holding Position
-                stock1_holding =  self.Holding_list[-1][0]  # or equal to the previous window beta
+                Storage.invested = None
+            elif Storage.invested == "short" and zscore > self.exit_z: # Holding Position
+                stock1_holding =  Storage.signal_list[-1][0]  # or equal to the previous window beta
                 stock2_holding = -1
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('6')
-                self.invested = "short"
-                print(self.invested)
-            elif self.invested == "short" and zscore <= self.exit_z: # Close Position
-                stock1_holding = -self.Holding_list[-1][0]
+                Storage.invested = "short"
+            elif Storage.invested == "short" and zscore <= self.exit_z: # Close Position
+                stock1_holding = -Storage.signal_list[-1][0]
                 stock2_holding = 1
-                self.Holding_list.append([stock1_holding, stock2_holding])
+                Storage.signal_list.append([stock1_holding, stock2_holding])
                 print('7')
-                self.invested = None
+                Storage.invested = None
         else:
             # Not conintegrated
             stock1_holding = 0
             stock2_holding = 0
-            self.Holding_list.append([stock1_holding, stock2_holding])
+            Storage.signal_list.append([stock1_holding, stock2_holding])
             print('8')
-            self.invested = None
+            Storage.invested = None
 
 
     #def close_positon(self, position_to_close: Tuple[str, str], current_portfolio: Df) -> Df:
@@ -137,16 +138,20 @@ class Executor:
 if __name__ == '__main__':
     # 2.5523122023495732, -1
     win = Window(window_start=date(2008, 1, 15),
-                 trading_win_len=timedelta(days=90),
-                 repository=DataRepository())
-    coin = Cointegrator(repository=DataRepository(), adf_confidence_level= AdfPrecisions.ONE_PCT,
-                          max_mean_rev_time=15, entry_z=1.5, exit_z=0.5, current_window=win, previous_window=win, window_end = win.window_end)
-    EXC = Executor(repository=DataRepository(), current_window=win, entry_z=1.5, exit_z=0.5,
-                   window_end=win.window_end, cointegrator=coin)
-    for i in range(0,100):
-        EXC.trade_signals(SnpTickers.CTAS, SnpTickers.NVDA)
+                  trading_win_len=timedelta(days=90),
+                  repository=DataRepository())
+    # coin = Cointegrator(repository=DataRepository(), adf_confidence_level= AdfPrecisions.ONE_PCT,
+    #                          max_mean_rev_time=15, entry_z=1.5, exit_z=0.5, current_window=win, previous_window=win, window_end = win.window_end)
+    # EXE = Executor(repository=DataRepository(), current_window=win, entry_z=1.5, exit_z=0.5,
+    #                   window_end=win.window_end, cointegrator=coin)
+    for i in range(0,10):
+        coin = Cointegrator(repository=DataRepository(), adf_confidence_level=AdfPrecisions.ONE_PCT,
+                            max_mean_rev_time=15, entry_z=1.5, exit_z=0.5, current_window=win, previous_window=win,
+                            window_end=win.window_end)
+        EXE = Executor(repository=DataRepository(), current_window=win, entry_z=2.5, exit_z=1.5,
+                       window_end=win.window_end, cointegrator=coin)
+        EXE.trade_signals(SnpTickers.CTAS, SnpTickers.NVDA)
         win = win.evolve()
-        #win = win.evolve_rolling()
-    print(EXC.Holding_list)
+    print(Storage.signal_list)
 
 

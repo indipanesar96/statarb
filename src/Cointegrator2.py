@@ -34,6 +34,17 @@ class AdfPrecisions(Enum):
     TEN_PCT = r'10%'
 
 
+def __lin_reg(x: DataFrame, y: DataFrame):
+    log_x = x.applymap(lambda k: np.log(k))
+    log_y = y.applymap(lambda k: np.log(k))
+
+    results = LinearRegression().fit(log_x, log_y)
+    residuals = log_y - results.predict(log_x)  # e = y - y^
+    beta = float(results.coef_[0])
+
+    return np.array(residuals), beta
+
+
 class Cointegrator2:
 
     def __init__(self,
@@ -156,7 +167,7 @@ class Cointegrator2:
         # avoid 0 values for variance_delta_vector
         variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
 
-        residuals, beta = self.__lin_reg(DataFrame(tau_vector), DataFrame(variance_delta_vector))
+        residuals, beta = __lin_reg(DataFrame(tau_vector), DataFrame(variance_delta_vector))
 
         # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
 
