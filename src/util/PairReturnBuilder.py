@@ -15,7 +15,7 @@ def threshold_evaluator(res: float, sign, entry_z: float = 2, exit_z: float = 0.
     return sign
 
 
-def signal_builder(scaled_residuals: np.array, max_mean_rev_time:int = 10):
+def signal_builder(scaled_residuals: np.array, max_mean_rev_time:int = 50):
     sign_vect = []
     sign = 0
     day_counter = 0
@@ -35,8 +35,7 @@ def signal_builder(scaled_residuals: np.array, max_mean_rev_time:int = 10):
 def pair_ret_builder(x: np.array, y: np.array, signal_vector: np.array, beta: float):
     r_x = np.log(x[1:]) - np.log(x[:-1])
     r_y = np.log(y[1:]) - np.log(y[:-1])
-    r_p = [beta / (beta - 1) * rx - ry / (beta - 1) if sig == "l" else ry / (beta - 1) - beta / (
-                beta - 1) * rx if sig == "s" else 0
+    r_p = [beta * rx - ry if sig == "l" else ry - beta * rx if sig == "s" else 0
            for sig, rx, ry in zip(signal_vector, r_x, r_y)]
     return r_p
 

@@ -42,7 +42,8 @@ def cointegrated_ts_generator(x: np.array, u: np.array, y0: float, alpha: float,
     period = len(x)
     dt = 1 / 250
     x0 = x[0]
-    y = [y0 if i == 0 else (y0 * (x[i] / x0)**beta * np.exp(alpha * dt * (i) + u[i])) for i in range(period)]
+    y = [y0 if i == 0 else (y0 * (x[i] / x0)**beta * np.exp(alpha * dt + (u[i]-u[0]))) for i in range(period)]
+
 
     x = pd.DataFrame(np.array(x), columns=['FKSX'])
     y = pd.DataFrame(np.array(y), columns=['FKSY'])

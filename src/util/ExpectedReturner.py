@@ -4,12 +4,12 @@ import numpy as np
 
 
 def expected_returner(alpha, beta, mu_rx_ann, sigma_rx_ann, hl, v, xf, yf, recent_dev,  #0.075
-                      res_m, res_std, max_mean_rev_time: int = 10):
+                      res_m, res_std, max_mean_rev_time: int = 50):
 
     # probably need a fix and esimate sigma of ou vasicek through ml
     mu_rp_list = []
     sigma_rp_list = []
-    for i in range(1000):
+    for i in range(100):
         x = gbm_series(s0=xf, period=max_mean_rev_time+1, sigma=sigma_rx_ann, mu=mu_rx_ann, rand_st=i)
         u = ou_process(period=max_mean_rev_time+1, k=250 / (2 * hl), v=v, u0=recent_dev, rand_st=i + 1000)
         y = cointegrated_ts_generator(x, u, y0=yf, beta=beta, alpha=alpha)

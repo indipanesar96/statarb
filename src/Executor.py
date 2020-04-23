@@ -20,12 +20,20 @@ from src.util.Features import Features
 from src.util.Tickers import Tickers
 from src.Clusterer import Clusterer
 from src.util.Tickers import SnpTickers
+from src.util.ExpectedReturner import expected_returner
 
 class Storage:
     signal_list = list()
     qty_list = list()
     current_value_list = list()
     invested = None
+
+class tradable_pair:
+    def __init__(self, cointegrated_pair, position, expected_return):
+        self.cointegrated = cointegrated_pair
+        self.pair = cointegrated_pair.pair
+        self.position = position
+        self.mu = expected_return
 
 class Executor:
 
@@ -42,10 +50,28 @@ class Executor:
         self.qty: int = qty
 
 
+    def trade_signals(self, cointegrated_pairs):
+        tradable_pairs = []
+        for cointegrated_pair in cointegrated_pairs:
+            beta = cointegrated_pair.beta
+            zscore = cointegrated_pair.most_recent_deviation
+            if zscore < -self.entry_z:  # Long Entry # Short stock1, long stock2
+                stock1_holding = -beta
+                stock2_holding = 1
+                expected_return = expected_returner()
+                tradable_pairs.append(tradable_pair(cointegrated_pair = cointegrated_pair,
+                                                    position = [stock1_holding, stock2_holding],
+                                                    expected_return = expected_return))
+
+            elif zscore > self.entry_z:  # Short Entry # Long stock1, short stock2
+                stock1_holding = beta
+                stock2_holding = -1
+                Storage.signal_list.append([stock1_holding, stock2_holding])
 
 
 
-    def trade_signals(self, X, Y):
+
+    def trade_signals_old(self, X, Y):
         t1 = self.current_window.get_data(universe=Universes.SNP, tickers=[X],
                                           features=[Features.CLOSE])
         t2 = self.current_window.get_data(universe=Universes.SNP, tickers=[Y],
