@@ -30,19 +30,18 @@ def ou_process(period: int, k: float, v: float, rand_st: int, u0: float = 0) -> 
     return np.array(u)
 
 
-def cointegrated_ts_generator(x: np.array, u: np.array, y0: float, alpha: float, beta: float, plot=False):
+def cointegrated_ts_generator(x: np.array, u: np.array, y0: float, beta: float, plot=False):
     """
     :param x: first series as np.array
     :param u: ou-error series as np.array
     :param y0: starting value for second series
-    :param alpha: intercept of cointegration relationship
     :param beta: coefficient of cointegration relationship
     :return: y: second series as np.array (cointegrated with x)
     """
     period = len(x)
     dt = 1 / 250
     x0 = x[0]
-    y = [y0 if i == 0 else (y0 * (x[i] / x0)**beta * np.exp(alpha * dt + (u[i]-u[0]))) for i in range(period)]
+    y = [y0 if i == 0 else (y0 * (x[i] / x0)**beta * np.exp((u[i]-u[0]))) for i in range(period)]
 
 
     x = pd.DataFrame(np.array(x), columns=['FKSX'])
@@ -63,7 +62,4 @@ if __name__ == '__main__':
     mu=.1
     x = gbm_series(period=period, s0=x0, sigma=sigma, mu=mu)
     u = ou_process(period=period, k=250/15, v=0.3, rand_st=23)
-    y = cointegrated_ts_generator(x, u, y0=y0, alpha=.01, beta=1.2, plot=True)
-    u_scaled= (u - np.mean(u))/np.std(u)
-    for i,j in zip(u, u_scaled):
-        print(i,j)
+    y = cointegrated_ts_generator(x, u, y0=y0, beta=1.2, plot=True)

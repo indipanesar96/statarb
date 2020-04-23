@@ -6,7 +6,6 @@ import numpy as np
 from numpy import array
 from pandas import DataFrame
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 
 from src.DataRepository import DataRepository
@@ -22,25 +21,23 @@ class CointegratedPair:
                  pair: Tuple[Tickers],
                  mu_x_ann: float,
                  sigma_x_ann: float,
-                 alpha: float,
                  beta: float,
                  hl:float,
-                 v:float,
+                 ou_mean:float,
+                 ou_std:float,
+                 ou_diffusion_v:float,
                  recent_dev: float,
-                 res_m: float,
-                 res_std: float,
                  recent_dev_scaled: float):
 
         self.pair: Tuple[Tickers] = pair
-        self.mu_x_ann: float
-        self.sigma_x_ann: float
-        self.alpha: float = alpha
+        self.mu_x_ann: float = mu_x_ann
+        self.sigma_x_ann: float = sigma_x_ann
         self.beta: float = beta
-        self.hl : float = hl
-        self.v : float = v
+        self.hl: float = hl
+        self.ou_mean = ou_mean
+        self.ou_std = ou_std
+        self.ou_diffusion_v = ou_diffusion_v
         self.recent_dev: float = recent_dev
-        self.res_m:float = res_m
-        self.res_std:float = res_std
         self.recent_dev_scaled: float = recent_dev_scaled
 
 
@@ -92,12 +89,11 @@ class Cointegrator2:
                                                   tickers=[pair[1]],
                                                   features=[Features.CLOSE])
 
-                residuals, alpha, beta = self.__lin_reg(t1, t2)
+                residuals, beta = self.__lin_reg(t1, t2)
 
                 adf_test_statistic, adf_critical_values = self.__adf(residuals)
-                hl_test, v = self.__hl(residuals)
+                hl_test = self.__hl(residuals)
                 he_test = self.__hurst_exponent_test(residuals)
-                recent_dev, res_m, res_std, recent_dev_scaled = self.__return_current_deviation(residuals)
 
                 is_cointegrated = self.__acceptance_rule(adf_test_statistic,
                                                          adf_critical_values,
@@ -111,8 +107,10 @@ class Cointegrator2:
                     r_x = self.__log_returner(t1)
                     mu_x_ann = float(250*np.mean(r_x))
                     sigma_x_ann = float((250)**0.5 *np.std(r_x))
-                    cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, alpha, beta, hl_test,
-                                                               v, recent_dev, res_m, res_std,recent_dev_scaled))
+                    ou_mean, ou_std, ou_diffusion_v, recent_dev, recent_dev_scaled = self.__ou_params(residuals)
+                    cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, beta, hl_test,
+                                                               ou_mean, ou_std, ou_diffusion_v,
+                                                               recent_dev, recent_dev_scaled))
                     print(f"{[i.name for i in pair]} are cointegrated. "
                           f"ADF test stat: {adf_test_statistic:.4f} "
                           f"Critical value @ {adf_critical_values[self.adf_confidence_level.value]:.4f}")
@@ -121,24 +119,16 @@ class Cointegrator2:
 
         return cointegrated_pairs
 
-    def __return_current_deviation(self, residuals: array) -> Tuple[float, float, float, float]:
-        res_m = float(np.mean(residuals))
-        res_std = float(np.std(residuals))
-        latest_residual = float(residuals[-1])
-        latest_residual_scaled = (latest_residual-res_m)/res_std
-        return latest_residual, res_m, res_std, latest_residual_scaled
-
-    def __lin_reg(self, x: DataFrame, y: DataFrame) -> Tuple[array, float, float]:
+    def __lin_reg(self, x: DataFrame, y: DataFrame) -> Tuple[array, float]:
 
         log_x = x.applymap(lambda k: np.log(k))
         log_y = y.applymap(lambda k: np.log(k))
 
-        results = LinearRegression().fit(log_x, log_y)
+        results = LinearRegression(fit_intercept=False).fit(log_x, log_y)
         residuals = log_y - results.predict(log_x)  # e = y - y^
         beta = float(results.coef_[0])
-        alpha = float(results.intercept_)
 
-        return np.array(residuals), alpha, beta
+        return np.array(residuals), beta
 
     def __log_returner(self, x: DataFrame) -> array:
         x= np.array(x)
@@ -183,27 +173,41 @@ class Cointegrator2:
         # avoid 0 values for variance_delta_vector
         variance_delta_vector = [value if value != 0 else 1e-10 for value in variance_delta_vector]
 
-        residuals, alpha, beta = self.__lin_reg(DataFrame(tau_vector), DataFrame(variance_delta_vector))
+        residuals, beta = self.__lin_reg(DataFrame(tau_vector), DataFrame(variance_delta_vector))
 
         # https://quant.stackexchange.com/questions/35513/explanation-of-standard-method-generalized-hurst-exponent
 
         return beta / 2
 
-    def __hl(self, residuals: array) -> Tuple[float, float]:
+    def __hl(self, residuals: array) -> float:
 
         # independent variable
         lagged_residuals = residuals[:-1]
         # dependent variable
         delta_residuals = (residuals[1:] - lagged_residuals)
         model = LinearRegression().fit(lagged_residuals, delta_residuals)
-        estimated_errors = delta_residuals - model.predict(lagged_residuals)
-        pi = float(model.coef_[0])
-        var_errors = float(np.std(estimated_errors))
-        v = (var_errors/(1-pi**2))**0.5
-
+        pi = float(model.coef_[0])  # pi = -k * dt
         # calculate average time of mean reversion from average speed of mean reversion as per formula
-        hl_ave_mean_rev_time = np.log(2) / (-pi)
-        return hl_ave_mean_rev_time, v
+        hl_ave_mean_rev_time = np.log(2) / (-pi) #measured in days
+        return hl_ave_mean_rev_time
+
+    def __ou_params(self, residuals: array) -> Tuple[float, float, float, float, float]:
+        # independent variable
+        lagged_residuals = residuals[:-1]
+        # dependent variable
+        residuals = residuals[1:]
+        model = LinearRegression().fit(lagged_residuals, residuals)
+        errors = residuals - model.predict(lagged_residuals)
+        ou_mean = float(np.mean(residuals))
+        ou_std = float(np.std(residuals))
+        sigma_errors= float(np.std(errors))
+        ou_diffusion_v = (250) ** 0.5 * sigma_errors
+
+        recent_dev = residuals[-1]
+        recent_dev_scaled = (recent_dev-ou_mean) / ou_std
+
+
+        return ou_mean, ou_std, ou_diffusion_v, recent_dev, recent_dev_scaled
 
     def __acceptance_rule(self,
                           adf_test_statistic: float,
