@@ -109,7 +109,7 @@ if __name__ == '__main__':
         trading_window_length=timedelta(days=10),  # 63 trading days per quarter
         backtest_end=None,
         adf_confidence_level=AdfPrecisions.ONE_PCT,
-        max_mean_rev_time=15,
+        max_mean_rev_time=5,
         entry_z=1.5,
         exit_z=0.5
     ).trade()
