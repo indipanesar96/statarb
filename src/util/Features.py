@@ -1,4 +1,5 @@
 from enum import Enum, unique
+from copy import copy, deepcopy
 
 
 @unique
@@ -14,3 +15,10 @@ class Features(Enum):
     CLOSE = 'CLOSE'
     LOW = 'LOW'
     OPEN = 'OPEN'
+
+
+@unique
+class PositionType(Enum):
+    SHORT = "SHORT"
+    LONG = "LONG"
+    NOT_INVESTED = "NOT_INVESTED"

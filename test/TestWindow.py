@@ -12,7 +12,7 @@ from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers
 
 
-class TestSicomScraper(TestCase):
+class TestWindow(TestCase):
     tmp_dir = Path(tempfile.mkdtemp())
 
     @classmethod

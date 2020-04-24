@@ -5,13 +5,56 @@ from pandas import DataFrame, to_datetime
 
 from src.DataRepository import Universes, DataRepository
 from src.Window import Window
-from src.util.Features import Features
-from src.util.Tickers import SnpTickers
+
+from src.util.Features import Features, PositionType
+from src.util.Tickers import SnpTickers, Tickers
+
+
+class Position:
+    def __init__(self,
+                 ticker1,
+                 ticker2,
+                 weight1,
+                 weight2,
+                 investment_type: PositionType,
+                 init_value=100,
+                 commission=0):
+        self.asset1: Tickers = ticker1
+        self.asset2: Tickers = ticker2
+        self.weight1: float = weight1
+        self.weight2: float = weight2
+        self.position_type: PositionType = investment_type
+
+        self.commission: float = commission
+        self.init_value: float = init_value
+        self.current_value: float = init_value
+        self.pnl: float = -commission
+        self.pos_hist = list()
+        self.closed = False
+
+    def update_position_pnl(self, value, window):
+        if not self.closed:
+            self.pnl += value - self.current_value
+            self.current_value = value
+        self.pos_hist.append([window.window_end, self.current_value, self.pnl])
+
+    def close_trade(self, value, window):
+        self.pnl += value - self.current_value - self.commission
+        self.current_value = value
+        self.closed = True
+        self.pos_hist.append([window.window_end, self.current_value, self.pnl])
+
+    def get_pos_hist(self):
+        # returns a time series of position value and pnl
+        df = DataFrame(self.pos_hist, columns=['date', 'pos_value', 'pnl'])
+        df['date'] = to_datetime(df['date'])
+        df = df.set_index('date')
+        return df
 
 
 class Portfolio:
 
-    def __init__(self, cash, window):
+    def __init__(self, cash: float, window: Window):
         # port_value: value of all the positions we have currently
         # cur_positions: list of all current positions
         # hist_positions: list of all positions (both historical and current)
@@ -26,7 +69,7 @@ class Portfolio:
         self.t_cost = float(1)
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
-        self.current_window = window
+        self.current_window: Window = window
         self.port_hist = list()
         self.rebalance_threshold = float(1)
 
@@ -36,42 +79,47 @@ class Portfolio:
         self.port_value = float(0)
         self.realised_pnl = float(0)
 
-    def open_position(self, ticker1, ticker2, quantity1, quantity2):
-        cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
+    def open_position(self,
+                      position: Position):
+
+        cur_price = self.current_window.get_data(universe=Universes.SNP,
+                                                 tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
 
-        commission = self.t_cost * (abs(quantity1) + abs(quantity2))
-        asset_value = cur_price.iloc[-1, 0] * quantity1 + cur_price.iloc[-1, 1] * quantity2
+        commission = self.t_cost * (abs(position.weight1) + abs(position.weight2))
+        asset_value = cur_price.iloc[-1, 0] * position.weight1 + cur_price.iloc[-1, 1] * position.weight2
 
         self.logger.info('Opening position...')
-        pair = Position(ticker1, ticker2, quantity1, quantity2, asset_value, commission)
-        self.cur_positions.append(pair)
-        self.hist_positions.append(pair)
+        self.cur_positions.append(position)
+        self.hist_positions.append(position)
 
         self.cur_cash -= asset_value + commission
         self.port_value += asset_value
-        self.logger.info('Asset 1: %s @$%s Quantity: %s', ticker1, cur_price.iloc[-1, 0], quantity1)
-        self.logger.info('Asset 2: %s @$%s Quantity: %s', ticker2, cur_price.iloc[-1, 1], quantity2)
+        self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], position.weight1)
+        self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], position.weight2)
         self.logger.info('Cash balance: $%s', self.cur_cash)
 
-    def close_position(self, ticker1, ticker2):
-        cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
+    # def close_position(self, ticker1, ticker2):
+    def close_position(self, position: Position):
+        cur_price = self.current_window.get_data(universe=Universes.SNP,
+                                                 tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
-        for pair in self.cur_positions:
-            if pair.asset1 == ticker1 and pair.asset2 == ticker2:
-                self.logger.info('Closing position...')
-                self.cur_positions.remove(pair)
+        if not (position in positions):
+            print("dont have this position open")
+        else:
+            self.logger.info('Closing position...')
+            self.cur_positions.remove(position)
 
-                commission = self.t_cost * (abs(pair.quantity1) + abs(pair.quantity2))
-                asset_value = cur_price.iloc[-1, 0] * pair.quantity1 + cur_price.iloc[-1, 1] * pair.quantity2
+            commission = self.t_cost * (abs(position.weight1) + abs(position.weight2))
+            asset_value = cur_price.iloc[-1, 0] * position.weight1 + cur_price.iloc[-1, 1] * position.weight1
 
-                pair.close_trade(asset_value, self.current_window)
-                self.cur_cash += asset_value - commission
-                self.port_value -= asset_value
-                self.realised_pnl += pair.pnl
-                self.logger.info('Asset 1: %s @$%s Quantity: %s', ticker1, cur_price.iloc[-1, 0], -pair.quantity1)
-                self.logger.info('Asset 2: %s @$%s Quantity: %s', ticker2, cur_price.iloc[-1, 1], -pair.quantity2)
-                self.logger.info('Realised PnL for position: %s' % pair.pnl)
+            position.close_trade(asset_value, self.current_window)
+            self.cur_cash += asset_value - commission
+            self.port_value -= asset_value
+            self.realised_pnl += position.pnl
+            self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], position.weight1)
+            self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], position.weight2)
+            self.logger.info('Realised PnL for position: %s' % position.pnl)
 
     def rebalance(self, ticker1, ticker2, quantity1, quantity2):
         cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
@@ -144,49 +192,17 @@ class Portfolio:
         return df
 
 
-class Position:
-    def __init__(self, ticker1, ticker2, quantity1, quantity2, init_value, commission):
-        self.asset1 = ticker1
-        self.asset2 = ticker2
-        self.quantity1 = quantity1
-        self.quantity2 = quantity2
-        self.init_value = init_value
-        self.current_value = init_value
-        self.commission = commission
-        self.pnl = -commission
-        self.pos_hist = list()
-        self.closed = False
-
-    def update_position_pnl(self, value, window):
-        if not self.closed:
-            self.pnl += value - self.current_value
-            self.current_value = value
-        self.pos_hist.append([window.window_end, self.current_value, self.pnl])
-
-    def close_trade(self, value, window):
-        self.pnl += value - self.current_value - self.commission
-        self.current_value = value
-        self.closed = True
-        self.pos_hist.append([window.window_end, self.current_value, self.pnl])
-
-    def get_pos_hist(self):
-        # returns a time series of position value and pnl
-        df = DataFrame(self.pos_hist, columns=['date', 'pos_value', 'pnl'])
-        df['date'] = to_datetime(df['date'])
-        df = df.set_index('date')
-        return df
-
-
 if __name__ == '__main__':
     current_window = Window(window_start=date(2008, 1, 3), trading_win_len=timedelta(days=90),
                             repository=DataRepository())
 
     port = Portfolio(10000, current_window)
-    port.open_position(SnpTickers.AAPL, SnpTickers.GOOGL, 1, -1)
+    p1 = Position(SnpTickers.AAPL, SnpTickers.GOOGL, 1, -1, PositionType.LONG)
+    port.open_position(p1)
     port.update_portfolio()
 
     port.evolve()
-    port.close_position(SnpTickers.AAPL, SnpTickers.GOOGL)
+    port.close_position(p1)
     port.update_portfolio()
 
     port.evolve()

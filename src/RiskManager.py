@@ -1,7 +1,7 @@
-import pandas as pd
 import numpy as np
-from src.Window import Window
+
 from src.DataRepository import Universes
+from src.Window import Window
 from src.util.Features import Features
 from src.util.Tickers import SnpTickers
 
@@ -23,22 +23,23 @@ class RiskManager:
     #   a heavier weight on existing port, lighter weight on new recommendation
 
     def __init__(self):
-	    self.current_window = None
+        self.current_window = None
 
     def current_exposure(self, port_current_open_positions):
         pass
 
     def run_risk_manager(self, cointegrated_pairs, current_window):
-	    self.current_window = current_window
-	    pairs_cov, pairs_expected_return  = self.__cov_mu(cointegrated_pairs)
-	    tg_port = self.__mean_variance_optimizer(cov_matrix = pairs_cov, expected_return = pairs_expected_return)
-	    return tg_port
+        self.current_window = current_window
+        pairs_cov, pairs_expected_return = self.__cov_mu(cointegrated_pairs)
+        tg_port = self.__mean_variance_optimizer(cov_matrix=pairs_cov, expected_return=pairs_expected_return)
+        return tg_port
 
     def __port_ts(self, pair):
         # assume always trading stock-stock pair
         # get pair's time series of last price
-        pair_ts = self.current_window.get_data(universe = Universes.SNP, tickers = [pair[0][0],pair[0][1]], features = Features.CLOSE)
-        port_ts = pair_ts.iloc[:,0] * pair[1][0] + pair_ts.iloc[:,1] * pair[1][1]
+        pair_ts = self.current_window.get_data(universe=Universes.SNP, tickers=[pair[0][0], pair[0][1]],
+                                               features=Features.CLOSE)
+        port_ts = pair_ts.iloc[:, 0] * pair[1][0] + pair_ts.iloc[:, 1] * pair[1][1]
         port_ts = port_ts.to_frame()
         port_ts.columns = [pair[0][0].value + ' - ' + pair[0][1].value]
         return port_ts
@@ -53,7 +54,7 @@ class RiskManager:
                 pairs_price_df = self.__port_ts(pair)
                 pair_price_df_started = True
             else:
-                this_port =  self.__port_ts(pair)
+                this_port = self.__port_ts(pair)
                 pairs_price_df = pairs_price_df.join(this_port)
 
             pair_expected_return.append(pair[1][3])
@@ -61,12 +62,11 @@ class RiskManager:
         return pairs_price_df.cov(), pair_expected_return
 
     def __mean_variance_optimizer(self, cov_matrix, expected_return):
-	    cov_matrix_inv = np.linalg.inv(cov_matrix.values)
-	    weight = cov_matrix_inv.dot(expected_return)
-	    scale = weight.sum()
-	    weight = weight / scale
-	    return weight
-
+        cov_matrix_inv = np.linalg.inv(cov_matrix.values)
+        weight = cov_matrix_inv.dot(expected_return)
+        scale = weight.sum()
+        weight = weight / scale
+        return weight
 
 
 from datetime import date, timedelta
@@ -80,9 +80,9 @@ if __name__ == '__main__':
     test_input = [
         [
             [SnpTickers.CRM, SnpTickers.WU],
-            [1, -1.5, # long short size
-             None, # self.invested
-             0.1] # expected return
+            [1, -1.5,  # long short size
+             None,  # self.invested
+             0.1]  # expected return
         ],
 
         [
@@ -91,11 +91,7 @@ if __name__ == '__main__':
              None,
              0.15]
         ]
-                  ]
+    ]
 
     rm = RiskManager()
-    rm.run_risk_manager(cointegrated_pairs = test_input, current_window = win)
-
-
-
-
+    rm.run_risk_manager(cointegrated_pairs=test_input, current_window=win)

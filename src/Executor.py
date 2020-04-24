@@ -10,9 +10,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.api import adfuller
 from src.Cointegrator import Cointegrator
-from src.Cointegrator2 import Cointegrator2
-from src.Cointegrator2 import AdfPrecisions
-from src.Cointegrator2 import CointegratedPair
+from src.Cointegrator import Cointegrator
+from src.Cointegrator import AdfPrecisions
+from src.Cointegrator import CointegratedPair
 from src.DataRepository import DataRepository
 from src.DataRepository import Universes
 from src.Window import Window
