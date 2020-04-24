@@ -113,6 +113,7 @@ class DataRepository:
         vwap = np.cumsum(data_vol*data_price) / np.cumsum(data_vol)
         #generate time weighted prices
         times = self.all_dates
+        #create weighting
         times = max(times) - times +1
         twap = data_price/ times
         return pd.DataFrame(data={str(ticker.value) +" VWAP": vwap, str(ticker.value) +" TWAP": twap}, index = self.all_dates)
