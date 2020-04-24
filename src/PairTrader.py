@@ -106,10 +106,10 @@ class PairTrader:
 if __name__ == '__main__':
     PairTrader(
         backtest_start=date(2008, 1, 2), # must be a trading day
-        trading_window_length=timedelta(days=10),  # 63 trading days per quarter
+        trading_window_length=timedelta(days=60),  # 63 trading days per quarter
         backtest_end=None,
         adf_confidence_level=AdfPrecisions.ONE_PCT,
-        max_mean_rev_time=15,
-        entry_z=1.5,
+        max_mean_rev_time=30,
+        entry_z=2,
         exit_z=0.5
     ).trade()
