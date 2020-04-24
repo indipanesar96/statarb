@@ -119,9 +119,9 @@ class DataRepository:
 
     def intraday_vol(self, datatype: Universes, ticker: Tickers):
         features = [Features.OPEN.value,
-                    Features.LAST_PRICE.value,
+                    Features.CLOSE.value,
                     Features.HIGH.value,
-                    Features.Low.value]
+                    Features.LOW.value]
         data = pd.DataFrame(self.all_data[datatype][f"{ticker.value} {features}"])
         daily_vol = data.std(axis=0)
         return daily_vol
