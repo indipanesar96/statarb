@@ -4,6 +4,7 @@ from datetime import date, timedelta
 from pandas import DataFrame, to_datetime
 
 from src.DataRepository import Universes, DataRepository
+from src.RiskManager import RiskManager
 from src.Window import Window
 
 from src.util.Features import Features, PositionType
@@ -37,6 +38,12 @@ class Position:
             self.pnl += value - self.current_value
             self.current_value = value
         self.pos_hist.append([window.window_end, self.current_value, self.pnl])
+
+    def rebalance_pos(self, new_weights, rebalance_value):
+        self.weight1 = new_weights[0]
+        self.weight2 = new_weights[1]
+        self.pnl -= self.commission
+        self.current_value += rebalance_value
 
     def close_trade(self, value, window):
         self.pnl += value - self.current_value - self.commission
@@ -88,6 +95,8 @@ class Portfolio:
 
         commission = self.t_cost * (abs(position.weight1) + abs(position.weight2))
         asset_value = cur_price.iloc[-1, 0] * position.weight1 + cur_price.iloc[-1, 1] * position.weight2
+        position.init_value = asset_value
+        position.current_value = asset_value
 
         self.logger.info('Opening position...')
         self.cur_positions.append(position)
@@ -104,7 +113,7 @@ class Portfolio:
         cur_price = self.current_window.get_data(universe=Universes.SNP,
                                                  tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
-        if not (position in positions):
+        if not (position in self.cur_positions):
             print("dont have this position open")
         else:
             self.logger.info('Closing position...')
@@ -121,25 +130,23 @@ class Portfolio:
             self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], position.weight2)
             self.logger.info('Realised PnL for position: %s' % position.pnl)
 
-    def rebalance(self, ticker1, ticker2, quantity1, quantity2):
-        cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[ticker1, ticker2],
+    def rebalance(self, position: Position, new_weights):
+        cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
 
-        for pair in self.cur_positions:
-            if pair.asset1 == ticker1 and pair.asset2 == ticker2:
-                quantity1 -= pair.quantity1
-                quantity2 -= pair.quantity2
-                if abs(quantity1) + abs(quantity2) >= self.rebalance_threshold:
-                    commission = self.t_cost * (abs(quantity1) + abs(quantity2))
-                    asset_value = cur_price.iloc[-1, 0] * quantity1 + cur_price.iloc[-1, 1] * quantity2
-
-                    self.logger.info('Rebalancing position...')
-                    pair = Position(ticker1, ticker2, quantity1, quantity2, asset_value, commission)
-                    self.cur_cash -= asset_value + commission
-                    self.port_value += asset_value
-                    self.logger.info('Asset 1: %s @$%s Quantity: %s', ticker1, cur_price.iloc[-1, 0], quantity1)
-                    self.logger.info('Asset 2: %s @$%s Quantity: %s', ticker2, cur_price.iloc[-1, 1], quantity2)
-                    self.logger.info('Cash balance: $%s', self.cur_cash)
+        if position in self.cur_positions:
+            weight1_chg = new_weights[0] - position.weight1
+            weight2_chg = new_weights[1] - position.weight2
+            if abs(weight1_chg) + abs(weight2_chg) >= self.rebalance_threshold:
+                commission = self.t_cost * (abs(weight1_chg) + abs(weight2_chg))
+                asset_value = cur_price.iloc[-1, 0] * weight1_chg + cur_price.iloc[-1, 1] * weight2_chg
+                self.logger.info('Rebalancing position...')
+                position.rebalance_pos(new_weights, asset_value)
+                self.cur_cash -= asset_value + commission
+                self.port_value += asset_value
+                self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], weight1_chg)
+                self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], weight2_chg)
+                self.logger.info('Cash balance: $%s', self.cur_cash)
 
     def update_portfolio(self):
         cur_port_val = 0
@@ -147,7 +154,7 @@ class Portfolio:
         for pair in self.cur_positions:
             cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[pair.asset1, pair.asset2],
                                                      features=[Features.CLOSE])
-            asset_value = cur_price.iloc[-1, 0] * pair.quantity1 + cur_price.iloc[-1, 1] * pair.quantity2
+            asset_value = cur_price.iloc[-1, 0] * pair.weight1 + cur_price.iloc[-1, 1] * pair.weight2
             pair.update_position_pnl(asset_value, self.current_window)
             cur_port_val += asset_value
 
@@ -202,14 +209,15 @@ if __name__ == '__main__':
     port.update_portfolio()
 
     port.evolve()
-    port.close_position(p1)
+    port.rebalance(p1, [1.5, -1.5])
     port.update_portfolio()
 
     port.evolve()
+    port.close_position(p1)
     port.update_portfolio()
 
-    print(port.get_port_hist())
-
-    positions = port.get_hist_positions()
-    print(positions[0].asset1, positions[0].asset2)
-    print(positions[0].get_pos_hist())
+    # print(port.get_port_hist())
+    #
+    # positions = port.get_hist_positions()
+    # print(positions[0].asset1, positions[0].asset2)
+    # print(positions[0].get_pos_hist())
