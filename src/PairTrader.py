@@ -64,7 +64,7 @@ class PairTrader:
                                          self.exit_z,
                                          initial_window,
                                          self.history[-1])
-        self.risk_manager = RiskManager()
+        self.risk_manager = RiskManager(self.entry_z, self.exit_z)
         self.filters = Filters()
         self.portfolio: Portfolio = Portfolio(100_000, backtest_start)
         self.dm = SignalGenerator(self.portfolio,
@@ -83,6 +83,7 @@ class PairTrader:
                                                                                           self.hurst_exp_threshold)
             self.dm.make_decision(cointegrated_pairs)
 
+            self
         # Take cointegrated signals and pass into Filter = filtered signal
         # should return pairs of cointegrated stocks, with their weightings
 

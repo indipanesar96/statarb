@@ -1,10 +1,19 @@
 from src.util.FakeCointegratedPair import gbm_series, ou_process, cointegrated_ts_generator
 from src.util.PairReturnBuilder import signal_builder, pair_ret_builder
+from src.Cointegrator import CointegratedPair
 import numpy as np
 
 
-def expected_returner(beta, mu_rx_ann, sigma_rx_ann, hl, xf, yf, recent_dev, ou_mean, ou_std,
-                      ou_diffusion_v, max_mean_rev_time: int = 30):
+def expected_returner(cointegrated_pair : CointegratedPair, xf, yf, max_mean_rev_time: int = 30):
+
+    beta = cointegrated_pair.scaled_beta
+    mu_rx_ann = cointegrated_pair.mu_x_ann
+    sigma_rx_ann = cointegrated_pair.sigma_x_ann
+    hl = cointegrated_pair.hl
+    recent_dev = cointegrated_pair.recent_dev_scaled
+    ou_mean = cointegrated_pair.ou_mean
+    ou_std = cointegrated_pair.ou_std
+    ou_diffusion_v = cointegrated_pair.ou_diffusion_v
 
     # probably need a fix and esimate sigma of ou vasicek through ml
     mu_rp_list = []
