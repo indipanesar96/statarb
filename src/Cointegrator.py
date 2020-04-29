@@ -85,9 +85,9 @@ class Cointegrator:
 
         flattened = [pair for x in list_of_lists for pair in x]
 
-        # sorted_cluster_results = sorted(flattened, key=lambda x: x[0].value)
+        sorted_cluster_results = sorted(flattened, key=lambda x: x[0].value)
 
-        sorted_cluster_results = [(SnpTickers.A, SnpTickers.SCHW)]
+        # sorted_cluster_results = [(SnpTickers.A, SnpTickers.SCHW)]
 
 
         for pair in sorted_cluster_results:
@@ -127,7 +127,8 @@ class Cointegrator:
 
                 print(f"{[i.name for i in pair]} are cointegrated. "
                       f"ADF test stat: {adf_test_statistic:.4f} "
-                      f"Critical value @ {adf_critical_values[self.adf_confidence_level.value]:.4f}")
+                      f"Critical value @ {adf_critical_values[self.adf_confidence_level.value]:.4f} "
+                      f"Beta: {beta,scaled_beta}")
 
             if n_cointegrated == 3:
                 return cointegrated_pairs

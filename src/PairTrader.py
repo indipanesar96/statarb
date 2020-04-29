@@ -66,7 +66,7 @@ class PairTrader:
                                          self.history[-1])
         self.risk_manager = RiskManager(self.entry_z, self.exit_z)
         self.filters = Filters()
-        self.portfolio: Portfolio = Portfolio(100_000, backtest_start)
+        self.portfolio: Portfolio = Portfolio(100_000, self.current_window)
         self.dm = SignalGenerator(self.portfolio,
                                   entry_z,
                                   emergency_z,
@@ -81,9 +81,13 @@ class PairTrader:
 
             cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
                                                                                           self.hurst_exp_threshold)
-            self.dm.make_decision(cointegrated_pairs)
+            decisions = self.dm.make_decision(cointegrated_pairs)
 
-            self
+            self.portfolio.execute_trades(decisions)
+
+            self.portfolio.update_portfolio()
+            self.portfolio.evolve()
+            print(self.portfolio.get_port_hist())
         # Take cointegrated signals and pass into Filter = filtered signal
         # should return pairs of cointegrated stocks, with their weightings
 
@@ -99,22 +103,21 @@ class PairTrader:
         # opens positions passed to it form filterer
         # executor needs to update the portfolio
 
-        print(
-            f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
-        self.__evolve()
+            print(
+                f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
+            self.__evolve()
 
-
-def __evolve(self):
-    # Do all the things to push the window forward to next working day
-    # Adjust static parameters
-    self.window_length += timedelta(days=1)
-    self.days_alive += 1
-    self.today = self.trading_days[-1]
-    # Extend window object by one day (expanding)
-    self.history.append(self.current_window)
-    self.history = self.history[-3:]
-    self.current_window = self.current_window.evolve()
-    self.trading_days = self.current_window.window_trading_days
+    def __evolve(self):
+        # Do all the things to push the window forward to next working day
+        # Adjust static parameters
+        self.window_length += timedelta(days=1)
+        self.days_alive += 1
+        self.today = self.trading_days[-1]
+        # Extend window object by one day (expanding)
+        self.history.append(self.current_window)
+        self.history = self.history[-3:]
+        self.current_window = self.current_window.evolve()
+        self.trading_days = self.current_window.window_trading_days
 
 
 if __name__ == '__main__':
