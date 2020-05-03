@@ -8,6 +8,7 @@ from typing import Dict, Optional, Set, List
 import pandas as pd
 from pandas import DataFrame
 import numpy as np
+import datetime as dt
 
 from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
@@ -83,7 +84,10 @@ class DataRepository:
         d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
 
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
+        tickers = [r[0].upper() for r in match_results]
 
+        data = self.intraday_vol(d, tickers)
+        match_results = [re.findall(r"(\w+)", col) for col in data.columns]
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
             features = [Features(r[-1].upper()) for r in match_results]
@@ -96,36 +100,27 @@ class DataRepository:
 
         tuples = list(zip(tickers, features))
         multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
-        d.columns = multi_column
+        data.columns = multi_column
 
-        self.all_data[datatype] = self.forward_fill(d)
+        self.all_data[datatype] = self.forward_fill(data)
 
-        return d
+        return data
 
     @classmethod
     def forward_fill(cls, df: DataFrame):
         return pd.DataFrame(df).fillna(method='ffill')
 
-    def wap(self, datatype: Universes, ticker:Tickers, feature: Features):
-        data_vol = self.all_data[datatype][f"{ticker.value} {Features.VOLUME.value}"]
-        data_price = self.all_data[datatype][f"{ticker.value} {feature.value}"]
-        #generate volume weighted prices
-        vwap = np.cumsum(data_vol*data_price) / np.cumsum(data_vol)
-        #generate time weighted prices
-        times = self.all_dates
-        #create weighting
-        times = max(times) - times +1
-        twap = data_price/ times
-        return pd.DataFrame(data={str(ticker.value) +" VWAP": vwap, str(ticker.value) +" TWAP": twap}, index = self.all_dates)
-
-    def intraday_vol(self, datatype: Universes, ticker: Tickers):
-        features = [Features.OPEN.value,
-                    Features.CLOSE.value,
-                    Features.HIGH.value,
-                    Features.LOW.value]
-        data = pd.DataFrame(self.all_data[datatype][f"{ticker.value} {features}"])
-        daily_vol = data.std(axis=0)
-        return daily_vol
+    def intraday_vol(self, data: DataFrame, tickers: list):
+        print("adding intraday Volatility")
+        features = ["Open",
+                    "Adj Close",
+                    "High",
+                    "Low"]
+        for ticker in tickers:
+            ft = [ticker + " " +f.title() for f in features]
+            ticker_data = data[ft]
+            data[ticker + " INTRADAY_VOL"] = ticker_data.std(axis=0)
+        return data
 
 
     def ROE(self, datatype: Universes, ticker):

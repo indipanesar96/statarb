@@ -15,6 +15,8 @@ class Features(Enum):
     CLOSE = 'CLOSE'
     LOW = 'LOW'
     OPEN = 'OPEN'
+    INTRADAY_VOL = "INTRADAY_VOL"
+
 
 
 @unique
