@@ -101,7 +101,6 @@ class DataRepository:
         tuples = list(zip(tickers, features))
         multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
         d.columns = multi_column
-
         self.all_data[datatype] = self.forward_fill(d)
 
         return d
