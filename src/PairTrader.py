@@ -58,12 +58,12 @@ class PairTrader:
 
         self.clusterer = Clusterer()
         self.cointegrator = Cointegrator(self.repository,
-                                         self.adf_confidence_level,
-                                         self.max_mean_rev_time,
-                                         self.entry_z,
-                                         self.exit_z,
-                                         initial_window,
-                                         self.history[-1])
+                                          self.adf_confidence_level,
+                                          self.max_mean_rev_time,
+                                          self.entry_z,
+                                          self.exit_z,
+                                          initial_window,
+                                          self.history[-1])
         self.risk_manager = RiskManager(self.entry_z, self.exit_z)
         self.filters = Filters()
         self.portfolio: Portfolio = Portfolio(100_000, self.current_window)
