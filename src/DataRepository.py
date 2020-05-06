@@ -7,8 +7,7 @@ from typing import Dict, Optional, Set, List
 
 import pandas as pd
 from pandas import DataFrame
-import numpy as np
-import datetime as dt
+
 
 from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
@@ -79,15 +78,16 @@ class DataRepository:
         d = pd.read_csv(datatype.value,
                         squeeze=True,
                         header=0,
-                        index_col=0)
+                        index_col=0,
+                        low_memory=False)
 
         d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
 
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
         tickers = [r[0].upper() for r in match_results]
 
-        data = self.intraday_vol(d, tickers)
-        match_results = [re.findall(r"(\w+)", col) for col in data.columns]
+        d = self.intraday_vol(d, tickers)
+        match_results = [re.findall(r"(\w+)", col) for col in d.columns]
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
             features = [Features(r[-1].upper()) for r in match_results]
@@ -100,18 +100,17 @@ class DataRepository:
 
         tuples = list(zip(tickers, features))
         multi_column = pd.MultiIndex.from_tuples(tuples, names=['ticker', 'feature'])
-        data.columns = multi_column
+        d.columns = multi_column
 
-        self.all_data[datatype] = self.forward_fill(data)
+        self.all_data[datatype] = self.forward_fill(d)
 
-        return data
+        return d
 
     @classmethod
     def forward_fill(cls, df: DataFrame):
         return pd.DataFrame(df).fillna(method='ffill')
 
     def intraday_vol(self, data: DataFrame, tickers: list):
-        print("adding intraday Volatility")
         features = ["Open",
                     "Adj Close",
                     "High",
