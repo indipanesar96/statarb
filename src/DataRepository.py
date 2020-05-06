@@ -15,8 +15,8 @@ from src.util.Tickers import EtfTickers, SnpTickers, Tickers
 
 @unique
 class Universes(Enum):
-    ETFs = Path(f"../resources/all_etfs.csv")
-    SNP = Path(f"../resources/all_snp.csv")
+    ETFs = Path(f"../resources/all_etfs2.csv")
+    SNP = Path(f"../resources/all_snp2.csv")
 
 
 class DataRepository:
@@ -83,10 +83,11 @@ class DataRepository:
 
         d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
 
-        match_results = [re.findall(r"(\w+)", col) for col in d.columns]
-        tickers = [r[0].upper() for r in match_results]
+        # code below is only required if calculating intraday volatility from scratch
+        # match_results = [re.findall(r"(\w+)", col) for col in d.columns]
+        # tickers = [r[0].upper() for r in match_results]
+        # d = self.intraday_vol(d, tickers)
 
-        d = self.intraday_vol(d, tickers)
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
