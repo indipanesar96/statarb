@@ -118,7 +118,6 @@ class DataRepository:
         for ticker in tickers:
             ft = [ticker + " " +f.title() for f in features]
             ticker_data = data[ft]
-            t = ticker_data.std(axis=1)
             data[ticker + " INTRADAY_VOL"] = ticker_data.std(axis=1)
         return datatickers
 
