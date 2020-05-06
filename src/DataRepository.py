@@ -119,7 +119,7 @@ class DataRepository:
             ft = [ticker + " " +f.title() for f in features]
             ticker_data = data[ft]
             data[ticker + " INTRADAY_VOL"] = ticker_data.std(axis=1)
-        return datatickers
+        return data
 
 
     def ROE(self, datatype: Universes, ticker):
