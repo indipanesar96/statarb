@@ -83,10 +83,11 @@ class DataRepository:
 
         d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
 
-        match_results = [re.findall(r"(\w+)", col) for col in d.columns]
-        tickers = [r[0].upper() for r in match_results]
+        # code below is only required if calculating intraday volatility from scratch
+        # match_results = [re.findall(r"(\w+)", col) for col in d.columns]
+        # tickers = [r[0].upper() for r in match_results]
+        # d = self.intraday_vol(d, tickers)
 
-        d = self.intraday_vol(d, tickers)
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
