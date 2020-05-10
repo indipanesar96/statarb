@@ -36,6 +36,16 @@ class Position:
         self.pos_hist = list()
         self.closed = False
 
+    def set_position_value(self, value, q1, q2):
+        self.init_value = value
+        self.current_value = value
+        self.quantity1 = q1
+        self.quantity2 = q2
+
+    def update_weight(self, asset1_val, asset2_val):
+        self.weight1 = asset1_val / (asset1_val + asset2_val)
+        self.weight2 = asset2_val / (asset1_val + asset2_val)
+
     def update_position_pnl(self, value, window):
         if not self.closed:
             self.pnl += value - self.current_value
@@ -101,28 +111,29 @@ class Portfolio:
                                                  tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
 
-        commission = self.t_cost * (abs(position.weight1) + abs(position.weight2))
-        pair_dedicated_cash = self.cur_cash * self.loading
+        pair_dedicated_cash = self.init_cash * self.loading
         quantity1 = round(pair_dedicated_cash * position.weight1 / cur_price.iloc[-1, 0])
         quantity2 = round(pair_dedicated_cash * position.weight2 / cur_price.iloc[-1, 1])
+        commission = self.t_cost * (abs(position.quantity1) + abs(position.quantity2))
         asset1_value = cur_price.iloc[-1, 0] * quantity1
         asset2_value = cur_price.iloc[-1, 1] * quantity2
         pair_dedicated_cash = asset1_value + asset2_value
+        position.set_position_value(pair_dedicated_cash, quantity1, quantity2)
 
-        position.init_value = pair_dedicated_cash
-        position.current_value = pair_dedicated_cash
-        position.quantity1 = quantity1
-        position.quantity2 = quantity2
+        if pair_dedicated_cash > self.cur_cash:
+            self.logger.info('No sufficient cash to open position')
+        else:
+            self.logger.info('Opening position...')
+            self.cur_positions.append(position)
+            self.hist_positions.append(position)
 
-        self.logger.info('Opening position...')
-        self.cur_positions.append(position)
-        self.hist_positions.append(position)
-
-        self.cur_cash -= pair_dedicated_cash + commission
-        self.active_port_value += pair_dedicated_cash
-        self.logger.info('Asset 1: %s @$%s Quantity: %s Value: %s', position.asset1, cur_price.iloc[-1, 0], quantity1, asset1_value)
-        self.logger.info('Asset 2: %s @$%s Quantity: %s Value: %s', position.asset2, cur_price.iloc[-1, 1], quantity2, asset2_value)
-        self.logger.info('Cash balance: $%s', self.cur_cash)
+            self.cur_cash -= pair_dedicated_cash + commission
+            self.active_port_value += pair_dedicated_cash
+            self.logger.info('Asset 1: %s @$%s Quantity: %s Value: %s', position.asset1,
+                             round(cur_price.iloc[-1, 0],2), round(quantity1,2), round(asset1_value,2))
+            self.logger.info('Asset 2: %s @$%s Quantity: %s Value: %s', position.asset2,
+                             round(cur_price.iloc[-1, 1],2), round(quantity2,2), round(asset2_value,2))
+            self.logger.info('Cash balance: $%s', self.cur_cash)
 
     # def close_position(self, ticker1, ticker2):
     def close_position(self, position: Position):
@@ -142,26 +153,31 @@ class Portfolio:
             self.cur_cash += asset_value - commission
             self.active_port_value -= asset_value
             self.realised_pnl += position.pnl
-            self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], position.quantity1)
-            self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], position.quantity2)
-            self.logger.info('Realised PnL for position: %s' % position.pnl)
+            self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1,
+                             round(cur_price.iloc[-1, 0],2), round(position.quantity1,2))
+            self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2,
+                             round(cur_price.iloc[-1, 1],2), round(position.quantity2,2))
+            self.logger.info('Realised PnL for position: %s' % round(position.pnl,2))
 
     def rebalance(self, position: Position, new_weights):
         cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
 
         if position in self.cur_positions:
+            position.update_weight(cur_price.iloc[-1, 0]*position.quantity1, cur_price.iloc[-1, 1]*position.quantity2)
             weight1_chg = new_weights[0] - position.weight1
             weight2_chg = new_weights[1] - position.weight2
             if abs(weight1_chg) + abs(weight2_chg) >= self.rebalance_threshold:
-                commission = self.t_cost * (abs(weight1_chg) + abs(weight2_chg))
-                asset_value = cur_price.iloc[-1, 0] * weight1_chg + cur_price.iloc[-1, 1] * weight2_chg
+                quantity1_chg = (position.current_value * new_weights[0] / cur_price.iloc[-1, 0]) - position.quantity1
+                quantity2_chg = (position.current_value * new_weights[1] / cur_price.iloc[-1, 1]) - position.quantity2
+                commission = self.t_cost * (abs(quantity1_chg) + abs(quantity2_chg))
+                asset_value = cur_price.iloc[-1, 0] * quantity1_chg + cur_price.iloc[-1, 1] * quantity2_chg
                 self.logger.info('Rebalancing position...')
                 position.rebalance_pos(new_weights, asset_value)
                 self.cur_cash -= asset_value + commission
                 self.active_port_value += asset_value
-                self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], weight1_chg)
-                self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], weight2_chg)
+                self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], quantity1_chg)
+                self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], quantity2_chg)
                 self.logger.info('Cash balance: $%s', self.cur_cash)
 
     def update_portfolio(self):
@@ -237,7 +253,7 @@ if __name__ == '__main__':
 
     port = Portfolio(10000, current_window)
     p1 = Position(SnpTickers.AAPL, SnpTickers.GOOGL, 1.5, -0.5, PositionType.LONG)
-    port.open_position(p1, 0.1)
+    port.open_position(p1)
     port.update_portfolio()
 
     # port.evolve()
