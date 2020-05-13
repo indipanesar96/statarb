@@ -84,11 +84,6 @@ class DataRepository:
 
         d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
 
-        # code below is only required if calculating intraday volatility from scratch
-        match_results = [re.findall(r"(\w+)", col) for col in d.columns]
-        tickers = [r[0].upper() for r in match_results]
-        # d = self.intraday_vol(d, tickers)
-
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
@@ -106,17 +101,10 @@ class DataRepository:
         )
         d = self.forward_fill(d)
 
-        # intraday_vol_features = [Features.OPEN,
-        #                          Features.CLOSE,
-        #                          Features.HIGH,
-        #                          Features.LOW]
-        # import time
-        # for tick in tickers:
-        #     s = time.time()
-        #     d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = (d.loc[:, IndexSlice[tick, intraday_vol_features]]
-        #                                                          .apply(lambda row: np.nanstd(row) / np.nanmean(row), axis=1))
-        #     print(f"{tick}: {time.time() - s}")
-        #
+        print('adding scaled intraday volatility for: {0}'.format(datatype.name))
+        for tick in set(tickers):
+            d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
+
 
 
 
@@ -127,19 +115,20 @@ class DataRepository:
     def forward_fill(cls, df: DataFrame):
         return pd.DataFrame(df).fillna(method='ffill')
 
-    def intraday_vol(self, data: DataFrame, tickers: list):
+    def _intraday_vol(self, data: DataFrame, ticker):
         features = [Features.OPEN,
                     Features.CLOSE,
                     Features.HIGH,
                     Features.LOW]
 
         def _f(row: Se):
-            for ticker in tickers:
-                ft = [ticker + f.value for f in features]
-                ticker_data = data[ft]
-                data[ticker + Features] = ticker_data.std(axis=1)
+            try:
+                return np.nanstd(row) / np.nanmean(row)
+            except RuntimeError:
+                return np.nan()
 
-        data.applymap(func=_f)
+        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] = (data.loc[:, IndexSlice[ticker, features]]
+                                                                  .applymap(lambda row: _f))
 
         return data
 
