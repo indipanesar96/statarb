@@ -4,10 +4,10 @@ from typing import Optional, List
 from src.Clusterer import Clusterer
 from src.Cointegrator import Cointegrator, AdfPrecisions, CointegratedPair
 from src.DataRepository import DataRepository
-from src.SignalGenerator import SignalGenerator
 from src.Filters import Filters
 from src.Portfolio import Portfolio
 from src.RiskManager import RiskManager
+from src.SignalGenerator import SignalGenerator
 from src.Window import Window
 
 
@@ -58,12 +58,12 @@ class PairTrader:
 
         self.clusterer = Clusterer()
         self.cointegrator = Cointegrator(self.repository,
-                                          self.adf_confidence_level,
-                                          self.max_mean_rev_time,
-                                          self.entry_z,
-                                          self.exit_z,
-                                          initial_window,
-                                          self.history[-1])
+                                         self.adf_confidence_level,
+                                         self.max_mean_rev_time,
+                                         self.entry_z,
+                                         self.exit_z,
+                                         initial_window,
+                                         self.history[-1])
         self.risk_manager = RiskManager(self.entry_z, self.exit_z)
         self.filters = Filters()
         self.portfolio: Portfolio = Portfolio(100_000, self.current_window)
@@ -88,20 +88,20 @@ class PairTrader:
             self.portfolio.update_portfolio()
             self.portfolio.evolve()
             print(self.portfolio.get_port_hist())
-        # Take cointegrated signals and pass into Filter = filtered signal
-        # should return pairs of cointegrated stocks, with their weightings
+            # Take cointegrated signals and pass into Filter = filtered signal
+            # should return pairs of cointegrated stocks, with their weightings
 
-        # Take filtered signal
-        # input datatype = output datatype
+            # Take filtered signal
+            # input datatype = output datatype
 
-        # RiskManager
-        # input = output from filterer
-        # Can we afford it? do we have enough cash? checkd exposure etc, VaR within limits etc?
-        # if ok, pass any remaining pairs to executor
+            # RiskManager
+            # input = output from filterer
+            # Can we afford it? do we have enough cash? checkd exposure etc, VaR within limits etc?
+            # if ok, pass any remaining pairs to executor
 
-        # Executor,
-        # opens positions passed to it form filterer
-        # executor needs to update the portfolio
+            # Executor,
+            # opens positions passed to it form filterer
+            # executor needs to update the portfolio
 
             print(
                 f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
@@ -124,7 +124,7 @@ if __name__ == '__main__':
     PairTrader(
         backtest_start=date(2008, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
-        backtest_end=None,
+        backtest_end=date(2009, 1, 2),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,
         entry_z=0.5,
