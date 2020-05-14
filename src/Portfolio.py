@@ -90,13 +90,15 @@ class Portfolio:
         self.realised_pnl = float(0)
         self.log_return = float(0)
         self.cum_return = float(0)
-        self.t_cost = float(0)
+        self.t_cost = float(0.0005)
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
         self.current_window: Window = window
         self.port_hist = list()
         self.rebalance_threshold = float(1)
         self.loading = float(0.1)
+        self.number_active_pairs = 0
+
 
     def reset_values(self):
         self.cur_cash = self.init_cash
@@ -111,7 +113,7 @@ class Portfolio:
                                                  tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
 
-        pair_dedicated_cash = self.init_cash * self.loading
+        pair_dedicated_cash = self.init_cash * self.loading / max(abs(position.weight1), abs(position.weight2))
         quantity1 = round(pair_dedicated_cash * position.weight1 / cur_price.iloc[-1, 0])
         quantity2 = round(pair_dedicated_cash * position.weight2 / cur_price.iloc[-1, 1])
         commission = self.t_cost * (abs(position.quantity1) + abs(position.quantity2))
@@ -120,10 +122,12 @@ class Portfolio:
         pair_dedicated_cash = asset1_value + asset2_value
         position.set_position_value(pair_dedicated_cash, quantity1, quantity2)
 
-        if pair_dedicated_cash > self.cur_cash:
+        if pair_dedicated_cash > self.cur_cash and self.number_active_pairs<=10:
             self.logger.info('No sufficient cash to open position')
         else:
-            self.logger.info('Opening position...')
+            self.logger.info("%s, %s are cointegrated and zscore is in trading range. Opening position....",
+                             position.asset1, position.asset2)
+            self.number_active_pairs+=1
             self.cur_positions.append(position)
             self.hist_positions.append(position)
 
@@ -143,7 +147,9 @@ class Portfolio:
         if not (position in self.cur_positions):
             print("dont have this position open")
         else:
-            self.logger.info('Closing position...')
+            self.logger.info("Closing/emergency threshold is passed for active pair %s, %s. Closing position...",
+                             position.asset1, position.asset2)
+            self.number_active_pairs -= 1
             self.cur_positions.remove(position)
 
             commission = self.t_cost * (abs(position.quantity1) + abs(position.quantity2))
