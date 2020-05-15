@@ -77,11 +77,10 @@ class PairTrader:
         while self.today < self.backtest_end:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
-            clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=self.current_window)
-    
+            clusters = self.clusterer.dbscan(eps=0.1, min_samples=2, window=self.current_window)
+
             cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
                                                                                           self.hurst_exp_threshold)
-
             decisions = self.dm.make_decision(cointegrated_pairs)
 
             self.portfolio.execute_trades(decisions)
@@ -123,9 +122,10 @@ class PairTrader:
 
 if __name__ == '__main__':
     PairTrader(
-        backtest_start=date(2008, 1, 2),  # must be a trading day
+        # fundamental starts at 2016 2nd quarter
+        backtest_start=date(2017, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
-        backtest_end=date(2009, 1, 2),
+        backtest_end=date(2019, 1, 2),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,
         entry_z=0.5,

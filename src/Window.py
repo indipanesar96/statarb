@@ -117,3 +117,15 @@ class Window:
         elif tickers is not None and features is not None:
 
             return data.loc[:, pd.IndexSlice[tickers, features]]
+
+    def get_fundamental (self):
+        # only return last day's fundamental
+        data = self.repository.get_fundamental(self.window_end)
+
+        return data
+        '''
+        tickers_wanted = [s.value for s in tickers]
+        for repo_ticker in data:
+            if repo_ticker.ticker in
+            
+        '''

@@ -1,3 +1,5 @@
+# 1. consider a period to assess volume shock , consider cases where it shocks before but not today
+
 import pandas as pd
 import numpy as np
 from typing import Optional
@@ -13,6 +15,7 @@ from src.Window import Window
 import src.util.Tickers as Tickers
 from src.util.Features import Features
 from src.DataRepository import Universes
+from src.Cointegrator import CointegratedPair
 # from Window import Window
 
 class Filters:
@@ -88,19 +91,28 @@ if __name__ == '__main__':
                  repository=DataRepository())
 
     test_input = [
-        [
-            [SnpTickers.CRM, SnpTickers.WU],
-            [1, -1.5,  # long short size
-             None,  # self.invested
-             0.1]  # expected return
-        ],
+        CointegratedPair(pair=(SnpTickers.CRM, SnpTickers.WU),
+                         mu_x_ann=0.1,
+                         sigma_x_ann=0.3,
+                         scaled_beta=1.2,
+                         hl=7.5,
+                         ou_mean=-0.017,
+                         ou_std=0.043,
+                         ou_diffusion_v=0.70,
+                         recent_dev=0.071,
+                         recent_dev_scaled=2.05),
 
-        [
-            [SnpTickers.ABC, SnpTickers.ABT],
-            [-0.5, 1,
-             None,
-             0.15]
-        ]
+        CointegratedPair(pair=(SnpTickers.ABC, SnpTickers.ABT),
+                         mu_x_ann=0.1,
+                         sigma_x_ann=0.3,
+                         scaled_beta=0.8,
+                         hl=7.5,
+                         ou_mean=-0.017,
+                         ou_std=0.043,
+                         ou_diffusion_v=0.70,
+                         recent_dev=- 0.071,
+                         recent_dev_scaled=-2.05)
     ]
+
     ft = Filters()
     test_result = ft.run_volume_shock_filter(test_input, current_window = win)

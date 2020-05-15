@@ -28,6 +28,7 @@ class CointegratedPair:
                  ou_diffusion_v: float,
                  recent_dev: float,
                  recent_dev_scaled: float):
+
         self.pair: Tuple[Tickers] = pair
         self.mu_x_ann: float = mu_x_ann
         self.sigma_x_ann: float = sigma_x_ann
@@ -73,10 +74,11 @@ class Cointegrator:
 
         cointegrated_pairs = []
         prev_time = time.time()
+        n_tested = 0
         n_cointegrated = 0
 
-        list_of_lists = [tickers_pair for tickers_pair in clustering_results.values()]
-        flattened = [ticker for tickers_pair in list_of_lists for ticker in tickers_pair]
+        list_of_lists = [i for i in clustering_results.values()]
+        flattened = [pair for x in list_of_lists for pair in x]
 
         sorted_cluster_results = sorted(flattened, key=lambda x: x[0].value)
 
@@ -88,7 +90,11 @@ class Cointegrator:
                                               tickers=[pair[1]],
                                               features=[Features.CLOSE])
 
-            residuals, beta = self.__logged_lin_reg(t1, t2)
+            try:
+                # sometimes there are no price data
+                residuals, beta = self.__logged_lin_reg(t1, t2)
+            except:
+                continue
 
             adf_test_statistic, adf_critical_values = self.__adf(residuals)
             hl_test = self.__hl(residuals)

@@ -37,10 +37,9 @@ class Clusterer:
         self.cluster_history = [None]
 
     def average_over_time(self, window):
-
-        data = window.get_data(Universes.SNP, None, None)
-
-        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(Features))
+        feature = [Features.INTRADAY_VOL]
+        data = window.get_data(Universes.SNP, None, feature)
+        averaged_over_time = data.mean().values.reshape(len(self.window.snp_live_tickers), len(feature))
 
         self.data_previously_clustered_on = averaged_over_time
         self.data_length = len(averaged_over_time)
@@ -49,12 +48,27 @@ class Clusterer:
     def dbscan(self, min_samples, eps=None, window=None):
 
         self.window = window
-        self.tickers = window.snp_live_tickers
 
+        '''
+        self.tickers = window.snp_live_tickers
         flat_data = self.average_over_time(window)
         self.normalised = StandardScaler().fit_transform(flat_data)
-
-        dbscan = DBSCAN(eps=eps, min_samples=min_samples).fit(self.normalised)
+        '''
+        fundamental = self.window.get_fundamental()
+        def get_ticker(index_list):
+            result = []
+            for i in index_list:
+                ticker = i[0]
+                if ticker not in result:
+                    result.append(ticker)
+            return result
+        fundamental_tickers = get_ticker(fundamental.index)
+        fundamental_reshaped = fundamental.values.reshape(-1, 2)
+        fundamental_normalised = StandardScaler().fit_transform(fundamental_reshaped)
+        fundamental_normalised = pd.DataFrame(fundamental_normalised, index=fundamental_tickers)
+        fundamental_normalised = fundamental_normalised.dropna()
+        self.tickers = fundamental_normalised.index
+        dbscan = DBSCAN(eps=eps, min_samples=min_samples).fit(fundamental_normalised)
 
         self.dbscan_labels = labels = dbscan.labels_
         core_samples_mask = np.zeros_like(dbscan.labels_, dtype=bool)
@@ -77,7 +91,11 @@ class Clusterer:
                     pair = (self.tickers[i[0]], self.tickers[i[1]])
                 pairs.append(pair)
             clusters[j] = pairs
-
+        pair_count = 0
+        all_pairs = clusters.values()
+        for i in all_pairs:
+            pair_count += len(i)
+        print('total pairs: ', pair_count)
         return clusters
 
     def kmeans(self, n_clusters, random_state=0):

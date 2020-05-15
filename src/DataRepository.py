@@ -4,6 +4,7 @@ from datetime import date
 from enum import Enum, unique
 from pathlib import Path
 from typing import Dict, Optional, Set, List
+import pickle
 
 import numpy as np
 import pandas as pd
@@ -12,6 +13,7 @@ from pandas import Series as Se
 from pandas import IndexSlice
 from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
+from src.util.get_data_from_yfinance import yf_ticker
 
 
 @unique
@@ -27,6 +29,7 @@ class DataRepository:
         self.tickers: Dict[Universes, Optional[Set[Tickers]]] = {Universes.SNP: None, Universes.ETFs: None}
         self.features: Dict[Universes, Optional[Set[Features]]] = {Universes.SNP: None, Universes.ETFs: None}
         self.all_dates: List[date] = self.__load_dates(Universes.SNP)
+        self.fundamental_data = None
 
     def get_tickers(self):
         return self.tickers
@@ -49,6 +52,12 @@ class DataRepository:
             typed_live_tickers = [EtfTickers(i) for i in live_tickers]
 
         return typed_live_tickers, live_ticker_weekday_data
+
+    def get_fundamental(self, trading_date: date):
+        if self.fundamental_data is None:
+            self.__get_fundamental_from_disk()
+        return self.fundamental_data.loc[trading_date,]
+
 
     def remove_dead_tickers(self, datatype: Universes, alive_and_dead_ticker_data: DataFrame):
         # Just gets the first column of data (don't care which feature) of the ticker to see if theyre all nan [dead]
@@ -110,6 +119,24 @@ class DataRepository:
 
         self.all_data[datatype] = d
         return d
+
+    def __get_fundamental_from_disk(self):
+        data = pd.read_csv('/Users/Simon-CWG/Documents/SIF_git/git/src/util/fundamental_snp.csv',
+                           index_col=0)
+        data.index = pd.to_datetime(data.index, format='%Y-%m-%d')
+        fundamental_start = date(2016, 3,31)
+        fundamental_date = [date for date in self.all_dates if date > fundamental_start]
+        df = pd.DataFrame(index = fundamental_date)
+        df = df.join(data, how = 'outer')
+        match_results = [re.findall(r"(\w+)", col) for col in df.columns]
+        funda_tickers = [SnpTickers(r[0])for r in match_results]
+        funda_features = [r[1] for r in match_results]
+        df.columns = pd.MultiIndex.from_tuples(
+            tuples=list(zip(funda_tickers, funda_features)),
+            names=['ticker', 'feature'])
+        df = df.fillna(method='ffill')
+        self.fundamental_data = df
+        return
 
     @classmethod
     def forward_fill(cls, df: DataFrame):
