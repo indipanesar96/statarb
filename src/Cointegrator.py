@@ -28,7 +28,6 @@ class CointegratedPair:
                  ou_diffusion_v: float,
                  recent_dev: float,
                  recent_dev_scaled: float):
-
         self.pair: Tuple[Tickers] = pair
         self.mu_x_ann: float = mu_x_ann
         self.sigma_x_ann: float = sigma_x_ann
@@ -74,28 +73,14 @@ class Cointegrator:
 
         cointegrated_pairs = []
         prev_time = time.time()
-        n_tested = 0
         n_cointegrated = 0
 
-        x = {0: ((SnpTickers.MSFT, SnpTickers.TAP), (SnpTickers.MSFT, SnpTickers.AAPL)),
-             1: ((SnpTickers.DAL, SnpTickers.AAPL), (SnpTickers.FANG, SnpTickers.APA))}
-
-
-        list_of_lists = [i for i in clustering_results.values()]
-
-        flattened = [pair for x in list_of_lists for pair in x]
+        list_of_lists = [tickers_pair for tickers_pair in clustering_results.values()]
+        flattened = [ticker for tickers_pair in list_of_lists for ticker in tickers_pair]
 
         sorted_cluster_results = sorted(flattened, key=lambda x: x[0].value)
 
-        # sorted_cluster_results = [(SnpTickers.A, SnpTickers.SCHW)]
-
-
         for pair in sorted_cluster_results:
-            if n_tested % 100 == 0:
-                print(f'Currently checking cointegration for {[i.name for i in pair]}. '
-                      f'Checked {n_tested}. Number cointegrated {n_cointegrated}. '
-                      f'Time elapsed (s): {(time.time() - prev_time):.4f}')
-
             t1 = self.current_window.get_data(universe=Universes.SNP,
                                               tickers=[pair[0]],
                                               features=[Features.CLOSE])
@@ -125,15 +110,15 @@ class Cointegrator:
                                                            ou_mean, ou_std, ou_diffusion_v,
                                                            recent_dev, recent_dev_scaled))
 
-                print(f"{[i.name for i in pair]} are cointegrated. "
-                      f"ADF test stat: {adf_test_statistic:.4f} "
-                      f"Critical value @ {adf_critical_values[self.adf_confidence_level.value]:.4f} "
-                      f"Beta: {beta,scaled_beta}")
+            if n_cointegrated == 10:
+                # just checking the first 10 cointegrated pairs we find
+                # otherwise it would take forever to check all the possible pairs
+                # only for a single day;
+                # logic to be fixed and made more efficient by: 1) having proper
+                # clustering algorithm; 2) not running clustering and cointegration
+                # everyday 3) taking best 10 pairs according to some score
 
-            if n_cointegrated == 3:
                 return cointegrated_pairs
-
-            n_tested += 1
 
         return cointegrated_pairs
 

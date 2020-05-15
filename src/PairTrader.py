@@ -78,9 +78,10 @@ class PairTrader:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
 
             clusters = self.clusterer.dbscan(eps=2.5, min_samples=2, window=self.current_window)
-
+    
             cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
                                                                                           self.hurst_exp_threshold)
+
             decisions = self.dm.make_decision(cointegrated_pairs)
 
             self.portfolio.execute_trades(decisions)

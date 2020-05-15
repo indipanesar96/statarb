@@ -17,8 +17,8 @@ from src.util.Tickers import EtfTickers, SnpTickers, Tickers
 
 @unique
 class Universes(Enum):
-    ETFs = Path(f"../resources/all_etfs.csv")
-    SNP = Path(f"../resources/all_snp.csv")
+    ETFs = Path(f"../resources/all_etfs2.csv")
+    SNP = Path(f"../resources/all_snp2.csv")
 
 
 class DataRepository:
