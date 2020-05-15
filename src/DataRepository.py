@@ -120,7 +120,7 @@ class DataRepository:
         return d
 
     def __get_fundamental_from_disk(self):
-        data = pd.read_csv(Path(f"../resources/all_snp2.csv/fundamental_snp.csv"),
+        data = pd.read_csv(Path(f"../resources/fundamental_snp.csv"),
                            index_col=0)
         data.index = pd.to_datetime(data.index, format='%Y-%m-%d')
         fundamental_start = date(2016, 3,31)
