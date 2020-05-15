@@ -18,8 +18,8 @@ from src.util.get_data_from_yfinance import yf_ticker
 
 @unique
 class Universes(Enum):
-    ETFs = Path(f"../resources/all_etfs.csv")
-    SNP = Path(f"../resources/all_snp.csv")
+    ETFs = Path(f"../resources/all_etfs2.csv")
+    SNP = Path(f"../resources/all_snp2.csv")
 
 
 class DataRepository:
@@ -109,11 +109,11 @@ class DataRepository:
             names=['ticker', 'feature']
         )
         d = self.forward_fill(d)
+        if Features.INTRADAY_VOL not in self.features[datatype]:
+            print('adding scaled intraday volatility for: {0}'.format(datatype.name))
+            for tick in set(tickers):
 
-        print('adding scaled intraday volatility for: {0}'.format(datatype.name))
-        for tick in set(tickers):
-
-            d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
+                d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
 
 
 
