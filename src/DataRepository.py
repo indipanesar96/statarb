@@ -18,8 +18,8 @@ from src.util.get_data_from_yfinance import yf_ticker
 
 @unique
 class Universes(Enum):
-    ETFs = Path(f"../resources/all_etfs2.csv")
-    SNP = Path(f"../resources/all_snp2.csv")
+    ETFs = Path(f"../resources/all_etfs.csv")
+    SNP = Path(f"../resources/all_snp.csv")
 
 
 class DataRepository:
@@ -112,6 +112,7 @@ class DataRepository:
 
         print('adding scaled intraday volatility for: {0}'.format(datatype.name))
         for tick in set(tickers):
+
             d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
 
 
@@ -154,8 +155,9 @@ class DataRepository:
             except RuntimeError:
                 return np.nan()
 
-        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] = (data.loc[:, IndexSlice[ticker, features]]
-                                                                  .applymap(lambda row: _f))
+        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] = np.apply_along_axis(_f
+                                                                                     , 1
+                                                                                     , data.loc[:, IndexSlice[ticker, features]])
 
         return data
 
