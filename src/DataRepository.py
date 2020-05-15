@@ -5,7 +5,6 @@ from enum import Enum, unique
 from pathlib import Path
 from typing import Dict, Optional, Set, List
 
-import time #check intraday_vol speed
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
@@ -17,8 +16,8 @@ from src.util.Tickers import EtfTickers, SnpTickers, Tickers
 
 @unique
 class Universes(Enum):
-    ETFs = Path(f"../resources/all_etfs2.csv")
-    SNP = Path(f"../resources/all_snp2.csv")
+    ETFs = Path(f"../resources/all_etfs.csv")
+    SNP = Path(f"../resources/all_snp.csv")
 
 
 class DataRepository:
@@ -103,11 +102,9 @@ class DataRepository:
         d = self.forward_fill(d)
 
         print('adding scaled intraday volatility for: {0}'.format(datatype.name))
-        t = time.clock()
         for tick in set(tickers):
 
             d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
-        print(f"time taken: {time.clock()-t}")
 
 
 
