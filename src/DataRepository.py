@@ -4,7 +4,6 @@ from datetime import date
 from enum import Enum, unique
 from pathlib import Path
 from typing import Dict, Optional, Set, List
-import pickle
 
 import numpy as np
 import pandas as pd
@@ -13,7 +12,6 @@ from pandas import Series as Se
 from pandas import IndexSlice
 from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
-from src.util.get_data_from_yfinance import yf_ticker
 
 
 @unique
@@ -122,7 +120,7 @@ class DataRepository:
         return d
 
     def __get_fundamental_from_disk(self):
-        data = pd.read_csv('/Users/Simon-CWG/Documents/SIF_git/git/src/util/fundamental_snp.csv',
+        data = pd.read_csv(Path(f"../resources/all_snp2.csv/fundamental_snp.csv"),
                            index_col=0)
         data.index = pd.to_datetime(data.index, format='%Y-%m-%d')
         fundamental_start = date(2016, 3,31)
