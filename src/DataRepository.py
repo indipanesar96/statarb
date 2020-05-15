@@ -5,6 +5,7 @@ from enum import Enum, unique
 from pathlib import Path
 from typing import Dict, Optional, Set, List
 
+import time #check intraday_vol speed
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
@@ -102,8 +103,11 @@ class DataRepository:
         d = self.forward_fill(d)
 
         print('adding scaled intraday volatility for: {0}'.format(datatype.name))
+        t = time.clock()
         for tick in set(tickers):
+
             d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
+        print(f"time taken: {time.clock()-t}")
 
 
 
@@ -127,8 +131,9 @@ class DataRepository:
             except RuntimeError:
                 return np.nan()
 
-        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] = (data.loc[:, IndexSlice[ticker, features]]
-                                                                  .applymap(lambda row: _f))
+        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] = np.apply_along_axis(_f
+                                                                                     , 1
+                                                                                     , data.loc[:, IndexSlice[ticker, features]])
 
         return data
 
