@@ -1,12 +1,13 @@
 import time
 from enum import Enum, unique
 from typing import Dict, Tuple
-# Helping Thom solving branch
 import numpy as np
 from numpy import array
 from pandas import DataFrame
 from sklearn.linear_model import LinearRegression
 from statsmodels.tsa.api import adfuller
+from collections import OrderedDict
+from operator import itemgetter
 
 from src.DataRepository import DataRepository
 from src.DataRepository import Universes
@@ -73,6 +74,7 @@ class Cointegrator:
         # run cointegration_analysis on all poss combinations of pairs
 
         cointegrated_pairs = []
+        scored_pairs = {}
         prev_time = time.time()
         n_tested = 0
         n_cointegrated = 0
@@ -95,8 +97,8 @@ class Cointegrator:
                 residuals, beta = self.__logged_lin_reg(t1, t2)
             except:
                 continue
-
-            adf_test_statistic, adf_critical_values = self.__adf(residuals)
+            #for some reason residuals is a (60,1) array not (60,) array when i run the code so have changed input to residuals.flatten
+            adf_test_statistic, adf_critical_values = self.__adf(residuals.flatten())
             hl_test = self.__hl(residuals)
             he_test = self.__hurst_exponent_test(residuals)
 
@@ -115,6 +117,7 @@ class Cointegrator:
                 cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, scaled_beta, hl_test,
                                                            ou_mean, ou_std, ou_diffusion_v,
                                                            recent_dev, recent_dev_scaled))
+                scored_pairs[pair] = self.__score_coint(adf_test_statistic, self.adf_confidence_level, adf_critical_values)
 
             if n_cointegrated == 10:
                 # just checking the first 10 cointegrated pairs we find
@@ -124,7 +127,10 @@ class Cointegrator:
                 # clustering algorithm; 2) not running clustering and cointegration
                 # everyday 3) taking best 10 pairs according to some score
 
+                scored_pairs = OrderedDict(sorted(scored_pairs.items(), key=itemgetter(1), reverse = True))
+
                 return cointegrated_pairs
+
 
         return cointegrated_pairs
 
@@ -227,3 +233,8 @@ class Cointegrator:
         he = he_test < hurst_exp_threshold
 
         return all([adf, hl, he])
+
+    def __score_coint(self,  t_stat: float, confidence_level: AdfPrecisions,  crit_values: Dict[str, float]):
+        # currently scoring algorithm is only the l1 norm of adf_test_stat - confidence interval at the critical value we want to use
+        delta = abs(t_stat - crit_values[confidence_level.value])
+        return delta
