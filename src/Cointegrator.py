@@ -1,6 +1,6 @@
 import time
 from enum import Enum, unique
-from typing import Dict, Tuple
+from typing import Dict, Tuple, List
 import numpy as np
 from numpy import array
 from pandas import DataFrame
@@ -58,7 +58,9 @@ class Cointegrator:
                  entry_z: float,
                  exit_z: float,
                  current_window: Window,
-                 previous_window: Window):
+                 previous_window: Window,
+                 previous_cointegrated_pairs: List[CointegratedPair]
+                 ):
 
         self.repository: DataRepository = repository
         self.adf_confidence_level: AdfPrecisions = adf_confidence_level
@@ -67,17 +69,16 @@ class Cointegrator:
         self.exit_z: float = exit_z
         self.current_window: current_window = current_window
         self.previous_window: Window = previous_window
+        self.previous_cointegrated_pairs: List[CointegratedPair] = previous_cointegrated_pairs
+
 
     def generate_pairs(self,
                        clustering_results: Dict[int, Tuple[Tuple[Tickers]]],
                        hurst_exp_threshold: float):
         # run cointegration_analysis on all poss combinations of pairs
 
-        cointegrated_pairs = []
+        current_cointegrated_pairs = []
         scored_pairs = {}
-        prev_time = time.time()
-        n_tested = 0
-        n_cointegrated = 0
 
         list_of_lists = [i for i in clustering_results.values()]
         flattened = [pair for x in list_of_lists for pair in x]
@@ -107,19 +108,18 @@ class Cointegrator:
                                                      he_test, hurst_exp_threshold)
 
             if is_cointegrated:
-                n_cointegrated += 1
                 r_x = self.__log_returner(t1)
                 mu_x_ann = float(250 * np.mean(r_x))
                 sigma_x_ann = float(250 ** 0.5 * np.std(r_x))
                 ou_mean, ou_std, ou_diffusion_v, recent_dev, recent_dev_scaled = self.__ou_params(residuals)
 
                 scaled_beta = beta / (beta - 1)
-                cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, scaled_beta, hl_test,
+                current_cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, scaled_beta, hl_test,
                                                            ou_mean, ou_std, ou_diffusion_v,
                                                            recent_dev, recent_dev_scaled))
                 scored_pairs[pair] = self.__score_coint(adf_test_statistic, self.adf_confidence_level, adf_critical_values)
 
-            if n_cointegrated == 10:
+                #if n_cointegrated == 10:
                 # just checking the first 10 cointegrated pairs we find
                 # otherwise it would take forever to check all the possible pairs
                 # only for a single day;
@@ -129,10 +129,9 @@ class Cointegrator:
 
                 scored_pairs = OrderedDict(sorted(scored_pairs.items(), key=itemgetter(1), reverse = True))
 
-                return cointegrated_pairs
+        self.previous_cointegrated_pairs = current_cointegrated_pairs
 
-
-        return cointegrated_pairs
+        return current_cointegrated_pairs
 
     def __logged_lin_reg(self, x: DataFrame, y: DataFrame) -> Tuple[array, float]:
 

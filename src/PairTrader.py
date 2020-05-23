@@ -15,6 +15,7 @@ class PairTrader:
 
     def __init__(self,
                  backtest_start: date = date(2008, 1, 2),
+                 max_active_pairs: float =10,
                  trading_window_length: timedelta = timedelta(days=90),
                  backtest_end: Optional[date] = None,
                  adf_confidence_level: AdfPrecisions = AdfPrecisions.FIVE_PCT,
@@ -29,6 +30,7 @@ class PairTrader:
         # We assume an expanding window for now.
 
         self.backtest_start: date = backtest_start
+        self.max_active_pairs: float = max_active_pairs
         self.window_length: timedelta = trading_window_length
         self.adf_confidence_level: AdfPrecisions = adf_confidence_level  # e.g. "5%" or "1%"
         self.max_mean_rev_time: int = max_mean_rev_time
@@ -54,7 +56,9 @@ class PairTrader:
 
         self.trading_days = initial_window.window_trading_days
         self.today = self.trading_days[-1]
-        self.days_alive: int = (self.today - self.backtest_start).days
+        self.days_alive: int = (self.today - self.backtest_start).days #dont know what's goin on here with days_alive
+        self.day_count: int = 0
+        self.is_window_end: bool = (self.day_count % trading_window_length.days) == 0
 
         self.clusterer = Clusterer()
         self.cointegrator = Cointegrator(self.repository,
@@ -63,10 +67,11 @@ class PairTrader:
                                          self.entry_z,
                                          self.exit_z,
                                          initial_window,
-                                         self.history[-1])
+                                         self.history[-1],
+                                         previous_cointegrated_pairs=[])
         self.risk_manager = RiskManager(self.entry_z, self.exit_z)
         self.filters = Filters()
-        self.portfolio: Portfolio = Portfolio(100_000, self.current_window)
+        self.portfolio: Portfolio = Portfolio(100_000, self.current_window, self.max_active_pairs)
         self.dm = SignalGenerator(self.portfolio,
                                   entry_z,
                                   emergency_z,
@@ -76,11 +81,18 @@ class PairTrader:
     def trade(self):
         while self.today < self.backtest_end:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
-
+            print(self.is_window_end, self.day_count)
             clusters = self.clusterer.dbscan(eps=0.1, min_samples=2, window=self.current_window)
+            print(clusters)
 
-            cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
-                                                                                          self.hurst_exp_threshold)
+            if self.is_window_end:
+                cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
+                                                                                              self.hurst_exp_threshold)
+            # needs to be fixed
+            #else:
+            #    cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(
+            #        self.cointegrator.previous_cointegrated_pairs, self.hurst_exp_threshold)
+
             decisions = self.dm.make_decision(cointegrated_pairs)
 
             self.portfolio.execute_trades(decisions)
@@ -112,6 +124,7 @@ class PairTrader:
         # Adjust static parameters
         self.window_length += timedelta(days=1)
         self.days_alive += 1
+        self.day_count+=1
         self.today = self.trading_days[-1]
         # Extend window object by one day (expanding)
         self.history.append(self.current_window)
@@ -125,6 +138,7 @@ if __name__ == '__main__':
         # fundamental starts at 2016 2nd quarter
         backtest_start=date(2017, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
+        max_active_pairs=10,
         backtest_end=date(2019, 1, 2),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,

@@ -36,11 +36,9 @@ class Position:
         self.pos_hist = list()
         self.closed = False
 
-    def set_position_value(self, value, q1, q2):
+    def set_position_value(self, value):
         self.init_value = value
         self.current_value = value
-        self.quantity1 = q1
-        self.quantity2 = q2
 
     def update_weight(self, asset1_val, asset2_val):
         self.weight1 = asset1_val / (asset1_val + asset2_val)
@@ -75,7 +73,7 @@ class Position:
 
 class Portfolio:
 
-    def __init__(self, cash: float, window: Window):
+    def __init__(self, cash: float, window: Window, max_active_pairs:float = 10):
         # port_value: value of all the positions we have currently
         # cur_positions: list of all current positions
         # hist_positions: list of all positions (both historical and current)
@@ -98,6 +96,7 @@ class Portfolio:
         self.rebalance_threshold = float(1)
         self.loading = float(0.1)
         self.number_active_pairs = 0
+        self.max_active_pairs = max_active_pairs
 
 
     def reset_values(self):
@@ -112,17 +111,18 @@ class Portfolio:
         cur_price = self.current_window.get_data(universe=Universes.SNP,
                                                  tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
-
+        # notional reference amount for each pair. Actual positions are scaled accordingly with respect to
+        # maximum weight as per below formula
         pair_dedicated_cash = self.init_cash * self.loading / max(abs(position.weight1), abs(position.weight2))
-        quantity1 = round(pair_dedicated_cash * position.weight1 / cur_price.iloc[-1, 0])
-        quantity2 = round(pair_dedicated_cash * position.weight2 / cur_price.iloc[-1, 1])
-        commission = self.t_cost * (abs(position.quantity1) + abs(position.quantity2))
-        asset1_value = cur_price.iloc[-1, 0] * quantity1
-        asset2_value = cur_price.iloc[-1, 1] * quantity2
+        position.quantity1 = int(pair_dedicated_cash * position.weight1 / cur_price.iloc[-1, 0])
+        position.quantity2 = int(pair_dedicated_cash * position.weight2 / cur_price.iloc[-1, 1])
+        asset1_value = cur_price.iloc[-1, 0] * position.quantity1
+        asset2_value = cur_price.iloc[-1, 1] * position.quantity2
+        commission = self.generate_commission(asset1_value, asset2_value)
         pair_dedicated_cash = asset1_value + asset2_value
-        position.set_position_value(pair_dedicated_cash, quantity1, quantity2)
+        position.set_position_value(pair_dedicated_cash)
 
-        if pair_dedicated_cash > self.cur_cash and self.number_active_pairs<=10:
+        if pair_dedicated_cash > self.cur_cash and self.number_active_pairs<=self.max_active_pairs:
             self.logger.info('No sufficient cash to open position')
         else:
             self.logger.info("%s, %s are cointegrated and zscore is in trading range. Opening position....",
@@ -134,9 +134,9 @@ class Portfolio:
             self.cur_cash -= pair_dedicated_cash + commission
             self.active_port_value += pair_dedicated_cash
             self.logger.info('Asset 1: %s @$%s Quantity: %s Value: %s', position.asset1,
-                             round(cur_price.iloc[-1, 0],2), round(quantity1,2), round(asset1_value,2))
+                             round(cur_price.iloc[-1, 0],2), round(position.quantity1,2), round(asset1_value,2))
             self.logger.info('Asset 2: %s @$%s Quantity: %s Value: %s', position.asset2,
-                             round(cur_price.iloc[-1, 1],2), round(quantity2,2), round(asset2_value,2))
+                             round(cur_price.iloc[-1, 1],2), round(position.quantity2,2), round(asset2_value,2))
             self.logger.info('Cash balance: $%s', self.cur_cash)
 
     # def close_position(self, ticker1, ticker2):
@@ -152,18 +152,25 @@ class Portfolio:
             self.number_active_pairs -= 1
             self.cur_positions.remove(position)
 
-            commission = self.t_cost * (abs(position.quantity1) + abs(position.quantity2))
-            asset_value = cur_price.iloc[-1, 0] * position.quantity1 + cur_price.iloc[-1, 1] * position.quantity2
+            asset1_value = cur_price.iloc[-1, 0] * position.quantity1
+            asset2_value = cur_price.iloc[-1, 1] * position.quantity2
+            commission = self.generate_commission(asset1_value, asset2_value)
+            pair_residual_cash = asset1_value + asset2_value
 
-            position.close_trade(asset_value, self.current_window)
-            self.cur_cash += asset_value - commission
-            self.active_port_value -= asset_value
+            position.close_trade(pair_residual_cash, self.current_window)
+            self.cur_cash += pair_residual_cash - commission
+            self.active_port_value -= pair_residual_cash
             self.realised_pnl += position.pnl
             self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1,
-                             round(cur_price.iloc[-1, 0],2), round(position.quantity1,2))
+                             round(cur_price.iloc[-1, 0],2), int(position.quantity1))
             self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2,
-                             round(cur_price.iloc[-1, 1],2), round(position.quantity2,2))
+                             round(cur_price.iloc[-1, 1],2), int(position.quantity2))
             self.logger.info('Realised PnL for position: %s' % round(position.pnl,2))
+
+    def generate_commission(self, asset1_value, asset2_value):
+        # transaction costs as % of notional amount
+        return self.t_cost * (abs(asset1_value) + abs(asset2_value))
+
 
     def rebalance(self, position: Position, new_weights):
         cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[position.asset1, position.asset2],
