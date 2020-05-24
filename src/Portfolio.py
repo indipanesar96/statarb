@@ -10,6 +10,9 @@ from src.RiskManager import RiskManager
 from src.Window import Window
 from src.util.Features import Features, PositionType
 from src.util.Tickers import SnpTickers, Tickers
+from src.Performance import get_performance_stats
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 class Position:
@@ -97,6 +100,10 @@ class Portfolio:
         self.loading = float(0.1)
         self.number_active_pairs = 0
         self.max_active_pairs = max_active_pairs
+
+        self.port_hist.append([self.current_window.window_end + pd.DateOffset(-1) , self.cur_cash, self.active_port_value,
+                               self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return * 100,
+                               self.cum_return * 100])
 
 
     def reset_values(self):
@@ -259,6 +266,12 @@ class Portfolio:
         df = df.set_index('date')
         return df.round(2)
 
+    def summary(self):
+        prc_hist = self.get_port_hist()['total_capital']
+        print(get_performance_stats(prc_hist))
+        sns.lineplot(data = prc_hist.reset_index(), x = 'date', y = 'total_capital')
+        plt.show()
+        # return performance stats of pnl history
 
 if __name__ == '__main__':
     current_window = Window(window_start=date(2008, 1, 3), trading_win_len=timedelta(days=90),

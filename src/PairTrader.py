@@ -83,7 +83,7 @@ class PairTrader:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
             print(self.is_window_end, self.day_count)
             clusters = self.clusterer.dbscan(eps=0.1, min_samples=2, window=self.current_window)
-            print(clusters)
+            # print(clusters)
 
             if self.is_window_end:
                 cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
@@ -118,6 +118,8 @@ class PairTrader:
             print(
                 f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
             self.__evolve()
+        self.portfolio.summary()
+        return
 
     def __evolve(self):
         # Do all the things to push the window forward to next working day
@@ -139,7 +141,7 @@ if __name__ == '__main__':
         backtest_start=date(2017, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
         max_active_pairs=10,
-        backtest_end=date(2019, 1, 2),
+        backtest_end=date(2017, 3, 29),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,
         entry_z=0.5,
