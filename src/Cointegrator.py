@@ -79,7 +79,7 @@ class Cointegrator:
 
         current_cointegrated_pairs = []
         scored_pairs = {}
-
+        n_cointegrated = 0
         list_of_lists = [i for i in clustering_results.values()]
         flattened = [pair for x in list_of_lists for pair in x]
 
@@ -108,6 +108,7 @@ class Cointegrator:
                                                      he_test, hurst_exp_threshold)
 
             if is_cointegrated:
+                n_cointegrated += 1
                 r_x = self.__log_returner(t1)
                 mu_x_ann = float(250 * np.mean(r_x))
                 sigma_x_ann = float(250 ** 0.5 * np.std(r_x))
@@ -119,7 +120,7 @@ class Cointegrator:
                                                            recent_dev, recent_dev_scaled))
                 scored_pairs[pair] = self.__score_coint(adf_test_statistic, self.adf_confidence_level, adf_critical_values)
 
-                #if n_cointegrated == 10:
+                if n_cointegrated == 50:
                 # just checking the first 10 cointegrated pairs we find
                 # otherwise it would take forever to check all the possible pairs
                 # only for a single day;
@@ -127,7 +128,9 @@ class Cointegrator:
                 # clustering algorithm; 2) not running clustering and cointegration
                 # everyday 3) taking best 10 pairs according to some score
 
-                scored_pairs = OrderedDict(sorted(scored_pairs.items(), key=itemgetter(1), reverse = True))
+                    scored_pairs = OrderedDict(sorted(scored_pairs.items(), key=itemgetter(1), reverse = True))
+                    self.previous_cointegrated_pairs = current_cointegrated_pairs
+                    return current_cointegrated_pairs
 
         self.previous_cointegrated_pairs = current_cointegrated_pairs
 
@@ -237,3 +240,6 @@ class Cointegrator:
         # currently scoring algorithm is only the l1 norm of adf_test_stat - confidence interval at the critical value we want to use
         delta = abs(t_stat - crit_values[confidence_level.value])
         return delta
+
+    def get_previous_cointegrated_pairs(self):
+        return self.previous_cointegrated_pairs

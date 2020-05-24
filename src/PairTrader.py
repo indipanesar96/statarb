@@ -32,6 +32,7 @@ class PairTrader:
         self.backtest_start: date = backtest_start
         self.max_active_pairs: float = max_active_pairs
         self.window_length: timedelta = trading_window_length
+        self.init_window_length: timedelta = trading_window_length
         self.adf_confidence_level: AdfPrecisions = adf_confidence_level  # e.g. "5%" or "1%"
         self.max_mean_rev_time: int = max_mean_rev_time
         self.entry_z: float = entry_z
@@ -82,16 +83,15 @@ class PairTrader:
         while self.today < self.backtest_end:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
             print(self.is_window_end, self.day_count)
+            self.is_window_end = (self.day_count % self.init_window_length.days) == 0
             clusters = self.clusterer.dbscan(eps=0.1, min_samples=2, window=self.current_window)
             # print(clusters)
 
             if self.is_window_end:
                 cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
                                                                                               self.hurst_exp_threshold)
-            # needs to be fixed
-            #else:
-            #    cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(
-            #        self.cointegrator.previous_cointegrated_pairs, self.hurst_exp_threshold)
+            else:
+                cointegrated_pairs: List[CointegratedPair] = self.cointegrator.get_previous_cointegrated_pairs()
 
             decisions = self.dm.make_decision(cointegrated_pairs)
 
@@ -118,7 +118,7 @@ class PairTrader:
             print(
                 f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
             self.__evolve()
-        self.portfolio.summary()
+        # self.portfolio.summary()
         return
 
     def __evolve(self):
