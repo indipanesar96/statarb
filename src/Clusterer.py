@@ -63,7 +63,8 @@ class Clusterer:
                     result.append(ticker)
             return result
         fundamental_tickers = get_ticker(fundamental.index)
-        fundamental_reshaped = fundamental.values.reshape(-1, 2)
+        num_of_feature = 7
+        fundamental_reshaped = fundamental.values.reshape(-1, num_of_feature)
         fundamental_normalised = StandardScaler().fit_transform(fundamental_reshaped)
         fundamental_normalised = pd.DataFrame(fundamental_normalised, index=fundamental_tickers)
         fundamental_normalised = fundamental_normalised.dropna()
