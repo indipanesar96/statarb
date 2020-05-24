@@ -63,9 +63,9 @@ def get_performance_stats(prices, rfr = 0):
 	# (i.e. monotonically increasing function)
 
 	DD = prices.cummax() - prices  # get all Drawdowns: diffs between cumulative max price and current price
-	end_mdd = DD.index[np.argmax(DD)]  # get date of max Drawdown
+	end_mdd = DD.idmax()  # get date of max Drawdown
 	# maxDD = 888.6, argmax = Timestamp('2009-03-09 00:00:00')
-	start_mdd = DD.index[np.argmax(prices[:end_mdd])]  # get date of max price before trough ('2009-03-09 00:00:00')
+	start_mdd = prices[:end_mdd].idmax()  # get date of max price before trough ('2009-03-09 00:00:00')
 	# prices[:end_mdd] - prices from starting time to end_mdd Timestamp
 	# maxPrice = 1565.15, argmax = Timestamp('2007-10-09 00:00:00')
 
