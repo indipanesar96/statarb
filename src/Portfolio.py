@@ -129,8 +129,10 @@ class Portfolio:
         pair_dedicated_cash = asset1_value + asset2_value
         position.set_position_value(pair_dedicated_cash)
 
-        if pair_dedicated_cash > self.cur_cash and self.number_active_pairs<=self.max_active_pairs:
+        if pair_dedicated_cash > self.cur_cash:
             self.logger.info('No sufficient cash to open position')
+        elif self.number_active_pairs >= self.max_active_pairs:
+            self.logger.info('Active pairs > Maximum pairs')
         else:
             self.logger.info("%s, %s are cointegrated and zscore is in trading range. Opening position....",
                              position.asset1, position.asset2)
@@ -217,7 +219,7 @@ class Portfolio:
         self.cum_return = np.log(self.total_capital[-1]) - np.log(self.total_capital[0])
         self.port_hist.append([self.current_window.window_end, self.cur_cash, self.active_port_value,
                                self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return*100,
-                               self.cum_return*100])
+                               self.cum_return*100, self.number_active_pairs])
 
     def execute_trades(self, decisions):
         for decision in decisions:
@@ -261,7 +263,8 @@ class Portfolio:
     def get_port_hist(self):
         # returns a time series of cash balance, portfolio value and actual pnl
         pd.set_option('expand_frame_repr', False)
-        df = DataFrame(self.port_hist, columns=['date', 'cash', 'port_value', 'total_capital', 'realised_pnl', 'return', 'cum_return'])
+        df = DataFrame(self.port_hist, columns=['date', 'cash', 'port_value', 'total_capital', 'realised_pnl', 'return',
+                                                'cum_return', 'active_pairs'])
         df['date'] = to_datetime(df['date'])
         df = df.set_index('date')
         return df.round(2)
