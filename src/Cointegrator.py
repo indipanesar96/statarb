@@ -6,8 +6,6 @@ from numpy import array
 from pandas import DataFrame
 from sklearn.linear_model import LinearRegression
 from statsmodels.tsa.api import adfuller
-from collections import OrderedDict
-from operator import itemgetter
 
 from src.DataRepository import DataRepository
 from src.DataRepository import Universes
