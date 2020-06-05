@@ -82,7 +82,6 @@ class PairTrader:
     def trade(self):
         while self.today < self.backtest_end:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
-            print(self.is_window_end, self.day_count)
             self.is_window_end = (self.day_count % self.init_window_length.days) == 0
             clusters = self.clusterer.dbscan(eps=0.5, min_samples=2, window=self.current_window)
             # print(clusters)
