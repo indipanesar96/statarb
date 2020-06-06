@@ -28,6 +28,7 @@ class CointegratedPair:
                  ou_diffusion_v: float,
                  recent_dev: float,
                  recent_dev_scaled: float,
+                 recent_dev_scaled_hist:list,
                  cointegration_rank: float):
         self.pair: Tuple[Tickers] = pair
         self.mu_x_ann: float = mu_x_ann
@@ -40,6 +41,7 @@ class CointegratedPair:
         self.ou_diffusion_v = ou_diffusion_v
         self.recent_dev: float = recent_dev
         self.recent_dev_scaled: float = recent_dev_scaled
+        self.recent_dev_scaled_hist:list = recent_dev_scaled_hist
         self.cointegration_rank:float = cointegration_rank
 
 
@@ -68,13 +70,11 @@ class Cointegrator:
         self.max_mean_rev_time: int = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
-        self.current_window: current_window = current_window
-        self.previous_window: Window = previous_window
         self.previous_cointegrated_pairs: List[CointegratedPair] = previous_cointegrated_pairs
 
     def generate_pairs(self,
                        clustering_results: Dict[int, Tuple[Tuple[Tickers]]],
-                       hurst_exp_threshold: float):
+                       hurst_exp_threshold: float, current_window : Window):
         # run cointegration_analysis on all poss combinations of pairs
 
         current_cointegrated_pairs = []
@@ -85,10 +85,10 @@ class Cointegrator:
         sorted_cluster_results = sorted(flattened, key=lambda x: x[0].value)
 
         for pair in sorted_cluster_results:
-            t1 = self.current_window.get_data(universe=Universes.SNP,
+            t1 = current_window.get_data(universe=Universes.SNP,
                                               tickers=[pair[0]],
                                               features=[Features.CLOSE])
-            t2 = self.current_window.get_data(universe=Universes.SNP,
+            t2 = current_window.get_data(universe=Universes.SNP,
                                               tickers=[pair[1]],
                                               features=[Features.CLOSE])
 
@@ -100,27 +100,30 @@ class Cointegrator:
             # for some reason residuals is a (60,1) array not (60,) array when i run the code so have changed input to residuals.flatten
             adf_test_statistic, adf_critical_values = self.__adf(residuals.flatten())
             hl_test = self.__hl(residuals)
-            he_test = self.__hurst_exponent_test(residuals)
+            he_test = self.__hurst_exponent_test(residuals, current_window)
 
             is_cointegrated = self.__acceptance_rule(adf_test_statistic, adf_critical_values,
                                                      self.adf_confidence_level, hl_test, self.max_mean_rev_time,
                                                      he_test, hurst_exp_threshold)
 
+            target_coint = 300
             if is_cointegrated:
                 n_cointegrated += 1
+                print(n_cointegrated, " / ", target_coint, "cointegrated")
                 r_x = self.__log_returner(t1)
                 mu_x_ann = float(250 * np.mean(r_x))
                 sigma_x_ann = float(250 ** 0.5 * np.std(r_x))
                 ou_mean, ou_std, ou_diffusion_v, recent_dev, recent_dev_scaled = self.__ou_params(residuals)
-
                 scaled_beta = beta / (beta - 1)
+                recent_dev_scaled_hist = [recent_dev_scaled]
                 cointegration_rank = self.__score_coint(adf_test_statistic, self.adf_confidence_level,
                                                         adf_critical_values)
                 current_cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, reg_output, scaled_beta,
                                                                    hl_test, ou_mean, ou_std, ou_diffusion_v,
-                                                                   recent_dev, recent_dev_scaled, cointegration_rank))
+                                                                   recent_dev, recent_dev_scaled,
+                                                                   recent_dev_scaled_hist, cointegration_rank))
 
-                if n_cointegrated == 150:
+                if n_cointegrated == target_coint:
                     # logic to be fixed and made more efficient by: 1) having proper
                     # clustering algorithm; 2) not running clustering and cointegration
                     # everyday 3) taking best 10 pairs according to some score
@@ -165,7 +168,7 @@ class Cointegrator:
 
         return adf_test_statistic, adf_critical_values
 
-    def __hurst_exponent_test(self, residuals) -> float:
+    def __hurst_exponent_test(self, residuals, current_window:Window) -> float:
 
         # lag vector
         tau_vector = []
@@ -173,7 +176,7 @@ class Cointegrator:
         # var[ (1 - L^n)y  ]
         variance_delta_vector = []
 
-        max_lags = int(self.current_window.window_length.days * 0.5)
+        max_lags = int(current_window.window_length.days * 0.5)
 
         for lag in range(2, max_lags):
             #   (1 - L^n)y
@@ -240,17 +243,18 @@ class Cointegrator:
         delta = abs(t_stat - crit_values[confidence_level.value])
         return delta
 
-    def get_previous_cointegrated_pairs(self):
+    def get_previous_cointegrated_pairs(self, current_window):
         for coint_pair in self.previous_cointegrated_pairs:
-            t1_last_2_prices = self.current_window.get_data(universe=Universes.SNP,
+            t1_last_2_prices = current_window.get_data(universe=Universes.SNP,
                                                             tickers=[coint_pair.pair[0]],
-                                                            features=[Features.CLOSE]).iloc[-2:, :]
-            t2_last_2_prices = self.current_window.get_data(universe=Universes.SNP,
+                                                            features=[Features.CLOSE]).iloc[-1:, :]
+            t2_last_2_prices = current_window.get_data(universe=Universes.SNP,
                                                             tickers=[coint_pair.pair[1]],
-                                                            features=[Features.CLOSE]).iloc[-2:, :]
-            t1_latest_ret = np.log(float(t1_last_2_prices.iloc[-1,:])/float(t1_last_2_prices.iloc[-2,:]))
-            t2_latest_ret = np.log(float(t2_last_2_prices.iloc[-1,:])/float(t2_last_2_prices.iloc[-2,:]))
-            coint_pair.recent_dev = t2_latest_ret - coint_pair.reg_output.predict(np.array(t1_latest_ret).reshape(-1,1))
+                                                            features=[Features.CLOSE]).iloc[-1:, :]
+            t1_latest_log_price = np.log(float(t1_last_2_prices.iloc[-1,:]))
+            t2_latest_log_price = np.log(float(t2_last_2_prices.iloc[-1,:]))
+            coint_pair.recent_dev = t2_latest_log_price - coint_pair.reg_output.predict(np.array(t1_latest_log_price).reshape(-1,1))
+            coint_pair.recent_dev_scaled_hist.append(coint_pair.recent_dev)
             coint_pair.recent_dev_scaled = (coint_pair.recent_dev - coint_pair.ou_mean)/coint_pair.ou_std
 
         return self.previous_cointegrated_pairs

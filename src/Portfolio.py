@@ -22,8 +22,11 @@ class Position:
                  weight1,
                  weight2,
                  investment_type: PositionType,
+                 init_z,
+                 init_date,
                  init_value=100,
-                 commission=0):
+                 commission=0,
+                 ):
         self.asset1: Tickers = ticker1
         self.asset2: Tickers = ticker2
         self.weight1: float = weight1
@@ -38,6 +41,8 @@ class Position:
         self.pnl: float = -commission
         self.pos_hist = list()
         self.closed = False
+        self.init_z = init_z
+        self.init_date = init_date
 
     def set_position_value(self, value):
         self.init_value = value
