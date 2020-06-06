@@ -22,7 +22,7 @@ class PairTrader:
                  max_mean_rev_time: int = 15,
                  hurst_exp_threshold: float = 0.35,
                  entry_z: float = 1.5,
-                 emergency_z: float = 3,
+                 emergency_delta_z: float = 3,
                  exit_z: float = 0.5):
         # If end_date is None, run for the entirety of the dataset
         # Window is the lookback period (from t=window_length to t=0 (today) over which we analyse data
@@ -41,8 +41,8 @@ class PairTrader:
 
         # if the pair crosses this boundary, we don't believe their cointegrated anymore
         # - close the position at a loss
-        # require: emergency_z > entry_z > exit_z
-        self.emergency_z: float = emergency_z
+        # require: emergency_z+entry_z > entry_z > exit_z
+        self.emergency_delta_z: float = emergency_delta_z
 
         # Last SNP date, hard coded for now...
         self.backtest_end = date(year=2020, month=12, day=31) if backtest_end is None else backtest_end
@@ -76,7 +76,7 @@ class PairTrader:
         self.dm = SignalGenerator(self.portfolio,
                                   entry_z,
                                   exit_z,
-                                  emergency_z
+                                  emergency_delta_z
                                   )
 
     def trade(self):
@@ -88,9 +88,10 @@ class PairTrader:
 
             if self.is_window_end:
                 cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
-                                                                                              self.hurst_exp_threshold)
+                                                                                              self.hurst_exp_threshold,
+                                                                                              self.current_window)
             else:
-                cointegrated_pairs: List[CointegratedPair] = self.cointegrator.get_previous_cointegrated_pairs()
+                cointegrated_pairs: List[CointegratedPair] = self.cointegrator.get_previous_cointegrated_pairs(self.current_window)
 
             decisions = self.dm.make_decision(cointegrated_pairs)
 
@@ -117,13 +118,14 @@ class PairTrader:
             print(
                 f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
             self.__evolve()
-        # self.portfolio.summary()
+        self.portfolio.get_port_hist().to_csv('log.csv')
+        self.portfolio.summary()
         return
 
     def __evolve(self):
         # Do all the things to push the window forward to next working day
         # Adjust static parameters
-        self.window_length += timedelta(days=1)
+        # self.window_length += timedelta(days=1)
         self.days_alive += 1
         self.day_count+=1
         self.today = self.trading_days[-1]
@@ -140,10 +142,10 @@ if __name__ == '__main__':
         backtest_start=date(2017, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
         max_active_pairs=10,
-        backtest_end=date(2018, 3, 29),
+        backtest_end=date(2018, 4, 1),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,
         entry_z=2,
         exit_z=0.5,
-        emergency_z=3.5,
+        emergency_delta_z=1.5,
     ).trade()
