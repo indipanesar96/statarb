@@ -60,7 +60,7 @@ class SignalGenerator:
                         )
                     )
 
-                elif coint_pair.recent_dev_scaled < -self.entry_z:
+                elif coint_pair.recent_dev_scaled < - self.entry_z:
                     # s = short pair = long y short x
                     p1, p2 = coint_pair.pair
 

@@ -75,16 +75,15 @@ class PairTrader:
         self.portfolio: Portfolio = Portfolio(100_000, self.current_window, self.max_active_pairs)
         self.dm = SignalGenerator(self.portfolio,
                                   entry_z,
-                                  emergency_z,
-                                  exit_z
+                                  exit_z,
+                                  emergency_z
                                   )
 
     def trade(self):
         while self.today < self.backtest_end:
             print(f"Today is {self.today.strftime('%Y-%m-%d')}")
-            print(self.is_window_end, self.day_count)
             self.is_window_end = (self.day_count % self.init_window_length.days) == 0
-            clusters = self.clusterer.dbscan(eps=0.1, min_samples=2, window=self.current_window)
+            clusters = self.clusterer.dbscan(eps=0.5, min_samples=2, window=self.current_window)
             # print(clusters)
 
             if self.is_window_end:
@@ -141,10 +140,10 @@ if __name__ == '__main__':
         backtest_start=date(2017, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
         max_active_pairs=10,
-        backtest_end=date(2017, 3, 29),
+        backtest_end=date(2018, 3, 29),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,
-        entry_z=0.5,
-        exit_z=0.1,
-        emergency_z=0.8
+        entry_z=2,
+        exit_z=0.5,
+        emergency_z=3.5,
     ).trade()
