@@ -6,6 +6,7 @@ from numpy import array
 from pandas import DataFrame
 from sklearn.linear_model import LinearRegression
 from statsmodels.tsa.api import adfuller
+from fractions import Fraction
 
 from src.DataRepository import DataRepository
 from src.DataRepository import Universes
@@ -62,7 +63,7 @@ class Cointegrator:
                  exit_z: float,
                  current_window: Window,
                  previous_window: Window,
-                 previous_cointegrated_pairs: List[CointegratedPair]
+                 previous_cointegrated_pairs: List[CointegratedPair],
                  ):
 
         self.repository: DataRepository = repository
@@ -117,7 +118,7 @@ class Cointegrator:
                 scaled_beta = beta / (beta - 1)
                 recent_dev_scaled_hist = [recent_dev_scaled]
                 cointegration_rank = self.__score_coint(adf_test_statistic, self.adf_confidence_level,
-                                                        adf_critical_values)
+                                                        adf_critical_values, he_test, hurst_exp_threshold, 10)
                 current_cointegrated_pairs.append(CointegratedPair(pair, mu_x_ann, sigma_x_ann, reg_output, scaled_beta,
                                                                    hl_test, ou_mean, ou_std, ou_diffusion_v,
                                                                    recent_dev, recent_dev_scaled,
@@ -135,7 +136,6 @@ class Cointegrator:
                     return current_cointegrated_pairs
 
         self.previous_cointegrated_pairs = current_cointegrated_pairs
-
         return current_cointegrated_pairs
 
     def __logged_lin_reg(self, x: DataFrame, y: DataFrame) -> Tuple[array, float, LinearRegression]:
@@ -238,9 +238,13 @@ class Cointegrator:
 
         return all([adf, hl, he])
 
-    def __score_coint(self, t_stat: float, confidence_level: AdfPrecisions, crit_values: Dict[str, float]):
-        # currently scoring algorithm is only the l1 norm of (adf_test_stat - critical value)
-        delta = abs(t_stat - crit_values[confidence_level.value])
+    def __score_coint(self, t_stat: float, confidence_level: AdfPrecisions, crit_values: Dict[str, float],
+                      hurst_stat, hurst_threshold, n_pair):
+        # using score function to maximise number of profitable trades
+        dist = abs(t_stat - crit_values[confidence_level.value])
+        hurst = abs(hurst_stat - hurst_threshold)
+        weights = Fraction.from_float(-0.0042*n_pair**2 + 0.1683* n_pair + 0.1238).limit_denominator(max_denominator=1000000)
+        delta = weights.numerator * dist + weights.denominator * hurst
         return delta
 
     def get_previous_cointegrated_pairs(self, current_window):
