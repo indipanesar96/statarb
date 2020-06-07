@@ -34,7 +34,7 @@ class Position:
         self.quantity1: float = 0
         self.quantity2: float = 0
         self.position_type: PositionType = investment_type
-        self.log_return: float = 0
+        self.simple_return: float = 0
         self.commission: float = commission
         self.init_value: float = init_value
         self.current_value: float = init_value
@@ -55,9 +55,9 @@ class Position:
     def update_position_pnl(self, value, window):
         if not self.closed:
             self.pnl += value - self.current_value
-            self.log_return = np.log(value) - np.log(self.current_value)
+            self.simple_return = value/self.current_value - 1
             self.current_value = value
-        self.pos_hist.append([window.window_end, self.current_value, self.pnl, self.log_return])
+        self.pos_hist.append([window.window_end, self.current_value, self.pnl, self.simple_return])
 
     def rebalance_pos(self, new_weights, rebalance_value):
         self.weight1 = new_weights[0]
