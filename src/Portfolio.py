@@ -55,7 +55,7 @@ class Position:
     def update_position_pnl(self, value, window):
         if not self.closed:
             self.pnl += value - self.current_value
-            self.simple_return = value/self.current_value - 1
+            self.simple_return = value / self.current_value - 1
             self.current_value = value
         self.pos_hist.append([window.window_end, self.current_value, self.pnl, self.simple_return])
 
@@ -81,7 +81,7 @@ class Position:
 
 class Portfolio:
 
-    def __init__(self, cash: float, window: Window, max_active_pairs:float = 10):
+    def __init__(self, cash: float, window: Window, max_active_pairs: float = 10):
         # port_value: value of all the positions we have currently
         # cur_positions: list of all current positions
         # hist_positions: list of all positions (both historical and current)
@@ -106,10 +106,10 @@ class Portfolio:
         self.number_active_pairs = 0
         self.max_active_pairs = max_active_pairs
 
-        self.port_hist.append([self.current_window.window_end + pd.DateOffset(-1) , self.cur_cash, self.active_port_value,
-                               self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return * 100,
-                               self.cum_return * 100])
-
+        self.port_hist.append(
+            [self.current_window.window_end + pd.DateOffset(-1), self.cur_cash, self.active_port_value,
+             self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return * 100,
+             self.cum_return * 100])
 
     def reset_values(self):
         self.cur_cash = self.init_cash
@@ -137,20 +137,21 @@ class Portfolio:
         if pair_dedicated_cash > self.cur_cash:
             self.logger.info('No sufficient cash to open position')
         elif self.number_active_pairs >= self.max_active_pairs:
-            self.logger.info('Active pairs > Maximum pairs')
+            pass
+            # self.logger.info('Active pairs > Maximum pairs')
         else:
             self.logger.info("%s, %s are cointegrated and zscore is in trading range. Opening position....",
                              position.asset1, position.asset2)
-            self.number_active_pairs+=1
+            self.number_active_pairs += 1
             self.cur_positions.append(position)
             self.hist_positions.append(position)
 
             self.cur_cash -= pair_dedicated_cash + commission
             self.active_port_value += pair_dedicated_cash
             self.logger.info('Asset 1: %s @$%s Quantity: %s Value: %s', position.asset1,
-                             round(cur_price.iloc[-1, 0],2), round(position.quantity1,2), round(asset1_value,2))
+                             round(cur_price.iloc[-1, 0], 2), round(position.quantity1, 2), round(asset1_value, 2))
             self.logger.info('Asset 2: %s @$%s Quantity: %s Value: %s', position.asset2,
-                             round(cur_price.iloc[-1, 1],2), round(position.quantity2,2), round(asset2_value,2))
+                             round(cur_price.iloc[-1, 1], 2), round(position.quantity2, 2), round(asset2_value, 2))
             self.logger.info('Cash balance: $%s', self.cur_cash)
 
     # def close_position(self, ticker1, ticker2):
@@ -176,22 +177,22 @@ class Portfolio:
             self.active_port_value -= pair_residual_cash
             self.realised_pnl += position.pnl
             self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1,
-                             round(cur_price.iloc[-1, 0],2), int(position.quantity1))
+                             round(cur_price.iloc[-1, 0], 2), int(position.quantity1))
             self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2,
-                             round(cur_price.iloc[-1, 1],2), int(position.quantity2))
-            self.logger.info('Realised PnL for position: %s' % round(position.pnl,2))
+                             round(cur_price.iloc[-1, 1], 2), int(position.quantity2))
+            self.logger.info('Realised PnL for position: %s' % round(position.pnl, 2))
 
     def generate_commission(self, asset1_value, asset2_value):
         # transaction costs as % of notional amount
         return self.t_cost * (abs(asset1_value) + abs(asset2_value))
-
 
     def rebalance(self, position: Position, new_weights):
         cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[position.asset1, position.asset2],
                                                  features=[Features.CLOSE])
 
         if position in self.cur_positions:
-            position.update_weight(cur_price.iloc[-1, 0]*position.quantity1, cur_price.iloc[-1, 1]*position.quantity2)
+            position.update_weight(cur_price.iloc[-1, 0] * position.quantity1,
+                                   cur_price.iloc[-1, 1] * position.quantity2)
             weight1_chg = new_weights[0] - position.weight1
             weight2_chg = new_weights[1] - position.weight2
             if abs(weight1_chg) + abs(weight2_chg) >= self.rebalance_threshold:
@@ -219,12 +220,12 @@ class Portfolio:
 
         # Compute portfolio stats
         self.active_port_value = cur_port_val
-        self.total_capital.append(self.cur_cash+self.active_port_value)
+        self.total_capital.append(self.cur_cash + self.active_port_value)
         self.log_return = np.log(self.total_capital[-1]) - np.log(self.total_capital[-2])
         self.cum_return = np.log(self.total_capital[-1]) - np.log(self.total_capital[0])
         self.port_hist.append([self.current_window.window_end, self.cur_cash, self.active_port_value,
-                               self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return*100,
-                               self.cum_return*100, self.number_active_pairs])
+                               self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return * 100,
+                               self.cum_return * 100, self.number_active_pairs])
 
     def execute_trades(self, decisions):
         for decision in decisions:
@@ -233,7 +234,6 @@ class Portfolio:
                     self.open_position(decision.position)
                 elif decision.new_action is PositionType.NOT_INVESTED:
                     self.close_position(decision.position)
-
 
     def evolve(self):
         self.current_window = self.current_window.evolve()
@@ -277,9 +277,10 @@ class Portfolio:
     def summary(self):
         prc_hist = self.get_port_hist()['total_capital']
         print(get_performance_stats(prc_hist))
-        sns.lineplot(data = prc_hist.reset_index(), x = 'date', y = 'total_capital')
+        sns.lineplot(data=prc_hist.reset_index(), x='date', y='total_capital')
         plt.show()
         # return performance stats of pnl history
+
 
 if __name__ == '__main__':
     current_window = Window(window_start=date(2008, 1, 3), trading_win_len=timedelta(days=90),
@@ -293,6 +294,18 @@ if __name__ == '__main__':
     # port.evolve()
     # port.rebalance(p1, [1.5, -1.5])
     # port.update_portfolio()
+
+    # fundamental data from 2008 (2nd)
+    # only load from disk data required for the next window - speeding -IP
+    #   past 20 day lookback vol of returns, -TY&SC
+    #   volumes, -TY&SC
+    #   60 day lookback cum returns (momentum -like) -TY&SC
+    # can change eps factor to play with clustering
+    # accurate measure of vol for the portfolio -> SR -SP
+    # finish implementation of max dd -SC
+    # Logging to a file, combined with SC's csv for df - OY
+    #
+
 
     port.evolve()
     port.close_position(p1)

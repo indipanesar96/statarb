@@ -129,8 +129,8 @@ class PairTrader:
         self.days_alive += 1
         self.day_count+=1
         self.today = self.trading_days[-1]
-        # Extend window object by one day (expanding)
         self.history.append(self.current_window)
+        # Extend window object by one day (expanding)
         self.history = self.history[-3:]
         self.current_window = self.current_window.evolve()
         self.trading_days = self.current_window.window_trading_days

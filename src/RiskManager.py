@@ -8,14 +8,15 @@ from src.util.ExpectedReturner import expected_returner
 from enum import Enum, unique
 from src.Cointegrator import CointegratedPair
 
-class trade_direction(Enum):
-    long = 'long'
-    short = 'short'
+@unique
+class TradeDirection(Enum):
+    LONG = 'LONG'
+    SHORT = 'SHORT'
 
 class tradable_pair:
     def __init__(self, cointegrated_pair, direction):
         self.pair : CointegratedPair = cointegrated_pair
-        self.direction : trade_direction = direction
+        self.direction : TradeDirection = direction
 
 
 class RiskManager:
@@ -48,10 +49,10 @@ class RiskManager:
         for pair in cointegrated_pairs:
             if pair.recent_dev_scaled > self.entry_z:
                 # long x short y
-                tradable_pairs.append(tradable_pair(cointegrated_pair = pair, direction = trade_direction.long))
+                tradable_pairs.append(tradable_pair(cointegrated_pair = pair, direction = TradeDirection.LONG))
             elif pair.recent_dev_scaled < -self.entry_z:
                 # short x long y
-                tradable_pairs.append(tradable_pair(cointegrated_pair=pair, direction= trade_direction.short))
+                tradable_pairs.append(tradable_pair(cointegrated_pair=pair, direction= TradeDirection.SHORT))
         pairs_cov = self.__cov(tradable_pairs)
         pairs_mu = self.__mu(tradable_pairs)
         tg_port = self.__mean_variance_optimizer(cov_matrix=pairs_cov, expected_return=pairs_mu)
@@ -71,9 +72,9 @@ class RiskManager:
         # assume always trading stock-stock pair
         # get pair's time series of last price
         pair_ts = self.__get_close(pair = pair)
-        if direction == trade_direction.long:
+        if direction == TradeDirection.LONG:
             port_ts = pair_ts.iloc[:, 0] * pair.scaled_beta - pair_ts.iloc[:, 1]
-        elif direction == trade_direction.short:
+        elif direction == TradeDirection.SHORT:
             port_ts = - pair_ts.iloc[:, 0] * pair.scaled_beta + pair_ts.iloc[:, 1]
         port_ts = port_ts.to_frame()
         port_ts.columns = [pair.pair[0].value + ' - ' + pair.pair[1].value]
