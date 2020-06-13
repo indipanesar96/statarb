@@ -99,7 +99,7 @@ class PairTrader:
 
             self.portfolio.update_portfolio()
             self.portfolio.evolve()
-            print(self.portfolio.get_port_hist())
+            # print(self.portfolio.get_port_hist())
             # Take cointegrated signals and pass into Filter = filtered signal
             # should return pairs of cointegrated stocks, with their weightings
 
@@ -118,7 +118,7 @@ class PairTrader:
             print(
                 f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
             self.__evolve()
-        self.portfolio.get_port_hist().to_csv('log.csv')
+        self.portfolio.get_port_hist().to_csv('backtest_results'+self.portfolio.timestamp)
         self.portfolio.summary()
         return
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         backtest_start=date(2017, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
         max_active_pairs=10,
-        backtest_end=date(2018, 4, 1),
+        backtest_end=date(2017, 4, 1),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,
         entry_z=2,

@@ -1,5 +1,5 @@
 import logging
-from datetime import date, timedelta
+from datetime import datetime, date , timedelta
 
 import numpy as np
 import pandas as pd
@@ -97,8 +97,12 @@ class Portfolio:
         self.log_return = float(0)
         self.cum_return = float(0)
         self.t_cost = float(0.0005)
-        logging.basicConfig(level=logging.INFO)
+        self.timestamp = datetime.now().strftime("%Y%m%d%H%M")
+        logging.basicConfig(filename='log'+self.timestamp,
+                            filemode='a',
+                            level=logging.INFO)
         self.logger = logging.getLogger(__name__)
+        self.logger.info("Creating new portfolio...")
         self.current_window: Window = window
         self.port_hist = list()
         self.rebalance_threshold = float(1)
@@ -109,7 +113,7 @@ class Portfolio:
         self.port_hist.append(
             [self.current_window.window_end + pd.DateOffset(-1), self.cur_cash, self.active_port_value,
              self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return * 100,
-             self.cum_return * 100])
+             self.cum_return * 100, self.number_active_pairs])
 
     def reset_values(self):
         self.cur_cash = self.init_cash
@@ -228,6 +232,7 @@ class Portfolio:
                                self.cum_return * 100, self.number_active_pairs])
 
     def execute_trades(self, decisions):
+        self.logger.info(f"Executing trades for {self.current_window.window_end.strftime('%Y-%m-%d')}")
         for decision in decisions:
             if decision.old_action is not decision.new_action:
                 if decision.old_action is PositionType.NOT_INVESTED:
