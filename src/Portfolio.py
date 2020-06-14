@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime, date , timedelta
+from datetime import datetime, date, timedelta
 
 import numpy as np
 import pandas as pd
@@ -98,7 +98,7 @@ class Portfolio:
         self.cum_return = float(0)
         self.t_cost = float(0.0005)
         self.timestamp = datetime.now().strftime("%Y%m%d%H%M")
-        logging.basicConfig(filename='log'+self.timestamp,
+        logging.basicConfig(filename='log' + self.timestamp,
                             filemode='a',
                             level=logging.INFO)
         self.logger = logging.getLogger(__name__)
@@ -273,7 +273,8 @@ class Portfolio:
     def get_port_hist(self):
         # returns a time series of cash balance, portfolio value and actual pnl
         pd.set_option('expand_frame_repr', False)
-        df = DataFrame(self.port_hist, columns=['date', 'cash', 'port_value', 'total_capital', 'realised_pnl', 'return',
+        df = DataFrame(self.port_hist, columns=['date', 'cash', 'port_value', 'total_capital',
+                                                'realised_pnl', 'return',
                                                 'cum_return', 'active_pairs'])
         df['date'] = to_datetime(df['date'])
         df = df.set_index('date')
@@ -281,7 +282,12 @@ class Portfolio:
 
     def summary(self):
         prc_hist = self.get_port_hist()['total_capital']
-        print(get_performance_stats(prc_hist))
+        date_parser = lambda x: pd.datetime.strptime(x, '%d/%m/%Y')
+        tbill = pd.read_csv("Resources/3m_tbill_daily.csv", index_col='date', date_parser=date_parser)/100
+        tbill.index += timedelta(1)
+        tbill = tbill.loc[tbill.index.intersection(prc_hist.index)]
+
+        print(get_performance_stats(prc_hist, tbill))
         sns.lineplot(data=prc_hist.reset_index(), x='date', y='total_capital')
         plt.show()
         # return performance stats of pnl history
@@ -310,7 +316,6 @@ if __name__ == '__main__':
     # finish implementation of max dd -SC
     # Logging to a file, combined with SC's csv for df - OY
     #
-
 
     port.evolve()
     port.close_position(p1)

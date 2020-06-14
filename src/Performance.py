@@ -24,7 +24,7 @@ def maximumDrawdown(ret_series):
 
 	return mdd
 
-def get_performance_stats(prices, rfr = 0):
+def get_performance_stats(prices, rf):
 	# Number of business days in a year
 	BUS_DAYS = 252
 
@@ -42,7 +42,7 @@ def get_performance_stats(prices, rfr = 0):
 	P_Last = prices[lastIndex]
 	stats['Tot Ret'] = (P_Last - prices[0]) / prices[0]  # (prices[ prices.shape[0]] / prices[0])-1 does same in 1 step
 	stats['Avg Ret'] = Ret.mean() * BUS_DAYS
-	stats['rfr'] = rfr # .mean() * 365  # Note the convention for interbank rate is 365 days
+	stats['rfr'] = rf # .mean() * 365  # Note the convention for interbank rate is 365 days
 	stats['Std'] = Ret.std() * np.sqrt(BUS_DAYS)  # sigma*sqrt(T)
 
 	stats['SR'] = (stats['Avg Ret'] - stats['rfr']) / stats['Std']  # Sharpe Ratio
