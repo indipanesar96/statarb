@@ -1,8 +1,9 @@
-from datetime import date, timedelta
-from typing import Optional, List
+import logging
+from datetime import date, timedelta, datetime
+from typing import Optional
 
 from src.Clusterer import Clusterer
-from src.Cointegrator import Cointegrator, AdfPrecisions, CointegratedPair
+from src.Cointegrator import Cointegrator, AdfPrecisions
 from src.DataRepository import DataRepository
 from src.Filters import Filters
 from src.Portfolio import Portfolio
@@ -14,13 +15,15 @@ from src.Window import Window
 class PairTrader:
 
     def __init__(self,
+                 logger: logging.Logger,
                  backtest_start: date = date(2008, 1, 2),
-                 max_active_pairs: float =10,
+                 max_active_pairs: float = 10,
                  trading_window_length: timedelta = timedelta(days=90),
+                 trading_freq: timedelta = timedelta(days=1),
                  backtest_end: Optional[date] = None,
                  adf_confidence_level: AdfPrecisions = AdfPrecisions.FIVE_PCT,
                  max_mean_rev_time: int = 15,
-                 hurst_exp_threshold: float = 0.35,
+                 hurst_exp_threshold: float = 0.25,
                  entry_z: float = 1.5,
                  emergency_delta_z: float = 3,
                  exit_z: float = 0.5):
@@ -32,11 +35,14 @@ class PairTrader:
         self.backtest_start: date = backtest_start
         self.max_active_pairs: float = max_active_pairs
         self.window_length: timedelta = trading_window_length
+        self.trading_freq: timedelta = trading_freq
         self.init_window_length: timedelta = trading_window_length
         self.adf_confidence_level: AdfPrecisions = adf_confidence_level  # e.g. "5%" or "1%"
         self.max_mean_rev_time: int = max_mean_rev_time
         self.entry_z: float = entry_z
         self.exit_z: float = exit_z
+        self.logger: logging.Logger = logger
+        self.logger.info("Creating new portfolio...")
         self.hurst_exp_threshold: float = hurst_exp_threshold
 
         # if the pair crosses this boundary, we don't believe their cointegrated anymore
@@ -47,105 +53,98 @@ class PairTrader:
         # Last SNP date, hard coded for now...
         self.backtest_end = date(year=2020, month=12, day=31) if backtest_end is None else backtest_end
 
-        self.repository = DataRepository()
-        initial_window = Window(window_start=backtest_start,
-                                trading_win_len=trading_window_length,
-                                repository=self.repository)
+        self.repository = DataRepository(trading_window_length)
 
-        self.current_window: Window = initial_window
-        self.history: List[Window] = [initial_window]
+        self.current_window: Window = Window(window_start=backtest_start,
+                                             trading_win_len=trading_window_length,
+                                             repository=self.repository)
 
-        self.trading_days = initial_window.window_trading_days
-        self.today = self.trading_days[-1]
-        self.days_alive: int = (self.today - self.backtest_start).days #dont know what's goin on here with days_alive
+        self.today = self.current_window.lookback_win_dates[-1]
         self.day_count: int = 0
-        self.is_window_end: bool = (self.day_count % trading_window_length.days) == 0
+        self.last_traded_date: Optional[date] = None
 
         self.clusterer = Clusterer()
-        self.cointegrator = Cointegrator(self.repository,
-                                         self.adf_confidence_level,
-                                         self.max_mean_rev_time,
-                                         self.entry_z,
-                                         self.exit_z,
-                                         initial_window,
-                                         self.history[-1],
-                                         previous_cointegrated_pairs=[])
+        self.cointegrator = Cointegrator(self.repository, self.adf_confidence_level, self.max_mean_rev_time,
+                                         self.entry_z, self.exit_z, previous_cointegrated_pairs=[])
         self.risk_manager = RiskManager(self.entry_z, self.exit_z)
         self.filters = Filters()
-        self.portfolio: Portfolio = Portfolio(100_000, self.current_window, self.max_active_pairs)
+        self.portfolio: Portfolio = Portfolio(100_000, self.current_window, max_active_pairs=self.max_active_pairs,
+                                              logger=self.logger)
         self.dm = SignalGenerator(self.portfolio,
                                   entry_z,
                                   exit_z,
-                                  emergency_delta_z
-                                  )
+                                  emergency_delta_z)
 
     def trade(self):
         while self.today < self.backtest_end:
-            print(f"Today is {self.today.strftime('%Y-%m-%d')}")
-            self.is_window_end = (self.day_count % self.init_window_length.days) == 0
-            clusters = self.clusterer.dbscan(eps=0.5, min_samples=2, window=self.current_window)
-            # print(clusters)
+            print(f"Today: {self.today.strftime('%Y-%m-%d')}\t"
+                  f"Win Start: {self.current_window.window_start.strftime('%Y-%m-%d')}\t"
+                  f"Win End: {self.current_window.window_end.strftime('%Y-%m-%d')}\n")
 
-            if self.is_window_end:
-                cointegrated_pairs: List[CointegratedPair] = self.cointegrator.generate_pairs(clusters,
-                                                                                              self.hurst_exp_threshold,
-                                                                                              self.current_window)
-            else:
-                cointegrated_pairs: List[CointegratedPair] = self.cointegrator.get_previous_cointegrated_pairs(self.current_window)
+            if self.last_traded_date is None \
+                    or ((self.today - self.last_traded_date).days % self.trading_freq.days == 0):
 
-            decisions = self.dm.make_decision(cointegrated_pairs)
+                is_window_end = (self.day_count % self.init_window_length.days) == 0
 
-            self.portfolio.execute_trades(decisions)
+                if is_window_end:
+                    clusters = self.clusterer.dbscan(self.today, eps=0.0925, min_samples=2, window=self.current_window)
+                    cointegrated_pairs = self.cointegrator.generate_pairs(clusters,
+                                                                          self.hurst_exp_threshold,
+                                                                          self.current_window)
 
-            self.portfolio.update_portfolio()
-            self.portfolio.evolve()
-            # print(self.portfolio.get_port_hist())
-            # Take cointegrated signals and pass into Filter = filtered signal
-            # should return pairs of cointegrated stocks, with their weightings
+                else:
+                    cointegrated_pairs = self.cointegrator.get_previous_cointegrated_pairs(self.current_window)
 
-            # Take filtered signal
-            # input datatype = output datatype
+                decisions = self.dm.make_decision(cointegrated_pairs)
+                self.last_traded_date = self.today
+                self.portfolio.execute_trades(decisions)
 
-            # RiskManager
-            # input = output from filterer
-            # Can we afford it? do we have enough cash? checkd exposure etc, VaR within limits etc?
-            # if ok, pass any remaining pairs to executor
-
-            # Executor,
-            # opens positions passed to it form filterer
-            # executor needs to update the portfolio
-
-            print(
-                f"---- Window start: {self.current_window.window_start}, Window length: {self.current_window.window_length}, Days alive: {self.days_alive}")
             self.__evolve()
-        self.portfolio.get_port_hist().to_csv('backtest_results'+self.portfolio.timestamp)
+
+        self.portfolio.get_port_hist().to_csv('backtest_results' + self.portfolio.timestamp)
         self.portfolio.summary()
         return
 
     def __evolve(self):
         # Do all the things to push the window forward to next working day
-        # Adjust static parameters
-        # self.window_length += timedelta(days=1)
-        self.days_alive += 1
-        self.day_count+=1
-        self.today = self.trading_days[-1]
-        self.history.append(self.current_window)
-        # Extend window object by one day (expanding)
-        self.history = self.history[-3:]
-        self.current_window = self.current_window.evolve()
-        self.trading_days = self.current_window.window_trading_days
+        # Adjust "static" parameters
+        self.day_count += 1
+        self.current_window.roll_forward_one_day()
+        self.today = self.current_window.lookback_win_dates[-1]
+        self.portfolio.update_portfolio(self.today)
 
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='log' + datetime.now().strftime("%Y%M%d%H%M%S"),
+                        filemode='a',
+                        level=logging.DEBUG,
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    global_logger = logging.getLogger(__name__)
+
     PairTrader(
         # fundamental starts at 2016 2nd quarter
-        backtest_start=date(2017, 1, 2),  # must be a trading day
+        backtest_start=date(2008, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
-        max_active_pairs=10,
-        backtest_end=date(2017, 4, 1),
+        trading_freq=timedelta(days=1),  # 63 trading days per quarter
+        max_active_pairs=10,  # how many pairs (positions) we allow ourselves to have open at any one time
+        logger=global_logger,
+        backtest_end=date(2008, 12, 2),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
-        max_mean_rev_time=30,
-        entry_z=2,
-        exit_z=0.5,
-        emergency_delta_z=1.5,
+        max_mean_rev_time=30,  # any pairs that mean revert slower than this (number larger), we don't want
+        entry_z=2,  # how many stds the residual is from mean in order for us to open
+        exit_z=0.5,  # when to close, in units of std
+        emergency_delta_z=1.5  # true value is z = entry_z + emergency_delta_z
+        # when to exit in an emergency, as each stock in the pair is deviating further from the other
     ).trade()
+
+# DONE ----- 7) FEATURE ENGINEERING
+# DONE ----- 5) CLUSTERING
+# DONE ----- 0) WINDOW MANAGEMENT - LOADING 2 WINDOWS AT A TIME FROM DISK, WILL SPEED UP EVERYTHING
+# DONE ----- 8) CHANGE FROM EXPANDING TO ROLLING WINDOW
+# DONE 3) TRADING FREQUENCY
+
+# ALMOST DONE  1) PORTFOLIO VARIANCE
+# ALMOST DONE  2) VaR - t dist/normal
+
+# 4) LOOK AHEAD VARIANCE

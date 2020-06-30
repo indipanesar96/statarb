@@ -1,6 +1,6 @@
 import math
 import re
-from datetime import date
+from datetime import date, timedelta
 from enum import Enum, unique
 from pathlib import Path
 from typing import Dict, Optional, Set, List
@@ -8,21 +8,28 @@ from typing import Dict, Optional, Set, List
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
-from pandas import Series as Se
 from pandas import IndexSlice
+from pandas import Series as Se
+
 from src.util.Features import Features
 from src.util.Tickers import EtfTickers, SnpTickers, Tickers
 
 
 @unique
 class Universes(Enum):
-    ETFs = Path(f"../resources/all_etfs2.csv")
-    SNP = Path(f"../resources/all_snp2.csv")
+    # ETFs = Path(f"../resources/all_etfs2.csv")
+    # SNP = Path(f"../resources/all_snp2.csv")
+    ETFs = Path(f"../resources/all_etfs2_no_vol.csv")
+    SNP = Path(f"../resources/all_snp2_no_vol.csv")
+
+    # ETFs = Path(f"../resources/etf_test.csv")
+    # SNP = Path(f"../resources/snp_test.csv")
 
 
 class DataRepository:
-    def __init__(self):
-        # Loads data on first get call
+    def __init__(self, window_length: timedelta):
+
+        self.window_length: timedelta = window_length
         self.all_data: Dict[Universes, Optional[DataFrame]] = {Universes.SNP: None, Universes.ETFs: None}
         self.tickers: Dict[Universes, Optional[Set[Tickers]]] = {Universes.SNP: None, Universes.ETFs: None}
         self.features: Dict[Universes, Optional[Set[Features]]] = {Universes.SNP: None, Universes.ETFs: None}
@@ -35,27 +42,13 @@ class DataRepository:
     def get(self,
             datatype: Universes,
             trading_dates: List[date]):
+        self.__get_from_disk_and_store(datatype, trading_dates)
 
-        if self.all_data[datatype] is None:
-            data_for_all_time = self.__get_from_disk_and_store(datatype)
-        else:
-            data_for_all_time = self.all_data[datatype]
-
-        weekday_data_for_window = data_for_all_time[data_for_all_time.index.isin(trading_dates)]
-        live_tickers, live_ticker_weekday_data = self.remove_dead_tickers(datatype, weekday_data_for_window)
-
-        if datatype is Universes.SNP:
-            typed_live_tickers = [SnpTickers(i) for i in live_tickers]
-        else:
-            typed_live_tickers = [EtfTickers(i) for i in live_tickers]
-
-        return typed_live_tickers, live_ticker_weekday_data
 
     def get_fundamental(self, trading_date: date):
         if self.fundamental_data is None:
             self.__get_fundamental_from_disk()
         return self.fundamental_data.loc[trading_date,]
-
 
     def remove_dead_tickers(self, datatype: Universes, alive_and_dead_ticker_data: DataFrame):
         # Just gets the first column of data (don't care which feature) of the ticker to see if theyre all nan [dead]
@@ -77,21 +70,46 @@ class DataRepository:
 
         return alive_tickers, alive_and_dead_ticker_data.loc[:, IndexSlice[alive_tickers, :]]
 
-    def __get_from_disk_and_store(self, datatype: Universes):
-        print(f"In DataRepository. Reading CSV from disk for: {datatype.name}")
+    def __load_dates(self, datatype: Universes) -> List[date]:
+        d = pd.read_csv(datatype.value,
+                        squeeze=True,
+                        header=0,
+                        index_col=0,
+                        usecols=[0])
 
-        # Currently we just load all data into memory - not horrific for now but definitely needs to be changed in
-        # future as we'll throw an OutOfMemory eventually. Heap usage ~650mb for ETF and SNP all data CSVs
+        return [i.date() for i in pd.to_datetime(d.index, format='%d/%m/%Y')]
+
+    def check_date_equality(self, d1: date, d2: date):
+        return (d1.day == d2.day and
+                d1.month == d2.month and
+                d1.year == d2.year)
+
+    def __get_from_disk_and_store(self, datatype: Universes, trading_dates: List[date]):
+        '''
+        skiprows=self.number_of_times_read_from_disk * days_to_read_at_a_time
+        This is because we now read for only the next 1 windows worth, calculate features, and then
+        append it to the current dataframes
+        '''
+
+        idxs_to_read = []
+        for d1 in trading_dates:
+            for idx, d2 in enumerate(self.all_dates):
+                if self.check_date_equality(d1, d2):
+                    idxs_to_read.append(idx)
+                    break
 
         d = pd.read_csv(datatype.value,
                         squeeze=True,
                         header=0,
                         index_col=0,
-                        low_memory=False)
+                        skiprows=range(1, idxs_to_read[0] + 1),
+                        low_memory=False,
+                        nrows=len(idxs_to_read))
 
         d.index = pd.to_datetime(d.index, format='%d/%m/%Y')
 
         match_results = [re.findall(r"(\w+)", col) for col in d.columns]
+
         if datatype is Universes.SNP:
             tickers = [SnpTickers(r[0].upper()) for r in match_results]
             features = [Features(r[-1].upper()) for r in match_results]
@@ -104,31 +122,42 @@ class DataRepository:
 
         d.columns = pd.MultiIndex.from_tuples(
             tuples=list(zip(tickers, features)),
-            names=['ticker', 'feature']
+            names=['Ticker', 'Feature']
         )
-        d = self.forward_fill(d)
-        if Features.INTRADAY_VOL not in self.features[datatype]:
-            print('adding scaled intraday volatility for: {0}'.format(datatype.name))
-            for tick in set(tickers):
 
+        d = self.forward_fill(d)
+
+        if Features.INTRADAY_VOL not in self.features[datatype]:
+            print("- Engineering intraday volatility...\n")
+            for tick in set(tickers):
                 d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
 
+        self.all_data[datatype] = pd.concat([self.all_data[datatype], d], axis=0)
 
 
+    def _intraday_vol(self, data: DataFrame, ticker):
+        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] \
+            = np.apply_along_axis(self.__normalised_true_range, 1,
+                                  data.loc[:, IndexSlice[ticker, [Features.HIGH, Features.LOW, Features.CLOSE]]])
+        return data
 
-        self.all_data[datatype] = d
-        return d
+    def __normalised_true_range(self, row: Se):
+        try:
+            # https://www.investopedia.com/terms/a/atr.asp - we use the formula for TR and then divide by close
+            return max(row[0] - row[1], abs(row[0] - row[2]), abs(row[1] - row[2])) / row[2]
+        except RuntimeError:
+            return np.nan()
 
     def __get_fundamental_from_disk(self):
         data = pd.read_csv(Path(f"../resources/fundamental_snp.csv"),
                            index_col=0)
         data.index = pd.to_datetime(data.index, format='%Y-%m-%d')
-        fundamental_start = date(2016, 3,31)
+        fundamental_start = date(2016, 3, 31)
         fundamental_date = [date for date in self.all_dates if date > fundamental_start]
-        df = pd.DataFrame(index = fundamental_date)
-        df = df.join(data, how = 'outer')
+        df = pd.DataFrame(index=fundamental_date)
+        df = df.join(data, how='outer')
         match_results = [re.findall(r"(\w+)", col) for col in df.columns]
-        funda_tickers = [SnpTickers(r[0])for r in match_results]
+        funda_tickers = [SnpTickers(r[0]) for r in match_results]
         funda_features = [r[1] for r in match_results]
         df.columns = pd.MultiIndex.from_tuples(
             tuples=list(zip(funda_tickers, funda_features)),
@@ -137,55 +166,5 @@ class DataRepository:
         self.fundamental_data = df
         return
 
-    @classmethod
-    def forward_fill(cls, df: DataFrame):
+    def forward_fill(self, df: DataFrame):
         return pd.DataFrame(df).fillna(method='ffill')
-
-    def _intraday_vol(self, data: DataFrame, ticker):
-        features = [Features.OPEN,
-                    Features.CLOSE,
-                    Features.HIGH,
-                    Features.LOW]
-
-        def _f(row: Se):
-            try:
-                return np.nanstd(row) / np.nanmean(row)
-            except RuntimeError:
-                return np.nan()
-
-        data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] = np.apply_along_axis(_f
-                                                                                     , 1
-                                                                                     , data.loc[:, IndexSlice[ticker, features]])
-
-        return data
-
-    def ROE(self, datatype: Universes, ticker):
-
-        if datatype is Universes.SNP:
-            NI_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'EARN_FOR_COMMON'}"])
-            Mcap_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'TOTAL_EQUITY'}"])
-            ROE = NI_data / Mcap_data
-            return ROE.fillna(method='ffill')
-        else:
-            print("An ETF can't have an ROE. I am in src.Datarepository.ROE")
-            raise KeyError
-
-    def leverage(self, datatype: Universes, ticker):
-
-        if datatype is Universes.SNP:
-            TA_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'TOTAL_ASSETS'}"])
-            TE_data = pd.Dataframe(self.all_data[datatype][f"{ticker} {'TOTAL_EQUITY'}"])
-            leverage = TA_data / TE_data
-            return leverage.fillna(method='ffill')
-        else:
-            print("An ETF can't have a Leverage Ratio. I am in src.Datarepository.ROE")
-            raise KeyError
-
-    def __load_dates(self, datatype: Universes) -> List[date]:
-        d = pd.read_csv(datatype.value,
-                        squeeze=True,
-                        header=0,
-                        index_col=0,
-                        usecols=[0])
-
-        return [i.date() for i in pd.to_datetime(d.index, format='%d/%m/%Y')]

@@ -1,5 +1,7 @@
 import numpy as np
 
+from datetime import date, timedelta
+from src.DataRepository import DataRepository
 from src.DataRepository import Universes
 from src.Window import Window
 from src.util.Features import Features
@@ -8,15 +10,17 @@ from src.util.ExpectedReturner import expected_returner
 from enum import Enum, unique
 from src.Cointegrator import CointegratedPair
 
+
 @unique
 class TradeDirection(Enum):
     LONG = 'LONG'
     SHORT = 'SHORT'
 
+
 class tradable_pair:
     def __init__(self, cointegrated_pair, direction):
-        self.pair : CointegratedPair = cointegrated_pair
-        self.direction : TradeDirection = direction
+        self.pair: CointegratedPair = cointegrated_pair
+        self.direction: TradeDirection = direction
 
 
 class RiskManager:
@@ -49,29 +53,32 @@ class RiskManager:
         for pair in cointegrated_pairs:
             if pair.recent_dev_scaled > self.entry_z:
                 # long x short y
-                tradable_pairs.append(tradable_pair(cointegrated_pair = pair, direction = TradeDirection.LONG))
+                tradable_pairs.append(tradable_pair(cointegrated_pair=pair, direction=TradeDirection.LONG))
             elif pair.recent_dev_scaled < -self.entry_z:
                 # short x long y
-                tradable_pairs.append(tradable_pair(cointegrated_pair=pair, direction= TradeDirection.SHORT))
+                tradable_pairs.append(tradable_pair(cointegrated_pair=pair, direction=TradeDirection.SHORT))
         pairs_cov = self.__cov(tradable_pairs)
         pairs_mu = self.__mu(tradable_pairs)
         tg_port = self.__mean_variance_optimizer(cov_matrix=pairs_cov, expected_return=pairs_mu)
         return tg_port
 
-    def __get_close(self,pair, last = False):
+    def __get_close(self, pair, last=False):
         pair_ts = self.current_window.get_data(universe=Universes.SNP, tickers=[pair.pair[0], pair.pair[1]],
                                                features=Features.CLOSE)
         if last:
-            xf = pair_ts.iloc[-1,0]
-            yf = pair_ts.iloc[-1,1]
+            xf = pair_ts.iloc[-1, 0]
+            yf = pair_ts.iloc[-1, 1]
             return xf, yf
         else:
             return pair_ts
 
+    # model look ahead vol with stats from cointegrator - OU std......
+    #
+
     def __port_ts(self, pair, direction):
         # assume always trading stock-stock pair
         # get pair's time series of last price
-        pair_ts = self.__get_close(pair = pair)
+        pair_ts = self.__get_close(pair=pair)
         if direction == TradeDirection.LONG:
             port_ts = pair_ts.iloc[:, 0] * pair.scaled_beta - pair_ts.iloc[:, 1]
         elif direction == TradeDirection.SHORT:
@@ -94,8 +101,8 @@ class RiskManager:
     def __mu(self, tradable_pairs):
         pair_expected_return = []
         for tradable_pair in tradable_pairs:
-            xf, yf = self.__get_close(pair = tradable_pair.pair, last = True)
-            mu = expected_returner(cointegrated_pair = tradable_pair.pair, xf = xf, yf = yf)
+            xf, yf = self.__get_close(pair=tradable_pair.pair, last=True)
+            mu = expected_returner(cointegrated_pair=tradable_pair.pair, xf=xf, yf=yf)
             pair_expected_return.append(mu)
         return pair_expected_return
 
@@ -104,11 +111,8 @@ class RiskManager:
         weight = cov_matrix_inv.dot(expected_return)
         scale = weight.sum()
         weight = weight / scale
-        return weight[:,0]
+        return weight[:, 0]
 
-
-from datetime import date, timedelta
-from src.DataRepository import DataRepository
 
 if __name__ == '__main__':
     win = Window(window_start=date(2008, 1, 2),
@@ -116,16 +120,16 @@ if __name__ == '__main__':
                  repository=DataRepository())
 
     test_input = [
-        CointegratedPair(pair = (SnpTickers.CRM, SnpTickers.WU),
-                 mu_x_ann = 0.1,
-                 sigma_x_ann = 0.3,
-                 scaled_beta = 1.2,
-                 hl = 7.5,
-                 ou_mean = -0.017,
-                 ou_std = 0.043,
-                 ou_diffusion_v = 0.70,
-                 recent_dev= 0.071,
-                 recent_dev_scaled = 2.05),
+        CointegratedPair(pair=(SnpTickers.CRM, SnpTickers.WU),
+                         mu_x_ann=0.1,
+                         sigma_x_ann=0.3,
+                         scaled_beta=1.2,
+                         hl=7.5,
+                         ou_mean=-0.017,
+                         ou_std=0.043,
+                         ou_diffusion_v=0.70,
+                         recent_dev=0.071,
+                         recent_dev_scaled=2.05),
 
         CointegratedPair(pair=(SnpTickers.ABC, SnpTickers.ABT),
                          mu_x_ann=0.1,
@@ -135,9 +139,9 @@ if __name__ == '__main__':
                          ou_mean=-0.017,
                          ou_std=0.043,
                          ou_diffusion_v=0.70,
-                         recent_dev= - 0.071,
-                         recent_dev_scaled= -2.05)
+                         recent_dev=- 0.071,
+                         recent_dev_scaled=-2.05)
     ]
 
-    rm = RiskManager(entry_z = 2, exit_z = 0.5)
+    rm = RiskManager(entry_z=2, exit_z=0.5)
     rm.run_risk_manager(cointegrated_pairs=test_input, current_window=win)

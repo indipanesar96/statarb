@@ -158,8 +158,8 @@ class SignalGenerator:
                                     old_action=PositionType.SHORT,
                                     new_action=PositionType.SHORT)
                             )
-        print("open count: ", self.open_count)
-        print("natural close count: ", self.natural_close_count)
-        print("emergency close count: ", self.emergency_close_count)
-        print("time stop-loss close count: ", self.time_stop_loss_count)
+        # print("open count: ", self.open_count)
+        # print("natural close count: ", self.natural_close_count)
+        # print("emergency close count: ", self.emergency_close_count)
+        # print("time stop-loss close count: ", self.time_stop_loss_count)
         return decisions

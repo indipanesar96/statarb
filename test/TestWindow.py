@@ -40,9 +40,9 @@ class TestWindow(TestCase):
 
         self.assertEqual(self.initial.window_end, date(2008, 1, 15))
         self.assertEqual(self.initial.window_length.days, 10)
-        self.assertEqual(self.initial.window_trading_days, intial_expected_trading_days)
+        self.assertEqual(self.initial.lookback_win_dates, intial_expected_trading_days)
 
-        evolved_window = self.initial.evolve()
+        evolved_window = self.initial.roll_forward_one_day()
         intial_expected_trading_days.append(date(2008, 1, 16))
 
         self.assertEqual(evolved_window.window_end, date(2008, 1, 16))

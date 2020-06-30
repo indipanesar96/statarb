@@ -1,87 +1,24 @@
-import logging
 from datetime import datetime, date, timedelta
+from logging import Logger
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import seaborn as sns
 from pandas import DataFrame, to_datetime
 
 from src.DataRepository import Universes, DataRepository
-from src.RiskManager import RiskManager
+from src.Performance import get_performance_stats
+from src.Position import Position
 from src.Window import Window
 from src.util.Features import Features, PositionType
-from src.util.Tickers import SnpTickers, Tickers
-from src.Performance import get_performance_stats
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-
-class Position:
-    def __init__(self,
-                 ticker1,
-                 ticker2,
-                 weight1,
-                 weight2,
-                 investment_type: PositionType,
-                 init_z,
-                 init_date,
-                 init_value=100,
-                 commission=0,
-                 ):
-        self.asset1: Tickers = ticker1
-        self.asset2: Tickers = ticker2
-        self.weight1: float = weight1
-        self.weight2: float = weight2
-        self.quantity1: float = 0
-        self.quantity2: float = 0
-        self.position_type: PositionType = investment_type
-        self.simple_return: float = 0
-        self.commission: float = commission
-        self.init_value: float = init_value
-        self.current_value: float = init_value
-        self.pnl: float = -commission
-        self.pos_hist = list()
-        self.closed = False
-        self.init_z = init_z
-        self.init_date = init_date
-
-    def set_position_value(self, value):
-        self.init_value = value
-        self.current_value = value
-
-    def update_weight(self, asset1_val, asset2_val):
-        self.weight1 = asset1_val / (asset1_val + asset2_val)
-        self.weight2 = asset2_val / (asset1_val + asset2_val)
-
-    def update_position_pnl(self, value, window):
-        if not self.closed:
-            self.pnl += value - self.current_value
-            self.simple_return = value / self.current_value - 1
-            self.current_value = value
-        self.pos_hist.append([window.window_end, self.current_value, self.pnl, self.simple_return])
-
-    def rebalance_pos(self, new_weights, rebalance_value):
-        self.weight1 = new_weights[0]
-        self.weight2 = new_weights[1]
-        self.pnl -= self.commission
-        self.current_value += rebalance_value
-
-    def close_trade(self, value, window):
-        self.pnl += value - self.current_value - self.commission
-        self.current_value = value
-        self.closed = True
-        self.pos_hist.append([window.window_end, self.current_value, self.pnl])
-
-    def get_pos_hist(self):
-        # returns a time series of position value and pnl
-        df = DataFrame(self.pos_hist, columns=['date', 'pos_value', 'pnl', 'return'])
-        df['date'] = to_datetime(df['date'])
-        df = df.set_index('date')
-        return df.round(2)
+from src.util.Tickers import SnpTickers
 
 
 class Portfolio:
 
-    def __init__(self, cash: float, window: Window, max_active_pairs: float = 10):
+    def __init__(self, cash: float, window: Window,
+                 logger: Logger, max_active_pairs: float = 10):
         # port_value: value of all the positions we have currently
         # cur_positions: list of all current positions
         # hist_positions: list of all positions (both historical and current)
@@ -89,6 +26,7 @@ class Portfolio:
 
         self.init_cash = cash
         self.cur_cash = cash
+        self.logger = logger
         self.cur_positions = list()
         self.hist_positions = list()
         self.total_capital = [cash]
@@ -98,11 +36,7 @@ class Portfolio:
         self.cum_return = float(0)
         self.t_cost = float(0.0005)
         self.timestamp = datetime.now().strftime("%Y%m%d%H%M")
-        logging.basicConfig(filename='log' + self.timestamp,
-                            filemode='a',
-                            level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
-        self.logger.info("Creating new portfolio...")
+
         self.current_window: Window = window
         self.port_hist = list()
         self.rebalance_threshold = float(1)
@@ -158,7 +92,6 @@ class Portfolio:
                              round(cur_price.iloc[-1, 1], 2), round(position.quantity2, 2), round(asset2_value, 2))
             self.logger.info('Cash balance: $%s', self.cur_cash)
 
-    # def close_position(self, ticker1, ticker2):
     def close_position(self, position: Position):
         cur_price = self.current_window.get_data(universe=Universes.SNP,
                                                  tickers=[position.asset1, position.asset2],
@@ -190,35 +123,15 @@ class Portfolio:
         # transaction costs as % of notional amount
         return self.t_cost * (abs(asset1_value) + abs(asset2_value))
 
-    def rebalance(self, position: Position, new_weights):
-        cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[position.asset1, position.asset2],
-                                                 features=[Features.CLOSE])
-
-        if position in self.cur_positions:
-            position.update_weight(cur_price.iloc[-1, 0] * position.quantity1,
-                                   cur_price.iloc[-1, 1] * position.quantity2)
-            weight1_chg = new_weights[0] - position.weight1
-            weight2_chg = new_weights[1] - position.weight2
-            if abs(weight1_chg) + abs(weight2_chg) >= self.rebalance_threshold:
-                quantity1_chg = (position.current_value * new_weights[0] / cur_price.iloc[-1, 0]) - position.quantity1
-                quantity2_chg = (position.current_value * new_weights[1] / cur_price.iloc[-1, 1]) - position.quantity2
-                commission = self.t_cost * (abs(quantity1_chg) + abs(quantity2_chg))
-                asset_value = cur_price.iloc[-1, 0] * quantity1_chg + cur_price.iloc[-1, 1] * quantity2_chg
-                self.logger.info('Rebalancing position...')
-                position.rebalance_pos(new_weights, asset_value)
-                self.cur_cash -= asset_value + commission
-                self.active_port_value += asset_value
-                self.logger.info('Asset 1: %s @$%s Quantity: %s', position.asset1, cur_price.iloc[-1, 0], quantity1_chg)
-                self.logger.info('Asset 2: %s @$%s Quantity: %s', position.asset2, cur_price.iloc[-1, 1], quantity2_chg)
-                self.logger.info('Cash balance: $%s', self.cur_cash)
-
-    def update_portfolio(self):
+    def update_portfolio(self, today: date):
         cur_port_val = 0
 
         for pair in self.cur_positions:
-            cur_price = self.current_window.get_data(universe=Universes.SNP, tickers=[pair.asset1, pair.asset2],
-                                                     features=[Features.CLOSE])
-            asset_value = cur_price.iloc[-1, 0] * pair.quantity1 + cur_price.iloc[-1, 1] * pair.quantity2
+            todays_prices = self.current_window.get_data(universe=Universes.SNP,
+                                                         tickers=[pair.asset1, pair.asset2],
+                                                         features=[Features.CLOSE]).loc[today]
+
+            asset_value = todays_prices[0] * pair.quantity1 + todays_prices[1] * pair.quantity2
             pair.update_position_pnl(asset_value, self.current_window)
             cur_port_val += asset_value
 
@@ -230,6 +143,7 @@ class Portfolio:
         self.port_hist.append([self.current_window.window_end, self.cur_cash, self.active_port_value,
                                self.cur_cash + self.active_port_value, self.realised_pnl, self.log_return * 100,
                                self.cum_return * 100, self.number_active_pairs])
+        print(f"Total Capital: {self.total_capital[-1]:.4f}\tCum Return: {self.cum_return:4f}")
 
     def execute_trades(self, decisions):
         self.logger.info(f"Executing trades for {self.current_window.window_end.strftime('%Y-%m-%d')}")
@@ -239,9 +153,6 @@ class Portfolio:
                     self.open_position(decision.position)
                 elif decision.new_action is PositionType.NOT_INVESTED:
                     self.close_position(decision.position)
-
-    def evolve(self):
-        self.current_window = self.current_window.evolve()
 
     def get_current_positions(self):
         return self.cur_positions
@@ -283,7 +194,15 @@ class Portfolio:
     def summary(self):
         prc_hist = self.get_port_hist()['total_capital']
         date_parser = lambda x: pd.datetime.strptime(x, '%d/%m/%Y')
-        tbill = pd.read_csv("Resources/3m_tbill_daily.csv", index_col='date', date_parser=date_parser)/100
+
+        yearly_to_daily = lambda x: x / 365
+        pct_to_num = lambda x: x / 100
+
+        tbill = pd.read_csv("../resources/3m_tbill_daily.csv", index_col='date', date_parser=date_parser)
+
+        tbill = tbill.applymap(yearly_to_daily)
+        tbill = tbill.applymap(pct_to_num)
+
         tbill.index += timedelta(1)
         tbill = tbill.loc[tbill.index.intersection(prc_hist.index)]
 
@@ -317,7 +236,7 @@ if __name__ == '__main__':
     # Logging to a file, combined with SC's csv for df - OY
     #
 
-    port.evolve()
+    current_window.roll_forward_one_day()
     port.close_position(p1)
     port.update_portfolio()
 
