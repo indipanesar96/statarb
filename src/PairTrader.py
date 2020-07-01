@@ -10,7 +10,7 @@ from src.Portfolio import Portfolio
 from src.RiskManager import RiskManager
 from src.SignalGenerator import SignalGenerator
 from src.Window import Window
-
+import time
 
 class PairTrader:
 
@@ -23,7 +23,7 @@ class PairTrader:
                  backtest_end: Optional[date] = None,
                  adf_confidence_level: AdfPrecisions = AdfPrecisions.FIVE_PCT,
                  max_mean_rev_time: int = 15,
-                 hurst_exp_threshold: float = 0.25,
+                 hurst_exp_threshold: float = 0.20,
                  entry_z: float = 1.5,
                  emergency_delta_z: float = 3,
                  exit_z: float = 0.5):
@@ -36,7 +36,6 @@ class PairTrader:
         self.max_active_pairs: float = max_active_pairs
         self.window_length: timedelta = trading_window_length
         self.trading_freq: timedelta = trading_freq
-        self.init_window_length: timedelta = trading_window_length
         self.adf_confidence_level: AdfPrecisions = adf_confidence_level  # e.g. "5%" or "1%"
         self.max_mean_rev_time: int = max_mean_rev_time
         self.entry_z: float = entry_z
@@ -84,10 +83,13 @@ class PairTrader:
             if self.last_traded_date is None \
                     or ((self.today - self.last_traded_date).days % self.trading_freq.days == 0):
 
-                is_window_end = (self.day_count % self.init_window_length.days) == 0
+                is_window_end_or_halfway = (self.day_count % self.window_length.days) == \
+                                           (0 or int(self.window_length.days/2))
 
-                if is_window_end:
+                if is_window_end_or_halfway:
+                    print("Clustering...")
                     clusters = self.clusterer.dbscan(self.today, eps=0.0925, min_samples=2, window=self.current_window)
+                    print("Cointegrating...")
                     cointegrated_pairs = self.cointegrator.generate_pairs(clusters,
                                                                           self.hurst_exp_threshold,
                                                                           self.current_window)
@@ -115,6 +117,7 @@ class PairTrader:
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     logging.basicConfig(filename='log' + datetime.now().strftime("%Y%M%d%H%M%S"),
                         filemode='a',
                         level=logging.DEBUG,
@@ -126,23 +129,25 @@ if __name__ == '__main__':
         # fundamental starts at 2016 2nd quarter
         backtest_start=date(2008, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
-        trading_freq=timedelta(days=1),  # 63 trading days per quarter
+        trading_freq=timedelta(days=1),
         max_active_pairs=10,  # how many pairs (positions) we allow ourselves to have open at any one time
         logger=global_logger,
-        backtest_end=date(2008, 12, 2),
+        hurst_exp_threshold= 0.20,
+        backtest_end=date(2009, 1, 1),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=30,  # any pairs that mean revert slower than this (number larger), we don't want
         entry_z=2,  # how many stds the residual is from mean in order for us to open
-        exit_z=0.5,  # when to close, in units of std
+        exit_z=1.0,  # when to close, in units of std
         emergency_delta_z=1.5  # true value is z = entry_z + emergency_delta_z
         # when to exit in an emergency, as each stock in the pair is deviating further from the other
     ).trade()
+    print(f"Backtest took {time.time()-start_time:.4f}s to run.")
 
 # DONE ----- 7) FEATURE ENGINEERING
 # DONE ----- 5) CLUSTERING
 # DONE ----- 0) WINDOW MANAGEMENT - LOADING 2 WINDOWS AT A TIME FROM DISK, WILL SPEED UP EVERYTHING
 # DONE ----- 8) CHANGE FROM EXPANDING TO ROLLING WINDOW
-# DONE 3) TRADING FREQUENCY
+# DONE ----- 3) TRADING FREQUENCY
 
 # ALMOST DONE  1) PORTFOLIO VARIANCE
 # ALMOST DONE  2) VaR - t dist/normal

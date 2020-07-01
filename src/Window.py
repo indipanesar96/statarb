@@ -28,8 +28,6 @@ class Window:
         self.lookback_win_dates = self.__get_window_trading_days(window_start, trading_win_len)
         self.__update_window_data(self.lookback_win_dates)
 
-
-
     def __get_window_trading_days(self, window_start: date, window_length: timedelta):
 
         start_idx = None
@@ -57,7 +55,8 @@ class Window:
         if self.window_end > max(self.repository.all_data[Universes.SNP].index):
             # ie need to load the new window from disk
 
-            read_ahead_win_start = self.__get_nth_working_day_ahead(max(self.repository.all_data[Universes.SNP].index), 1)
+            read_ahead_win_start = self.__get_nth_working_day_ahead(max(self.repository.all_data[Universes.SNP].index),
+                                                                    1)
             look_forward_win_dates = self.__get_window_trading_days(read_ahead_win_start, self.window_length)
 
             self.repository.get(Universes.ETFs, look_forward_win_dates)
@@ -69,8 +68,6 @@ class Window:
         _, self.etf_data = self.repository.remove_dead_tickers(Universes.ETFs, lookback_temp_etf_data)
         _, self.snp_data = self.repository.remove_dead_tickers(Universes.SNP, lookback_temp_snp_data)
 
-
-
     def roll_forward_one_day(self) -> None:
 
         self.window_start = self.__get_nth_working_day_ahead(self.window_start, 1)
@@ -79,7 +76,6 @@ class Window:
         self.lookback_win_dates = self.__get_window_trading_days(self.window_start, self.window_length)
         # last window trading date should be today + 1 because today gets updated after this function gets called
         self.__update_window_data(self.lookback_win_dates)
-
 
     def __get_nth_working_day_ahead(self, target: date, n: int):
         for idx, d in enumerate(self.repository.all_dates):
