@@ -205,9 +205,9 @@ class Portfolio:
         tbill = tbill.applymap(pct_to_num)
 
         tbill.index += timedelta(1)
-        tbill = tbill.loc[tbill.index.intersection(prc_hist.index)]
+        tbill_mean = tbill.loc[tbill.index.intersection(prc_hist.index)].mean().values
 
-        print(get_performance_stats(prc_hist, tbill))
+        print(get_performance_stats(prc_hist, tbill_mean))
 
         # sns.lineplot(data=all_history.reset_index(), x='date', y='total_capital')
 
