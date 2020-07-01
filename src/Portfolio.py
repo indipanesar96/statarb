@@ -214,7 +214,7 @@ class Portfolio:
 
         all_history = self.get_port_hist()
         sp = yf.download("^GSPC", start=min(all_history.index), end=max(all_history.index))[["Adj Close"]]["Adj Close"]
-
+        sp = sp[all_history.index]
         normalise = lambda series: series / (series[0] if int(series[0]) != 0 else 1.0)
 
         plt.figure(1, figsize=(10,7))
