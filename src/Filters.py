@@ -27,6 +27,24 @@ class Filters:
         self.threshold_sigma = threshold_sigma
         # how many stdvs away from mean we classify a shock - to be perturbed
 
+    def run_volume_shock_filter_single_pair(self, pair, current_window):
+        # pairs structure: List[List[ListTickers.EtfTickers or Tickers.SnpTickers, expecting 2 items]]]
+        self.current_window = current_window
+        # iter through input pairs to be traded, apply volume shock filter
+        #     function call to determine volume shock state or not for each ticker, etf pair
+        #             function returns tuple of booleans = states
+        #
+        #     if states.distinct().size == 2:
+        #
+        #         remove this key:value paor
+        #         dictionary.drop(key:value pair)
+        first_shock = self.__is_volume_shock(pair[0])
+        second_shock = self.__is_volume_shock(pair[1])
+        if first_shock != second_shock:
+            return True
+        else:
+            return False
+
     def run_volume_shock_filter(self, pairs, current_window):
         # pairs structure: List[List[ListTickers.EtfTickers or Tickers.SnpTickers, expecting 2 items]]]
         self.current_window = current_window
@@ -40,8 +58,8 @@ class Filters:
         #         remove this key:value paor
         #         dictionary.drop(key:value pair)
         for pair in pairs:
-            first_shock = self.__is_volume_shock(pair[0][0])
-            second_shock = self.__is_volume_shock(pair[0][1])
+            first_shock = self.__is_volume_shock(pair[0])
+            second_shock = self.__is_volume_shock(pair[1])
             if first_shock != second_shock:
                 reduced_pairs.remove(pair)
         return reduced_pairs
@@ -69,13 +87,13 @@ class Filters:
 
 
         hist_vol = volume[:-1]
-        today_vol = volume[-1:]
+        recent_vol = volume[-3:].mean()
         std = hist_vol.std()
         mean = hist_vol.mean()
         # create random vol today, should be replaced
 
         # return True or False
-        shock = (today_vol > mean + self.threshold_sigma * std).values[0][0]
+        shock = (recent_vol > mean + self.threshold_sigma * std).values[0]
         if shock:
             return True
         else:

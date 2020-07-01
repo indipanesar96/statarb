@@ -6,7 +6,7 @@ from src.Cointegrator import CointegratedPair
 from src.Portfolio import Portfolio, Position
 from src.util.Features import PositionType
 from datetime import date, timedelta
-
+from src.Filters import Filters
 
 class Decision:
     def __init__(self, position: Position, old_action: PositionType, new_action: PositionType):
@@ -31,6 +31,8 @@ class SignalGenerator:
         self.natural_close_count = 0
         self.emergency_close_count = 0
         self.time_stop_loss_count = 0
+        self.filter = Filters()
+        self.volumn_shock_filter = 0
 
     def make_decision(self, pairs: List[CointegratedPair]):
 
@@ -46,43 +48,50 @@ class SignalGenerator:
                 if coint_pair.recent_dev_scaled > self.entry_z:
                     # l = long pair = long x short y
                     p1, p2 = coint_pair.pair
-
-                    decisions.append(
-                        Decision(
-                            position=Position(
-                                ticker1=p1,
-                                ticker2=p2,
-                                weight1=coint_pair.scaled_beta,
-                                weight2=1 - coint_pair.scaled_beta,
-                                investment_type=PositionType.LONG,
-                                init_z=coint_pair.recent_dev_scaled,
-                                init_date=today),
-                            old_action=PositionType.NOT_INVESTED,
-                            new_action=PositionType.LONG,
+                    shock = self.filter.run_volume_shock_filter_single_pair(coint_pair.pair, self.port.current_window)
+                    if not shock:
+                        decisions.append(
+                            Decision(
+                                position=Position(
+                                    ticker1=p1,
+                                    ticker2=p2,
+                                    weight1=coint_pair.scaled_beta,
+                                    weight2=1 - coint_pair.scaled_beta,
+                                    investment_type=PositionType.LONG,
+                                    init_z=coint_pair.recent_dev_scaled,
+                                    init_date=today),
+                                old_action=PositionType.NOT_INVESTED,
+                                new_action=PositionType.LONG,
+                            )
                         )
-                    )
-                    self.open_count += 1
+                        self.open_count += 1
+                    else:
+                        self.volumn_shock_filter += 1
 
                 elif coint_pair.recent_dev_scaled < - self.entry_z:
                     # s = short pair = long y short x
                     p1, p2 = coint_pair.pair
+                    shock = self.filter.run_volume_shock_filter_single_pair(coint_pair.pair, self.port.current_window)
+                    if not shock:
 
-                    decisions.append(
-                        Decision(
-                            position=Position(
-                                ticker1=p1,
-                                ticker2=p2,
-                                weight1=-coint_pair.scaled_beta,
-                                weight2=coint_pair.scaled_beta + 1,
-                                investment_type=PositionType.SHORT,
-                                init_z=coint_pair.recent_dev_scaled,
-                                init_date=today),
-                            old_action=PositionType.NOT_INVESTED,
-                            new_action=PositionType.SHORT,
+                        decisions.append(
+                            Decision(
+                                position=Position(
+                                    ticker1=p1,
+                                    ticker2=p2,
+                                    weight1=-coint_pair.scaled_beta,
+                                    weight2=coint_pair.scaled_beta + 1,
+                                    investment_type=PositionType.SHORT,
+                                    init_z=coint_pair.recent_dev_scaled,
+                                    init_date=today),
+                                old_action=PositionType.NOT_INVESTED,
+                                new_action=PositionType.SHORT,
 
+                            )
                         )
-                    )
-                    self.open_count += 1
+                        self.open_count += 1
+                    else:
+                        self.volumn_shock_filter += 1
 
         # loop through all invested position
         for position in positions:
