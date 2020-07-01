@@ -57,10 +57,16 @@ class AdfPrecisions(Enum):
 
 class Cointegrator:
 
-    def __init__(self, repository: DataRepository, adf_confidence_level: AdfPrecisions, max_mean_rev_time: int,
-                 entry_z: float, exit_z: float, previous_cointegrated_pairs: List[CointegratedPair]):
+    def __init__(self, repository: DataRepository,
+                 target_number_of_coint_pairs: int,
+                 adf_confidence_level: AdfPrecisions,
+                 max_mean_rev_time: int,
+                 entry_z: float,
+                 exit_z: float,
+                 previous_cointegrated_pairs: List[CointegratedPair]):
 
         self.repository: DataRepository = repository
+        self.target_number_of_coint_pairs: int = target_number_of_coint_pairs
         self.adf_confidence_level: AdfPrecisions = adf_confidence_level
         self.max_mean_rev_time: int = max_mean_rev_time
         self.entry_z: float = entry_z
@@ -74,7 +80,6 @@ class Cointegrator:
 
         current_cointegrated_pairs = []
         n_cointegrated = 0
-        target_coint = 100
         tickers_per_cluster = [i for i in clustering_results.values()]
 
         for cluster in tickers_per_cluster:
@@ -117,7 +122,7 @@ class Cointegrator:
                                          recent_dev, recent_dev_scaled,
                                          recent_dev_scaled_hist, cointegration_rank))
 
-                    if n_cointegrated == target_coint:
+                    if n_cointegrated == self.target_number_of_coint_pairs:
                         current_cointegrated_pairs = sorted(current_cointegrated_pairs,
                                                             key=lambda coint_pair: coint_pair.cointegration_rank,
                                                             reverse=True)

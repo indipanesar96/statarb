@@ -209,17 +209,22 @@ class Portfolio:
 
         print(get_performance_stats(prc_hist, tbill_mean))
 
-        # sns.lineplot(data=all_history.reset_index(), x='date', y='total_capital')
-
-
         all_history = self.get_port_hist()
         sp = yf.download("^GSPC", start=min(all_history.index), end=max(all_history.index))[["Adj Close"]]["Adj Close"]
-        sp = sp[all_history.index]
+
+        all_history.index = [i.date() for i in all_history.index]
+        sp.index = [i.date() for i in sp.index]
+
+        common_dates = sorted(set(sp.index).intersection(set(all_history.index)))
+
+        sp = sp[common_dates]
+        all_history = all_history[all_history.index.isin(common_dates)]
+
         normalise = lambda series: series / (series[0] if int(series[0]) != 0 else 1.0)
 
         plt.figure(1, figsize=(10,7))
-        plt.plot(all_history.index.date, normalise(all_history["total_capital"]), label=r"Portfolio")
-        plt.plot(all_history.index.date, normalise(sp), label=r"SnP 500")
+        plt.plot(all_history.index, normalise(all_history["total_capital"]), label=r"Portfolio")
+        plt.plot(all_history.index, normalise(sp), label=r"SnP 500")
         plt.xlabel("Date")
         plt.ylabel("Total Capital")
         plt.legend(loc=r"best")
@@ -227,7 +232,7 @@ class Portfolio:
         plt.savefig(f"../results/{time.time()}_total_capital.png", dpi=200)
 
         plt.figure(2, figsize=(10,7))
-        plt.plot(all_history.index.date, normalise(all_history["realised_pnl"]), label=r"Portfolio")
+        plt.plot(all_history.index, normalise(all_history["realised_pnl"]), label=r"Portfolio")
         plt.xlabel("Date")
         plt.ylabel("Realised Pnl")
         # plt.legend(loc=r"best")
@@ -235,7 +240,7 @@ class Portfolio:
         plt.savefig(f"../results/{time.time()}_realised_pnl.png", dpi=200)
 
         plt.figure(3, figsize=(10,7))
-        plt.plot(all_history.index.date, normalise(all_history["active_pairs"]), label=r"Portfolio")
+        plt.plot(all_history.index, normalise(all_history["active_pairs"]), label=r"Portfolio")
         plt.xlabel("Date")
         plt.ylabel("Active Pairs")
         # plt.legend(loc=r"best")
@@ -243,8 +248,6 @@ class Portfolio:
         plt.savefig(f"../results/{time.time()}_active_pairs.png", dpi=200)
 
         plt.show()
-        # return performance stats of pnl history
-
 
 if __name__ == '__main__':
     current_window = Window(window_start=date(2008, 1, 3), trading_win_len=timedelta(days=90),

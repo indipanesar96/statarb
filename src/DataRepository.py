@@ -33,7 +33,7 @@ class DataRepository:
         self.all_data: Dict[Universes, Optional[DataFrame]] = {Universes.SNP: None, Universes.ETFs: None}
         self.tickers: Dict[Universes, Optional[Set[Tickers]]] = {Universes.SNP: None, Universes.ETFs: None}
         self.features: Dict[Universes, Optional[Set[Features]]] = {Universes.SNP: None, Universes.ETFs: None}
-        self.all_dates: List[date] = self.__load_dates(Universes.SNP)
+        self.all_dates: List[date] = self.__load_dates()
         self.fundamental_data = None
 
     def get_tickers(self):
@@ -43,7 +43,6 @@ class DataRepository:
             datatype: Universes,
             trading_dates: List[date]):
         self.__get_from_disk_and_store(datatype, trading_dates)
-
 
     def get_fundamental(self, trading_date: date):
         if self.fundamental_data is None:
@@ -70,14 +69,18 @@ class DataRepository:
 
         return alive_tickers, alive_and_dead_ticker_data.loc[:, IndexSlice[alive_tickers, :]]
 
-    def __load_dates(self, datatype: Universes) -> List[date]:
-        d = pd.read_csv(datatype.value,
-                        squeeze=True,
-                        header=0,
-                        index_col=0,
-                        usecols=[0])
+    def __load_dates(self) -> List[date]:
 
-        return [i.date() for i in pd.to_datetime(d.index, format='%d/%m/%Y')]
+        def _f(datatype: Universes):
+            d = pd.read_csv(datatype.value,
+                            squeeze=True,
+                            header=0,
+                            index_col=0,
+                            usecols=[0])
+            return [i.date() for i in pd.to_datetime(d.index, format='%d/%m/%Y')]
+
+        common_dates = set(_f(Universes.SNP)).intersection(set(_f(Universes.ETFs)))
+        return sorted(common_dates)
 
     def check_date_equality(self, d1: date, d2: date):
         return (d1.day == d2.day and
@@ -129,11 +132,17 @@ class DataRepository:
 
         if Features.INTRADAY_VOL not in self.features[datatype]:
             print("- Engineering intraday volatility...\n")
-            for tick in set(tickers):
+            for tick in self.tickers[datatype]:
                 d.loc[:, IndexSlice[tick, Features.INTRADAY_VOL]] = self._intraday_vol(d, tick)
 
-        self.all_data[datatype] = pd.concat([self.all_data[datatype], d], axis=0)
+        # weekday_data_for_window = data_for_all_time[data_for_all_time.index.isin(trading_dates)]
 
+        d = d[d.index.isin(self.all_dates)]
+        d = d.drop_duplicates(keep='first')
+
+        self.all_data[datatype] = pd.concat([self.all_data[datatype], d], axis=0).drop_duplicates(keep='first')
+
+        self.all_data[datatype] = self.all_data[datatype].drop_duplicates(keep='first')
 
     def _intraday_vol(self, data: DataFrame, ticker):
         data.loc[:, IndexSlice[ticker, Features.INTRADAY_VOL]] \

@@ -30,7 +30,17 @@ class Clusterer:
         clustering_features = [Features.INTRADAY_VOL, Features.VOLUME]
         snp_to_cluster_on = window.get_data(Universes.SNP, None, clustering_features)
         etf_to_cluster_on = window.get_data(Universes.ETFs, None, clustering_features)
-        data_to_cluster_on = pd.concat([snp_to_cluster_on, etf_to_cluster_on], axis=1)
+        try:
+            data_to_cluster_on = pd.concat([snp_to_cluster_on, etf_to_cluster_on], axis=1)
+        except ValueError as _:
+            print(f"Got different lengths for etfs and snp for clustering data, taking intersection...")
+
+            common_dates = sorted(set(snp_to_cluster_on.index).intersection(set(etf_to_cluster_on.index)))
+
+            data_to_cluster_on = pd.concat([
+                snp_to_cluster_on.loc[snp_to_cluster_on.index.intersection(common_dates)].drop_duplicates(keep='first'),
+                etf_to_cluster_on.loc[etf_to_cluster_on.index.intersection(common_dates)].drop_duplicates(keep='first')
+            ], axis=1)
 
         # to now we have a single number per column,
         # (averaging over time dim) so can now compare cross-sectionally, rank-wise
@@ -49,7 +59,7 @@ class Clusterer:
 
         X = pd.concat([normed_volume_ranks, normed_intraday_vol_ranks], axis=1)
 
-        dbscan = DBSCAN(eps=0.0925, min_samples=min_samples).fit(X)
+        dbscan = DBSCAN(eps=eps, min_samples=min_samples).fit(X)
 
         self.tickers = normed_volume_ranks.index
         labels = dbscan.labels_

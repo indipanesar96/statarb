@@ -34,7 +34,7 @@ class SignalGenerator:
         self.filter = Filters()
         self.volumn_shock_filter = 0
 
-    def make_decision(self, pairs: List[CointegratedPair]):
+    def make_decision(self, pairs: List[CointegratedPair]) ->List[Decision]:
 
         positions = self.port.cur_positions
         current_posn_pairs = [(i.asset1, i.asset2) for i in positions]

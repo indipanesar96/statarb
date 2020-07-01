@@ -46,18 +46,22 @@ class Window:
 
     def __update_window_data(self, trading_dates_to_get_data_for: List[date]):
 
-        if self.repository.all_data[Universes.SNP] is None:
+        trading_dates_to_get_data_for = sorted(set(trading_dates_to_get_data_for)) # no duplicates
+
+        if self.repository.all_data[Universes.SNP] is None or\
+                self.repository.all_data[Universes.ETFs] is None:
             # ie need to load the new window from disk for first time
 
             self.repository.get(Universes.ETFs, trading_dates_to_get_data_for)
             self.repository.get(Universes.SNP, trading_dates_to_get_data_for)
 
-        if self.window_end > max(self.repository.all_data[Universes.SNP].index):
+        next_load_start_date = min(max(self.repository.all_data[Universes.SNP].index),
+                                   max(self.repository.all_data[Universes.ETFs].index))
+        if self.window_end > next_load_start_date:
             # ie need to load the new window from disk
 
-            read_ahead_win_start = self.__get_nth_working_day_ahead(max(self.repository.all_data[Universes.SNP].index),
-                                                                    1)
-            look_forward_win_dates = self.__get_window_trading_days(read_ahead_win_start, self.window_length)
+            # read_ahead_win_start = self.__get_nth_working_day_ahead(next_load_start_date,1)
+            look_forward_win_dates = self.__get_window_trading_days(next_load_start_date, self.window_length)
 
             self.repository.get(Universes.ETFs, look_forward_win_dates)
             self.repository.get(Universes.SNP, look_forward_win_dates)
