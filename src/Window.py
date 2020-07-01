@@ -89,6 +89,8 @@ class Window:
         print("The window start date was not in the list if all dates.")
         print("Ensure backtest is started with a day that is in the datset.")
 
+        # small change to test Simone's git
+
     def get_data(self,
                  universe: Universes,
                  tickers: Optional[List[Tickers]] = None,
