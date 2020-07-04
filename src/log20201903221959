@@ -1,0 +1,587 @@
+2020-07-03 22:19:59,481 - __main__ - INFO - Creating new portfolio...
+2020-07-03 22:20:11,775 - __main__ - INFO - Executing trades for 2008-03-28
+2020-07-03 22:20:23,622 - __main__ - INFO - Executing trades for 2008-03-31
+2020-07-03 22:20:24,700 - __main__ - INFO - Executing trades for 2008-04-01
+2020-07-03 22:20:25,809 - __main__ - INFO - Executing trades for 2008-04-02
+2020-07-03 22:20:26,903 - __main__ - INFO - Executing trades for 2008-04-03
+2020-07-03 22:20:27,981 - __main__ - INFO - Executing trades for 2008-04-04
+2020-07-03 22:20:29,043 - __main__ - INFO - Executing trades for 2008-04-07
+2020-07-03 22:20:30,134 - __main__ - INFO - Executing trades for 2008-04-08
+2020-07-03 22:20:31,228 - __main__ - INFO - Executing trades for 2008-04-09
+2020-07-03 22:20:32,399 - __main__ - INFO - Executing trades for 2008-04-10
+2020-07-03 22:20:33,477 - __main__ - INFO - Executing trades for 2008-04-11
+2020-07-03 22:20:34,555 - __main__ - INFO - Executing trades for 2008-04-14
+2020-07-03 22:20:35,617 - __main__ - INFO - Executing trades for 2008-04-15
+2020-07-03 22:20:36,711 - __main__ - INFO - Executing trades for 2008-04-16
+2020-07-03 22:20:37,789 - __main__ - INFO - Executing trades for 2008-04-17
+2020-07-03 22:20:38,882 - __main__ - INFO - Executing trades for 2008-04-18
+2020-07-03 22:20:39,976 - __main__ - INFO - Executing trades for 2008-04-21
+2020-07-03 22:20:41,085 - __main__ - INFO - Executing trades for 2008-04-22
+2020-07-03 22:20:42,225 - __main__ - INFO - Executing trades for 2008-04-23
+2020-07-03 22:20:43,334 - __main__ - INFO - Executing trades for 2008-04-24
+2020-07-03 22:20:44,428 - __main__ - INFO - Executing trades for 2008-04-25
+2020-07-03 22:20:45,521 - __main__ - INFO - Executing trades for 2008-04-28
+2020-07-03 22:20:46,630 - __main__ - INFO - Executing trades for 2008-04-29
+2020-07-03 22:20:47,739 - __main__ - INFO - Executing trades for 2008-04-30
+2020-07-03 22:20:48,833 - __main__ - INFO - Executing trades for 2008-05-01
+2020-07-03 22:20:49,926 - __main__ - INFO - Executing trades for 2008-05-02
+2020-07-03 22:20:51,036 - __main__ - INFO - Executing trades for 2008-05-05
+2020-07-03 22:20:52,181 - __main__ - INFO - Executing trades for 2008-05-06
+2020-07-03 22:20:53,290 - __main__ - INFO - Executing trades for 2008-05-07
+2020-07-03 22:20:54,415 - __main__ - INFO - Executing trades for 2008-05-08
+2020-07-03 22:22:31,665 - __main__ - INFO - Executing trades for 2008-05-09
+2020-07-03 22:22:31,665 - __main__ - INFO - SnpTickers.ADS, SnpTickers.DISCA are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:31,665 - __main__ - INFO - Asset 1: SnpTickers.ADS @$56.42 Quantity: -110 Value: -6206.06
+2020-07-03 22:22:31,665 - __main__ - INFO - Asset 2: SnpTickers.DISCA @$13.56 Quantity: 737 Value: 9991.11
+2020-07-03 22:22:31,665 - __main__ - INFO - Cash balance: $96206.8486220797
+2020-07-03 22:22:31,665 - __main__ - INFO - SnpTickers.ATVI, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:31,665 - __main__ - INFO - Asset 1: SnpTickers.ATVI @$14.27 Quantity: -474 Value: -6764.22
+2020-07-03 22:22:31,665 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$138.63 Quantity: 72 Value: 9981.36
+2020-07-03 22:22:31,665 - __main__ - INFO - Cash balance: $92981.33979550403
+2020-07-03 22:22:32,930 - __main__ - INFO - Executing trades for 2008-05-12
+2020-07-03 22:22:32,930 - __main__ - INFO - SnpTickers.AON, SnpTickers.CE are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:32,930 - __main__ - INFO - Asset 1: SnpTickers.AON @$40.5 Quantity: -242 Value: -9801.13
+2020-07-03 22:22:32,930 - __main__ - INFO - Asset 2: SnpTickers.CE @$41.03 Quantity: 243 Value: 9969.63
+2020-07-03 22:22:32,930 - __main__ - INFO - Cash balance: $92802.95304077966
+2020-07-03 22:22:34,274 - __main__ - INFO - Executing trades for 2008-05-13
+2020-07-03 22:22:34,289 - __main__ - INFO - SnpTickers.AZO, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:34,289 - __main__ - INFO - Asset 1: SnpTickers.AZO @$126.67 Quantity: 78 Value: 9880.26
+2020-07-03 22:22:34,289 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.91 Quantity: -11 Value: -120.01
+2020-07-03 22:22:34,289 - __main__ - INFO - Cash balance: $83037.70304460068
+2020-07-03 22:22:34,289 - __main__ - INFO - SnpTickers.AON, SnpTickers.PWR are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:34,289 - __main__ - INFO - Asset 1: SnpTickers.AON @$40.47 Quantity: -217 Value: -8782.98
+2020-07-03 22:22:34,289 - __main__ - INFO - Asset 2: SnpTickers.PWR @$29.44 Quantity: 339 Value: 9981.34
+2020-07-03 22:22:34,289 - __main__ - INFO - Cash balance: $81829.95719835084
+2020-07-03 22:22:34,289 - __main__ - INFO - SnpTickers.ABMD, SnpTickers.PWR are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:34,289 - __main__ - INFO - Asset 1: SnpTickers.ABMD @$14.6 Quantity: 684 Value: 9986.4
+2020-07-03 22:22:34,289 - __main__ - INFO - Asset 2: SnpTickers.PWR @$29.44 Quantity: -281 Value: -8273.62
+2020-07-03 22:22:34,289 - __main__ - INFO - Cash balance: $80108.04628668184
+2020-07-03 22:22:35,570 - __main__ - INFO - Executing trades for 2008-05-14
+2020-07-03 22:22:35,570 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:35,570 - __main__ - INFO - Asset 1: SnpTickers.AAP @$33.23 Quantity: 300 Value: 9969.23
+2020-07-03 22:22:35,570 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$138.29 Quantity: -52 Value: -7191.08
+2020-07-03 22:22:35,570 - __main__ - INFO - Cash balance: $77321.31818365554
+2020-07-03 22:22:35,586 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.LYV are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.74 Quantity: -513 Value: -9100.62
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 2: SnpTickers.LYV @$15.2 Quantity: 657 Value: 9986.4
+2020-07-03 22:22:35,586 - __main__ - INFO - Cash balance: $76425.99468061696
+2020-07-03 22:22:35,586 - __main__ - INFO - SnpTickers.AGN, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 1: SnpTickers.AGN @$26.39 Quantity: 378 Value: 9977.2
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$138.29 Quantity: -49 Value: -6776.21
+2020-07-03 22:22:35,586 - __main__ - INFO - Cash balance: $73216.62850396914
+2020-07-03 22:22:35,586 - __main__ - INFO - SnpTickers.BDX, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 1: SnpTickers.BDX @$69.7 Quantity: 143 Value: 9967.49
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$138.29 Quantity: -64 Value: -8850.56
+2020-07-03 22:22:35,586 - __main__ - INFO - Cash balance: $72090.28563279561
+2020-07-03 22:22:35,586 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ATVI, SnpTickers.BKNG. Closing position...
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 1: SnpTickers.ATVI @$14.67 Quantity: -474
+2020-07-03 22:22:35,586 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$138.29 Quantity: 72
+2020-07-03 22:22:35,586 - __main__ - INFO - Realised PnL for position: -212.61
+2020-07-03 22:22:36,898 - __main__ - INFO - Executing trades for 2008-05-15
+2020-07-03 22:22:36,898 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.ROST are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:36,898 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.67 Quantity: -391 Value: -6909.95
+2020-07-03 22:22:36,898 - __main__ - INFO - Asset 2: SnpTickers.ROST @$8.15 Quantity: 1227 Value: 9997.32
+2020-07-03 22:22:36,898 - __main__ - INFO - Cash balance: $71990.52268614648
+2020-07-03 22:22:36,914 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ABMD, SnpTickers.PWR. Closing position...
+2020-07-03 22:22:36,914 - __main__ - INFO - Asset 1: SnpTickers.ABMD @$13.87 Quantity: 684
+2020-07-03 22:22:36,914 - __main__ - INFO - Asset 2: SnpTickers.PWR @$29.74 Quantity: -281
+2020-07-03 22:22:36,914 - __main__ - INFO - Realised PnL for position: -583.0
+2020-07-03 22:22:36,914 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.LYV. Closing position...
+2020-07-03 22:22:36,914 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.67 Quantity: -513
+2020-07-03 22:22:36,914 - __main__ - INFO - Asset 2: SnpTickers.LYV @$15.84 Quantity: 657
+2020-07-03 22:22:36,914 - __main__ - INFO - Realised PnL for position: 455.11
+2020-07-03 22:22:38,241 - __main__ - INFO - Executing trades for 2008-05-16
+2020-07-03 22:22:38,241 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.LYV are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:38,241 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.75 Quantity: -513 Value: -9104.47
+2020-07-03 22:22:38,257 - __main__ - INFO - Asset 2: SnpTickers.LYV @$15.52 Quantity: 644 Value: 9994.88
+2020-07-03 22:22:38,257 - __main__ - INFO - Cash balance: $73542.5652076067
+2020-07-03 22:22:38,257 - __main__ - INFO - SnpTickers.ADS, SnpTickers.BWA are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:38,257 - __main__ - INFO - Asset 1: SnpTickers.ADS @$57.21 Quantity: -134 Value: -7666.27
+2020-07-03 22:22:38,257 - __main__ - INFO - Asset 2: SnpTickers.BWA @$24.35 Quantity: 410 Value: 9985.37
+2020-07-03 22:22:38,257 - __main__ - INFO - Cash balance: $71214.63190166623
+2020-07-03 22:22:38,257 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:22:38,257 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.37 Quantity: 300
+2020-07-03 22:22:38,257 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$135.49 Quantity: -52
+2020-07-03 22:22:38,257 - __main__ - INFO - Realised PnL for position: 1387.42
+2020-07-03 22:22:39,585 - __main__ - INFO - Executing trades for 2008-05-19
+2020-07-03 22:22:39,585 - __main__ - INFO - SnpTickers.ALB, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:39,585 - __main__ - INFO - Asset 1: SnpTickers.ALB @$35.5 Quantity: -218 Value: -7739.26
+2020-07-03 22:22:39,585 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$129.57 Quantity: 77 Value: 9976.89
+2020-07-03 22:22:39,585 - __main__ - INFO - Cash balance: $73124.57776359869
+2020-07-03 22:22:40,913 - __main__ - INFO - Executing trades for 2008-05-20
+2020-07-03 22:22:42,272 - __main__ - INFO - Executing trades for 2008-05-21
+2020-07-03 22:22:43,600 - __main__ - INFO - Executing trades for 2008-05-22
+2020-07-03 22:22:45,005 - __main__ - INFO - Executing trades for 2008-05-23
+2020-07-03 22:22:46,349 - __main__ - INFO - Executing trades for 2008-05-27
+2020-07-03 22:22:47,739 - __main__ - INFO - Executing trades for 2008-05-28
+2020-07-03 22:22:47,770 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ADS, SnpTickers.BWA. Closing position...
+2020-07-03 22:22:47,770 - __main__ - INFO - Asset 1: SnpTickers.ADS @$57.15 Quantity: -134
+2020-07-03 22:22:47,770 - __main__ - INFO - Asset 2: SnpTickers.BWA @$22.47 Quantity: 410
+2020-07-03 22:22:47,770 - __main__ - INFO - Realised PnL for position: -765.44
+2020-07-03 22:22:49,130 - __main__ - INFO - Executing trades for 2008-05-29
+2020-07-03 22:22:49,130 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:49,130 - __main__ - INFO - Asset 1: SnpTickers.A @$24.24 Quantity: -299 Value: -7248.67
+2020-07-03 22:22:49,130 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$131.94 Quantity: 75 Value: 9895.5
+2020-07-03 22:22:49,130 - __main__ - INFO - Cash balance: $72014.41502192542
+2020-07-03 22:22:49,161 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AZO, SnpTickers.CDNS. Closing position...
+2020-07-03 22:22:49,161 - __main__ - INFO - Asset 1: SnpTickers.AZO @$127.77 Quantity: 78
+2020-07-03 22:22:49,161 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$11.67 Quantity: -11
+2020-07-03 22:22:49,161 - __main__ - INFO - Realised PnL for position: 77.44
+2020-07-03 22:22:49,161 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AON, SnpTickers.PWR. Closing position...
+2020-07-03 22:22:49,161 - __main__ - INFO - Asset 1: SnpTickers.AON @$41.03 Quantity: -217
+2020-07-03 22:22:49,161 - __main__ - INFO - Asset 2: SnpTickers.PWR @$31.0 Quantity: 339
+2020-07-03 22:22:49,161 - __main__ - INFO - Realised PnL for position: 408.11
+2020-07-03 22:22:50,520 - __main__ - INFO - Executing trades for 2008-05-30
+2020-07-03 22:22:50,520 - __main__ - INFO - SnpTickers.ALB, SnpTickers.CTXS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:50,520 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.72 Quantity: 272 Value: 9988.75
+2020-07-03 22:22:50,520 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$26.71 Quantity: -352 Value: -9400.85
+2020-07-03 22:22:50,520 - __main__ - INFO - Cash balance: $82846.22169423927
+2020-07-03 22:22:50,520 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:50,520 - __main__ - INFO - Asset 1: SnpTickers.A @$24.41 Quantity: -386 Value: -9423.35
+2020-07-03 22:22:50,520 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.5 Quantity: 408 Value: 9996.78
+2020-07-03 22:22:50,520 - __main__ - INFO - Cash balance: $82263.07854506456
+2020-07-03 22:22:51,899 - __main__ - INFO - Executing trades for 2008-06-02
+2020-07-03 22:22:53,289 - __main__ - INFO - Executing trades for 2008-06-03
+2020-07-03 22:22:53,321 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:22:53,321 - __main__ - INFO - Asset 1: SnpTickers.A @$24.08 Quantity: -386
+2020-07-03 22:22:53,321 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.77 Quantity: 408
+2020-07-03 22:22:53,321 - __main__ - INFO - Realised PnL for position: -169.47
+2020-07-03 22:22:54,727 - __main__ - INFO - Executing trades for 2008-06-04
+2020-07-03 22:22:54,727 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:22:54,727 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.04 Quantity: -201 Value: -7846.15
+2020-07-03 22:22:54,727 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$134.83 Quantity: 74 Value: 9977.42
+2020-07-03 22:22:54,727 - __main__ - INFO - Cash balance: $80517.35930170347
+2020-07-03 22:22:56,133 - __main__ - INFO - Executing trades for 2008-06-05
+2020-07-03 22:22:57,538 - __main__ - INFO - Executing trades for 2008-06-06
+2020-07-03 22:22:58,944 - __main__ - INFO - Executing trades for 2008-06-09
+2020-07-03 22:22:58,991 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ADS, SnpTickers.DISCA. Closing position...
+2020-07-03 22:22:58,991 - __main__ - INFO - Asset 1: SnpTickers.ADS @$54.93 Quantity: -110
+2020-07-03 22:22:58,991 - __main__ - INFO - Asset 2: SnpTickers.DISCA @$13.18 Quantity: 737
+2020-07-03 22:22:58,991 - __main__ - INFO - Realised PnL for position: -114.89
+2020-07-03 22:22:58,991 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.LYV. Closing position...
+2020-07-03 22:22:58,991 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.53 Quantity: -513
+2020-07-03 22:22:58,991 - __main__ - INFO - Asset 2: SnpTickers.LYV @$13.34 Quantity: 644
+2020-07-03 22:22:58,991 - __main__ - INFO - Realised PnL for position: -1293.63
+2020-07-03 22:22:58,991 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:22:58,991 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.55 Quantity: -201
+2020-07-03 22:22:58,991 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$126.55 Quantity: 74
+2020-07-03 22:22:58,991 - __main__ - INFO - Realised PnL for position: -715.27
+2020-07-03 22:23:00,382 - __main__ - INFO - Executing trades for 2008-06-10
+2020-07-03 22:23:00,382 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:00,382 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.24 Quantity: -200 Value: -7847.54
+2020-07-03 22:23:00,382 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$127.38 Quantity: 78 Value: 9935.64
+2020-07-03 22:23:00,382 - __main__ - INFO - Cash balance: $83077.98967771932
+2020-07-03 22:23:00,382 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:00,382 - __main__ - INFO - Asset 1: SnpTickers.A @$23.99 Quantity: -393 Value: -9430.01
+2020-07-03 22:23:00,382 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.41 Quantity: 427 Value: 9998.03
+2020-07-03 22:23:00,382 - __main__ - INFO - Cash balance: $82500.25276938172
+2020-07-03 22:23:00,382 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:00,382 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.24 Quantity: 254 Value: 9966.38
+2020-07-03 22:23:00,382 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$11.29 Quantity: -481 Value: -5430.49
+2020-07-03 22:23:00,382 - __main__ - INFO - Cash balance: $77956.66718816714
+2020-07-03 22:23:01,803 - __main__ - INFO - Executing trades for 2008-06-11
+2020-07-03 22:23:01,850 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALB, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:01,850 - __main__ - INFO - Asset 1: SnpTickers.ALB @$35.26 Quantity: -218
+2020-07-03 22:23:01,850 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$120.88 Quantity: 77
+2020-07-03 22:23:01,850 - __main__ - INFO - Realised PnL for position: -616.79
+2020-07-03 22:23:01,850 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:01,850 - __main__ - INFO - Asset 1: SnpTickers.A @$23.67 Quantity: -299
+2020-07-03 22:23:01,850 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$120.88 Quantity: 75
+2020-07-03 22:23:01,850 - __main__ - INFO - Realised PnL for position: -657.7
+2020-07-03 22:23:01,850 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:23:01,850 - __main__ - INFO - Asset 1: SnpTickers.A @$23.67 Quantity: -393
+2020-07-03 22:23:01,850 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.71 Quantity: 427
+2020-07-03 22:23:01,850 - __main__ - INFO - Realised PnL for position: -172.95
+2020-07-03 22:23:03,256 - __main__ - INFO - Executing trades for 2008-06-12
+2020-07-03 22:23:03,256 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:03,256 - __main__ - INFO - Asset 1: SnpTickers.A @$24.09 Quantity: -301 Value: -7249.99
+2020-07-03 22:23:03,256 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$122.26 Quantity: 81 Value: 9903.06
+2020-07-03 22:23:03,256 - __main__ - INFO - Cash balance: $79273.99379968698
+2020-07-03 22:23:03,256 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.PWR are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:03,256 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$16.91 Quantity: 591 Value: 9995.29
+2020-07-03 22:23:03,256 - __main__ - INFO - Asset 2: SnpTickers.PWR @$32.29 Quantity: -267 Value: -8622.11
+2020-07-03 22:23:03,256 - __main__ - INFO - Cash balance: $77891.50392126305
+2020-07-03 22:23:03,256 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:03,256 - __main__ - INFO - Asset 1: SnpTickers.A @$24.09 Quantity: -391 Value: -9417.76
+2020-07-03 22:23:03,256 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.93 Quantity: 436 Value: 9998.87
+2020-07-03 22:23:03,256 - __main__ - INFO - Cash balance: $77300.68618832754
+2020-07-03 22:23:03,318 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AON, SnpTickers.CE. Closing position...
+2020-07-03 22:23:03,318 - __main__ - INFO - Asset 1: SnpTickers.AON @$40.81 Quantity: -242
+2020-07-03 22:23:03,318 - __main__ - INFO - Asset 2: SnpTickers.CE @$40.61 Quantity: 243
+2020-07-03 22:23:03,318 - __main__ - INFO - Realised PnL for position: -176.92
+2020-07-03 22:23:04,740 - __main__ - INFO - Executing trades for 2008-06-13
+2020-07-03 22:23:04,740 - __main__ - INFO - SnpTickers.ALB, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:04,740 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.83 Quantity: -210 Value: -7733.5
+2020-07-03 22:23:04,756 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$126.9 Quantity: 78 Value: 9898.2
+2020-07-03 22:23:04,756 - __main__ - INFO - Cash balance: $75108.87834996019
+2020-07-03 22:23:04,802 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALB, SnpTickers.CTXS. Closing position...
+2020-07-03 22:23:04,802 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.83 Quantity: 272
+2020-07-03 22:23:04,802 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$25.9 Quantity: -352
+2020-07-03 22:23:04,802 - __main__ - INFO - Realised PnL for position: 310.85
+2020-07-03 22:23:06,177 - __main__ - INFO - Executing trades for 2008-06-16
+2020-07-03 22:23:06,193 - __main__ - INFO - SnpTickers.ALB, SnpTickers.CTXS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:06,193 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.77 Quantity: 271 Value: 9964.19
+2020-07-03 22:23:06,193 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$26.22 Quantity: -359 Value: -9411.34
+2020-07-03 22:23:06,193 - __main__ - INFO - Cash balance: $75435.52068695817
+2020-07-03 22:23:06,240 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AGN, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:06,240 - __main__ - INFO - Asset 1: SnpTickers.AGN @$25.52 Quantity: 378
+2020-07-03 22:23:06,240 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$127.63 Quantity: -49
+2020-07-03 22:23:06,240 - __main__ - INFO - Realised PnL for position: 193.25
+2020-07-03 22:23:06,240 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.BDX, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:06,240 - __main__ - INFO - Asset 1: SnpTickers.BDX @$66.3 Quantity: 143
+2020-07-03 22:23:06,240 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$127.63 Quantity: -64
+2020-07-03 22:23:06,240 - __main__ - INFO - Realised PnL for position: 195.83
+2020-07-03 22:23:07,630 - __main__ - INFO - Executing trades for 2008-06-17
+2020-07-03 22:23:07,645 - __main__ - INFO - SnpTickers.A, SnpTickers.SNPS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:07,645 - __main__ - INFO - Asset 1: SnpTickers.A @$24.43 Quantity: -392 Value: -9574.94
+2020-07-03 22:23:07,645 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$25.06 Quantity: 399 Value: 9998.94
+2020-07-03 22:23:07,645 - __main__ - INFO - Cash balance: $79691.96208902796
+2020-07-03 22:23:07,645 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.APH are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:07,645 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.26 Quantity: 579 Value: 9992.09
+2020-07-03 22:23:07,645 - __main__ - INFO - Asset 2: SnpTickers.APH @$22.23 Quantity: -428 Value: -9514.27
+2020-07-03 22:23:07,645 - __main__ - INFO - Cash balance: $79204.39148818607
+2020-07-03 22:23:07,692 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:23:07,692 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.68 Quantity: 254
+2020-07-03 22:23:07,692 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.84 Quantity: -481
+2020-07-03 22:23:07,692 - __main__ - INFO - Realised PnL for position: 328.93
+2020-07-03 22:23:07,692 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALB, SnpTickers.CTXS. Closing position...
+2020-07-03 22:23:07,692 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.84 Quantity: 271
+2020-07-03 22:23:07,692 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$24.75 Quantity: -359
+2020-07-03 22:23:07,692 - __main__ - INFO - Realised PnL for position: 546.79
+2020-07-03 22:23:09,114 - __main__ - INFO - Executing trades for 2008-06-18
+2020-07-03 22:23:09,114 - __main__ - INFO - SnpTickers.ALB, SnpTickers.CTXS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:09,129 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.54 Quantity: 273 Value: 9974.43
+2020-07-03 22:23:09,129 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$24.55 Quantity: -384 Value: -9425.57
+2020-07-03 22:23:09,129 - __main__ - INFO - Cash balance: $84593.20762836459
+2020-07-03 22:23:09,129 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:09,129 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.61 Quantity: 258 Value: 9961.49
+2020-07-03 22:23:09,129 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.82 Quantity: -502 Value: -5431.64
+2020-07-03 22:23:09,129 - __main__ - INFO - Cash balance: $80055.66150580124
+2020-07-03 22:23:09,192 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:23:09,192 - __main__ - INFO - Asset 1: SnpTickers.A @$24.41 Quantity: -391
+2020-07-03 22:23:09,192 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.62 Quantity: 436
+2020-07-03 22:23:09,192 - __main__ - INFO - Realised PnL for position: -262.61
+2020-07-03 22:23:10,598 - __main__ - INFO - Executing trades for 2008-06-19
+2020-07-03 22:23:10,598 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:10,598 - __main__ - INFO - Asset 1: SnpTickers.A @$24.75 Quantity: -381 Value: -9428.15
+2020-07-03 22:23:10,598 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.53 Quantity: 443 Value: 9982.91
+2020-07-03 22:23:10,598 - __main__ - INFO - Cash balance: $79799.99267292007
+2020-07-03 22:23:10,676 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.ROST. Closing position...
+2020-07-03 22:23:10,676 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.34 Quantity: -391
+2020-07-03 22:23:10,676 - __main__ - INFO - Asset 2: SnpTickers.ROST @$8.39 Quantity: 1227
+2020-07-03 22:23:10,676 - __main__ - INFO - Realised PnL for position: 428.52
+2020-07-03 22:23:10,676 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.SNPS. Closing position...
+2020-07-03 22:23:10,676 - __main__ - INFO - Asset 1: SnpTickers.A @$24.75 Quantity: -392
+2020-07-03 22:23:10,676 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$24.76 Quantity: 399
+2020-07-03 22:23:10,676 - __main__ - INFO - Realised PnL for position: -245.11
+2020-07-03 22:23:12,082 - __main__ - INFO - Executing trades for 2008-06-20
+2020-07-03 22:23:12,082 - __main__ - INFO - SnpTickers.AZO, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:12,082 - __main__ - INFO - Asset 1: SnpTickers.AZO @$115.0 Quantity: 86 Value: 9890.0
+2020-07-03 22:23:12,082 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$130.65 Quantity: -75 Value: -9798.75
+2020-07-03 22:23:12,082 - __main__ - INFO - Cash balance: $83375.35160744535
+2020-07-03 22:23:12,082 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:12,082 - __main__ - INFO - Asset 1: SnpTickers.A @$24.53 Quantity: 407 Value: 9983.84
+2020-07-03 22:23:12,082 - __main__ - INFO - Asset 2: SnpTickers.URI @$21.59 Quantity: -453 Value: -9780.27
+2020-07-03 22:23:12,082 - __main__ - INFO - Cash balance: $83161.89581721075
+2020-07-03 22:23:12,144 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:23:12,144 - __main__ - INFO - Asset 1: SnpTickers.A @$24.53 Quantity: -381
+2020-07-03 22:23:12,144 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$21.9 Quantity: 443
+2020-07-03 22:23:12,144 - __main__ - INFO - Realised PnL for position: -201.03
+2020-07-03 22:23:24,220 - __main__ - INFO - Executing trades for 2008-06-23
+2020-07-03 22:23:24,220 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.ROST are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:24,220 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.27 Quantity: -400 Value: -6909.0
+2020-07-03 22:23:24,220 - __main__ - INFO - Asset 2: SnpTickers.ROST @$8.33 Quantity: 1201 Value: 9999.87
+2020-07-03 22:23:24,220 - __main__ - INFO - Cash balance: $80406.77500133828
+2020-07-03 22:23:24,282 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALB, SnpTickers.CTXS. Closing position...
+2020-07-03 22:23:24,282 - __main__ - INFO - Asset 1: SnpTickers.ALB @$36.72 Quantity: 273
+2020-07-03 22:23:24,282 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$23.8 Quantity: -384
+2020-07-03 22:23:24,282 - __main__ - INFO - Realised PnL for position: 334.36
+2020-07-03 22:23:24,282 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AZO, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:24,282 - __main__ - INFO - Asset 1: SnpTickers.AZO @$112.23 Quantity: 86
+2020-07-03 22:23:24,282 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$132.04 Quantity: -75
+2020-07-03 22:23:24,282 - __main__ - INFO - Realised PnL for position: -342.47
+2020-07-03 22:23:25,719 - __main__ - INFO - Executing trades for 2008-06-24
+2020-07-03 22:23:25,719 - __main__ - INFO - SnpTickers.AZO, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:25,719 - __main__ - INFO - Asset 1: SnpTickers.AZO @$111.9 Quantity: 89 Value: 9959.1
+2020-07-03 22:23:25,719 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$130.37 Quantity: -76 Value: -9908.12
+2020-07-03 22:23:25,719 - __main__ - INFO - Cash balance: $80958.5028478927
+2020-07-03 22:23:25,719 - __main__ - INFO - SnpTickers.ALB, SnpTickers.CTXS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:25,735 - __main__ - INFO - Asset 1: SnpTickers.ALB @$35.47 Quantity: 281 Value: 9966.53
+2020-07-03 22:23:25,735 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$24.11 Quantity: -390 Value: -9402.44
+2020-07-03 22:23:25,735 - __main__ - INFO - Cash balance: $80384.72525679687
+2020-07-03 22:23:27,188 - __main__ - INFO - Executing trades for 2008-06-25
+2020-07-03 22:23:28,672 - __main__ - INFO - Executing trades for 2008-06-26
+2020-07-03 22:23:28,719 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.APH. Closing position...
+2020-07-03 22:23:28,719 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$17.86 Quantity: 579
+2020-07-03 22:23:28,719 - __main__ - INFO - Asset 2: SnpTickers.APH @$20.46 Quantity: -428
+2020-07-03 22:23:28,734 - __main__ - INFO - Realised PnL for position: 1109.35
+2020-07-03 22:23:28,734 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:23:28,734 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.08 Quantity: 258
+2020-07-03 22:23:28,734 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.54 Quantity: -502
+2020-07-03 22:23:28,734 - __main__ - INFO - Realised PnL for position: 3.76
+2020-07-03 22:23:28,734 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.URI. Closing position...
+2020-07-03 22:23:28,734 - __main__ - INFO - Asset 1: SnpTickers.A @$23.31 Quantity: 407
+2020-07-03 22:23:28,734 - __main__ - INFO - Asset 2: SnpTickers.URI @$19.51 Quantity: -453
+2020-07-03 22:23:28,734 - __main__ - INFO - Realised PnL for position: 445.31
+2020-07-03 22:23:30,156 - __main__ - INFO - Executing trades for 2008-06-27
+2020-07-03 22:23:30,156 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.LYV are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:30,156 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$18.2 Quantity: 549 Value: 9990.43
+2020-07-03 22:23:30,156 - __main__ - INFO - Asset 2: SnpTickers.LYV @$10.49 Quantity: -860 Value: -9021.4
+2020-07-03 22:23:30,156 - __main__ - INFO - Cash balance: $86149.57418850191
+2020-07-03 22:23:30,171 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:30,171 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.98 Quantity: 263 Value: 9989.74
+2020-07-03 22:23:30,171 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.14 Quantity: -535 Value: -5424.9
+2020-07-03 22:23:30,171 - __main__ - INFO - Cash balance: $81577.02691384275
+2020-07-03 22:23:30,171 - __main__ - INFO - SnpTickers.AMP, SnpTickers.NDAQ are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:30,171 - __main__ - INFO - Asset 1: SnpTickers.AMP @$31.75 Quantity: 314 Value: 9969.65
+2020-07-03 22:23:30,171 - __main__ - INFO - Asset 2: SnpTickers.NDAQ @$24.46 Quantity: -394 Value: -9637.07
+2020-07-03 22:23:30,171 - __main__ - INFO - Cash balance: $81234.64902793373
+2020-07-03 22:23:30,203 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AZO, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:30,203 - __main__ - INFO - Asset 1: SnpTickers.AZO @$120.13 Quantity: 89
+2020-07-03 22:23:30,203 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$125.13 Quantity: -76
+2020-07-03 22:23:30,203 - __main__ - INFO - Realised PnL for position: 1130.71
+2020-07-03 22:23:31,593 - __main__ - INFO - Executing trades for 2008-06-30
+2020-07-03 22:23:31,609 - __main__ - INFO - SnpTickers.APA, SnpTickers.CBRE are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:31,609 - __main__ - INFO - Asset 1: SnpTickers.APA @$116.55 Quantity: 85 Value: 9906.43
+2020-07-03 22:23:31,609 - __main__ - INFO - Asset 2: SnpTickers.CBRE @$19.2 Quantity: -247 Value: -4742.4
+2020-07-03 22:23:31,609 - __main__ - INFO - Cash balance: $77234.88284108312
+2020-07-03 22:23:31,624 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AMP, SnpTickers.NDAQ. Closing position...
+2020-07-03 22:23:31,624 - __main__ - INFO - Asset 1: SnpTickers.AMP @$30.88 Quantity: 314
+2020-07-03 22:23:31,624 - __main__ - INFO - Asset 2: SnpTickers.NDAQ @$22.96 Quantity: -394
+2020-07-03 22:23:31,624 - __main__ - INFO - Realised PnL for position: 315.38
+2020-07-03 22:23:33,015 - __main__ - INFO - Executing trades for 2008-07-01
+2020-07-03 22:23:33,015 - __main__ - INFO - SnpTickers.AZO, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:33,015 - __main__ - INFO - Asset 1: SnpTickers.AZO @$121.69 Quantity: -81 Value: -9856.89
+2020-07-03 22:23:33,015 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$115.37 Quantity: 86 Value: 9921.82
+2020-07-03 22:23:33,015 - __main__ - INFO - Cash balance: $77798.64712083011
+2020-07-03 22:23:33,046 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:33,046 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.67 Quantity: -200
+2020-07-03 22:23:33,046 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$115.37 Quantity: 78
+2020-07-03 22:23:33,046 - __main__ - INFO - Realised PnL for position: -622.37
+2020-07-03 22:23:34,452 - __main__ - INFO - Executing trades for 2008-07-02
+2020-07-03 22:23:34,467 - __main__ - INFO - SnpTickers.A, SnpTickers.SNPS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:34,467 - __main__ - INFO - Asset 1: SnpTickers.A @$23.09 Quantity: -415 Value: -9581.26
+2020-07-03 22:23:34,467 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$23.75 Quantity: 421 Value: 9998.75
+2020-07-03 22:23:34,467 - __main__ - INFO - Cash balance: $78828.8292025434
+2020-07-03 22:23:34,499 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:34,499 - __main__ - INFO - Asset 1: SnpTickers.A @$23.09 Quantity: -301
+2020-07-03 22:23:34,499 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.33 Quantity: 81
+2020-07-03 22:23:34,499 - __main__ - INFO - Realised PnL for position: -908.64
+2020-07-03 22:23:34,499 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.LYV. Closing position...
+2020-07-03 22:23:34,499 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$18.51 Quantity: 549
+2020-07-03 22:23:34,499 - __main__ - INFO - Asset 2: SnpTickers.LYV @$10.01 Quantity: -860
+2020-07-03 22:23:34,499 - __main__ - INFO - Realised PnL for position: 585.73
+2020-07-03 22:23:34,499 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AZO, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:34,499 - __main__ - INFO - Asset 1: SnpTickers.AZO @$118.45 Quantity: -81
+2020-07-03 22:23:34,499 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.33 Quantity: 86
+2020-07-03 22:23:34,499 - __main__ - INFO - Realised PnL for position: -429.0
+2020-07-03 22:23:36,014 - __main__ - INFO - Executing trades for 2008-07-03
+2020-07-03 22:23:36,014 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:36,014 - __main__ - INFO - Asset 1: SnpTickers.A @$22.68 Quantity: -320 Value: -7256.33
+2020-07-03 22:23:36,014 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$106.74 Quantity: 93 Value: 9926.82
+2020-07-03 22:23:36,014 - __main__ - INFO - Cash balance: $79058.25401441703
+2020-07-03 22:23:36,029 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:36,029 - __main__ - INFO - Asset 1: SnpTickers.AAP @$35.8 Quantity: -219 Value: -7839.19
+2020-07-03 22:23:36,029 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$106.74 Quantity: 93 Value: 9926.82
+2020-07-03 22:23:36,029 - __main__ - INFO - Cash balance: $76961.7393469041
+2020-07-03 22:23:36,029 - __main__ - INFO - SnpTickers.AZO, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:36,029 - __main__ - INFO - Asset 1: SnpTickers.AZO @$120.18 Quantity: -82 Value: -9854.76
+2020-07-03 22:23:36,029 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$106.74 Quantity: 93 Value: 9926.82
+2020-07-03 22:23:36,029 - __main__ - INFO - Cash balance: $76879.78877688944
+2020-07-03 22:23:37,545 - __main__ - INFO - Executing trades for 2008-07-07
+2020-07-03 22:23:37,607 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.PWR. Closing position...
+2020-07-03 22:23:37,607 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$18.33 Quantity: 591
+2020-07-03 22:23:37,607 - __main__ - INFO - Asset 2: SnpTickers.PWR @$29.74 Quantity: -267
+2020-07-03 22:23:37,607 - __main__ - INFO - Realised PnL for position: 1518.92
+2020-07-03 22:23:37,623 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:23:37,623 - __main__ - INFO - Asset 1: SnpTickers.AAP @$36.57 Quantity: 263
+2020-07-03 22:23:37,623 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$9.72 Quantity: -535
+2020-07-03 22:23:37,623 - __main__ - INFO - Realised PnL for position: -148.02
+2020-07-03 22:23:37,623 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:37,623 - __main__ - INFO - Asset 1: SnpTickers.AAP @$36.57 Quantity: -219
+2020-07-03 22:23:37,623 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$105.59 Quantity: 93
+2020-07-03 22:23:37,623 - __main__ - INFO - Realised PnL for position: -275.85
+2020-07-03 22:23:39,076 - __main__ - INFO - Executing trades for 2008-07-08
+2020-07-03 22:23:39,076 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:39,076 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.2 Quantity: -211 Value: -7849.81
+2020-07-03 22:23:39,076 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.84 Quantity: 92 Value: 9921.28
+2020-07-03 22:23:39,076 - __main__ - INFO - Cash balance: $83894.43271793635
+2020-07-03 22:23:39,076 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.LYV are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:39,076 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$19.06 Quantity: 524 Value: 9984.82
+2020-07-03 22:23:39,076 - __main__ - INFO - Asset 2: SnpTickers.LYV @$10.69 Quantity: -844 Value: -9022.36
+2020-07-03 22:23:39,076 - __main__ - INFO - Cash balance: $82922.46861111236
+2020-07-03 22:23:39,076 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:39,076 - __main__ - INFO - Asset 1: SnpTickers.A @$23.46 Quantity: 426 Value: 9993.76
+2020-07-03 22:23:39,076 - __main__ - INFO - Asset 2: SnpTickers.URI @$19.85 Quantity: -493 Value: -9786.05
+2020-07-03 22:23:39,076 - __main__ - INFO - Cash balance: $82704.86591260906
+2020-07-03 22:23:39,138 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:39,138 - __main__ - INFO - Asset 1: SnpTickers.A @$23.46 Quantity: -320
+2020-07-03 22:23:39,138 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.84 Quantity: 93
+2020-07-03 22:23:39,138 - __main__ - INFO - Realised PnL for position: -148.42
+2020-07-03 22:23:40,591 - __main__ - INFO - Executing trades for 2008-07-09
+2020-07-03 22:23:40,591 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:40,591 - __main__ - INFO - Asset 1: SnpTickers.A @$22.91 Quantity: -317 Value: -7262.82
+2020-07-03 22:23:40,591 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$109.13 Quantity: 91 Value: 9930.83
+2020-07-03 22:23:40,591 - __main__ - INFO - Cash balance: $82541.55409668537
+2020-07-03 22:23:40,638 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.LYV. Closing position...
+2020-07-03 22:23:40,653 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$18.92 Quantity: 524
+2020-07-03 22:23:40,653 - __main__ - INFO - Asset 2: SnpTickers.LYV @$10.16 Quantity: -844
+2020-07-03 22:23:40,653 - __main__ - INFO - Realised PnL for position: 379.2
+2020-07-03 22:23:42,075 - __main__ - INFO - Executing trades for 2008-07-10
+2020-07-03 22:23:42,075 - __main__ - INFO - SnpTickers.ALXN, SnpTickers.LYV are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:42,075 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$18.9 Quantity: 529 Value: 9995.46
+2020-07-03 22:23:42,075 - __main__ - INFO - Asset 2: SnpTickers.LYV @$10.04 Quantity: -899 Value: -9025.96
+2020-07-03 22:23:42,075 - __main__ - INFO - Cash balance: $82894.9619684041
+2020-07-03 22:23:43,543 - __main__ - INFO - Executing trades for 2008-07-11
+2020-07-03 22:23:43,590 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.URI. Closing position...
+2020-07-03 22:23:43,590 - __main__ - INFO - Asset 1: SnpTickers.A @$23.3 Quantity: 426
+2020-07-03 22:23:43,590 - __main__ - INFO - Asset 2: SnpTickers.URI @$19.28 Quantity: -493
+2020-07-03 22:23:43,590 - __main__ - INFO - Realised PnL for position: 214.26
+2020-07-03 22:23:43,590 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:43,590 - __main__ - INFO - Asset 1: SnpTickers.A @$23.3 Quantity: -317
+2020-07-03 22:23:43,590 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.41 Quantity: 91
+2020-07-03 22:23:43,590 - __main__ - INFO - Realised PnL for position: -280.71
+2020-07-03 22:23:45,043 - __main__ - INFO - Executing trades for 2008-07-14
+2020-07-03 22:23:45,043 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:45,043 - __main__ - INFO - Asset 1: SnpTickers.A @$22.94 Quantity: -316 Value: -7250.22
+2020-07-03 22:23:45,043 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.74 Quantity: 92 Value: 9912.08
+2020-07-03 22:23:45,043 - __main__ - INFO - Cash balance: $83015.50331790735
+2020-07-03 22:23:45,043 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:45,043 - __main__ - INFO - Asset 1: SnpTickers.A @$22.94 Quantity: -411 Value: -9429.87
+2020-07-03 22:23:45,043 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$21.12 Quantity: 473 Value: 9987.62
+2020-07-03 22:23:45,043 - __main__ - INFO - Cash balance: $82448.0531213428
+2020-07-03 22:23:45,121 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALB, SnpTickers.CTXS. Closing position...
+2020-07-03 22:23:45,121 - __main__ - INFO - Asset 1: SnpTickers.ALB @$32.06 Quantity: 281
+2020-07-03 22:23:45,121 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$20.87 Quantity: -390
+2020-07-03 22:23:45,121 - __main__ - INFO - Realised PnL for position: 304.07
+2020-07-03 22:23:46,621 - __main__ - INFO - Executing trades for 2008-07-15
+2020-07-03 22:23:46,621 - __main__ - INFO - SnpTickers.ALB, SnpTickers.CTXS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:46,621 - __main__ - INFO - Asset 1: SnpTickers.ALB @$32.64 Quantity: 306 Value: 9986.6
+2020-07-03 22:23:46,621 - __main__ - INFO - Asset 2: SnpTickers.CTXS @$20.94 Quantity: -450 Value: -9423.51
+2020-07-03 22:23:46,621 - __main__ - INFO - Cash balance: $82734.84006748961
+2020-07-03 22:23:48,120 - __main__ - INFO - Executing trades for 2008-07-16
+2020-07-03 22:23:49,620 - __main__ - INFO - Executing trades for 2008-07-17
+2020-07-03 22:23:49,667 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.APA, SnpTickers.CBRE. Closing position...
+2020-07-03 22:23:49,667 - __main__ - INFO - Asset 1: SnpTickers.APA @$93.17 Quantity: 85
+2020-07-03 22:23:49,667 - __main__ - INFO - Asset 2: SnpTickers.CBRE @$19.5 Quantity: -247
+2020-07-03 22:23:49,667 - __main__ - INFO - Realised PnL for position: -2061.09
+2020-07-03 22:23:49,667 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:49,667 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.34 Quantity: -211
+2020-07-03 22:23:49,667 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$111.23 Quantity: 92
+2020-07-03 22:23:49,667 - __main__ - INFO - Realised PnL for position: -139.7
+2020-07-03 22:23:51,104 - __main__ - INFO - Executing trades for 2008-07-18
+2020-07-03 22:23:51,104 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:51,104 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.5 Quantity: -198 Value: -7820.48
+2020-07-03 22:23:51,104 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$104.64 Quantity: 95 Value: 9940.8
+2020-07-03 22:23:51,104 - __main__ - INFO - Cash balance: $85624.70915529563
+2020-07-03 22:23:51,104 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:51,104 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.5 Quantity: 253 Value: 9992.83
+2020-07-03 22:23:51,104 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.31 Quantity: -526 Value: -5423.06
+2020-07-03 22:23:51,104 - __main__ - INFO - Cash balance: $81047.2283274341
+2020-07-03 22:23:51,151 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AZO, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:51,151 - __main__ - INFO - Asset 1: SnpTickers.AZO @$126.01 Quantity: -82
+2020-07-03 22:23:51,151 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$104.64 Quantity: 93
+2020-07-03 22:23:51,151 - __main__ - INFO - Realised PnL for position: -673.36
+2020-07-03 22:23:51,151 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:51,151 - __main__ - INFO - Asset 1: SnpTickers.A @$23.22 Quantity: -316
+2020-07-03 22:23:51,151 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$104.64 Quantity: 92
+2020-07-03 22:23:51,151 - __main__ - INFO - Realised PnL for position: -373.92
+2020-07-03 22:23:52,609 - __main__ - INFO - Executing trades for 2008-07-21
+2020-07-03 22:23:52,609 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:52,609 - __main__ - INFO - Asset 1: SnpTickers.A @$23.07 Quantity: -315 Value: -7266.35
+2020-07-03 22:23:52,609 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$101.0 Quantity: 99 Value: 9999.0
+2020-07-03 22:23:52,609 - __main__ - INFO - Cash balance: $79974.0734514081
+2020-07-03 22:23:52,609 - __main__ - INFO - SnpTickers.AZO, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:52,609 - __main__ - INFO - Asset 1: SnpTickers.AZO @$124.52 Quantity: -79 Value: -9837.08
+2020-07-03 22:23:52,609 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$101.0 Quantity: 99 Value: 9999.0
+2020-07-03 22:23:52,609 - __main__ - INFO - Cash balance: $79802.2351429424
+2020-07-03 22:23:52,672 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:23:52,672 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.98 Quantity: 253
+2020-07-03 22:23:52,672 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$9.83 Quantity: -526
+2020-07-03 22:23:52,672 - __main__ - INFO - Realised PnL for position: 120.77
+2020-07-03 22:23:54,109 - __main__ - INFO - Executing trades for 2008-07-22
+2020-07-03 22:23:54,109 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:54,109 - __main__ - INFO - Asset 1: SnpTickers.A @$22.94 Quantity: 435 Value: 9977.68
+2020-07-03 22:23:54,109 - __main__ - INFO - Asset 2: SnpTickers.URI @$17.5 Quantity: -559 Value: -9782.5
+2020-07-03 22:23:54,109 - __main__ - INFO - Cash balance: $84280.19942932478
+2020-07-03 22:23:55,671 - __main__ - INFO - Executing trades for 2008-07-23
+2020-07-03 22:23:55,718 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:55,718 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.99 Quantity: -198
+2020-07-03 22:23:55,718 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$101.37 Quantity: 95
+2020-07-03 22:23:55,718 - __main__ - INFO - Realised PnL for position: -408.0
+2020-07-03 22:23:55,718 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AZO, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:55,718 - __main__ - INFO - Asset 1: SnpTickers.AZO @$130.58 Quantity: -79
+2020-07-03 22:23:55,718 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$101.37 Quantity: 99
+2020-07-03 22:23:55,718 - __main__ - INFO - Realised PnL for position: -442.11
+2020-07-03 22:23:57,171 - __main__ - INFO - Executing trades for 2008-07-24
+2020-07-03 22:23:57,171 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:57,171 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.33 Quantity: -199 Value: -7827.36
+2020-07-03 22:23:57,171 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$100.51 Quantity: 99 Value: 9950.49
+2020-07-03 22:23:57,171 - __main__ - INFO - Cash balance: $83561.36288617855
+2020-07-03 22:23:57,171 - __main__ - INFO - SnpTickers.AZO, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:57,171 - __main__ - INFO - Asset 1: SnpTickers.AZO @$129.0 Quantity: -76 Value: -9804.0
+2020-07-03 22:23:57,171 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$100.51 Quantity: 99 Value: 9950.49
+2020-07-03 22:23:57,171 - __main__ - INFO - Cash balance: $83404.9954331746
+2020-07-03 22:23:57,218 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALXN, SnpTickers.ROST. Closing position...
+2020-07-03 22:23:57,218 - __main__ - INFO - Asset 1: SnpTickers.ALXN @$19.08 Quantity: -400
+2020-07-03 22:23:57,218 - __main__ - INFO - Asset 2: SnpTickers.ROST @$8.39 Quantity: 1201
+2020-07-03 22:23:57,218 - __main__ - INFO - Realised PnL for position: -645.29
+2020-07-03 22:23:57,218 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.URI. Closing position...
+2020-07-03 22:23:57,218 - __main__ - INFO - Asset 1: SnpTickers.A @$23.3 Quantity: 435
+2020-07-03 22:23:57,218 - __main__ - INFO - Asset 2: SnpTickers.URI @$17.14 Quantity: -559
+2020-07-03 22:23:57,218 - __main__ - INFO - Realised PnL for position: 360.29
+2020-07-03 22:23:58,702 - __main__ - INFO - Executing trades for 2008-07-25
+2020-07-03 22:23:58,702 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:58,702 - __main__ - INFO - Asset 1: SnpTickers.A @$23.64 Quantity: 422 Value: 9977.07
+2020-07-03 22:23:58,702 - __main__ - INFO - Asset 2: SnpTickers.URI @$17.32 Quantity: -565 Value: -9785.8
+2020-07-03 22:23:58,702 - __main__ - INFO - Cash balance: $86186.18342455951
+2020-07-03 22:23:58,702 - __main__ - INFO - SnpTickers.AGN, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:23:58,702 - __main__ - INFO - Asset 1: SnpTickers.AGN @$27.5 Quantity: -276 Value: -7589.1
+2020-07-03 22:23:58,702 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$100.53 Quantity: 99 Value: 9952.47
+2020-07-03 22:23:58,702 - __main__ - INFO - Cash balance: $83814.0473017461
+2020-07-03 22:23:58,764 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:23:58,764 - __main__ - INFO - Asset 1: SnpTickers.A @$23.64 Quantity: -315
+2020-07-03 22:23:58,764 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$100.53 Quantity: 99
+2020-07-03 22:23:58,764 - __main__ - INFO - Realised PnL for position: -227.52
+2020-07-03 22:24:00,201 - __main__ - INFO - Executing trades for 2008-07-28
+2020-07-03 22:24:00,201 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:24:00,201 - __main__ - INFO - Asset 1: SnpTickers.A @$23.39 Quantity: -310 Value: -7252.22
+2020-07-03 22:24:00,201 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$106.5 Quantity: 93 Value: 9904.5
+2020-07-03 22:24:00,201 - __main__ - INFO - Cash balance: $83649.61190944628
+2020-07-03 22:24:00,279 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.ALB, SnpTickers.BKNG. Closing position...
+2020-07-03 22:24:00,279 - __main__ - INFO - Asset 1: SnpTickers.ALB @$30.3 Quantity: -210
+2020-07-03 22:24:00,279 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$106.5 Quantity: 78
+2020-07-03 22:24:00,279 - __main__ - INFO - Realised PnL for position: -220.84
+2020-07-03 22:24:01,701 - __main__ - INFO - Executing trades for 2008-07-29
+2020-07-03 22:24:01,701 - __main__ - INFO - SnpTickers.ABC, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:24:01,701 - __main__ - INFO - Asset 1: SnpTickers.ABC @$17.62 Quantity: -402 Value: -7081.41
+2020-07-03 22:24:01,701 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$107.75 Quantity: 92 Value: 9913.0
+2020-07-03 22:24:01,701 - __main__ - INFO - Cash balance: $82746.05002933681
+2020-07-03 22:24:03,216 - __main__ - INFO - Executing trades for 2008-07-30
+2020-07-03 22:24:03,294 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.URI. Closing position...
+2020-07-03 22:24:03,294 - __main__ - INFO - Asset 1: SnpTickers.A @$23.97 Quantity: 422
+2020-07-03 22:24:03,294 - __main__ - INFO - Asset 2: SnpTickers.URI @$16.0 Quantity: -565
+2020-07-03 22:24:03,294 - __main__ - INFO - Realised PnL for position: 883.57
+2020-07-03 22:24:04,731 - __main__ - INFO - Executing trades for 2008-07-31
+2020-07-03 22:24:04,731 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:24:04,731 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.61 Quantity: 252 Value: 9982.49
+2020-07-03 22:24:04,731 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$7.39 Quantity: -735 Value: -5431.65
+2020-07-03 22:24:04,731 - __main__ - INFO - Cash balance: $79252.77109781247
+2020-07-03 22:24:06,294 - __main__ - INFO - Executing trades for 2008-08-01
+2020-07-03 22:24:06,340 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.SNPS. Closing position...
+2020-07-03 22:24:06,340 - __main__ - INFO - Asset 1: SnpTickers.A @$23.41 Quantity: -415
+2020-07-03 22:24:06,340 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$23.63 Quantity: 421
+2020-07-03 22:24:06,340 - __main__ - INFO - Realised PnL for position: -186.01
+2020-07-03 22:24:06,356 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:24:06,356 - __main__ - INFO - Asset 1: SnpTickers.AAP @$40.49 Quantity: 252
+2020-07-03 22:24:06,356 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$7.11 Quantity: -735
+2020-07-03 22:24:06,356 - __main__ - INFO - Realised PnL for position: 426.87
+2020-07-03 22:24:07,824 - __main__ - INFO - Executing trades for 2008-08-04
+2020-07-03 22:24:07,824 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:24:07,824 - __main__ - INFO - Asset 1: SnpTickers.A @$23.07 Quantity: 433 Value: 9991.18
+2020-07-03 22:24:07,824 - __main__ - INFO - Asset 2: SnpTickers.URI @$16.09 Quantity: -608 Value: -9782.72
+2020-07-03 22:24:07,824 - __main__ - INFO - Cash balance: $84226.07428922821
+2020-07-03 22:24:07,824 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:24:07,824 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.86 Quantity: 250 Value: 9965.93
+2020-07-03 22:24:07,824 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$7.13 Quantity: -761 Value: -5425.93
+2020-07-03 22:24:07,824 - __main__ - INFO - Cash balance: $79678.38227785385

@@ -1,7 +1,6 @@
 import time
 from datetime import datetime, date, timedelta
 from logging import Logger
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -194,7 +193,7 @@ class Portfolio:
 
     def summary(self):
         prc_hist = self.get_port_hist()['total_capital']
-        date_parser = lambda x: pd.datetime.strptime(x, '%d/%m/%Y')
+        date_parser = lambda x: datetime.strptime(x, '%d/%m/%Y')
 
         yearly_to_daily = lambda x: x / 365
         pct_to_num = lambda x: x / 100
@@ -229,23 +228,7 @@ class Portfolio:
         plt.ylabel("Total Capital")
         plt.legend(loc=r"best")
         plt.tight_layout()
-        plt.savefig(f"../results/{time.time()}_total_capital.png", dpi=200)
-
-        plt.figure(2, figsize=(10,7))
-        plt.plot(all_history.index, normalise(all_history["realised_pnl"]), label=r"Portfolio")
-        plt.xlabel("Date")
-        plt.ylabel("Realised Pnl")
-        # plt.legend(loc=r"best")
-        plt.tight_layout()
-        plt.savefig(f"../results/{time.time()}_realised_pnl.png", dpi=200)
-
-        plt.figure(3, figsize=(10,7))
-        plt.plot(all_history.index, normalise(all_history["active_pairs"]), label=r"Portfolio")
-        plt.xlabel("Date")
-        plt.ylabel("Active Pairs")
-        # plt.legend(loc=r"best")
-        plt.tight_layout()
-        plt.savefig(f"../results/{time.time()}_active_pairs.png", dpi=200)
+        plt.savefig("{time.time()}_total_capital.png", dpi=200)
 
         plt.show()
 

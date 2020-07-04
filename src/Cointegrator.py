@@ -1,4 +1,3 @@
-from enum import Enum, unique
 import itertools
 from enum import Enum, unique
 from fractions import Fraction
