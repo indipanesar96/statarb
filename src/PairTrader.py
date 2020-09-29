@@ -1,7 +1,11 @@
+
+
 import logging
 import time
 from datetime import date, timedelta, datetime
 from typing import Optional
+import sys
+sys.path.append('F:\Code\Python\statarb')
 
 from src.Clusterer import Clusterer
 from src.Cointegrator import Cointegrator, AdfPrecisions
@@ -11,7 +15,6 @@ from src.Portfolio import Portfolio
 from src.RiskManager import RiskManager
 from src.SignalGenerator import SignalGenerator
 from src.Window import Window
-import sys
 
 class PairTrader:
 
@@ -95,7 +98,7 @@ class PairTrader:
                 is_window_end_or_halfway = (self.day_count % self.window_length.days) == \
                                            (0 or int(self.window_length.days / 2))
 
-                if is_window_end_or_halfway:
+                if is_window_end_or_halfway or self.last_traded_date is None:
                     print("Clustering...")
                     clusters = self.clusterer.dbscan(self.today, eps=0.0925, min_samples=2, window=self.current_window)
                     print("Cointegrating...")
@@ -126,6 +129,7 @@ class PairTrader:
 
 
 if __name__ == '__main__':
+
     start_time = time.time()
     logging.basicConfig(filename='log' + datetime.now().strftime("%Y%M%d%H%M%S"),
                         filemode='a',
@@ -136,14 +140,14 @@ if __name__ == '__main__':
 
     PairTrader(
         # fundamental starts at 2016 2nd quarter
-        backtest_start=date(2016, 9, 1),  # must be a trading day
+        backtest_start=date(2008, 1, 2),  # must be a trading day
         trading_window_length=timedelta(days=60),  # 63 trading days per quarter
         trading_freq=timedelta(days=1),
-        target_number_of_coint_pairs=100,
+        target_number_of_coint_pairs=150,
         max_active_pairs=10,  # how many pairs (positions) we allow ourselves to have open at any one time
         logger=global_logger,
         hurst_exp_threshold=0.20,
-        backtest_end=date(2018, 3, 31),
+        backtest_end=date(2019, 12, 31),
         adf_confidence_level=AdfPrecisions.ONE_PCT,
         max_mean_rev_time=15,  # any pairs that mean revert slower than this (number larger), we don't want
         entry_z=2,  # how many stds the residual is from mean in order for us to open
@@ -153,48 +157,7 @@ if __name__ == '__main__':
     ).trade()
 
     print(f"Backtest took {time.time() - start_time:.4f}s to run.")
-    sys.exit()
 
-    t1 = time.time()
-
-    PairTrader(
-        # fundamental starts at 2016 2nd quarter
-        backtest_start=date(2008, 1, 2),  # must be a trading day
-        trading_window_length=timedelta(days=60),  # 63 trading days per quarter
-        trading_freq=timedelta(days=1),  # 63 trading days per quarter
-        target_number_of_coint_pairs=200,
-        max_active_pairs=10,  # how many pairs (positions) we allow ourselves to have open at any one time
-        logger=global_logger,
-        backtest_end=date(2019, 12, 31),
-        adf_confidence_level=AdfPrecisions.ONE_PCT,
-        max_mean_rev_time=15,  # any pairs that mean revert slower than this (number larger), we don't want
-        entry_z=2.5,  # how many stds the residual is from mean in order for us to open
-        exit_z=0.5,  # when to close, in units of std
-        emergency_delta_z=1  # true value is z = entry_z + emergency_delta_z
-        # when to exit in an emergency, as each stock in the pair is deviating further from the other
-    ).trade()
-
-    print(f"Backtest took {time.time() - t1:.4f}s to run.")
-    t2 = time.time()
-
-    PairTrader(
-        # fundamental starts at 2016 2nd quarter
-        backtest_start=date(2008, 1, 2),  # must be a trading day
-        trading_window_length=timedelta(days=60),  # 63 trading days per quarter
-        target_number_of_coint_pairs=200,
-        trading_freq=timedelta(days=1),  # 63 trading days per quarter
-        max_active_pairs=10,  # how many pairs (positions) we allow ourselves to have open at any one time
-        logger=global_logger,
-        backtest_end=date(2019, 12, 31),
-        adf_confidence_level=AdfPrecisions.ONE_PCT,
-        max_mean_rev_time=30,  # any pairs that mean revert slower than this (number larger), we don't want
-        entry_z=2.5,  # how many stds the residual is from mean in order for us to open
-        exit_z=0.5,  # when to close, in units of std
-        emergency_delta_z=1  # true value is z = entry_z + emergency_delta_z
-        # when to exit in an emergency, as each stock in the pair is deviating further from the other
-    ).trade()
-
-    print(f"Backtest took {time.time() - t2:.4f}s to run.")
 
 # DONE ----- 7) FEATURE ENGINEERING
 # DONE ----- 5) CLUSTERING

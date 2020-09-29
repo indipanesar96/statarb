@@ -37,6 +37,7 @@ def get_performance_stats(prices, rf):
 	# Returns (decimal form): (P_{t} - P_{t-1}) / P_{t-1}
 	# Total Cumulative Return (decimal form): (P_{T} - P_{0}) / P_{0}
 	# DataFrame.shape gives size ( [0] means across 1st dim, ie rows); equivalent of saying len(prices) )
+	# DataFrame.shape gives size ( [0] means across 1st dim, ie rows); equivalent of saying len(prices) )
 
 	lastIndex = prices.shape[0] - 1  # need - 1 since array referencing starts from 0
 	P_Last = prices[lastIndex]

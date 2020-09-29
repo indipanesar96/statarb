@@ -15,6 +15,8 @@ from src.DataRepository import Universes
 from src.Window import Window
 from src.util.Features import Features
 from src.util.Tickers import Tickers
+from src.util.util import get_universe_from_ticker
+
 
 
 class CointegratedPair:
@@ -85,12 +87,20 @@ class Cointegrator:
         for cluster in tickers_per_cluster:
             for pair in itertools.combinations(list(cluster), 2):
 
+
                 t1 = current_window.get_data(universe=Universes.SNP,
                                              tickers=[pair[0]],
                                              features=[Features.CLOSE])
                 t2 = current_window.get_data(universe=Universes.SNP,
                                              tickers=[pair[1]],
                                              features=[Features.CLOSE])
+
+                # t1 = current_window.get_data(universe=get_universe_from_ticker(pair[0]),
+                #                              tickers=[pair[0]],
+                #                              features=[Features.CLOSE])
+                # t2 = current_window.get_data(universe=get_universe_from_ticker(pair[1]),
+                #                              tickers=[pair[1]],
+                #                              features=[Features.CLOSE])
 
                 try:
                     # sometimes there are no price data, in which case, skip

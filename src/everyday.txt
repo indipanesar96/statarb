@@ -1,0 +1,4719 @@
+Today: 2008-03-28       Win Start: 2008-01-02   Win End: 2008-03-28
+
+Clustering...
+Cointegrating...
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 100024.1681      Cum Return: 0.000242
+Today: 2008-03-31       Win Start: 2008-01-03   Win End: 2008-03-31
+
+Total Capital: 100152.6503      Cum Return: 0.001525
+Today: 2008-04-01       Win Start: 2008-01-04   Win End: 2008-04-01
+
+Total Capital: 100112.2837      Cum Return: 0.001122
+Today: 2008-04-02       Win Start: 2008-01-07   Win End: 2008-04-02
+
+Total Capital: 100042.9252      Cum Return: 0.000429
+Today: 2008-04-03       Win Start: 2008-01-08   Win End: 2008-04-03
+
+Total Capital: 100588.3492      Cum Return: 0.005866
+Today: 2008-04-04       Win Start: 2008-01-09   Win End: 2008-04-04
+
+Total Capital: 100077.7720      Cum Return: 0.000777
+Today: 2008-04-07       Win Start: 2008-01-10   Win End: 2008-04-07
+
+Total Capital: 99844.4870       Cum Return: -0.001556
+Today: 2008-04-08       Win Start: 2008-01-11   Win End: 2008-04-08
+
+Total Capital: 100024.8015      Cum Return: 0.000248
+Today: 2008-04-09       Win Start: 2008-01-14   Win End: 2008-04-09
+
+Total Capital: 99483.0353       Cum Return: -0.005183
+Today: 2008-04-10       Win Start: 2008-01-15   Win End: 2008-04-10
+
+Total Capital: 99393.1983       Cum Return: -0.006087
+Today: 2008-04-11       Win Start: 2008-01-16   Win End: 2008-04-11
+
+Total Capital: 99642.3288       Cum Return: -0.003583
+Today: 2008-04-14       Win Start: 2008-01-17   Win End: 2008-04-14
+
+Total Capital: 99514.6140       Cum Return: -0.004866
+Today: 2008-04-15       Win Start: 2008-01-18   Win End: 2008-04-15
+
+Total Capital: 99592.7087       Cum Return: -0.004081
+Today: 2008-04-16       Win Start: 2008-01-22   Win End: 2008-04-16
+
+Total Capital: 99490.8733       Cum Return: -0.005104
+Today: 2008-04-17       Win Start: 2008-01-23   Win End: 2008-04-17
+
+Total Capital: 98969.3186       Cum Return: -0.010360
+Today: 2008-04-18       Win Start: 2008-01-24   Win End: 2008-04-18
+
+Total Capital: 98800.4336       Cum Return: -0.012068
+Today: 2008-04-21       Win Start: 2008-01-25   Win End: 2008-04-21
+
+Total Capital: 98835.5030       Cum Return: -0.011713
+Today: 2008-04-22       Win Start: 2008-01-28   Win End: 2008-04-22
+
+Total Capital: 98615.1941       Cum Return: -0.013945
+Today: 2008-04-23       Win Start: 2008-01-29   Win End: 2008-04-23
+
+Total Capital: 97879.2780       Cum Return: -0.021435
+Today: 2008-04-24       Win Start: 2008-01-30   Win End: 2008-04-24
+
+Total Capital: 97135.6846       Cum Return: -0.029061
+Today: 2008-04-25       Win Start: 2008-01-31   Win End: 2008-04-25
+
+Total Capital: 98030.5532       Cum Return: -0.019891
+Today: 2008-04-28       Win Start: 2008-02-01   Win End: 2008-04-28
+
+Total Capital: 97365.5281       Cum Return: -0.026698
+Today: 2008-04-29       Win Start: 2008-02-04   Win End: 2008-04-29
+
+Total Capital: 97730.5238       Cum Return: -0.022956
+Today: 2008-04-30       Win Start: 2008-02-05   Win End: 2008-04-30
+
+Total Capital: 97948.8654       Cum Return: -0.020725
+Today: 2008-05-01       Win Start: 2008-02-06   Win End: 2008-05-01
+
+Total Capital: 98349.0284       Cum Return: -0.016648
+Today: 2008-05-02       Win Start: 2008-02-07   Win End: 2008-05-02
+
+Total Capital: 98319.1615       Cum Return: -0.016951
+Today: 2008-05-05       Win Start: 2008-02-08   Win End: 2008-05-05
+
+Total Capital: 98112.8867       Cum Return: -0.019051
+Today: 2008-05-06       Win Start: 2008-02-11   Win End: 2008-05-06
+
+Total Capital: 98400.8966       Cum Return: -0.016120
+Today: 2008-05-07       Win Start: 2008-02-12   Win End: 2008-05-07
+
+Total Capital: 98298.5154       Cum Return: -0.017161
+Today: 2008-05-08       Win Start: 2008-02-13   Win End: 2008-05-08
+
+Total Capital: 97890.7509       Cum Return: -0.021318
+Today: 2008-05-09       Win Start: 2008-02-14   Win End: 2008-05-09
+
+Clustering...
+Cointegrating...
+Total Capital: 97843.8159       Cum Return: -0.021798
+Today: 2008-05-12       Win Start: 2008-02-15   Win End: 2008-05-12
+
+Total Capital: 97565.9410       Cum Return: -0.024642
+Today: 2008-05-13       Win Start: 2008-02-19   Win End: 2008-05-13
+
+Total Capital: 96876.7198       Cum Return: -0.031731
+Today: 2008-05-14       Win Start: 2008-02-20   Win End: 2008-05-14
+
+Total Capital: 96742.2641       Cum Return: -0.033120
+Today: 2008-05-15       Win Start: 2008-02-21   Win End: 2008-05-15
+
+Total Capital: 98541.9938       Cum Return: -0.014687
+Today: 2008-05-16       Win Start: 2008-02-22   Win End: 2008-05-16
+
+Total Capital: 98545.7529       Cum Return: -0.014649
+Today: 2008-05-19       Win Start: 2008-02-25   Win End: 2008-05-19
+
+Total Capital: 99210.5288       Cum Return: -0.007926
+Today: 2008-05-20       Win Start: 2008-02-26   Win End: 2008-05-20
+
+Total Capital: 98512.6244       Cum Return: -0.014985
+Today: 2008-05-21       Win Start: 2008-02-27   Win End: 2008-05-21
+
+Total Capital: 98528.8635       Cum Return: -0.014821
+Today: 2008-05-22       Win Start: 2008-02-28   Win End: 2008-05-22
+
+Total Capital: 98273.4434       Cum Return: -0.017416
+Today: 2008-05-23       Win Start: 2008-02-29   Win End: 2008-05-23
+
+Total Capital: 98212.1361       Cum Return: -0.018040
+Today: 2008-05-27       Win Start: 2008-03-03   Win End: 2008-05-27
+
+Total Capital: 98864.8085       Cum Return: -0.011417
+Today: 2008-05-28       Win Start: 2008-03-04   Win End: 2008-05-28
+
+Total Capital: 98560.4709       Cum Return: -0.014500
+Today: 2008-05-29       Win Start: 2008-03-05   Win End: 2008-05-29
+
+Total Capital: 98664.4647       Cum Return: -0.013445
+Today: 2008-05-30       Win Start: 2008-03-06   Win End: 2008-05-30
+
+Total Capital: 98361.2221       Cum Return: -0.016524
+Today: 2008-06-02       Win Start: 2008-03-07   Win End: 2008-06-02
+
+Total Capital: 98105.8905       Cum Return: -0.019123
+Today: 2008-06-03       Win Start: 2008-03-10   Win End: 2008-06-03
+
+Total Capital: 98177.7976       Cum Return: -0.018390
+Today: 2008-06-04       Win Start: 2008-03-11   Win End: 2008-06-04
+
+Total Capital: 98298.0345       Cum Return: -0.017166
+Today: 2008-06-05       Win Start: 2008-03-12   Win End: 2008-06-05
+
+Total Capital: 97730.5232       Cum Return: -0.022956
+Today: 2008-06-06       Win Start: 2008-03-13   Win End: 2008-06-06
+
+Total Capital: 96440.3885       Cum Return: -0.036245
+Today: 2008-06-09       Win Start: 2008-03-14   Win End: 2008-06-09
+
+Total Capital: 96401.4812       Cum Return: -0.036649
+Today: 2008-06-10       Win Start: 2008-03-17   Win End: 2008-06-10
+
+Total Capital: 95784.1782       Cum Return: -0.043073
+Today: 2008-06-11       Win Start: 2008-03-18   Win End: 2008-06-11
+
+Total Capital: 95886.5723       Cum Return: -0.042004
+Today: 2008-06-12       Win Start: 2008-03-19   Win End: 2008-06-12
+
+Total Capital: 96365.4516       Cum Return: -0.037022
+Today: 2008-06-13       Win Start: 2008-03-20   Win End: 2008-06-13
+
+Total Capital: 95939.0237       Cum Return: -0.041457
+Today: 2008-06-16       Win Start: 2008-03-24   Win End: 2008-06-16
+
+Total Capital: 95827.6583       Cum Return: -0.042619
+Today: 2008-06-17       Win Start: 2008-03-25   Win End: 2008-06-17
+
+Total Capital: 96629.4682       Cum Return: -0.034286
+Today: 2008-06-18       Win Start: 2008-03-26   Win End: 2008-06-18
+
+Total Capital: 96499.6594       Cum Return: -0.035631
+Today: 2008-06-19       Win Start: 2008-03-27   Win End: 2008-06-19
+
+Total Capital: 96516.3887       Cum Return: -0.035457
+Today: 2008-06-20       Win Start: 2008-03-28   Win End: 2008-06-20
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 97012.8579       Cum Return: -0.030327
+Today: 2008-06-23       Win Start: 2008-03-31   Win End: 2008-06-23
+
+Total Capital: 97015.8240       Cum Return: -0.030296
+Today: 2008-06-24       Win Start: 2008-04-01   Win End: 2008-06-24
+
+Total Capital: 97276.0172       Cum Return: -0.027618
+Today: 2008-06-25       Win Start: 2008-04-02   Win End: 2008-06-25
+
+Total Capital: 97596.5185       Cum Return: -0.024328
+Today: 2008-06-26       Win Start: 2008-04-03   Win End: 2008-06-26
+
+Total Capital: 98000.1947       Cum Return: -0.020201
+Today: 2008-06-27       Win Start: 2008-04-04   Win End: 2008-06-27
+
+Total Capital: 96311.4217       Cum Return: -0.037583
+Today: 2008-06-30       Win Start: 2008-04-07   Win End: 2008-06-30
+
+Total Capital: 97185.1883       Cum Return: -0.028552
+Today: 2008-07-01       Win Start: 2008-04-08   Win End: 2008-07-01
+
+Total Capital: 96732.9149       Cum Return: -0.033216
+Today: 2008-07-02       Win Start: 2008-04-09   Win End: 2008-07-02
+
+Total Capital: 96676.6311       Cum Return: -0.033798
+Today: 2008-07-03       Win Start: 2008-04-10   Win End: 2008-07-03
+
+Total Capital: 96542.1689       Cum Return: -0.035190
+Today: 2008-07-07       Win Start: 2008-04-11   Win End: 2008-07-07
+
+Total Capital: 96965.6586       Cum Return: -0.030813
+Today: 2008-07-08       Win Start: 2008-04-14   Win End: 2008-07-08
+
+Total Capital: 97676.1931       Cum Return: -0.023512
+Today: 2008-07-09       Win Start: 2008-04-15   Win End: 2008-07-09
+
+Total Capital: 98137.8210       Cum Return: -0.018797
+Today: 2008-07-10       Win Start: 2008-04-16   Win End: 2008-07-10
+
+Total Capital: 97238.6755       Cum Return: -0.028002
+Today: 2008-07-11       Win Start: 2008-04-17   Win End: 2008-07-11
+
+Total Capital: 97365.7539       Cum Return: -0.026696
+Today: 2008-07-14       Win Start: 2008-04-18   Win End: 2008-07-14
+
+Total Capital: 97048.2965       Cum Return: -0.029961
+Today: 2008-07-15       Win Start: 2008-04-21   Win End: 2008-07-15
+
+Total Capital: 97583.4109       Cum Return: -0.024463
+Today: 2008-07-16       Win Start: 2008-04-22   Win End: 2008-07-16
+
+Total Capital: 95583.1027       Cum Return: -0.045174
+Today: 2008-07-17       Win Start: 2008-04-23   Win End: 2008-07-17
+
+Total Capital: 94127.5683       Cum Return: -0.060519
+Today: 2008-07-18       Win Start: 2008-04-24   Win End: 2008-07-18
+
+Total Capital: 94038.3239       Cum Return: -0.061468
+Today: 2008-07-21       Win Start: 2008-04-25   Win End: 2008-07-21
+
+Total Capital: 94006.3437       Cum Return: -0.061808
+Today: 2008-07-22       Win Start: 2008-04-28   Win End: 2008-07-22
+
+Total Capital: 91735.7978       Cum Return: -0.086258
+Today: 2008-07-23       Win Start: 2008-04-29   Win End: 2008-07-23
+
+Total Capital: 92084.6146       Cum Return: -0.082462
+Today: 2008-07-24       Win Start: 2008-04-30   Win End: 2008-07-24
+
+Total Capital: 92906.3080       Cum Return: -0.073579
+Today: 2008-07-25       Win Start: 2008-05-01   Win End: 2008-07-25
+
+Total Capital: 94871.2392       Cum Return: -0.052650
+Today: 2008-07-28       Win Start: 2008-05-02   Win End: 2008-07-28
+
+Total Capital: 94443.7666       Cum Return: -0.057166
+Today: 2008-07-29       Win Start: 2008-05-05   Win End: 2008-07-29
+
+Total Capital: 95741.4035       Cum Return: -0.043519
+Today: 2008-07-30       Win Start: 2008-05-06   Win End: 2008-07-30
+
+Total Capital: 98147.6548       Cum Return: -0.018697
+Today: 2008-07-31       Win Start: 2008-05-07   Win End: 2008-07-31
+
+Total Capital: 98281.5970       Cum Return: -0.017333
+Today: 2008-08-01       Win Start: 2008-05-08   Win End: 2008-08-01
+
+Total Capital: 96939.7450       Cum Return: -0.031081
+Today: 2008-08-04       Win Start: 2008-05-09   Win End: 2008-08-04
+
+Total Capital: 96952.7647       Cum Return: -0.030946
+Today: 2008-08-05       Win Start: 2008-05-12   Win End: 2008-08-05
+
+Clustering...
+Cointegrating...
+Total Capital: 96900.5927       Cum Return: -0.031485
+Today: 2008-08-06       Win Start: 2008-05-13   Win End: 2008-08-06
+
+Total Capital: 96900.5927       Cum Return: -0.031485
+Today: 2008-08-07       Win Start: 2008-05-14   Win End: 2008-08-07
+
+Total Capital: 96862.2634       Cum Return: -0.031880
+Today: 2008-08-08       Win Start: 2008-05-15   Win End: 2008-08-08
+
+Total Capital: 96758.4344       Cum Return: -0.032953
+Today: 2008-08-11       Win Start: 2008-05-16   Win End: 2008-08-11
+
+Total Capital: 96606.5974       Cum Return: -0.034523
+Today: 2008-08-12       Win Start: 2008-05-19   Win End: 2008-08-12
+
+Total Capital: 97143.7281       Cum Return: -0.028979
+Today: 2008-08-13       Win Start: 2008-05-20   Win End: 2008-08-13
+
+Total Capital: 97560.7087       Cum Return: -0.024695
+Today: 2008-08-14       Win Start: 2008-05-21   Win End: 2008-08-14
+
+Total Capital: 97991.0258       Cum Return: -0.020294
+Today: 2008-08-15       Win Start: 2008-05-22   Win End: 2008-08-15
+
+Total Capital: 97870.1552       Cum Return: -0.021529
+Today: 2008-08-18       Win Start: 2008-05-23   Win End: 2008-08-18
+
+Total Capital: 98230.1123       Cum Return: -0.017857
+Traceback (most recent call last):
+  File "PairTraderLocal.py", line 157, in <module>
+    emergency_delta_z=1  # true value is z = entry_z + emergency_del
+  File "PairTraderLocal.py", line 119, in trade
+    print(f"Days Traded: {self.day_count}\t Time taken: {(time.time(
+ValueError: Format specifier missing precision
+
+indy_@INDI F:\Code\Python\statarb\src
+# python PairTraderLocal.py
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Today: 2008-03-28       Win Start: 2008-01-02   Win End: 2008-03-28
+
+Clustering...
+Cointegrating...
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 100024.1681      Cum Return: 0.000242
+Today: 2008-03-31       Win Start: 2008-01-03   Win End: 2008-03-31
+
+Total Capital: 100152.6503      Cum Return: 0.001525
+Today: 2008-04-01       Win Start: 2008-01-04   Win End: 2008-04-01
+
+Total Capital: 100112.2837      Cum Return: 0.001122
+Today: 2008-04-02       Win Start: 2008-01-07   Win End: 2008-04-02
+
+Total Capital: 100042.9252      Cum Return: 0.000429
+Today: 2008-04-03       Win Start: 2008-01-08   Win End: 2008-04-03
+
+Total Capital: 100588.3492      Cum Return: 0.005866
+Today: 2008-04-04       Win Start: 2008-01-09   Win End: 2008-04-04
+
+Total Capital: 100077.7720      Cum Return: 0.000777
+Today: 2008-04-07       Win Start: 2008-01-10   Win End: 2008-04-07
+
+Total Capital: 99844.4870       Cum Return: -0.001556
+Today: 2008-04-08       Win Start: 2008-01-11   Win End: 2008-04-08
+
+Total Capital: 100024.8015      Cum Return: 0.000248
+Today: 2008-04-09       Win Start: 2008-01-14   Win End: 2008-04-09
+
+Total Capital: 99483.0353       Cum Return: -0.005183
+Today: 2008-04-10       Win Start: 2008-01-15   Win End: 2008-04-10
+
+Total Capital: 99393.1983       Cum Return: -0.006087
+Today: 2008-04-11       Win Start: 2008-01-16   Win End: 2008-04-11
+
+Total Capital: 99642.3288       Cum Return: -0.003583
+Today: 2008-04-14       Win Start: 2008-01-17   Win End: 2008-04-14
+
+Total Capital: 99514.6140       Cum Return: -0.004866
+Today: 2008-04-15       Win Start: 2008-01-18   Win End: 2008-04-15
+
+Total Capital: 99592.7087       Cum Return: -0.004081
+Today: 2008-04-16       Win Start: 2008-01-22   Win End: 2008-04-16
+
+Total Capital: 99490.8733       Cum Return: -0.005104
+Today: 2008-04-17       Win Start: 2008-01-23   Win End: 2008-04-17
+
+Total Capital: 98969.3186       Cum Return: -0.010360
+Today: 2008-04-18       Win Start: 2008-01-24   Win End: 2008-04-18
+
+Total Capital: 98800.4336       Cum Return: -0.012068
+Today: 2008-04-21       Win Start: 2008-01-25   Win End: 2008-04-21
+
+Total Capital: 98835.5030       Cum Return: -0.011713
+Today: 2008-04-22       Win Start: 2008-01-28   Win End: 2008-04-22
+
+Total Capital: 98615.1941       Cum Return: -0.013945
+Today: 2008-04-23       Win Start: 2008-01-29   Win End: 2008-04-23
+
+Total Capital: 97879.2780       Cum Return: -0.021435
+Today: 2008-04-24       Win Start: 2008-01-30   Win End: 2008-04-24
+
+Total Capital: 97135.6846       Cum Return: -0.029061
+Today: 2008-04-25       Win Start: 2008-01-31   Win End: 2008-04-25
+
+Total Capital: 98030.5532       Cum Return: -0.019891
+Today: 2008-04-28       Win Start: 2008-02-01   Win End: 2008-04-28
+
+Total Capital: 97365.5281       Cum Return: -0.026698
+Today: 2008-04-29       Win Start: 2008-02-04   Win End: 2008-04-29
+
+Total Capital: 97730.5238       Cum Return: -0.022956
+Today: 2008-04-30       Win Start: 2008-02-05   Win End: 2008-04-30
+
+Total Capital: 97948.8654       Cum Return: -0.020725
+Today: 2008-05-01       Win Start: 2008-02-06   Win End: 2008-05-01
+
+Total Capital: 98349.0284       Cum Return: -0.016648
+Today: 2008-05-02       Win Start: 2008-02-07   Win End: 2008-05-02
+
+Total Capital: 98319.1615       Cum Return: -0.016951
+Today: 2008-05-05       Win Start: 2008-02-08   Win End: 2008-05-05
+
+Total Capital: 98112.8867       Cum Return: -0.019051
+Today: 2008-05-06       Win Start: 2008-02-11   Win End: 2008-05-06
+
+Total Capital: 98400.8966       Cum Return: -0.016120
+Today: 2008-05-07       Win Start: 2008-02-12   Win End: 2008-05-07
+
+Total Capital: 98298.5154       Cum Return: -0.017161
+Today: 2008-05-08       Win Start: 2008-02-13   Win End: 2008-05-08
+
+Total Capital: 97890.7509       Cum Return: -0.021318
+Today: 2008-05-09       Win Start: 2008-02-14   Win End: 2008-05-09
+
+Clustering...
+Cointegrating...
+Total Capital: 97843.8159       Cum Return: -0.021798
+Today: 2008-05-12       Win Start: 2008-02-15   Win End: 2008-05-12
+
+Total Capital: 97565.9410       Cum Return: -0.024642
+Today: 2008-05-13       Win Start: 2008-02-19   Win End: 2008-05-13
+
+Total Capital: 96876.7198       Cum Return: -0.031731
+Today: 2008-05-14       Win Start: 2008-02-20   Win End: 2008-05-14
+
+Total Capital: 96742.2641       Cum Return: -0.033120
+Today: 2008-05-15       Win Start: 2008-02-21   Win End: 2008-05-15
+
+Total Capital: 98541.9938       Cum Return: -0.014687
+Today: 2008-05-16       Win Start: 2008-02-22   Win End: 2008-05-16
+
+Total Capital: 98545.7529       Cum Return: -0.014649
+Today: 2008-05-19       Win Start: 2008-02-25   Win End: 2008-05-19
+
+Total Capital: 99210.5288       Cum Return: -0.007926
+Today: 2008-05-20       Win Start: 2008-02-26   Win End: 2008-05-20
+
+Total Capital: 98512.6244       Cum Return: -0.014985
+Today: 2008-05-21       Win Start: 2008-02-27   Win End: 2008-05-21
+
+Total Capital: 98528.8635       Cum Return: -0.014821
+Today: 2008-05-22       Win Start: 2008-02-28   Win End: 2008-05-22
+
+Total Capital: 98273.4434       Cum Return: -0.017416
+Today: 2008-05-23       Win Start: 2008-02-29   Win End: 2008-05-23
+
+Total Capital: 98212.1361       Cum Return: -0.018040
+Today: 2008-05-27       Win Start: 2008-03-03   Win End: 2008-05-27
+
+Total Capital: 98864.8085       Cum Return: -0.011417
+Today: 2008-05-28       Win Start: 2008-03-04   Win End: 2008-05-28
+
+Total Capital: 98560.4709       Cum Return: -0.014500
+Today: 2008-05-29       Win Start: 2008-03-05   Win End: 2008-05-29
+
+Total Capital: 98664.4647       Cum Return: -0.013445
+Today: 2008-05-30       Win Start: 2008-03-06   Win End: 2008-05-30
+
+Total Capital: 98361.2221       Cum Return: -0.016524
+Today: 2008-06-02       Win Start: 2008-03-07   Win End: 2008-06-02
+
+Total Capital: 98105.8905       Cum Return: -0.019123
+Today: 2008-06-03       Win Start: 2008-03-10   Win End: 2008-06-03
+
+Total Capital: 98177.7976       Cum Return: -0.018390
+Today: 2008-06-04       Win Start: 2008-03-11   Win End: 2008-06-04
+
+Total Capital: 98298.0345       Cum Return: -0.017166
+Today: 2008-06-05       Win Start: 2008-03-12   Win End: 2008-06-05
+
+Total Capital: 97730.5232       Cum Return: -0.022956
+Today: 2008-06-06       Win Start: 2008-03-13   Win End: 2008-06-06
+
+Total Capital: 96440.3885       Cum Return: -0.036245
+Today: 2008-06-09       Win Start: 2008-03-14   Win End: 2008-06-09
+
+Total Capital: 96401.4812       Cum Return: -0.036649
+Today: 2008-06-10       Win Start: 2008-03-17   Win End: 2008-06-10
+
+Total Capital: 95784.1782       Cum Return: -0.043073
+Today: 2008-06-11       Win Start: 2008-03-18   Win End: 2008-06-11
+
+Total Capital: 95886.5723       Cum Return: -0.042004
+Today: 2008-06-12       Win Start: 2008-03-19   Win End: 2008-06-12
+
+Total Capital: 96365.4516       Cum Return: -0.037022
+Today: 2008-06-13       Win Start: 2008-03-20   Win End: 2008-06-13
+
+Total Capital: 95939.0237       Cum Return: -0.041457
+Today: 2008-06-16       Win Start: 2008-03-24   Win End: 2008-06-16
+
+Total Capital: 95827.6583       Cum Return: -0.042619
+Today: 2008-06-17       Win Start: 2008-03-25   Win End: 2008-06-17
+
+Total Capital: 96629.4682       Cum Return: -0.034286
+Today: 2008-06-18       Win Start: 2008-03-26   Win End: 2008-06-18
+
+Total Capital: 96499.6594       Cum Return: -0.035631
+Today: 2008-06-19       Win Start: 2008-03-27   Win End: 2008-06-19
+
+Total Capital: 96516.3887       Cum Return: -0.035457
+Today: 2008-06-20       Win Start: 2008-03-28   Win End: 2008-06-20
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 97012.8579       Cum Return: -0.030327
+Today: 2008-06-23       Win Start: 2008-03-31   Win End: 2008-06-23
+
+Total Capital: 97015.8240       Cum Return: -0.030296
+Today: 2008-06-24       Win Start: 2008-04-01   Win End: 2008-06-24
+
+Total Capital: 97276.0172       Cum Return: -0.027618
+Today: 2008-06-25       Win Start: 2008-04-02   Win End: 2008-06-25
+
+Total Capital: 97596.5185       Cum Return: -0.024328
+Today: 2008-06-26       Win Start: 2008-04-03   Win End: 2008-06-26
+
+Total Capital: 98000.1947       Cum Return: -0.020201
+Today: 2008-06-27       Win Start: 2008-04-04   Win End: 2008-06-27
+
+Total Capital: 96311.4217       Cum Return: -0.037583
+Today: 2008-06-30       Win Start: 2008-04-07   Win End: 2008-06-30
+
+Total Capital: 97185.1883       Cum Return: -0.028552
+Today: 2008-07-01       Win Start: 2008-04-08   Win End: 2008-07-01
+
+Total Capital: 96732.9149       Cum Return: -0.033216
+Today: 2008-07-02       Win Start: 2008-04-09   Win End: 2008-07-02
+
+Total Capital: 96676.6311       Cum Return: -0.033798
+Today: 2008-07-03       Win Start: 2008-04-10   Win End: 2008-07-03
+
+Total Capital: 96542.1689       Cum Return: -0.035190
+Today: 2008-07-07       Win Start: 2008-04-11   Win End: 2008-07-07
+
+Total Capital: 96965.6586       Cum Return: -0.030813
+Today: 2008-07-08       Win Start: 2008-04-14   Win End: 2008-07-08
+
+Total Capital: 97676.1931       Cum Return: -0.023512
+Today: 2008-07-09       Win Start: 2008-04-15   Win End: 2008-07-09
+
+Total Capital: 98137.8210       Cum Return: -0.018797
+Today: 2008-07-10       Win Start: 2008-04-16   Win End: 2008-07-10
+
+Total Capital: 97238.6755       Cum Return: -0.028002
+Today: 2008-07-11       Win Start: 2008-04-17   Win End: 2008-07-11
+
+Total Capital: 97365.7539       Cum Return: -0.026696
+Today: 2008-07-14       Win Start: 2008-04-18   Win End: 2008-07-14
+
+Total Capital: 97048.2965       Cum Return: -0.029961
+Today: 2008-07-15       Win Start: 2008-04-21   Win End: 2008-07-15
+
+Total Capital: 97583.4109       Cum Return: -0.024463
+Today: 2008-07-16       Win Start: 2008-04-22   Win End: 2008-07-16
+
+Total Capital: 95583.1027       Cum Return: -0.045174
+Today: 2008-07-17       Win Start: 2008-04-23   Win End: 2008-07-17
+
+Total Capital: 94127.5683       Cum Return: -0.060519
+Today: 2008-07-18       Win Start: 2008-04-24   Win End: 2008-07-18
+
+Total Capital: 94038.3239       Cum Return: -0.061468
+Today: 2008-07-21       Win Start: 2008-04-25   Win End: 2008-07-21
+
+Total Capital: 94006.3437       Cum Return: -0.061808
+Today: 2008-07-22       Win Start: 2008-04-28   Win End: 2008-07-22
+
+Total Capital: 91735.7978       Cum Return: -0.086258
+Today: 2008-07-23       Win Start: 2008-04-29   Win End: 2008-07-23
+
+Total Capital: 92084.6146       Cum Return: -0.082462
+Today: 2008-07-24       Win Start: 2008-04-30   Win End: 2008-07-24
+
+Total Capital: 92906.3080       Cum Return: -0.073579
+Today: 2008-07-25       Win Start: 2008-05-01   Win End: 2008-07-25
+
+Total Capital: 94871.2392       Cum Return: -0.052650
+Today: 2008-07-28       Win Start: 2008-05-02   Win End: 2008-07-28
+
+Total Capital: 94443.7666       Cum Return: -0.057166
+Today: 2008-07-29       Win Start: 2008-05-05   Win End: 2008-07-29
+
+Total Capital: 95741.4035       Cum Return: -0.043519
+Today: 2008-07-30       Win Start: 2008-05-06   Win End: 2008-07-30
+
+Total Capital: 98147.6548       Cum Return: -0.018697
+Today: 2008-07-31       Win Start: 2008-05-07   Win End: 2008-07-31
+
+Total Capital: 98281.5970       Cum Return: -0.017333
+Today: 2008-08-01       Win Start: 2008-05-08   Win End: 2008-08-01
+
+Total Capital: 96939.7450       Cum Return: -0.031081
+Today: 2008-08-04       Win Start: 2008-05-09   Win End: 2008-08-04
+
+Total Capital: 96952.7647       Cum Return: -0.030946
+Today: 2008-08-05       Win Start: 2008-05-12   Win End: 2008-08-05
+
+Clustering...
+Cointegrating...
+Total Capital: 96900.5927       Cum Return: -0.031485
+Today: 2008-08-06       Win Start: 2008-05-13   Win End: 2008-08-06
+
+Total Capital: 96900.5927       Cum Return: -0.031485
+Today: 2008-08-07       Win Start: 2008-05-14   Win End: 2008-08-07
+
+Total Capital: 96862.2634       Cum Return: -0.031880
+Today: 2008-08-08       Win Start: 2008-05-15   Win End: 2008-08-08
+
+Total Capital: 96758.4344       Cum Return: -0.032953
+Today: 2008-08-11       Win Start: 2008-05-16   Win End: 2008-08-11
+
+Total Capital: 96606.5974       Cum Return: -0.034523
+Today: 2008-08-12       Win Start: 2008-05-19   Win End: 2008-08-12
+
+Total Capital: 97143.7281       Cum Return: -0.028979
+Today: 2008-08-13       Win Start: 2008-05-20   Win End: 2008-08-13
+
+Total Capital: 97560.7087       Cum Return: -0.024695
+Today: 2008-08-14       Win Start: 2008-05-21   Win End: 2008-08-14
+
+Total Capital: 97991.0258       Cum Return: -0.020294
+Today: 2008-08-15       Win Start: 2008-05-22   Win End: 2008-08-15
+
+Total Capital: 97870.1552       Cum Return: -0.021529
+Today: 2008-08-18       Win Start: 2008-05-23   Win End: 2008-08-18
+
+Total Capital: 98230.1123       Cum Return: -0.017857
+Days Traded: 100         Time taken: 538.7651s
+Today: 2008-08-19       Win Start: 2008-05-27   Win End: 2008-08-19
+
+Total Capital: 98826.7326       Cum Return: -0.011802
+Today: 2008-08-20       Win Start: 2008-05-28   Win End: 2008-08-20
+
+Total Capital: 98961.6823       Cum Return: -0.010437
+Today: 2008-08-21       Win Start: 2008-05-29   Win End: 2008-08-21
+
+Total Capital: 99183.6314       Cum Return: -0.008197
+Today: 2008-08-22       Win Start: 2008-05-30   Win End: 2008-08-22
+
+Total Capital: 99148.2565       Cum Return: -0.008554
+Today: 2008-08-25       Win Start: 2008-06-02   Win End: 2008-08-25
+
+Total Capital: 98747.6021       Cum Return: -0.012603
+Today: 2008-08-26       Win Start: 2008-06-03   Win End: 2008-08-26
+
+Total Capital: 98572.6312       Cum Return: -0.014377
+Today: 2008-08-27       Win Start: 2008-06-04   Win End: 2008-08-27
+
+Total Capital: 98359.6906       Cum Return: -0.016539
+Today: 2008-08-28       Win Start: 2008-06-05   Win End: 2008-08-28
+
+Total Capital: 98097.9071       Cum Return: -0.019204
+Today: 2008-08-29       Win Start: 2008-06-06   Win End: 2008-08-29
+
+Total Capital: 97786.0923       Cum Return: -0.022388
+Today: 2008-09-02       Win Start: 2008-06-09   Win End: 2008-09-02
+
+Total Capital: 97620.0367       Cum Return: -0.024087
+Today: 2008-09-03       Win Start: 2008-06-10   Win End: 2008-09-03
+
+Total Capital: 97996.5080       Cum Return: -0.020238
+Today: 2008-09-04       Win Start: 2008-06-11   Win End: 2008-09-04
+
+Total Capital: 98724.7210       Cum Return: -0.012835
+Today: 2008-09-05       Win Start: 2008-06-12   Win End: 2008-09-05
+
+Total Capital: 98877.3886       Cum Return: -0.011290
+Today: 2008-09-08       Win Start: 2008-06-13   Win End: 2008-09-08
+
+Total Capital: 97239.6306       Cum Return: -0.027992
+Today: 2008-09-09       Win Start: 2008-06-16   Win End: 2008-09-09
+
+Total Capital: 97097.7313       Cum Return: -0.029452
+Today: 2008-09-10       Win Start: 2008-06-17   Win End: 2008-09-10
+
+Total Capital: 96671.7490       Cum Return: -0.033849
+Today: 2008-09-11       Win Start: 2008-06-18   Win End: 2008-09-11
+
+Total Capital: 97104.6982       Cum Return: -0.029380
+Today: 2008-09-12       Win Start: 2008-06-19   Win End: 2008-09-12
+
+Total Capital: 96608.9607       Cum Return: -0.034499
+Today: 2008-09-15       Win Start: 2008-06-20   Win End: 2008-09-15
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 97292.8317       Cum Return: -0.027445
+Today: 2008-09-16       Win Start: 2008-06-23   Win End: 2008-09-16
+
+Total Capital: 96887.4855       Cum Return: -0.031620
+Today: 2008-09-17       Win Start: 2008-06-24   Win End: 2008-09-17
+
+Total Capital: 98334.5449       Cum Return: -0.016795
+Today: 2008-09-18       Win Start: 2008-06-25   Win End: 2008-09-18
+
+Total Capital: 99603.2033       Cum Return: -0.003976
+Today: 2008-09-19       Win Start: 2008-06-26   Win End: 2008-09-19
+
+Total Capital: 98233.6305       Cum Return: -0.017822
+Today: 2008-09-22       Win Start: 2008-06-27   Win End: 2008-09-22
+
+Total Capital: 97633.5282       Cum Return: -0.023949
+Today: 2008-09-23       Win Start: 2008-06-30   Win End: 2008-09-23
+
+Total Capital: 96852.4309       Cum Return: -0.031982
+Today: 2008-09-24       Win Start: 2008-07-01   Win End: 2008-09-24
+
+Total Capital: 97087.9144       Cum Return: -0.029553
+Today: 2008-09-25       Win Start: 2008-07-02   Win End: 2008-09-25
+
+Total Capital: 96724.0643       Cum Return: -0.033308
+Today: 2008-09-26       Win Start: 2008-07-03   Win End: 2008-09-26
+
+Total Capital: 96366.5365       Cum Return: -0.037011
+Today: 2008-09-29       Win Start: 2008-07-07   Win End: 2008-09-29
+
+Total Capital: 95921.9954       Cum Return: -0.041635
+Today: 2008-09-30       Win Start: 2008-07-08   Win End: 2008-09-30
+
+Total Capital: 96338.4306       Cum Return: -0.037303
+Today: 2008-10-01       Win Start: 2008-07-09   Win End: 2008-10-01
+
+Total Capital: 95801.0371       Cum Return: -0.042897
+Today: 2008-10-02       Win Start: 2008-07-10   Win End: 2008-10-02
+
+Total Capital: 95766.6395       Cum Return: -0.043256
+Today: 2008-10-03       Win Start: 2008-07-11   Win End: 2008-10-03
+
+Total Capital: 95850.8328       Cum Return: -0.042377
+Today: 2008-10-06       Win Start: 2008-07-14   Win End: 2008-10-06
+
+Total Capital: 95016.6608       Cum Return: -0.051118
+Today: 2008-10-07       Win Start: 2008-07-15   Win End: 2008-10-07
+
+Total Capital: 95156.0555       Cum Return: -0.049652
+Today: 2008-10-08       Win Start: 2008-07-16   Win End: 2008-10-08
+
+Total Capital: 93579.1490       Cum Return: -0.066363
+Today: 2008-10-09       Win Start: 2008-07-17   Win End: 2008-10-09
+
+Total Capital: 94732.5130       Cum Return: -0.054113
+Today: 2008-10-10       Win Start: 2008-07-18   Win End: 2008-10-10
+
+Total Capital: 96038.8012       Cum Return: -0.040418
+Today: 2008-10-13       Win Start: 2008-07-21   Win End: 2008-10-13
+
+Total Capital: 95670.7142       Cum Return: -0.044258
+Today: 2008-10-14       Win Start: 2008-07-22   Win End: 2008-10-14
+
+Total Capital: 94212.7045       Cum Return: -0.059615
+Today: 2008-10-15       Win Start: 2008-07-23   Win End: 2008-10-15
+
+Total Capital: 94388.7089       Cum Return: -0.057749
+Today: 2008-10-16       Win Start: 2008-07-24   Win End: 2008-10-16
+
+Total Capital: 93791.9175       Cum Return: -0.064092
+Today: 2008-10-17       Win Start: 2008-07-25   Win End: 2008-10-17
+
+Total Capital: 93211.5153       Cum Return: -0.070299
+Today: 2008-10-20       Win Start: 2008-07-28   Win End: 2008-10-20
+
+Total Capital: 92923.3266       Cum Return: -0.073395
+Today: 2008-10-21       Win Start: 2008-07-29   Win End: 2008-10-21
+
+Total Capital: 91901.2243       Cum Return: -0.084456
+Today: 2008-10-22       Win Start: 2008-07-30   Win End: 2008-10-22
+
+Total Capital: 92468.5230       Cum Return: -0.078302
+Today: 2008-10-23       Win Start: 2008-07-31   Win End: 2008-10-23
+
+Total Capital: 91586.7671       Cum Return: -0.087883
+Today: 2008-10-24       Win Start: 2008-08-01   Win End: 2008-10-24
+
+Total Capital: 91216.4696       Cum Return: -0.091935
+Today: 2008-10-27       Win Start: 2008-08-04   Win End: 2008-10-27
+
+Total Capital: 93071.8840       Cum Return: -0.071798
+Today: 2008-10-28       Win Start: 2008-08-05   Win End: 2008-10-28
+
+Total Capital: 93070.2966       Cum Return: -0.071815
+Today: 2008-10-29       Win Start: 2008-08-06   Win End: 2008-10-29
+
+Clustering...
+Cointegrating...
+Total Capital: 93025.6813       Cum Return: -0.072295
+Today: 2008-10-30       Win Start: 2008-08-07   Win End: 2008-10-30
+
+Total Capital: 93916.1478       Cum Return: -0.062768
+Today: 2008-10-31       Win Start: 2008-08-08   Win End: 2008-10-31
+
+Total Capital: 93585.3214       Cum Return: -0.066297
+Today: 2008-11-03       Win Start: 2008-08-11   Win End: 2008-11-03
+
+Total Capital: 94327.4336       Cum Return: -0.058398
+Today: 2008-11-04       Win Start: 2008-08-12   Win End: 2008-11-04
+
+Total Capital: 94534.8149       Cum Return: -0.056202
+Today: 2008-11-05       Win Start: 2008-08-13   Win End: 2008-11-05
+
+Total Capital: 93627.9606       Cum Return: -0.065841
+Today: 2008-11-06       Win Start: 2008-08-14   Win End: 2008-11-06
+
+Total Capital: 92251.2942       Cum Return: -0.080654
+Today: 2008-11-07       Win Start: 2008-08-15   Win End: 2008-11-07
+
+Total Capital: 91768.9546       Cum Return: -0.085896
+Today: 2008-11-10       Win Start: 2008-08-18   Win End: 2008-11-10
+
+Total Capital: 90461.0412       Cum Return: -0.100251
+Today: 2008-11-11       Win Start: 2008-08-19   Win End: 2008-11-11
+
+Total Capital: 90725.8499       Cum Return: -0.097328
+Today: 2008-11-12       Win Start: 2008-08-20   Win End: 2008-11-12
+
+Total Capital: 93259.3572       Cum Return: -0.069786
+Today: 2008-11-13       Win Start: 2008-08-21   Win End: 2008-11-13
+
+Total Capital: 93494.8226       Cum Return: -0.067264
+Today: 2008-11-14       Win Start: 2008-08-22   Win End: 2008-11-14
+
+Total Capital: 93687.0397       Cum Return: -0.065210
+Today: 2008-11-17       Win Start: 2008-08-25   Win End: 2008-11-17
+
+Total Capital: 94096.2569       Cum Return: -0.060852
+Today: 2008-11-18       Win Start: 2008-08-26   Win End: 2008-11-18
+
+Total Capital: 95782.9575       Cum Return: -0.043085
+Today: 2008-11-19       Win Start: 2008-08-27   Win End: 2008-11-19
+
+Total Capital: 96401.7828       Cum Return: -0.036645
+Today: 2008-11-20       Win Start: 2008-08-28   Win End: 2008-11-20
+
+Total Capital: 96171.1680       Cum Return: -0.039041
+Today: 2008-11-21       Win Start: 2008-08-29   Win End: 2008-11-21
+
+Total Capital: 94305.1348       Cum Return: -0.058635
+Today: 2008-11-24       Win Start: 2008-09-02   Win End: 2008-11-24
+
+Total Capital: 93931.9614       Cum Return: -0.062599
+Today: 2008-11-25       Win Start: 2008-09-03   Win End: 2008-11-25
+
+Total Capital: 94600.8766       Cum Return: -0.055503
+Today: 2008-11-26       Win Start: 2008-09-04   Win End: 2008-11-26
+
+Total Capital: 95586.3732       Cum Return: -0.045140
+Today: 2008-11-28       Win Start: 2008-09-05   Win End: 2008-11-28
+
+Total Capital: 96296.2527       Cum Return: -0.037741
+Today: 2008-12-01       Win Start: 2008-09-08   Win End: 2008-12-01
+
+Total Capital: 96807.8218       Cum Return: -0.032442
+Today: 2008-12-02       Win Start: 2008-09-09   Win End: 2008-12-02
+
+Total Capital: 97256.4952       Cum Return: -0.027818
+Today: 2008-12-03       Win Start: 2008-09-10   Win End: 2008-12-03
+
+Total Capital: 96218.4083       Cum Return: -0.038549
+Today: 2008-12-04       Win Start: 2008-09-11   Win End: 2008-12-04
+
+Total Capital: 96429.5910       Cum Return: -0.036357
+Today: 2008-12-05       Win Start: 2008-09-12   Win End: 2008-12-05
+
+Total Capital: 97632.5694       Cum Return: -0.023959
+Today: 2008-12-08       Win Start: 2008-09-15   Win End: 2008-12-08
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 97152.4397       Cum Return: -0.028889
+Today: 2008-12-09       Win Start: 2008-09-16   Win End: 2008-12-09
+
+Total Capital: 97111.3371       Cum Return: -0.029312
+Today: 2008-12-10       Win Start: 2008-09-17   Win End: 2008-12-10
+
+Total Capital: 96787.6000       Cum Return: -0.032651
+Today: 2008-12-11       Win Start: 2008-09-18   Win End: 2008-12-11
+
+Total Capital: 95292.0824       Cum Return: -0.048223
+Today: 2008-12-12       Win Start: 2008-09-19   Win End: 2008-12-12
+
+Total Capital: 95112.5425       Cum Return: -0.050109
+Today: 2008-12-15       Win Start: 2008-09-22   Win End: 2008-12-15
+
+Total Capital: 96089.2070       Cum Return: -0.039893
+Today: 2008-12-16       Win Start: 2008-09-23   Win End: 2008-12-16
+
+Total Capital: 96327.1938       Cum Return: -0.037420
+Today: 2008-12-17       Win Start: 2008-09-24   Win End: 2008-12-17
+
+Total Capital: 96431.0063       Cum Return: -0.036342
+Today: 2008-12-18       Win Start: 2008-09-25   Win End: 2008-12-18
+
+Total Capital: 95491.8473       Cum Return: -0.046129
+Today: 2008-12-19       Win Start: 2008-09-26   Win End: 2008-12-19
+
+Total Capital: 96557.2029       Cum Return: -0.035035
+Today: 2008-12-22       Win Start: 2008-09-29   Win End: 2008-12-22
+
+Total Capital: 97119.9751       Cum Return: -0.029223
+Today: 2008-12-23       Win Start: 2008-09-30   Win End: 2008-12-23
+
+Total Capital: 95915.7691       Cum Return: -0.041700
+Today: 2008-12-24       Win Start: 2008-10-01   Win End: 2008-12-24
+
+Total Capital: 96644.9764       Cum Return: -0.034126
+Today: 2008-12-26       Win Start: 2008-10-02   Win End: 2008-12-26
+
+Total Capital: 96629.2328       Cum Return: -0.034289
+Today: 2008-12-29       Win Start: 2008-10-03   Win End: 2008-12-29
+
+Total Capital: 96155.5671       Cum Return: -0.039203
+Today: 2008-12-30       Win Start: 2008-10-06   Win End: 2008-12-30
+
+Total Capital: 94458.9261       Cum Return: -0.057005
+Today: 2008-12-31       Win Start: 2008-10-07   Win End: 2008-12-31
+
+Total Capital: 96146.3672       Cum Return: -0.039298
+Today: 2009-01-02       Win Start: 2008-10-08   Win End: 2009-01-02
+
+Total Capital: 96295.6420       Cum Return: -0.037747
+Today: 2009-01-05       Win Start: 2008-10-09   Win End: 2009-01-05
+
+Total Capital: 95719.0925       Cum Return: -0.043752
+Today: 2009-01-06       Win Start: 2008-10-10   Win End: 2009-01-06
+
+Total Capital: 95842.8295       Cum Return: -0.042461
+Today: 2009-01-07       Win Start: 2008-10-13   Win End: 2009-01-07
+
+Total Capital: 94801.7364       Cum Return: -0.053382
+Today: 2009-01-08       Win Start: 2008-10-14   Win End: 2009-01-08
+
+Total Capital: 95801.8213       Cum Return: -0.042888
+Today: 2009-01-09       Win Start: 2008-10-15   Win End: 2009-01-09
+
+Total Capital: 97439.6809       Cum Return: -0.025937
+Days Traded: 200         Time taken: 932.0554s
+Today: 2009-01-12       Win Start: 2008-10-16   Win End: 2009-01-12
+
+Total Capital: 96327.8229       Cum Return: -0.037413
+Today: 2009-01-13       Win Start: 2008-10-17   Win End: 2009-01-13
+
+Total Capital: 97232.6272       Cum Return: -0.028064
+Today: 2009-01-14       Win Start: 2008-10-20   Win End: 2009-01-14
+
+Total Capital: 97723.0213       Cum Return: -0.023033
+Today: 2009-01-15       Win Start: 2008-10-21   Win End: 2009-01-15
+
+Total Capital: 96453.9268       Cum Return: -0.036105
+Today: 2009-01-16       Win Start: 2008-10-22   Win End: 2009-01-16
+
+Total Capital: 96347.0236       Cum Return: -0.037214
+Today: 2009-01-20       Win Start: 2008-10-23   Win End: 2009-01-20
+
+Total Capital: 96829.2122       Cum Return: -0.032221
+Today: 2009-01-21       Win Start: 2008-10-24   Win End: 2009-01-21
+
+Total Capital: 95890.1133       Cum Return: -0.041967
+Today: 2009-01-22       Win Start: 2008-10-27   Win End: 2009-01-22
+
+Total Capital: 95160.7753       Cum Return: -0.049602
+Today: 2009-01-23       Win Start: 2008-10-28   Win End: 2009-01-23
+
+Total Capital: 94115.0965       Cum Return: -0.060652
+Today: 2009-01-26       Win Start: 2008-10-29   Win End: 2009-01-26
+
+Total Capital: 94020.9474       Cum Return: -0.061653
+Today: 2009-01-27       Win Start: 2008-10-30   Win End: 2009-01-27
+
+Clustering...
+Cointegrating...
+Total Capital: 93971.1230       Cum Return: -0.062183
+Today: 2009-01-28       Win Start: 2008-10-31   Win End: 2009-01-28
+
+Total Capital: 93971.1230       Cum Return: -0.062183
+Today: 2009-01-29       Win Start: 2008-11-03   Win End: 2009-01-29
+
+Total Capital: 94218.6779       Cum Return: -0.059552
+Today: 2009-01-30       Win Start: 2008-11-04   Win End: 2009-01-30
+
+Total Capital: 93779.4382       Cum Return: -0.064225
+Today: 2009-02-02       Win Start: 2008-11-05   Win End: 2009-02-02
+
+Total Capital: 94122.8202       Cum Return: -0.060570
+Today: 2009-02-03       Win Start: 2008-11-06   Win End: 2009-02-03
+
+Total Capital: 93941.5438       Cum Return: -0.062497
+Today: 2009-02-04       Win Start: 2008-11-07   Win End: 2009-02-04
+
+Total Capital: 94236.2833       Cum Return: -0.059365
+Today: 2009-02-05       Win Start: 2008-11-10   Win End: 2009-02-05
+
+Total Capital: 94971.2231       Cum Return: -0.051596
+Today: 2009-02-06       Win Start: 2008-11-11   Win End: 2009-02-06
+
+Total Capital: 94171.5164       Cum Return: -0.060052
+Today: 2009-02-09       Win Start: 2008-11-12   Win End: 2009-02-09
+
+Total Capital: 93325.7541       Cum Return: -0.069074
+Today: 2009-02-10       Win Start: 2008-11-13   Win End: 2009-02-10
+
+Total Capital: 94263.0406       Cum Return: -0.059081
+Today: 2009-02-11       Win Start: 2008-11-14   Win End: 2009-02-11
+
+Total Capital: 93862.1815       Cum Return: -0.063343
+Today: 2009-02-12       Win Start: 2008-11-17   Win End: 2009-02-12
+
+Total Capital: 92982.5408       Cum Return: -0.072758
+Today: 2009-02-13       Win Start: 2008-11-18   Win End: 2009-02-13
+
+Total Capital: 92334.5346       Cum Return: -0.079752
+Today: 2009-02-17       Win Start: 2008-11-19   Win End: 2009-02-17
+
+Total Capital: 91204.2317       Cum Return: -0.092069
+Today: 2009-02-18       Win Start: 2008-11-20   Win End: 2009-02-18
+
+Total Capital: 89930.0287       Cum Return: -0.106138
+Today: 2009-02-19       Win Start: 2008-11-21   Win End: 2009-02-19
+
+Total Capital: 91237.6084       Cum Return: -0.091703
+Today: 2009-02-20       Win Start: 2008-11-24   Win End: 2009-02-20
+
+Total Capital: 90471.2551       Cum Return: -0.100138
+Today: 2009-02-23       Win Start: 2008-11-25   Win End: 2009-02-23
+
+Total Capital: 90134.1217       Cum Return: -0.103871
+Today: 2009-02-24       Win Start: 2008-11-26   Win End: 2009-02-24
+
+Total Capital: 89378.8791       Cum Return: -0.112286
+Today: 2009-02-25       Win Start: 2008-11-28   Win End: 2009-02-25
+
+Total Capital: 88190.4181       Cum Return: -0.125672
+Today: 2009-02-26       Win Start: 2008-12-01   Win End: 2009-02-26
+
+Total Capital: 87104.4992       Cum Return: -0.138062
+Today: 2009-02-27       Win Start: 2008-12-02   Win End: 2009-02-27
+
+Total Capital: 87115.0267       Cum Return: -0.137941
+Today: 2009-03-02       Win Start: 2008-12-03   Win End: 2009-03-02
+
+Total Capital: 87477.8183       Cum Return: -0.133785
+Today: 2009-03-03       Win Start: 2008-12-04   Win End: 2009-03-03
+
+Total Capital: 88328.9213       Cum Return: -0.124103
+Today: 2009-03-04       Win Start: 2008-12-05   Win End: 2009-03-04
+
+Total Capital: 88059.1475       Cum Return: -0.127161
+Today: 2009-03-05       Win Start: 2008-12-08   Win End: 2009-03-05
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 88689.5278       Cum Return: -0.120028
+Today: 2009-03-06       Win Start: 2008-12-09   Win End: 2009-03-06
+
+Total Capital: 88900.7770       Cum Return: -0.117649
+Today: 2009-03-09       Win Start: 2008-12-10   Win End: 2009-03-09
+
+Total Capital: 89306.7246       Cum Return: -0.113093
+Today: 2009-03-10       Win Start: 2008-12-11   Win End: 2009-03-10
+
+Total Capital: 88150.8234       Cum Return: -0.126121
+Today: 2009-03-11       Win Start: 2008-12-12   Win End: 2009-03-11
+
+Total Capital: 88719.0134       Cum Return: -0.119696
+Today: 2009-03-12       Win Start: 2008-12-15   Win End: 2009-03-12
+
+Total Capital: 88135.1744       Cum Return: -0.126298
+Today: 2009-03-13       Win Start: 2008-12-16   Win End: 2009-03-13
+
+Total Capital: 88136.2163       Cum Return: -0.126287
+Today: 2009-03-16       Win Start: 2008-12-17   Win End: 2009-03-16
+
+Total Capital: 87852.7227       Cum Return: -0.129508
+Today: 2009-03-17       Win Start: 2008-12-18   Win End: 2009-03-17
+
+Total Capital: 87442.2494       Cum Return: -0.134192
+Today: 2009-03-18       Win Start: 2008-12-19   Win End: 2009-03-18
+
+Total Capital: 85691.5755       Cum Return: -0.154416
+Today: 2009-03-19       Win Start: 2008-12-22   Win End: 2009-03-19
+
+Total Capital: 84697.9815       Cum Return: -0.166078
+Today: 2009-03-20       Win Start: 2008-12-23   Win End: 2009-03-20
+
+Total Capital: 84505.3527       Cum Return: -0.168355
+Today: 2009-03-23       Win Start: 2008-12-24   Win End: 2009-03-23
+
+Total Capital: 84483.7543       Cum Return: -0.168611
+Today: 2009-03-24       Win Start: 2008-12-26   Win End: 2009-03-24
+
+Total Capital: 84735.2909       Cum Return: -0.165638
+Today: 2009-03-25       Win Start: 2008-12-29   Win End: 2009-03-25
+
+Total Capital: 83760.0504       Cum Return: -0.177214
+Today: 2009-03-26       Win Start: 2008-12-30   Win End: 2009-03-26
+
+Total Capital: 83158.7091       Cum Return: -0.184419
+Today: 2009-03-27       Win Start: 2008-12-31   Win End: 2009-03-27
+
+Total Capital: 85063.0039       Cum Return: -0.161778
+Today: 2009-03-30       Win Start: 2009-01-02   Win End: 2009-03-30
+
+Total Capital: 85417.8706       Cum Return: -0.157615
+Today: 2009-03-31       Win Start: 2009-01-05   Win End: 2009-03-31
+
+Total Capital: 85152.4920       Cum Return: -0.160727
+Today: 2009-04-01       Win Start: 2009-01-06   Win End: 2009-04-01
+
+Total Capital: 82670.6191       Cum Return: -0.190306
+Today: 2009-04-02       Win Start: 2009-01-07   Win End: 2009-04-02
+
+Total Capital: 82338.0553       Cum Return: -0.194337
+Today: 2009-04-03       Win Start: 2009-01-08   Win End: 2009-04-03
+
+Total Capital: 83235.0504       Cum Return: -0.183502
+Today: 2009-04-06       Win Start: 2009-01-09   Win End: 2009-04-06
+
+Total Capital: 81402.7900       Cum Return: -0.205761
+Today: 2009-04-07       Win Start: 2009-01-12   Win End: 2009-04-07
+
+Total Capital: 79815.3681       Cum Return: -0.225454
+Today: 2009-04-08       Win Start: 2009-01-13   Win End: 2009-04-08
+
+Total Capital: 78972.9651       Cum Return: -0.236065
+Today: 2009-04-09       Win Start: 2009-01-14   Win End: 2009-04-09
+
+Total Capital: 79086.9560       Cum Return: -0.234622
+Today: 2009-04-13       Win Start: 2009-01-15   Win End: 2009-04-13
+
+Total Capital: 78784.9450       Cum Return: -0.238448
+Today: 2009-04-14       Win Start: 2009-01-16   Win End: 2009-04-14
+
+Total Capital: 78372.2456       Cum Return: -0.243700
+Today: 2009-04-15       Win Start: 2009-01-20   Win End: 2009-04-15
+
+Total Capital: 78166.4669       Cum Return: -0.246329
+Today: 2009-04-16       Win Start: 2009-01-21   Win End: 2009-04-16
+
+Total Capital: 76680.2574       Cum Return: -0.265526
+Today: 2009-04-17       Win Start: 2009-01-22   Win End: 2009-04-17
+
+Total Capital: 76222.0692       Cum Return: -0.271519
+Today: 2009-04-20       Win Start: 2009-01-23   Win End: 2009-04-20
+
+Total Capital: 76274.2958       Cum Return: -0.270834
+Today: 2009-04-21       Win Start: 2009-01-26   Win End: 2009-04-21
+
+Total Capital: 75747.6963       Cum Return: -0.277762
+Today: 2009-04-22       Win Start: 2009-01-27   Win End: 2009-04-22
+
+Total Capital: 77100.9711       Cum Return: -0.260054
+Today: 2009-04-23       Win Start: 2009-01-28   Win End: 2009-04-23
+
+Clustering...
+Cointegrating...
+Total Capital: 77065.8825       Cum Return: -0.260510
+Today: 2009-04-24       Win Start: 2009-01-29   Win End: 2009-04-24
+
+Total Capital: 77065.8825       Cum Return: -0.260510
+Today: 2009-04-27       Win Start: 2009-01-30   Win End: 2009-04-27
+
+Total Capital: 77065.8825       Cum Return: -0.260510
+Today: 2009-04-28       Win Start: 2009-02-02   Win End: 2009-04-28
+
+Total Capital: 77065.8825       Cum Return: -0.260510
+Today: 2009-04-29       Win Start: 2009-02-03   Win End: 2009-04-29
+
+Total Capital: 76718.1052       Cum Return: -0.265032
+Today: 2009-04-30       Win Start: 2009-02-04   Win End: 2009-04-30
+
+Total Capital: 76874.4273       Cum Return: -0.262997
+Today: 2009-05-01       Win Start: 2009-02-05   Win End: 2009-05-01
+
+Total Capital: 78880.7779       Cum Return: -0.237233
+Today: 2009-05-04       Win Start: 2009-02-06   Win End: 2009-05-04
+
+Total Capital: 78638.2244       Cum Return: -0.240312
+Today: 2009-05-05       Win Start: 2009-02-09   Win End: 2009-05-05
+
+Total Capital: 78945.2948       Cum Return: -0.236415
+Today: 2009-05-06       Win Start: 2009-02-10   Win End: 2009-05-06
+
+Total Capital: 78937.2437       Cum Return: -0.236517
+Today: 2009-05-07       Win Start: 2009-02-11   Win End: 2009-05-07
+
+Total Capital: 79944.3379       Cum Return: -0.223840
+Today: 2009-05-08       Win Start: 2009-02-12   Win End: 2009-05-08
+
+Total Capital: 79252.3589       Cum Return: -0.232533
+Today: 2009-05-11       Win Start: 2009-02-13   Win End: 2009-05-11
+
+Total Capital: 78460.1374       Cum Return: -0.242579
+Today: 2009-05-12       Win Start: 2009-02-17   Win End: 2009-05-12
+
+Total Capital: 78636.9717       Cum Return: -0.240328
+Today: 2009-05-13       Win Start: 2009-02-18   Win End: 2009-05-13
+
+Total Capital: 79917.1131       Cum Return: -0.224180
+Today: 2009-05-14       Win Start: 2009-02-19   Win End: 2009-05-14
+
+Total Capital: 79614.7202       Cum Return: -0.227971
+Today: 2009-05-15       Win Start: 2009-02-20   Win End: 2009-05-15
+
+Total Capital: 81092.6089       Cum Return: -0.209578
+Today: 2009-05-18       Win Start: 2009-02-23   Win End: 2009-05-18
+
+Total Capital: 81150.7920       Cum Return: -0.208861
+Today: 2009-05-19       Win Start: 2009-02-24   Win End: 2009-05-19
+
+Total Capital: 81156.7735       Cum Return: -0.208787
+Today: 2009-05-20       Win Start: 2009-02-25   Win End: 2009-05-20
+
+Total Capital: 80614.1287       Cum Return: -0.215496
+Today: 2009-05-21       Win Start: 2009-02-26   Win End: 2009-05-21
+
+Total Capital: 80220.0109       Cum Return: -0.220397
+Today: 2009-05-22       Win Start: 2009-02-27   Win End: 2009-05-22
+
+Total Capital: 81123.8072       Cum Return: -0.209194
+Today: 2009-05-26       Win Start: 2009-03-02   Win End: 2009-05-26
+
+Total Capital: 81867.4584       Cum Return: -0.200069
+Today: 2009-05-27       Win Start: 2009-03-03   Win End: 2009-05-27
+
+Total Capital: 81974.2075       Cum Return: -0.198766
+Today: 2009-05-28       Win Start: 2009-03-04   Win End: 2009-05-28
+
+Total Capital: 82582.1822       Cum Return: -0.191376
+Today: 2009-05-29       Win Start: 2009-03-05   Win End: 2009-05-29
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 81941.1341       Cum Return: -0.199169
+Today: 2009-06-01       Win Start: 2009-03-06   Win End: 2009-06-01
+
+Total Capital: 81621.6090       Cum Return: -0.203076
+Today: 2009-06-02       Win Start: 2009-03-09   Win End: 2009-06-02
+
+Total Capital: 80883.0156       Cum Return: -0.212166
+Today: 2009-06-03       Win Start: 2009-03-10   Win End: 2009-06-03
+
+Total Capital: 81493.7729       Cum Return: -0.204644
+Today: 2009-06-04       Win Start: 2009-03-11   Win End: 2009-06-04
+
+Total Capital: 80653.6706       Cum Return: -0.215006
+Days Traded: 300         Time taken: 1368.5647s
+Today: 2009-06-05       Win Start: 2009-03-12   Win End: 2009-06-05
+
+Total Capital: 80542.4663       Cum Return: -0.216386
+Today: 2009-06-08       Win Start: 2009-03-13   Win End: 2009-06-08
+
+Total Capital: 80842.9630       Cum Return: -0.212662
+Today: 2009-06-09       Win Start: 2009-03-16   Win End: 2009-06-09
+
+Total Capital: 80263.3116       Cum Return: -0.219858
+Today: 2009-06-10       Win Start: 2009-03-17   Win End: 2009-06-10
+
+Total Capital: 80157.2358       Cum Return: -0.221180
+Today: 2009-06-11       Win Start: 2009-03-18   Win End: 2009-06-11
+
+Total Capital: 80457.0667       Cum Return: -0.217446
+Today: 2009-06-12       Win Start: 2009-03-19   Win End: 2009-06-12
+
+Total Capital: 80166.7610       Cum Return: -0.221061
+Today: 2009-06-15       Win Start: 2009-03-20   Win End: 2009-06-15
+
+Total Capital: 80524.2129       Cum Return: -0.216612
+Today: 2009-06-16       Win Start: 2009-03-23   Win End: 2009-06-16
+
+Total Capital: 80500.2320       Cum Return: -0.216910
+Today: 2009-06-17       Win Start: 2009-03-24   Win End: 2009-06-17
+
+Total Capital: 80643.2627       Cum Return: -0.215135
+Today: 2009-06-18       Win Start: 2009-03-25   Win End: 2009-06-18
+
+Total Capital: 81249.0688       Cum Return: -0.207651
+Today: 2009-06-19       Win Start: 2009-03-26   Win End: 2009-06-19
+
+Total Capital: 81008.9118       Cum Return: -0.210611
+Today: 2009-06-22       Win Start: 2009-03-27   Win End: 2009-06-22
+
+Total Capital: 80666.7575       Cum Return: -0.214844
+Today: 2009-06-23       Win Start: 2009-03-30   Win End: 2009-06-23
+
+Total Capital: 81804.3574       Cum Return: -0.200840
+Today: 2009-06-24       Win Start: 2009-03-31   Win End: 2009-06-24
+
+Total Capital: 81869.6688       Cum Return: -0.200042
+Today: 2009-06-25       Win Start: 2009-04-01   Win End: 2009-06-25
+
+Total Capital: 81906.0403       Cum Return: -0.199597
+Today: 2009-06-26       Win Start: 2009-04-02   Win End: 2009-06-26
+
+Total Capital: 81910.4909       Cum Return: -0.199543
+Today: 2009-06-29       Win Start: 2009-04-03   Win End: 2009-06-29
+
+Total Capital: 81806.0894       Cum Return: -0.200819
+Today: 2009-06-30       Win Start: 2009-04-06   Win End: 2009-06-30
+
+Total Capital: 81866.7877       Cum Return: -0.200077
+Today: 2009-07-01       Win Start: 2009-04-07   Win End: 2009-07-01
+
+Total Capital: 81589.4643       Cum Return: -0.203470
+Today: 2009-07-02       Win Start: 2009-04-08   Win End: 2009-07-02
+
+Total Capital: 81952.0398       Cum Return: -0.199036
+Today: 2009-07-06       Win Start: 2009-04-09   Win End: 2009-07-06
+
+Total Capital: 81552.0901       Cum Return: -0.203928
+Today: 2009-07-07       Win Start: 2009-04-13   Win End: 2009-07-07
+
+Total Capital: 81921.5417       Cum Return: -0.199408
+Today: 2009-07-08       Win Start: 2009-04-14   Win End: 2009-07-08
+
+Total Capital: 81935.2626       Cum Return: -0.199241
+Today: 2009-07-09       Win Start: 2009-04-15   Win End: 2009-07-09
+
+Total Capital: 82182.8786       Cum Return: -0.196223
+Today: 2009-07-10       Win Start: 2009-04-16   Win End: 2009-07-10
+
+Total Capital: 82721.2084       Cum Return: -0.189694
+Today: 2009-07-13       Win Start: 2009-04-17   Win End: 2009-07-13
+
+Total Capital: 82707.3305       Cum Return: -0.189862
+Today: 2009-07-14       Win Start: 2009-04-20   Win End: 2009-07-14
+
+Total Capital: 82839.9099       Cum Return: -0.188260
+Today: 2009-07-15       Win Start: 2009-04-21   Win End: 2009-07-15
+
+Total Capital: 82931.5428       Cum Return: -0.187155
+Today: 2009-07-16       Win Start: 2009-04-22   Win End: 2009-07-16
+
+Total Capital: 82569.7575       Cum Return: -0.191527
+Today: 2009-07-17       Win Start: 2009-04-23   Win End: 2009-07-17
+
+Total Capital: 82587.2442       Cum Return: -0.191315
+Today: 2009-07-20       Win Start: 2009-04-24   Win End: 2009-07-20
+
+Clustering...
+Cointegrating...
+Total Capital: 82542.2901       Cum Return: -0.191859
+Today: 2009-07-21       Win Start: 2009-04-27   Win End: 2009-07-21
+
+Total Capital: 82375.0304       Cum Return: -0.193888
+Today: 2009-07-22       Win Start: 2009-04-28   Win End: 2009-07-22
+
+Total Capital: 82399.0629       Cum Return: -0.193596
+Today: 2009-07-23       Win Start: 2009-04-29   Win End: 2009-07-23
+
+Total Capital: 82390.4980       Cum Return: -0.193700
+Today: 2009-07-24       Win Start: 2009-04-30   Win End: 2009-07-24
+
+Total Capital: 82173.0912       Cum Return: -0.196342
+Today: 2009-07-27       Win Start: 2009-05-01   Win End: 2009-07-27
+
+Total Capital: 81690.7430       Cum Return: -0.202229
+Today: 2009-07-28       Win Start: 2009-05-04   Win End: 2009-07-28
+
+Total Capital: 81720.1435       Cum Return: -0.201870
+Today: 2009-07-29       Win Start: 2009-05-05   Win End: 2009-07-29
+
+Total Capital: 82064.2933       Cum Return: -0.197667
+Today: 2009-07-30       Win Start: 2009-05-06   Win End: 2009-07-30
+
+Total Capital: 81967.3657       Cum Return: -0.198849
+Today: 2009-07-31       Win Start: 2009-05-07   Win End: 2009-07-31
+
+Total Capital: 81787.0478       Cum Return: -0.201051
+Today: 2009-08-03       Win Start: 2009-05-08   Win End: 2009-08-03
+
+Total Capital: 81177.4531       Cum Return: -0.208533
+Today: 2009-08-04       Win Start: 2009-05-11   Win End: 2009-08-04
+
+Total Capital: 81150.8648       Cum Return: -0.208860
+Today: 2009-08-05       Win Start: 2009-05-12   Win End: 2009-08-05
+
+Total Capital: 81140.8971       Cum Return: -0.208983
+Today: 2009-08-06       Win Start: 2009-05-13   Win End: 2009-08-06
+
+Total Capital: 80664.1403       Cum Return: -0.214876
+Today: 2009-08-07       Win Start: 2009-05-14   Win End: 2009-08-07
+
+Total Capital: 80682.8117       Cum Return: -0.214645
+Today: 2009-08-10       Win Start: 2009-05-15   Win End: 2009-08-10
+
+Total Capital: 80950.5490       Cum Return: -0.211332
+Today: 2009-08-11       Win Start: 2009-05-18   Win End: 2009-08-11
+
+Total Capital: 81100.5978       Cum Return: -0.209480
+Today: 2009-08-12       Win Start: 2009-05-19   Win End: 2009-08-12
+
+Total Capital: 81727.8124       Cum Return: -0.201776
+Today: 2009-08-13       Win Start: 2009-05-20   Win End: 2009-08-13
+
+Total Capital: 81602.1565       Cum Return: -0.203314
+Today: 2009-08-14       Win Start: 2009-05-21   Win End: 2009-08-14
+
+Total Capital: 81836.2125       Cum Return: -0.200450
+Today: 2009-08-17       Win Start: 2009-05-22   Win End: 2009-08-17
+
+Total Capital: 81494.1608       Cum Return: -0.204639
+Today: 2009-08-18       Win Start: 2009-05-26   Win End: 2009-08-18
+
+Total Capital: 81638.7661       Cum Return: -0.202866
+Today: 2009-08-19       Win Start: 2009-05-27   Win End: 2009-08-19
+
+Total Capital: 82101.5477       Cum Return: -0.197213
+Today: 2009-08-20       Win Start: 2009-05-28   Win End: 2009-08-20
+
+Total Capital: 82206.6700       Cum Return: -0.195934
+Today: 2009-08-21       Win Start: 2009-05-29   Win End: 2009-08-21
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 82007.0863       Cum Return: -0.198365
+Today: 2009-08-24       Win Start: 2009-06-01   Win End: 2009-08-24
+
+Total Capital: 82095.8218       Cum Return: -0.197283
+Today: 2009-08-25       Win Start: 2009-06-02   Win End: 2009-08-25
+
+Total Capital: 81986.8955       Cum Return: -0.198611
+Today: 2009-08-26       Win Start: 2009-06-03   Win End: 2009-08-26
+
+Total Capital: 82050.6777       Cum Return: -0.197833
+Today: 2009-08-27       Win Start: 2009-06-04   Win End: 2009-08-27
+
+Total Capital: 81994.9857       Cum Return: -0.198512
+Today: 2009-08-28       Win Start: 2009-06-05   Win End: 2009-08-28
+
+Total Capital: 81722.7604       Cum Return: -0.201838
+Today: 2009-08-31       Win Start: 2009-06-08   Win End: 2009-08-31
+
+Total Capital: 80871.7680       Cum Return: -0.212305
+Today: 2009-09-01       Win Start: 2009-06-09   Win End: 2009-09-01
+
+Total Capital: 80998.2264       Cum Return: -0.210743
+Today: 2009-09-02       Win Start: 2009-06-10   Win End: 2009-09-02
+
+Total Capital: 81662.2465       Cum Return: -0.202578
+Today: 2009-09-03       Win Start: 2009-06-11   Win End: 2009-09-03
+
+Total Capital: 81385.8121       Cum Return: -0.205969
+Today: 2009-09-04       Win Start: 2009-06-12   Win End: 2009-09-04
+
+Total Capital: 81611.7727       Cum Return: -0.203197
+Today: 2009-09-08       Win Start: 2009-06-15   Win End: 2009-09-08
+
+Total Capital: 81366.4390       Cum Return: -0.206207
+Today: 2009-09-09       Win Start: 2009-06-16   Win End: 2009-09-09
+
+Total Capital: 80961.9038       Cum Return: -0.211191
+Today: 2009-09-10       Win Start: 2009-06-17   Win End: 2009-09-10
+
+Total Capital: 80454.9251       Cum Return: -0.217473
+Today: 2009-09-11       Win Start: 2009-06-18   Win End: 2009-09-11
+
+Total Capital: 80918.7697       Cum Return: -0.211724
+Today: 2009-09-14       Win Start: 2009-06-19   Win End: 2009-09-14
+
+Total Capital: 80871.2940       Cum Return: -0.212311
+Today: 2009-09-15       Win Start: 2009-06-22   Win End: 2009-09-15
+
+Total Capital: 81248.8828       Cum Return: -0.207653
+Today: 2009-09-16       Win Start: 2009-06-23   Win End: 2009-09-16
+
+Total Capital: 81353.7346       Cum Return: -0.206363
+Today: 2009-09-17       Win Start: 2009-06-24   Win End: 2009-09-17
+
+Total Capital: 81464.7566       Cum Return: -0.205000
+Today: 2009-09-18       Win Start: 2009-06-25   Win End: 2009-09-18
+
+Total Capital: 81347.7312       Cum Return: -0.206437
+Today: 2009-09-21       Win Start: 2009-06-26   Win End: 2009-09-21
+
+Total Capital: 81865.5951       Cum Return: -0.200091
+Today: 2009-09-22       Win Start: 2009-06-29   Win End: 2009-09-22
+
+Total Capital: 81541.0321       Cum Return: -0.204064
+Today: 2009-09-23       Win Start: 2009-06-30   Win End: 2009-09-23
+
+Total Capital: 80921.2843       Cum Return: -0.211693
+Today: 2009-09-24       Win Start: 2009-07-01   Win End: 2009-09-24
+
+Total Capital: 81063.7731       Cum Return: -0.209934
+Today: 2009-09-25       Win Start: 2009-07-02   Win End: 2009-09-25
+
+Total Capital: 81784.4707       Cum Return: -0.201083
+Today: 2009-09-28       Win Start: 2009-07-06   Win End: 2009-09-28
+
+Total Capital: 81252.8636       Cum Return: -0.207604
+Today: 2009-09-29       Win Start: 2009-07-07   Win End: 2009-09-29
+
+Total Capital: 81046.0802       Cum Return: -0.210152
+Today: 2009-09-30       Win Start: 2009-07-08   Win End: 2009-09-30
+
+Total Capital: 80515.3957       Cum Return: -0.216722
+Today: 2009-10-01       Win Start: 2009-07-09   Win End: 2009-10-01
+
+Total Capital: 80656.0446       Cum Return: -0.214976
+Today: 2009-10-02       Win Start: 2009-07-10   Win End: 2009-10-02
+
+Total Capital: 80703.6380       Cum Return: -0.214387
+Today: 2009-10-05       Win Start: 2009-07-13   Win End: 2009-10-05
+
+Total Capital: 80638.8390       Cum Return: -0.215190
+Today: 2009-10-06       Win Start: 2009-07-14   Win End: 2009-10-06
+
+Total Capital: 80717.0728       Cum Return: -0.214220
+Today: 2009-10-07       Win Start: 2009-07-15   Win End: 2009-10-07
+
+Total Capital: 80759.6746       Cum Return: -0.213692
+Today: 2009-10-08       Win Start: 2009-07-16   Win End: 2009-10-08
+
+Total Capital: 80781.9441       Cum Return: -0.213417
+Today: 2009-10-09       Win Start: 2009-07-17   Win End: 2009-10-09
+
+Total Capital: 81046.9691       Cum Return: -0.210141
+Today: 2009-10-12       Win Start: 2009-07-20   Win End: 2009-10-12
+
+Total Capital: 80872.1111       Cum Return: -0.212301
+Today: 2009-10-13       Win Start: 2009-07-21   Win End: 2009-10-13
+
+Clustering...
+Cointegrating...
+Total Capital: 80827.9140       Cum Return: -0.212848
+Today: 2009-10-14       Win Start: 2009-07-22   Win End: 2009-10-14
+
+Total Capital: 81220.9249       Cum Return: -0.207997
+Today: 2009-10-15       Win Start: 2009-07-23   Win End: 2009-10-15
+
+Total Capital: 81469.3835       Cum Return: -0.204943
+Today: 2009-10-16       Win Start: 2009-07-24   Win End: 2009-10-16
+
+Total Capital: 81504.5694       Cum Return: -0.204511
+Today: 2009-10-19       Win Start: 2009-07-27   Win End: 2009-10-19
+
+Total Capital: 81291.8908       Cum Return: -0.207124
+Today: 2009-10-20       Win Start: 2009-07-28   Win End: 2009-10-20
+
+Total Capital: 81140.6066       Cum Return: -0.208987
+Today: 2009-10-21       Win Start: 2009-07-29   Win End: 2009-10-21
+
+Total Capital: 80364.3907       Cum Return: -0.218599
+Today: 2009-10-22       Win Start: 2009-07-30   Win End: 2009-10-22
+
+Total Capital: 80441.4440       Cum Return: -0.217641
+Today: 2009-10-23       Win Start: 2009-07-31   Win End: 2009-10-23
+
+Total Capital: 80312.9958       Cum Return: -0.219239
+Today: 2009-10-26       Win Start: 2009-08-03   Win End: 2009-10-26
+
+Total Capital: 80245.3319       Cum Return: -0.220082
+Days Traded: 400         Time taken: 1718.0004s
+Today: 2009-10-27       Win Start: 2009-08-04   Win End: 2009-10-27
+
+Total Capital: 79627.1689       Cum Return: -0.227815
+Today: 2009-10-28       Win Start: 2009-08-05   Win End: 2009-10-28
+
+Total Capital: 80259.5672       Cum Return: -0.219904
+Today: 2009-10-29       Win Start: 2009-08-06   Win End: 2009-10-29
+
+Total Capital: 79672.5363       Cum Return: -0.227245
+Today: 2009-10-30       Win Start: 2009-08-07   Win End: 2009-10-30
+
+Total Capital: 79646.8037       Cum Return: -0.227568
+Today: 2009-11-02       Win Start: 2009-08-10   Win End: 2009-11-02
+
+Total Capital: 79225.9950       Cum Return: -0.232866
+Today: 2009-11-03       Win Start: 2009-08-11   Win End: 2009-11-03
+
+Total Capital: 79176.7587       Cum Return: -0.233487
+Today: 2009-11-04       Win Start: 2009-08-12   Win End: 2009-11-04
+
+Total Capital: 79757.3694       Cum Return: -0.226181
+Today: 2009-11-05       Win Start: 2009-08-13   Win End: 2009-11-05
+
+Total Capital: 79754.0757       Cum Return: -0.226222
+Today: 2009-11-06       Win Start: 2009-08-14   Win End: 2009-11-06
+
+Total Capital: 79571.5399       Cum Return: -0.228514
+Today: 2009-11-09       Win Start: 2009-08-17   Win End: 2009-11-09
+
+Total Capital: 79449.7520       Cum Return: -0.230045
+Today: 2009-11-10       Win Start: 2009-08-18   Win End: 2009-11-10
+
+Total Capital: 79562.4181       Cum Return: -0.228628
+Today: 2009-11-11       Win Start: 2009-08-19   Win End: 2009-11-11
+
+Total Capital: 80018.7163       Cum Return: -0.222910
+Today: 2009-11-12       Win Start: 2009-08-20   Win End: 2009-11-12
+
+Total Capital: 80178.9088       Cum Return: -0.220910
+Today: 2009-11-13       Win Start: 2009-08-21   Win End: 2009-11-13
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 79856.6987       Cum Return: -0.224936
+Today: 2009-11-16       Win Start: 2009-08-24   Win End: 2009-11-16
+
+Total Capital: 79916.5248       Cum Return: -0.224188
+Today: 2009-11-17       Win Start: 2009-08-25   Win End: 2009-11-17
+
+Total Capital: 79511.4273       Cum Return: -0.229269
+Today: 2009-11-18       Win Start: 2009-08-26   Win End: 2009-11-18
+
+Total Capital: 79516.7136       Cum Return: -0.229203
+Today: 2009-11-19       Win Start: 2009-08-27   Win End: 2009-11-19
+
+Total Capital: 79579.5274       Cum Return: -0.228413
+Today: 2009-11-20       Win Start: 2009-08-28   Win End: 2009-11-20
+
+Total Capital: 79856.8014       Cum Return: -0.224935
+Today: 2009-11-23       Win Start: 2009-08-31   Win End: 2009-11-23
+
+Total Capital: 79605.8974       Cum Return: -0.228082
+Today: 2009-11-24       Win Start: 2009-09-01   Win End: 2009-11-24
+
+Total Capital: 79905.0932       Cum Return: -0.224331
+Today: 2009-11-25       Win Start: 2009-09-02   Win End: 2009-11-25
+
+Total Capital: 79399.8780       Cum Return: -0.230673
+Today: 2009-11-27       Win Start: 2009-09-03   Win End: 2009-11-27
+
+Total Capital: 79566.8149       Cum Return: -0.228573
+Today: 2009-11-30       Win Start: 2009-09-04   Win End: 2009-11-30
+
+Total Capital: 79643.7361       Cum Return: -0.227607
+Today: 2009-12-01       Win Start: 2009-09-08   Win End: 2009-12-01
+
+Total Capital: 79458.3903       Cum Return: -0.229937
+Today: 2009-12-02       Win Start: 2009-09-09   Win End: 2009-12-02
+
+Total Capital: 79259.9149       Cum Return: -0.232438
+Today: 2009-12-03       Win Start: 2009-09-10   Win End: 2009-12-03
+
+Total Capital: 79532.1939       Cum Return: -0.229008
+Today: 2009-12-04       Win Start: 2009-09-11   Win End: 2009-12-04
+
+Total Capital: 79496.5142       Cum Return: -0.229457
+Today: 2009-12-07       Win Start: 2009-09-14   Win End: 2009-12-07
+
+Total Capital: 79581.5039       Cum Return: -0.228388
+Today: 2009-12-08       Win Start: 2009-09-15   Win End: 2009-12-08
+
+Total Capital: 79426.3641       Cum Return: -0.230340
+Today: 2009-12-09       Win Start: 2009-09-16   Win End: 2009-12-09
+
+Total Capital: 79169.6761       Cum Return: -0.233577
+Today: 2009-12-10       Win Start: 2009-09-17   Win End: 2009-12-10
+
+Total Capital: 79105.3853       Cum Return: -0.234389
+Today: 2009-12-11       Win Start: 2009-09-18   Win End: 2009-12-11
+
+Total Capital: 79709.1247       Cum Return: -0.226786
+Today: 2009-12-14       Win Start: 2009-09-21   Win End: 2009-12-14
+
+Total Capital: 79378.4279       Cum Return: -0.230944
+Today: 2009-12-15       Win Start: 2009-09-22   Win End: 2009-12-15
+
+Total Capital: 80010.0963       Cum Return: -0.223017
+Today: 2009-12-16       Win Start: 2009-09-23   Win End: 2009-12-16
+
+Total Capital: 79636.7172       Cum Return: -0.227695
+Today: 2009-12-17       Win Start: 2009-09-24   Win End: 2009-12-17
+
+Total Capital: 80227.9865       Cum Return: -0.220298
+Today: 2009-12-18       Win Start: 2009-09-25   Win End: 2009-12-18
+
+Total Capital: 80473.0016       Cum Return: -0.217248
+Today: 2009-12-21       Win Start: 2009-09-28   Win End: 2009-12-21
+
+Total Capital: 80811.7629       Cum Return: -0.213048
+Today: 2009-12-22       Win Start: 2009-09-29   Win End: 2009-12-22
+
+Total Capital: 81175.8665       Cum Return: -0.208552
+Today: 2009-12-23       Win Start: 2009-09-30   Win End: 2009-12-23
+
+Total Capital: 81458.7798       Cum Return: -0.205073
+Today: 2009-12-24       Win Start: 2009-10-01   Win End: 2009-12-24
+
+Total Capital: 81128.4576       Cum Return: -0.209136
+Today: 2009-12-28       Win Start: 2009-10-02   Win End: 2009-12-28
+
+Total Capital: 81339.4462       Cum Return: -0.206539
+Today: 2009-12-29       Win Start: 2009-10-05   Win End: 2009-12-29
+
+Total Capital: 81514.6963       Cum Return: -0.204387
+Today: 2009-12-30       Win Start: 2009-10-06   Win End: 2009-12-30
+
+Total Capital: 81315.4185       Cum Return: -0.206835
+Today: 2009-12-31       Win Start: 2009-10-07   Win End: 2009-12-31
+
+Total Capital: 81820.4251       Cum Return: -0.200643
+Today: 2010-01-04       Win Start: 2009-10-08   Win End: 2010-01-04
+
+Total Capital: 82009.8005       Cum Return: -0.198331
+Today: 2010-01-05       Win Start: 2009-10-09   Win End: 2010-01-05
+
+Total Capital: 82057.2922       Cum Return: -0.197752
+Today: 2010-01-06       Win Start: 2009-10-12   Win End: 2010-01-06
+
+Total Capital: 82662.6819       Cum Return: -0.190402
+Today: 2010-01-07       Win Start: 2009-10-13   Win End: 2010-01-07
+
+Total Capital: 82658.6488       Cum Return: -0.190451
+Today: 2010-01-08       Win Start: 2009-10-14   Win End: 2010-01-08
+
+Clustering...
+Cointegrating...
+Total Capital: 82621.3461       Cum Return: -0.190902
+Today: 2010-01-11       Win Start: 2009-10-15   Win End: 2010-01-11
+
+Total Capital: 82710.3679       Cum Return: -0.189825
+Today: 2010-01-12       Win Start: 2009-10-16   Win End: 2010-01-12
+
+Total Capital: 82938.1986       Cum Return: -0.187074
+Today: 2010-01-13       Win Start: 2009-10-19   Win End: 2010-01-13
+
+Total Capital: 82313.2153       Cum Return: -0.194639
+Today: 2010-01-14       Win Start: 2009-10-20   Win End: 2010-01-14
+
+Total Capital: 82228.9522       Cum Return: -0.195663
+Today: 2010-01-15       Win Start: 2009-10-21   Win End: 2010-01-15
+
+Total Capital: 82282.0022       Cum Return: -0.195018
+Today: 2010-01-19       Win Start: 2009-10-22   Win End: 2010-01-19
+
+Total Capital: 82792.7605       Cum Return: -0.188830
+Today: 2010-01-20       Win Start: 2009-10-23   Win End: 2010-01-20
+
+Total Capital: 83703.7341       Cum Return: -0.177887
+Today: 2010-01-21       Win Start: 2009-10-26   Win End: 2010-01-21
+
+Total Capital: 83735.2209       Cum Return: -0.177510
+Today: 2010-01-22       Win Start: 2009-10-27   Win End: 2010-01-22
+
+Total Capital: 83379.2308       Cum Return: -0.181771
+Today: 2010-01-25       Win Start: 2009-10-28   Win End: 2010-01-25
+
+Total Capital: 84395.9173       Cum Return: -0.169651
+Today: 2010-01-26       Win Start: 2009-10-29   Win End: 2010-01-26
+
+Total Capital: 84309.0594       Cum Return: -0.170681
+Today: 2010-01-27       Win Start: 2009-10-30   Win End: 2010-01-27
+
+Total Capital: 85063.4835       Cum Return: -0.161772
+Today: 2010-01-28       Win Start: 2009-11-02   Win End: 2010-01-28
+
+Total Capital: 83798.6457       Cum Return: -0.176753
+Today: 2010-01-29       Win Start: 2009-11-03   Win End: 2010-01-29
+
+Total Capital: 83834.0280       Cum Return: -0.176331
+Today: 2010-02-01       Win Start: 2009-11-04   Win End: 2010-02-01
+
+Total Capital: 84439.9326       Cum Return: -0.169130
+Today: 2010-02-02       Win Start: 2009-11-05   Win End: 2010-02-02
+
+Total Capital: 84800.0626       Cum Return: -0.164874
+Today: 2010-02-03       Win Start: 2009-11-06   Win End: 2010-02-03
+
+Total Capital: 85081.5008       Cum Return: -0.161561
+Today: 2010-02-04       Win Start: 2009-11-09   Win End: 2010-02-04
+
+Total Capital: 84603.9524       Cum Return: -0.167189
+Today: 2010-02-05       Win Start: 2009-11-10   Win End: 2010-02-05
+
+Total Capital: 85188.5830       Cum Return: -0.160303
+Today: 2010-02-08       Win Start: 2009-11-11   Win End: 2010-02-08
+
+Total Capital: 86008.0832       Cum Return: -0.150729
+Today: 2010-02-09       Win Start: 2009-11-12   Win End: 2010-02-09
+
+Total Capital: 85827.2559       Cum Return: -0.152834
+Today: 2010-02-10       Win Start: 2009-11-13   Win End: 2010-02-10
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 87103.5043       Cum Return: -0.138073
+Today: 2010-02-11       Win Start: 2009-11-16   Win End: 2010-02-11
+
+Total Capital: 87080.5465       Cum Return: -0.138337
+Today: 2010-02-12       Win Start: 2009-11-17   Win End: 2010-02-12
+
+Total Capital: 86751.4232       Cum Return: -0.142123
+Today: 2010-02-16       Win Start: 2009-11-18   Win End: 2010-02-16
+
+Total Capital: 87227.0697       Cum Return: -0.136655
+Today: 2010-02-17       Win Start: 2009-11-19   Win End: 2010-02-17
+
+Total Capital: 87007.7699       Cum Return: -0.139173
+Today: 2010-02-18       Win Start: 2009-11-20   Win End: 2010-02-18
+
+Total Capital: 87499.3996       Cum Return: -0.133538
+Today: 2010-02-19       Win Start: 2009-11-23   Win End: 2010-02-19
+
+Total Capital: 87028.1623       Cum Return: -0.138938
+Today: 2010-02-22       Win Start: 2009-11-24   Win End: 2010-02-22
+
+Total Capital: 86193.5738       Cum Return: -0.148575
+Today: 2010-02-23       Win Start: 2009-11-25   Win End: 2010-02-23
+
+Total Capital: 86358.2563       Cum Return: -0.146666
+Today: 2010-02-24       Win Start: 2009-11-27   Win End: 2010-02-24
+
+Total Capital: 85826.2253       Cum Return: -0.152846
+Today: 2010-02-25       Win Start: 2009-11-30   Win End: 2010-02-25
+
+Total Capital: 85845.0377       Cum Return: -0.152626
+Today: 2010-02-26       Win Start: 2009-12-01   Win End: 2010-02-26
+
+Total Capital: 86662.6599       Cum Return: -0.143147
+Today: 2010-03-01       Win Start: 2009-12-02   Win End: 2010-03-01
+
+Total Capital: 87316.5459       Cum Return: -0.135630
+Today: 2010-03-02       Win Start: 2009-12-03   Win End: 2010-03-02
+
+Total Capital: 87219.8030       Cum Return: -0.136739
+Today: 2010-03-03       Win Start: 2009-12-04   Win End: 2010-03-03
+
+Total Capital: 87096.5954       Cum Return: -0.138152
+Today: 2010-03-04       Win Start: 2009-12-07   Win End: 2010-03-04
+
+Total Capital: 87168.3994       Cum Return: -0.137328
+Today: 2010-03-05       Win Start: 2009-12-08   Win End: 2010-03-05
+
+Total Capital: 87644.4156       Cum Return: -0.131882
+Today: 2010-03-08       Win Start: 2009-12-09   Win End: 2010-03-08
+
+Total Capital: 87320.5940       Cum Return: -0.135584
+Today: 2010-03-09       Win Start: 2009-12-10   Win End: 2010-03-09
+
+Total Capital: 87665.8146       Cum Return: -0.131638
+Today: 2010-03-10       Win Start: 2009-12-11   Win End: 2010-03-10
+
+Total Capital: 87764.3217       Cum Return: -0.130515
+Today: 2010-03-11       Win Start: 2009-12-14   Win End: 2010-03-11
+
+Total Capital: 88256.7355       Cum Return: -0.124920
+Today: 2010-03-12       Win Start: 2009-12-15   Win End: 2010-03-12
+
+Total Capital: 88378.7297       Cum Return: -0.123539
+Today: 2010-03-15       Win Start: 2009-12-16   Win End: 2010-03-15
+
+Total Capital: 88285.8652       Cum Return: -0.124590
+Today: 2010-03-16       Win Start: 2009-12-17   Win End: 2010-03-16
+
+Total Capital: 88107.0767       Cum Return: -0.126617
+Today: 2010-03-17       Win Start: 2009-12-18   Win End: 2010-03-17
+
+Total Capital: 87972.6273       Cum Return: -0.128144
+Today: 2010-03-18       Win Start: 2009-12-21   Win End: 2010-03-18
+
+Total Capital: 88435.3049       Cum Return: -0.122899
+Today: 2010-03-19       Win Start: 2009-12-22   Win End: 2010-03-19
+
+Total Capital: 88313.1855       Cum Return: -0.124281
+Today: 2010-03-22       Win Start: 2009-12-23   Win End: 2010-03-22
+
+Total Capital: 88390.4138       Cum Return: -0.123407
+Days Traded: 500         Time taken: 2049.4550s
+Today: 2010-03-23       Win Start: 2009-12-24   Win End: 2010-03-23
+
+Total Capital: 88543.6899       Cum Return: -0.121674
+Today: 2010-03-24       Win Start: 2009-12-28   Win End: 2010-03-24
+
+Total Capital: 88784.0572       Cum Return: -0.118963
+Today: 2010-03-25       Win Start: 2009-12-29   Win End: 2010-03-25
+
+Total Capital: 88728.5864       Cum Return: -0.119588
+Today: 2010-03-26       Win Start: 2009-12-30   Win End: 2010-03-26
+
+Total Capital: 88747.5990       Cum Return: -0.119374
+Today: 2010-03-29       Win Start: 2009-12-31   Win End: 2010-03-29
+
+Total Capital: 88537.3300       Cum Return: -0.121746
+Today: 2010-03-30       Win Start: 2010-01-04   Win End: 2010-03-30
+
+Total Capital: 88298.1011       Cum Return: -0.124452
+Today: 2010-03-31       Win Start: 2010-01-05   Win End: 2010-03-31
+
+Total Capital: 88625.2656       Cum Return: -0.120753
+Today: 2010-04-01       Win Start: 2010-01-06   Win End: 2010-04-01
+
+Total Capital: 89644.1298       Cum Return: -0.109322
+Today: 2010-04-05       Win Start: 2010-01-07   Win End: 2010-04-05
+
+Total Capital: 89582.8819       Cum Return: -0.110006
+Today: 2010-04-06       Win Start: 2010-01-08   Win End: 2010-04-06
+
+Total Capital: 89668.7508       Cum Return: -0.109048
+Today: 2010-04-07       Win Start: 2010-01-11   Win End: 2010-04-07
+
+Clustering...
+Cointegrating...
+Total Capital: 89626.1962       Cum Return: -0.109523
+Today: 2010-04-08       Win Start: 2010-01-12   Win End: 2010-04-08
+
+Total Capital: 90306.9255       Cum Return: -0.101956
+Today: 2010-04-09       Win Start: 2010-01-13   Win End: 2010-04-09
+
+Total Capital: 90479.2797       Cum Return: -0.100049
+Today: 2010-04-12       Win Start: 2010-01-14   Win End: 2010-04-12
+
+Total Capital: 90684.5255       Cum Return: -0.097783
+Today: 2010-04-13       Win Start: 2010-01-15   Win End: 2010-04-13
+
+Total Capital: 90693.7742       Cum Return: -0.097681
+Today: 2010-04-14       Win Start: 2010-01-19   Win End: 2010-04-14
+
+Total Capital: 89965.8609       Cum Return: -0.105740
+Today: 2010-04-15       Win Start: 2010-01-20   Win End: 2010-04-15
+
+Total Capital: 90024.3445       Cum Return: -0.105090
+Today: 2010-04-16       Win Start: 2010-01-21   Win End: 2010-04-16
+
+Total Capital: 89411.4539       Cum Return: -0.111921
+Today: 2010-04-19       Win Start: 2010-01-22   Win End: 2010-04-19
+
+Total Capital: 90234.6771       Cum Return: -0.102756
+Today: 2010-04-20       Win Start: 2010-01-25   Win End: 2010-04-20
+
+Total Capital: 90623.3916       Cum Return: -0.098458
+Today: 2010-04-21       Win Start: 2010-01-26   Win End: 2010-04-21
+
+Total Capital: 91124.1470       Cum Return: -0.092947
+Today: 2010-04-22       Win Start: 2010-01-27   Win End: 2010-04-22
+
+Total Capital: 91384.1435       Cum Return: -0.090098
+Today: 2010-04-23       Win Start: 2010-01-28   Win End: 2010-04-23
+
+Total Capital: 91457.0694       Cum Return: -0.089301
+Today: 2010-04-26       Win Start: 2010-01-29   Win End: 2010-04-26
+
+Total Capital: 91526.8449       Cum Return: -0.088538
+Today: 2010-04-27       Win Start: 2010-02-01   Win End: 2010-04-27
+
+Total Capital: 91918.2775       Cum Return: -0.084270
+Today: 2010-04-28       Win Start: 2010-02-02   Win End: 2010-04-28
+
+Total Capital: 93476.5568       Cum Return: -0.067460
+Today: 2010-04-29       Win Start: 2010-02-03   Win End: 2010-04-29
+
+Total Capital: 93707.5528       Cum Return: -0.064991
+Today: 2010-04-30       Win Start: 2010-02-04   Win End: 2010-04-30
+
+Total Capital: 94588.1991       Cum Return: -0.055637
+Today: 2010-05-03       Win Start: 2010-02-05   Win End: 2010-05-03
+
+Total Capital: 94290.1447       Cum Return: -0.058794
+Today: 2010-05-04       Win Start: 2010-02-08   Win End: 2010-05-04
+
+Total Capital: 93736.0261       Cum Return: -0.064688
+Today: 2010-05-05       Win Start: 2010-02-09   Win End: 2010-05-05
+
+Total Capital: 93691.3741       Cum Return: -0.065164
+Today: 2010-05-06       Win Start: 2010-02-10   Win End: 2010-05-06
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 92949.3229       Cum Return: -0.073116
+Today: 2010-05-07       Win Start: 2010-02-11   Win End: 2010-05-07
+
+Total Capital: 93901.3271       Cum Return: -0.062926
+Today: 2010-05-10       Win Start: 2010-02-12   Win End: 2010-05-10
+
+Total Capital: 94185.6261       Cum Return: -0.059903
+Today: 2010-05-11       Win Start: 2010-02-16   Win End: 2010-05-11
+
+Total Capital: 94451.7006       Cum Return: -0.057082
+Today: 2010-05-12       Win Start: 2010-02-17   Win End: 2010-05-12
+
+Total Capital: 93734.8538       Cum Return: -0.064700
+Today: 2010-05-13       Win Start: 2010-02-18   Win End: 2010-05-13
+
+Total Capital: 93074.2589       Cum Return: -0.071773
+Today: 2010-05-14       Win Start: 2010-02-19   Win End: 2010-05-14
+
+Total Capital: 93135.0257       Cum Return: -0.071120
+Today: 2010-05-17       Win Start: 2010-02-22   Win End: 2010-05-17
+
+Total Capital: 92676.9078       Cum Return: -0.076051
+Today: 2010-05-18       Win Start: 2010-02-23   Win End: 2010-05-18
+
+Total Capital: 93762.2036       Cum Return: -0.064408
+Today: 2010-05-19       Win Start: 2010-02-24   Win End: 2010-05-19
+
+Total Capital: 93670.7722       Cum Return: -0.065384
+Today: 2010-05-20       Win Start: 2010-02-25   Win End: 2010-05-20
+
+Total Capital: 94231.8788       Cum Return: -0.059412
+Today: 2010-05-21       Win Start: 2010-02-26   Win End: 2010-05-21
+
+Total Capital: 93874.8145       Cum Return: -0.063208
+Today: 2010-05-24       Win Start: 2010-03-01   Win End: 2010-05-24
+
+Total Capital: 93669.6470       Cum Return: -0.065396
+Today: 2010-05-25       Win Start: 2010-03-02   Win End: 2010-05-25
+
+Total Capital: 93353.7246       Cum Return: -0.068774
+Today: 2010-05-26       Win Start: 2010-03-03   Win End: 2010-05-26
+
+Total Capital: 94056.0912       Cum Return: -0.061279
+Today: 2010-05-27       Win Start: 2010-03-04   Win End: 2010-05-27
+
+Total Capital: 93484.6987       Cum Return: -0.067372
+Today: 2010-05-28       Win Start: 2010-03-05   Win End: 2010-05-28
+
+Total Capital: 93325.8897       Cum Return: -0.069073
+Today: 2010-06-01       Win Start: 2010-03-08   Win End: 2010-06-01
+
+Total Capital: 93414.8153       Cum Return: -0.068120
+Today: 2010-06-02       Win Start: 2010-03-09   Win End: 2010-06-02
+
+Total Capital: 93665.2390       Cum Return: -0.065443
+Today: 2010-06-03       Win Start: 2010-03-10   Win End: 2010-06-03
+
+Total Capital: 92990.7555       Cum Return: -0.072670
+Today: 2010-06-04       Win Start: 2010-03-11   Win End: 2010-06-04
+
+Total Capital: 91585.7393       Cum Return: -0.087895
+Today: 2010-06-07       Win Start: 2010-03-12   Win End: 2010-06-07
+
+Total Capital: 92102.5686       Cum Return: -0.082267
+Today: 2010-06-08       Win Start: 2010-03-15   Win End: 2010-06-08
+
+Total Capital: 91304.5642       Cum Return: -0.090969
+Today: 2010-06-09       Win Start: 2010-03-16   Win End: 2010-06-09
+
+Total Capital: 91320.9766       Cum Return: -0.090790
+Today: 2010-06-10       Win Start: 2010-03-17   Win End: 2010-06-10
+
+Total Capital: 90602.7711       Cum Return: -0.098685
+Today: 2010-06-11       Win Start: 2010-03-18   Win End: 2010-06-11
+
+Total Capital: 91008.3472       Cum Return: -0.094219
+Today: 2010-06-14       Win Start: 2010-03-19   Win End: 2010-06-14
+
+Total Capital: 92243.1996       Cum Return: -0.080742
+Today: 2010-06-15       Win Start: 2010-03-22   Win End: 2010-06-15
+
+Total Capital: 91927.4344       Cum Return: -0.084171
+Today: 2010-06-16       Win Start: 2010-03-23   Win End: 2010-06-16
+
+Total Capital: 92097.7454       Cum Return: -0.082320
+Today: 2010-06-17       Win Start: 2010-03-24   Win End: 2010-06-17
+
+Total Capital: 92130.6883       Cum Return: -0.081962
+Today: 2010-06-18       Win Start: 2010-03-25   Win End: 2010-06-18
+
+Total Capital: 91560.4905       Cum Return: -0.088170
+Today: 2010-06-21       Win Start: 2010-03-26   Win End: 2010-06-21
+
+Total Capital: 91442.6291       Cum Return: -0.089458
+Today: 2010-06-22       Win Start: 2010-03-29   Win End: 2010-06-22
+
+Total Capital: 91304.5138       Cum Return: -0.090970
+Today: 2010-06-23       Win Start: 2010-03-30   Win End: 2010-06-23
+
+Total Capital: 91110.7714       Cum Return: -0.093094
+Today: 2010-06-24       Win Start: 2010-03-31   Win End: 2010-06-24
+
+Total Capital: 90834.3186       Cum Return: -0.096133
+Today: 2010-06-25       Win Start: 2010-04-01   Win End: 2010-06-25
+
+Total Capital: 90799.9694       Cum Return: -0.096511
+Today: 2010-06-28       Win Start: 2010-04-05   Win End: 2010-06-28
+
+Total Capital: 90973.0095       Cum Return: -0.094607
+Today: 2010-06-29       Win Start: 2010-04-06   Win End: 2010-06-29
+
+Total Capital: 90786.6873       Cum Return: -0.096658
+Today: 2010-06-30       Win Start: 2010-04-07   Win End: 2010-06-30
+
+Total Capital: 91369.5522       Cum Return: -0.090258
+Today: 2010-07-01       Win Start: 2010-04-08   Win End: 2010-07-01
+
+Clustering...
+Cointegrating...
+Total Capital: 91323.9838       Cum Return: -0.090757
+Today: 2010-07-02       Win Start: 2010-04-09   Win End: 2010-07-02
+
+Total Capital: 90675.1056       Cum Return: -0.097887
+Today: 2010-07-06       Win Start: 2010-04-12   Win End: 2010-07-06
+
+Total Capital: 90064.8042       Cum Return: -0.104641
+Today: 2010-07-07       Win Start: 2010-04-13   Win End: 2010-07-07
+
+Total Capital: 89728.8278       Cum Return: -0.108378
+Today: 2010-07-08       Win Start: 2010-04-14   Win End: 2010-07-08
+
+Total Capital: 89303.3124       Cum Return: -0.113132
+Today: 2010-07-09       Win Start: 2010-04-15   Win End: 2010-07-09
+
+Total Capital: 89807.9441       Cum Return: -0.107497
+Today: 2010-07-12       Win Start: 2010-04-16   Win End: 2010-07-12
+
+Total Capital: 88709.4938       Cum Return: -0.119803
+Today: 2010-07-13       Win Start: 2010-04-19   Win End: 2010-07-13
+
+Total Capital: 88749.7027       Cum Return: -0.119350
+Today: 2010-07-14       Win Start: 2010-04-20   Win End: 2010-07-14
+
+Total Capital: 88534.5748       Cum Return: -0.121777
+Today: 2010-07-15       Win Start: 2010-04-21   Win End: 2010-07-15
+
+Total Capital: 88283.5261       Cum Return: -0.124617
+Today: 2010-07-16       Win Start: 2010-04-22   Win End: 2010-07-16
+
+Total Capital: 88782.2008       Cum Return: -0.118984
+Today: 2010-07-19       Win Start: 2010-04-23   Win End: 2010-07-19
+
+Total Capital: 89315.4601       Cum Return: -0.112996
+Today: 2010-07-20       Win Start: 2010-04-26   Win End: 2010-07-20
+
+Total Capital: 89676.4186       Cum Return: -0.108962
+Today: 2010-07-21       Win Start: 2010-04-27   Win End: 2010-07-21
+
+Total Capital: 90116.2493       Cum Return: -0.104070
+Today: 2010-07-22       Win Start: 2010-04-28   Win End: 2010-07-22
+
+Total Capital: 89576.4644       Cum Return: -0.110078
+Today: 2010-07-23       Win Start: 2010-04-29   Win End: 2010-07-23
+
+Total Capital: 89528.5323       Cum Return: -0.110613
+Today: 2010-07-26       Win Start: 2010-04-30   Win End: 2010-07-26
+
+Total Capital: 89543.0525       Cum Return: -0.110451
+Today: 2010-07-27       Win Start: 2010-05-03   Win End: 2010-07-27
+
+Total Capital: 89972.2644       Cum Return: -0.105669
+Today: 2010-07-28       Win Start: 2010-05-04   Win End: 2010-07-28
+
+Total Capital: 90315.4911       Cum Return: -0.101861
+Today: 2010-07-29       Win Start: 2010-05-05   Win End: 2010-07-29
+
+Total Capital: 91276.6868       Cum Return: -0.091275
+Today: 2010-07-30       Win Start: 2010-05-06   Win End: 2010-07-30
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 91702.2233       Cum Return: -0.086624
+Today: 2010-08-02       Win Start: 2010-05-07   Win End: 2010-08-02
+
+Total Capital: 91910.1983       Cum Return: -0.084358
+Today: 2010-08-03       Win Start: 2010-05-10   Win End: 2010-08-03
+
+Total Capital: 94032.0175       Cum Return: -0.061535
+Today: 2010-08-04       Win Start: 2010-05-11   Win End: 2010-08-04
+
+Total Capital: 94510.3110       Cum Return: -0.056461
+Today: 2010-08-05       Win Start: 2010-05-12   Win End: 2010-08-05
+
+Total Capital: 95160.8042       Cum Return: -0.049602
+Today: 2010-08-06       Win Start: 2010-05-13   Win End: 2010-08-06
+
+Total Capital: 95013.4617       Cum Return: -0.051152
+Today: 2010-08-09       Win Start: 2010-05-14   Win End: 2010-08-09
+
+Total Capital: 95131.0789       Cum Return: -0.049914
+Today: 2010-08-10       Win Start: 2010-05-17   Win End: 2010-08-10
+
+Total Capital: 95153.7983       Cum Return: -0.049676
+Today: 2010-08-11       Win Start: 2010-05-18   Win End: 2010-08-11
+
+Total Capital: 95366.8507       Cum Return: -0.047439
+Today: 2010-08-12       Win Start: 2010-05-19   Win End: 2010-08-12
+
+Total Capital: 95417.6464       Cum Return: -0.046907
+Days Traded: 600         Time taken: 2569.7253s
+Today: 2010-08-13       Win Start: 2010-05-20   Win End: 2010-08-13
+
+Total Capital: 95357.1678       Cum Return: -0.047541
+Today: 2010-08-16       Win Start: 2010-05-21   Win End: 2010-08-16
+
+Total Capital: 95428.7489       Cum Return: -0.046790
+Today: 2010-08-17       Win Start: 2010-05-24   Win End: 2010-08-17
+
+Total Capital: 95593.3151       Cum Return: -0.045067
+Today: 2010-08-18       Win Start: 2010-05-25   Win End: 2010-08-18
+
+Total Capital: 95647.0562       Cum Return: -0.044505
+Today: 2010-08-19       Win Start: 2010-05-26   Win End: 2010-08-19
+
+Total Capital: 95552.0478       Cum Return: -0.045499
+Today: 2010-08-20       Win Start: 2010-05-27   Win End: 2010-08-20
+
+Total Capital: 95645.5260       Cum Return: -0.044521
+Today: 2010-08-23       Win Start: 2010-05-28   Win End: 2010-08-23
+
+Total Capital: 95362.7411       Cum Return: -0.047482
+Today: 2010-08-24       Win Start: 2010-06-01   Win End: 2010-08-24
+
+Total Capital: 95539.8449       Cum Return: -0.045627
+Today: 2010-08-25       Win Start: 2010-06-02   Win End: 2010-08-25
+
+Total Capital: 95523.3204       Cum Return: -0.045800
+Today: 2010-08-26       Win Start: 2010-06-03   Win End: 2010-08-26
+
+Total Capital: 95789.4779       Cum Return: -0.043017
+Today: 2010-08-27       Win Start: 2010-06-04   Win End: 2010-08-27
+
+Total Capital: 95215.8858       Cum Return: -0.049023
+Today: 2010-08-30       Win Start: 2010-06-07   Win End: 2010-08-30
+
+Total Capital: 95037.0725       Cum Return: -0.050903
+Today: 2010-08-31       Win Start: 2010-06-08   Win End: 2010-08-31
+
+Total Capital: 95869.8245       Cum Return: -0.042179
+Today: 2010-09-01       Win Start: 2010-06-09   Win End: 2010-09-01
+
+Total Capital: 96859.9998       Cum Return: -0.031904
+Today: 2010-09-02       Win Start: 2010-06-10   Win End: 2010-09-02
+
+Total Capital: 97513.3365       Cum Return: -0.025181
+Today: 2010-09-03       Win Start: 2010-06-11   Win End: 2010-09-03
+
+Total Capital: 96997.3777       Cum Return: -0.030486
+Today: 2010-09-07       Win Start: 2010-06-14   Win End: 2010-09-07
+
+Total Capital: 96764.4879       Cum Return: -0.032890
+Today: 2010-09-08       Win Start: 2010-06-15   Win End: 2010-09-08
+
+Total Capital: 97251.6803       Cum Return: -0.027868
+Today: 2010-09-09       Win Start: 2010-06-16   Win End: 2010-09-09
+
+Total Capital: 97294.2635       Cum Return: -0.027430
+Today: 2010-09-10       Win Start: 2010-06-17   Win End: 2010-09-10
+
+Total Capital: 97690.7578       Cum Return: -0.023363
+Today: 2010-09-13       Win Start: 2010-06-18   Win End: 2010-09-13
+
+Total Capital: 98251.9926       Cum Return: -0.017635
+Today: 2010-09-14       Win Start: 2010-06-21   Win End: 2010-09-14
+
+Total Capital: 98266.8756       Cum Return: -0.017483
+Today: 2010-09-15       Win Start: 2010-06-22   Win End: 2010-09-15
+
+Total Capital: 97695.7580       Cum Return: -0.023312
+Today: 2010-09-16       Win Start: 2010-06-23   Win End: 2010-09-16
+
+Total Capital: 98209.6440       Cum Return: -0.018066
+Today: 2010-09-17       Win Start: 2010-06-24   Win End: 2010-09-17
+
+Total Capital: 99180.0128       Cum Return: -0.008234
+Today: 2010-09-20       Win Start: 2010-06-25   Win End: 2010-09-20
+
+Total Capital: 98939.8170       Cum Return: -0.010658
+Today: 2010-09-21       Win Start: 2010-06-28   Win End: 2010-09-21
+
+Total Capital: 98631.5102       Cum Return: -0.013779
+Today: 2010-09-22       Win Start: 2010-06-29   Win End: 2010-09-22
+
+Total Capital: 98746.0367       Cum Return: -0.012619
+Today: 2010-09-23       Win Start: 2010-06-30   Win End: 2010-09-23
+
+Total Capital: 99324.6192       Cum Return: -0.006777
+Today: 2010-09-24       Win Start: 2010-07-01   Win End: 2010-09-24
+
+Total Capital: 98691.8289       Cum Return: -0.013168
+Today: 2010-09-27       Win Start: 2010-07-02   Win End: 2010-09-27
+
+Clustering...
+Cointegrating...
+Total Capital: 98645.0299       Cum Return: -0.013642
+Today: 2010-09-28       Win Start: 2010-07-06   Win End: 2010-09-28
+
+Total Capital: 98738.4471       Cum Return: -0.012696
+Today: 2010-09-29       Win Start: 2010-07-07   Win End: 2010-09-29
+
+Total Capital: 98308.0302       Cum Return: -0.017064
+Today: 2010-09-30       Win Start: 2010-07-08   Win End: 2010-09-30
+
+Total Capital: 98867.2905       Cum Return: -0.011392
+Today: 2010-10-01       Win Start: 2010-07-09   Win End: 2010-10-01
+
+Total Capital: 98850.2383       Cum Return: -0.011564
+Today: 2010-10-04       Win Start: 2010-07-12   Win End: 2010-10-04
+
+Total Capital: 98954.4070       Cum Return: -0.010511
+Today: 2010-10-05       Win Start: 2010-07-13   Win End: 2010-10-05
+
+Total Capital: 99195.0419       Cum Return: -0.008082
+Today: 2010-10-06       Win Start: 2010-07-14   Win End: 2010-10-06
+
+Total Capital: 98866.8411       Cum Return: -0.011396
+Today: 2010-10-07       Win Start: 2010-07-15   Win End: 2010-10-07
+
+Total Capital: 99238.6643       Cum Return: -0.007642
+Today: 2010-10-08       Win Start: 2010-07-16   Win End: 2010-10-08
+
+Total Capital: 99083.1914       Cum Return: -0.009210
+Today: 2010-10-11       Win Start: 2010-07-19   Win End: 2010-10-11
+
+Total Capital: 98993.3574       Cum Return: -0.010117
+Today: 2010-10-12       Win Start: 2010-07-20   Win End: 2010-10-12
+
+Total Capital: 99691.4541       Cum Return: -0.003090
+Today: 2010-10-13       Win Start: 2010-07-21   Win End: 2010-10-13
+
+Total Capital: 99468.1780       Cum Return: -0.005332
+Today: 2010-10-14       Win Start: 2010-07-22   Win End: 2010-10-14
+
+Total Capital: 98820.5599       Cum Return: -0.011865
+Today: 2010-10-15       Win Start: 2010-07-23   Win End: 2010-10-15
+
+Total Capital: 99051.7406       Cum Return: -0.009528
+Today: 2010-10-18       Win Start: 2010-07-26   Win End: 2010-10-18
+
+Total Capital: 99004.9779       Cum Return: -0.010000
+Today: 2010-10-19       Win Start: 2010-07-27   Win End: 2010-10-19
+
+Total Capital: 98975.3651       Cum Return: -0.010299
+Today: 2010-10-20       Win Start: 2010-07-28   Win End: 2010-10-20
+
+Total Capital: 98738.5539       Cum Return: -0.012695
+Today: 2010-10-21       Win Start: 2010-07-29   Win End: 2010-10-21
+
+Total Capital: 98623.6005       Cum Return: -0.013860
+Today: 2010-10-22       Win Start: 2010-07-30   Win End: 2010-10-22
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 98846.2330       Cum Return: -0.011605
+Today: 2010-10-25       Win Start: 2010-08-02   Win End: 2010-10-25
+
+Total Capital: 98872.3085       Cum Return: -0.011341
+Today: 2010-10-26       Win Start: 2010-08-03   Win End: 2010-10-26
+
+Total Capital: 98699.8471       Cum Return: -0.013087
+Today: 2010-10-27       Win Start: 2010-08-04   Win End: 2010-10-27
+
+Total Capital: 98427.6788       Cum Return: -0.015848
+Today: 2010-10-28       Win Start: 2010-08-05   Win End: 2010-10-28
+
+Total Capital: 98438.2692       Cum Return: -0.015741
+Today: 2010-10-29       Win Start: 2010-08-06   Win End: 2010-10-29
+
+Total Capital: 98714.5613       Cum Return: -0.012938
+Today: 2010-11-01       Win Start: 2010-08-09   Win End: 2010-11-01
+
+Total Capital: 98517.5108       Cum Return: -0.014936
+Today: 2010-11-02       Win Start: 2010-08-10   Win End: 2010-11-02
+
+Total Capital: 98127.9598       Cum Return: -0.018898
+Today: 2010-11-03       Win Start: 2010-08-11   Win End: 2010-11-03
+
+Total Capital: 98015.0195       Cum Return: -0.020049
+Today: 2010-11-04       Win Start: 2010-08-12   Win End: 2010-11-04
+
+Total Capital: 98118.1359       Cum Return: -0.018998
+Today: 2010-11-05       Win Start: 2010-08-13   Win End: 2010-11-05
+
+Total Capital: 98155.0054       Cum Return: -0.018622
+Today: 2010-11-08       Win Start: 2010-08-16   Win End: 2010-11-08
+
+Total Capital: 98307.6391       Cum Return: -0.017068
+Today: 2010-11-09       Win Start: 2010-08-17   Win End: 2010-11-09
+
+Total Capital: 98347.8668       Cum Return: -0.016659
+Today: 2010-11-10       Win Start: 2010-08-18   Win End: 2010-11-10
+
+Total Capital: 98136.8008       Cum Return: -0.018808
+Today: 2010-11-11       Win Start: 2010-08-19   Win End: 2010-11-11
+
+Total Capital: 97716.6858       Cum Return: -0.023098
+Today: 2010-11-12       Win Start: 2010-08-20   Win End: 2010-11-12
+
+Total Capital: 98107.3150       Cum Return: -0.019108
+Today: 2010-11-15       Win Start: 2010-08-23   Win End: 2010-11-15
+
+Total Capital: 98128.4134       Cum Return: -0.018893
+Today: 2010-11-16       Win Start: 2010-08-24   Win End: 2010-11-16
+
+Total Capital: 98498.6730       Cum Return: -0.015127
+Today: 2010-11-17       Win Start: 2010-08-25   Win End: 2010-11-17
+
+Total Capital: 98634.1259       Cum Return: -0.013753
+Today: 2010-11-18       Win Start: 2010-08-26   Win End: 2010-11-18
+
+Total Capital: 98630.0080       Cum Return: -0.013795
+Today: 2010-11-19       Win Start: 2010-08-27   Win End: 2010-11-19
+
+Total Capital: 98565.4329       Cum Return: -0.014450
+Today: 2010-11-22       Win Start: 2010-08-30   Win End: 2010-11-22
+
+Total Capital: 98463.9910       Cum Return: -0.015479
+Today: 2010-11-23       Win Start: 2010-08-31   Win End: 2010-11-23
+
+Total Capital: 98650.0159       Cum Return: -0.013592
+Today: 2010-11-24       Win Start: 2010-09-01   Win End: 2010-11-24
+
+Total Capital: 98733.8623       Cum Return: -0.012742
+Today: 2010-11-26       Win Start: 2010-09-02   Win End: 2010-11-26
+
+Total Capital: 98709.4774       Cum Return: -0.012989
+Today: 2010-11-29       Win Start: 2010-09-03   Win End: 2010-11-29
+
+Total Capital: 98546.2748       Cum Return: -0.014644
+Today: 2010-11-30       Win Start: 2010-09-07   Win End: 2010-11-30
+
+Total Capital: 98615.0911       Cum Return: -0.013946
+Today: 2010-12-01       Win Start: 2010-09-08   Win End: 2010-12-01
+
+Total Capital: 98563.8723       Cum Return: -0.014465
+Today: 2010-12-02       Win Start: 2010-09-09   Win End: 2010-12-02
+
+Total Capital: 98263.0404       Cum Return: -0.017522
+Today: 2010-12-03       Win Start: 2010-09-10   Win End: 2010-12-03
+
+Total Capital: 98284.9297       Cum Return: -0.017299
+Today: 2010-12-06       Win Start: 2010-09-13   Win End: 2010-12-06
+
+Total Capital: 98474.8178       Cum Return: -0.015369
+Today: 2010-12-07       Win Start: 2010-09-14   Win End: 2010-12-07
+
+Total Capital: 98734.6771       Cum Return: -0.012734
+Today: 2010-12-08       Win Start: 2010-09-15   Win End: 2010-12-08
+
+Total Capital: 98677.8427       Cum Return: -0.013310
+Today: 2010-12-09       Win Start: 2010-09-16   Win End: 2010-12-09
+
+Total Capital: 98741.8896       Cum Return: -0.012661
+Today: 2010-12-10       Win Start: 2010-09-17   Win End: 2010-12-10
+
+Total Capital: 98967.5688       Cum Return: -0.010378
+Today: 2010-12-13       Win Start: 2010-09-20   Win End: 2010-12-13
+
+Total Capital: 99141.3428       Cum Return: -0.008624
+Today: 2010-12-14       Win Start: 2010-09-21   Win End: 2010-12-14
+
+Total Capital: 99297.1372       Cum Return: -0.007053
+Today: 2010-12-15       Win Start: 2010-09-22   Win End: 2010-12-15
+
+Total Capital: 99464.2081       Cum Return: -0.005372
+Today: 2010-12-16       Win Start: 2010-09-23   Win End: 2010-12-16
+
+Total Capital: 100148.7168      Cum Return: 0.001486
+Today: 2010-12-17       Win Start: 2010-09-24   Win End: 2010-12-17
+
+Total Capital: 99920.3319       Cum Return: -0.000797
+Today: 2010-12-20       Win Start: 2010-09-27   Win End: 2010-12-20
+
+Total Capital: 99956.9171       Cum Return: -0.000431
+Today: 2010-12-21       Win Start: 2010-09-28   Win End: 2010-12-21
+
+Clustering...
+Cointegrating...
+Total Capital: 99911.1621       Cum Return: -0.000889
+Today: 2010-12-22       Win Start: 2010-09-29   Win End: 2010-12-22
+
+Total Capital: 99949.8934       Cum Return: -0.000501
+Today: 2010-12-23       Win Start: 2010-09-30   Win End: 2010-12-23
+
+Total Capital: 99920.5948       Cum Return: -0.000794
+Today: 2010-12-27       Win Start: 2010-10-01   Win End: 2010-12-27
+
+Total Capital: 99779.9672       Cum Return: -0.002203
+Today: 2010-12-28       Win Start: 2010-10-04   Win End: 2010-12-28
+
+Total Capital: 99918.6308       Cum Return: -0.000814
+Today: 2010-12-29       Win Start: 2010-10-05   Win End: 2010-12-29
+
+Total Capital: 99748.9052       Cum Return: -0.002514
+Today: 2010-12-30       Win Start: 2010-10-06   Win End: 2010-12-30
+
+Total Capital: 99514.4700       Cum Return: -0.004867
+Today: 2010-12-31       Win Start: 2010-10-07   Win End: 2010-12-31
+
+Total Capital: 99938.6766       Cum Return: -0.000613
+Today: 2011-01-03       Win Start: 2010-10-08   Win End: 2011-01-03
+
+Total Capital: 99714.3947       Cum Return: -0.002860
+Today: 2011-01-04       Win Start: 2010-10-11   Win End: 2011-01-04
+
+Total Capital: 99833.4815       Cum Return: -0.001667
+Days Traded: 700         Time taken: 3098.5979s
+Today: 2011-01-05       Win Start: 2010-10-12   Win End: 2011-01-05
+
+Total Capital: 100502.8421      Cum Return: 0.005016
+Today: 2011-01-06       Win Start: 2010-10-13   Win End: 2011-01-06
+
+Total Capital: 100651.6369      Cum Return: 0.006495
+Today: 2011-01-07       Win Start: 2010-10-14   Win End: 2011-01-07
+
+Total Capital: 100216.3599      Cum Return: 0.002161
+Today: 2011-01-10       Win Start: 2010-10-15   Win End: 2011-01-10
+
+Total Capital: 100386.3132      Cum Return: 0.003856
+Today: 2011-01-11       Win Start: 2010-10-18   Win End: 2011-01-11
+
+Total Capital: 99980.5963       Cum Return: -0.000194
+Today: 2011-01-12       Win Start: 2010-10-19   Win End: 2011-01-12
+
+Total Capital: 100374.1017      Cum Return: 0.003734
+Today: 2011-01-13       Win Start: 2010-10-20   Win End: 2011-01-13
+
+Total Capital: 100373.8840      Cum Return: 0.003732
+Today: 2011-01-14       Win Start: 2010-10-21   Win End: 2011-01-14
+
+Total Capital: 100304.9951      Cum Return: 0.003045
+Today: 2011-01-18       Win Start: 2010-10-22   Win End: 2011-01-18
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 99890.2694       Cum Return: -0.001098
+Today: 2011-01-19       Win Start: 2010-10-25   Win End: 2011-01-19
+
+Total Capital: 99972.6157       Cum Return: -0.000274
+Today: 2011-01-20       Win Start: 2010-10-26   Win End: 2011-01-20
+
+Total Capital: 100109.2966      Cum Return: 0.001092
+Today: 2011-01-21       Win Start: 2010-10-27   Win End: 2011-01-21
+
+Total Capital: 100333.0252      Cum Return: 0.003325
+Today: 2011-01-24       Win Start: 2010-10-28   Win End: 2011-01-24
+
+Total Capital: 100344.3113      Cum Return: 0.003437
+Today: 2011-01-25       Win Start: 2010-10-29   Win End: 2011-01-25
+
+Total Capital: 100334.2416      Cum Return: 0.003337
+Today: 2011-01-26       Win Start: 2010-11-01   Win End: 2011-01-26
+
+Total Capital: 100291.1236      Cum Return: 0.002907
+Today: 2011-01-27       Win Start: 2010-11-02   Win End: 2011-01-27
+
+Total Capital: 99671.4494       Cum Return: -0.003291
+Today: 2011-01-28       Win Start: 2010-11-03   Win End: 2011-01-28
+
+Total Capital: 99655.3520       Cum Return: -0.003452
+Today: 2011-01-31       Win Start: 2010-11-04   Win End: 2011-01-31
+
+Total Capital: 99973.7202       Cum Return: -0.000263
+Today: 2011-02-01       Win Start: 2010-11-05   Win End: 2011-02-01
+
+Total Capital: 99745.0684       Cum Return: -0.002553
+Today: 2011-02-02       Win Start: 2010-11-08   Win End: 2011-02-02
+
+Total Capital: 99204.5702       Cum Return: -0.007986
+Today: 2011-02-03       Win Start: 2010-11-09   Win End: 2011-02-03
+
+Total Capital: 99023.0516       Cum Return: -0.009818
+Today: 2011-02-04       Win Start: 2010-11-10   Win End: 2011-02-04
+
+Total Capital: 99249.7168       Cum Return: -0.007531
+Today: 2011-02-07       Win Start: 2010-11-11   Win End: 2011-02-07
+
+Total Capital: 99183.2037       Cum Return: -0.008202
+Today: 2011-02-08       Win Start: 2010-11-12   Win End: 2011-02-08
+
+Total Capital: 98854.1007       Cum Return: -0.011525
+Today: 2011-02-09       Win Start: 2010-11-15   Win End: 2011-02-09
+
+Total Capital: 98847.6541       Cum Return: -0.011590
+Today: 2011-02-10       Win Start: 2010-11-16   Win End: 2011-02-10
+
+Total Capital: 99223.1045       Cum Return: -0.007799
+Today: 2011-02-11       Win Start: 2010-11-17   Win End: 2011-02-11
+
+Total Capital: 99405.4451       Cum Return: -0.005963
+Today: 2011-02-14       Win Start: 2010-11-18   Win End: 2011-02-14
+
+Total Capital: 99054.4060       Cum Return: -0.009501
+Today: 2011-02-15       Win Start: 2010-11-19   Win End: 2011-02-15
+
+Total Capital: 98887.9166       Cum Return: -0.011183
+Today: 2011-02-16       Win Start: 2010-11-22   Win End: 2011-02-16
+
+Total Capital: 99044.2367       Cum Return: -0.009604
+Today: 2011-02-17       Win Start: 2010-11-23   Win End: 2011-02-17
+
+Total Capital: 99065.0305       Cum Return: -0.009394
+Today: 2011-02-18       Win Start: 2010-11-24   Win End: 2011-02-18
+
+Total Capital: 98539.3847       Cum Return: -0.014714
+Today: 2011-02-22       Win Start: 2010-11-26   Win End: 2011-02-22
+
+Total Capital: 98172.4086       Cum Return: -0.018445
+Today: 2011-02-23       Win Start: 2010-11-29   Win End: 2011-02-23
+
+Total Capital: 98137.8614       Cum Return: -0.018797
+Today: 2011-02-24       Win Start: 2010-11-30   Win End: 2011-02-24
+
+Total Capital: 97813.7356       Cum Return: -0.022105
+Today: 2011-02-25       Win Start: 2010-12-01   Win End: 2011-02-25
+
+Total Capital: 97887.5803       Cum Return: -0.021351
+Today: 2011-02-28       Win Start: 2010-12-02   Win End: 2011-02-28
+
+Total Capital: 97782.5006       Cum Return: -0.022425
+Today: 2011-03-01       Win Start: 2010-12-03   Win End: 2011-03-01
+
+Total Capital: 97857.7051       Cum Return: -0.021656
+Today: 2011-03-02       Win Start: 2010-12-06   Win End: 2011-03-02
+
+Total Capital: 97829.0089       Cum Return: -0.021949
+Today: 2011-03-03       Win Start: 2010-12-07   Win End: 2011-03-03
+
+Total Capital: 97683.5241       Cum Return: -0.023437
+Today: 2011-03-04       Win Start: 2010-12-08   Win End: 2011-03-04
+
+Total Capital: 97664.5700       Cum Return: -0.023631
+Today: 2011-03-07       Win Start: 2010-12-09   Win End: 2011-03-07
+
+Total Capital: 97596.1251       Cum Return: -0.024332
+Today: 2011-03-08       Win Start: 2010-12-10   Win End: 2011-03-08
+
+Total Capital: 98208.3504       Cum Return: -0.018079
+Today: 2011-03-09       Win Start: 2010-12-13   Win End: 2011-03-09
+
+Total Capital: 98054.7207       Cum Return: -0.019644
+Today: 2011-03-10       Win Start: 2010-12-14   Win End: 2011-03-10
+
+Total Capital: 97781.9708       Cum Return: -0.022430
+Today: 2011-03-11       Win Start: 2010-12-15   Win End: 2011-03-11
+
+Total Capital: 97638.5864       Cum Return: -0.023897
+Today: 2011-03-14       Win Start: 2010-12-16   Win End: 2011-03-14
+
+Total Capital: 97285.1897       Cum Return: -0.027523
+Today: 2011-03-15       Win Start: 2010-12-17   Win End: 2011-03-15
+
+Total Capital: 97324.3708       Cum Return: -0.027121
+Today: 2011-03-16       Win Start: 2010-12-20   Win End: 2011-03-16
+
+Total Capital: 96810.4455       Cum Return: -0.032415
+Today: 2011-03-17       Win Start: 2010-12-21   Win End: 2011-03-17
+
+Total Capital: 96718.8200       Cum Return: -0.033362
+Today: 2011-03-18       Win Start: 2010-12-22   Win End: 2011-03-18
+
+Clustering...
+Cointegrating...
+Total Capital: 96690.8328       Cum Return: -0.033652
+Today: 2011-03-21       Win Start: 2010-12-23   Win End: 2011-03-21
+
+Total Capital: 96838.3741       Cum Return: -0.032127
+Today: 2011-03-22       Win Start: 2010-12-27   Win End: 2011-03-22
+
+Total Capital: 96976.7009       Cum Return: -0.030699
+Today: 2011-03-23       Win Start: 2010-12-28   Win End: 2011-03-23
+
+Total Capital: 97411.0597       Cum Return: -0.026230
+Today: 2011-03-24       Win Start: 2010-12-29   Win End: 2011-03-24
+
+Total Capital: 97401.1607       Cum Return: -0.026332
+Today: 2011-03-25       Win Start: 2010-12-30   Win End: 2011-03-25
+
+Total Capital: 96413.8068       Cum Return: -0.036521
+Today: 2011-03-28       Win Start: 2010-12-31   Win End: 2011-03-28
+
+Total Capital: 97061.9521       Cum Return: -0.029821
+Today: 2011-03-29       Win Start: 2011-01-03   Win End: 2011-03-29
+
+Total Capital: 97099.8977       Cum Return: -0.029430
+Today: 2011-03-30       Win Start: 2011-01-04   Win End: 2011-03-30
+
+Total Capital: 97419.9096       Cum Return: -0.026140
+Today: 2011-03-31       Win Start: 2011-01-05   Win End: 2011-03-31
+
+Total Capital: 97120.7762       Cum Return: -0.029215
+Today: 2011-04-01       Win Start: 2011-01-06   Win End: 2011-04-01
+
+Total Capital: 97068.0200       Cum Return: -0.029758
+Today: 2011-04-04       Win Start: 2011-01-07   Win End: 2011-04-04
+
+Total Capital: 97400.7135       Cum Return: -0.026337
+Today: 2011-04-05       Win Start: 2011-01-10   Win End: 2011-04-05
+
+Total Capital: 97734.4491       Cum Return: -0.022916
+Today: 2011-04-06       Win Start: 2011-01-11   Win End: 2011-04-06
+
+Total Capital: 97833.9903       Cum Return: -0.021898
+Today: 2011-04-07       Win Start: 2011-01-12   Win End: 2011-04-07
+
+Total Capital: 97761.4183       Cum Return: -0.022640
+Today: 2011-04-08       Win Start: 2011-01-13   Win End: 2011-04-08
+
+Total Capital: 97428.7540       Cum Return: -0.026049
+Today: 2011-04-11       Win Start: 2011-01-14   Win End: 2011-04-11
+
+Total Capital: 97013.1425       Cum Return: -0.030324
+Today: 2011-04-12       Win Start: 2011-01-18   Win End: 2011-04-12
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 96767.7467       Cum Return: -0.032856
+Today: 2011-04-13       Win Start: 2011-01-19   Win End: 2011-04-13
+
+Total Capital: 96846.4868       Cum Return: -0.032043
+Today: 2011-04-14       Win Start: 2011-01-20   Win End: 2011-04-14
+
+Total Capital: 96936.7702       Cum Return: -0.031111
+Today: 2011-04-15       Win Start: 2011-01-21   Win End: 2011-04-15
+
+Total Capital: 97048.9479       Cum Return: -0.029955
+Today: 2011-04-18       Win Start: 2011-01-24   Win End: 2011-04-18
+
+Total Capital: 97407.1770       Cum Return: -0.026270
+Today: 2011-04-19       Win Start: 2011-01-25   Win End: 2011-04-19
+
+Total Capital: 97116.3734       Cum Return: -0.029260
+Today: 2011-04-20       Win Start: 2011-01-26   Win End: 2011-04-20
+
+Total Capital: 96322.5093       Cum Return: -0.037468
+Today: 2011-04-21       Win Start: 2011-01-27   Win End: 2011-04-21
+
+Total Capital: 96111.4635       Cum Return: -0.039662
+Today: 2011-04-25       Win Start: 2011-01-28   Win End: 2011-04-25
+
+Total Capital: 96267.1127       Cum Return: -0.038043
+Today: 2011-04-26       Win Start: 2011-01-31   Win End: 2011-04-26
+
+Total Capital: 96640.2456       Cum Return: -0.034175
+Today: 2011-04-27       Win Start: 2011-02-01   Win End: 2011-04-27
+
+Total Capital: 96165.7779       Cum Return: -0.039097
+Today: 2011-04-28       Win Start: 2011-02-02   Win End: 2011-04-28
+
+Total Capital: 95433.0798       Cum Return: -0.046745
+Today: 2011-04-29       Win Start: 2011-02-03   Win End: 2011-04-29
+
+Total Capital: 95467.6088       Cum Return: -0.046383
+Today: 2011-05-02       Win Start: 2011-02-04   Win End: 2011-05-02
+
+Total Capital: 95866.1445       Cum Return: -0.042217
+Today: 2011-05-03       Win Start: 2011-02-07   Win End: 2011-05-03
+
+Total Capital: 95332.2805       Cum Return: -0.047802
+Today: 2011-05-04       Win Start: 2011-02-08   Win End: 2011-05-04
+
+Total Capital: 94974.2128       Cum Return: -0.051565
+Today: 2011-05-05       Win Start: 2011-02-09   Win End: 2011-05-05
+
+Total Capital: 95150.7498       Cum Return: -0.049708
+Today: 2011-05-06       Win Start: 2011-02-10   Win End: 2011-05-06
+
+Total Capital: 95254.1695       Cum Return: -0.048621
+Today: 2011-05-09       Win Start: 2011-02-11   Win End: 2011-05-09
+
+Total Capital: 95316.5583       Cum Return: -0.047967
+Today: 2011-05-10       Win Start: 2011-02-14   Win End: 2011-05-10
+
+Total Capital: 94859.7894       Cum Return: -0.052770
+Today: 2011-05-11       Win Start: 2011-02-15   Win End: 2011-05-11
+
+Total Capital: 94982.1394       Cum Return: -0.051481
+Today: 2011-05-12       Win Start: 2011-02-16   Win End: 2011-05-12
+
+Total Capital: 94522.7561       Cum Return: -0.056330
+Today: 2011-05-13       Win Start: 2011-02-17   Win End: 2011-05-13
+
+Total Capital: 94297.0179       Cum Return: -0.058721
+Today: 2011-05-16       Win Start: 2011-02-18   Win End: 2011-05-16
+
+Total Capital: 94504.8341       Cum Return: -0.056519
+Today: 2011-05-17       Win Start: 2011-02-22   Win End: 2011-05-17
+
+Total Capital: 94779.4099       Cum Return: -0.053618
+Today: 2011-05-18       Win Start: 2011-02-23   Win End: 2011-05-18
+
+Total Capital: 94360.4992       Cum Return: -0.058048
+Today: 2011-05-19       Win Start: 2011-02-24   Win End: 2011-05-19
+
+Total Capital: 94347.1088       Cum Return: -0.058190
+Today: 2011-05-20       Win Start: 2011-02-25   Win End: 2011-05-20
+
+Total Capital: 93731.4993       Cum Return: -0.064736
+Today: 2011-05-23       Win Start: 2011-02-28   Win End: 2011-05-23
+
+Total Capital: 93527.9997       Cum Return: -0.066909
+Today: 2011-05-24       Win Start: 2011-03-01   Win End: 2011-05-24
+
+Total Capital: 93547.7563       Cum Return: -0.066698
+Today: 2011-05-25       Win Start: 2011-03-02   Win End: 2011-05-25
+
+Total Capital: 93567.7508       Cum Return: -0.066484
+Today: 2011-05-26       Win Start: 2011-03-03   Win End: 2011-05-26
+
+Total Capital: 93276.2051       Cum Return: -0.069605
+Today: 2011-05-27       Win Start: 2011-03-04   Win End: 2011-05-27
+
+Total Capital: 93423.6460       Cum Return: -0.068026
+Days Traded: 800         Time taken: 3758.6940s
+Today: 2011-05-31       Win Start: 2011-03-07   Win End: 2011-05-31
+
+Total Capital: 93441.4385       Cum Return: -0.067835
+Today: 2011-06-01       Win Start: 2011-03-08   Win End: 2011-06-01
+
+Total Capital: 93594.0042       Cum Return: -0.066204
+Today: 2011-06-02       Win Start: 2011-03-09   Win End: 2011-06-02
+
+Total Capital: 92755.8179       Cum Return: -0.075200
+Today: 2011-06-03       Win Start: 2011-03-10   Win End: 2011-06-03
+
+Total Capital: 92947.9410       Cum Return: -0.073131
+Today: 2011-06-06       Win Start: 2011-03-11   Win End: 2011-06-06
+
+Total Capital: 92610.9533       Cum Return: -0.076763
+Today: 2011-06-07       Win Start: 2011-03-14   Win End: 2011-06-07
+
+Total Capital: 92571.2768       Cum Return: -0.077191
+Today: 2011-06-08       Win Start: 2011-03-15   Win End: 2011-06-08
+
+Total Capital: 92693.2970       Cum Return: -0.075874
+Today: 2011-06-09       Win Start: 2011-03-16   Win End: 2011-06-09
+
+Total Capital: 92854.4321       Cum Return: -0.074137
+Today: 2011-06-10       Win Start: 2011-03-17   Win End: 2011-06-10
+
+Total Capital: 93106.0257       Cum Return: -0.071431
+Today: 2011-06-13       Win Start: 2011-03-18   Win End: 2011-06-13
+
+Total Capital: 93178.6881       Cum Return: -0.070651
+Today: 2011-06-14       Win Start: 2011-03-21   Win End: 2011-06-14
+
+Clustering...
+Cointegrating...
+Total Capital: 93132.9314       Cum Return: -0.071142
+Today: 2011-06-15       Win Start: 2011-03-22   Win End: 2011-06-15
+
+Total Capital: 93509.8899       Cum Return: -0.067103
+Today: 2011-06-16       Win Start: 2011-03-23   Win End: 2011-06-16
+
+Total Capital: 93844.2709       Cum Return: -0.063533
+Today: 2011-06-17       Win Start: 2011-03-24   Win End: 2011-06-17
+
+Total Capital: 94222.3382       Cum Return: -0.059513
+Today: 2011-06-20       Win Start: 2011-03-25   Win End: 2011-06-20
+
+Total Capital: 93894.7562       Cum Return: -0.062996
+Today: 2011-06-21       Win Start: 2011-03-28   Win End: 2011-06-21
+
+Total Capital: 93650.4448       Cum Return: -0.065601
+Today: 2011-06-22       Win Start: 2011-03-29   Win End: 2011-06-22
+
+Total Capital: 93240.3767       Cum Return: -0.069989
+Today: 2011-06-23       Win Start: 2011-03-30   Win End: 2011-06-23
+
+Total Capital: 93572.6440       Cum Return: -0.066432
+Today: 2011-06-24       Win Start: 2011-03-31   Win End: 2011-06-24
+
+Total Capital: 93651.3487       Cum Return: -0.065591
+Today: 2011-06-27       Win Start: 2011-04-01   Win End: 2011-06-27
+
+Total Capital: 92942.6880       Cum Return: -0.073187
+Today: 2011-06-28       Win Start: 2011-04-04   Win End: 2011-06-28
+
+Total Capital: 93017.4939       Cum Return: -0.072383
+Today: 2011-06-29       Win Start: 2011-04-05   Win End: 2011-06-29
+
+Total Capital: 92890.3960       Cum Return: -0.073750
+Today: 2011-06-30       Win Start: 2011-04-06   Win End: 2011-06-30
+
+Total Capital: 93246.7208       Cum Return: -0.069921
+Today: 2011-07-01       Win Start: 2011-04-07   Win End: 2011-07-01
+
+Total Capital: 92866.9841       Cum Return: -0.074002
+Today: 2011-07-05       Win Start: 2011-04-08   Win End: 2011-07-05
+
+Total Capital: 92933.4333       Cum Return: -0.073287
+Today: 2011-07-06       Win Start: 2011-04-11   Win End: 2011-07-06
+
+Total Capital: 92889.1722       Cum Return: -0.073763
+Today: 2011-07-07       Win Start: 2011-04-12   Win End: 2011-07-07
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 92975.5650       Cum Return: -0.072833
+Today: 2011-07-08       Win Start: 2011-04-13   Win End: 2011-07-08
+
+Total Capital: 92892.9946       Cum Return: -0.073722
+Today: 2011-07-11       Win Start: 2011-04-14   Win End: 2011-07-11
+
+Total Capital: 92812.2924       Cum Return: -0.074591
+Today: 2011-07-12       Win Start: 2011-04-15   Win End: 2011-07-12
+
+Total Capital: 93170.6624       Cum Return: -0.070737
+Today: 2011-07-13       Win Start: 2011-04-18   Win End: 2011-07-13
+
+Total Capital: 92576.5938       Cum Return: -0.077134
+Today: 2011-07-14       Win Start: 2011-04-19   Win End: 2011-07-14
+
+Total Capital: 92569.6753       Cum Return: -0.077209
+Today: 2011-07-15       Win Start: 2011-04-20   Win End: 2011-07-15
+
+Total Capital: 91968.0183       Cum Return: -0.083729
+Today: 2011-07-18       Win Start: 2011-04-21   Win End: 2011-07-18
+
+Total Capital: 92124.9475       Cum Return: -0.082024
+Today: 2011-07-19       Win Start: 2011-04-25   Win End: 2011-07-19
+
+Total Capital: 91509.1059       Cum Return: -0.088732
+Today: 2011-07-20       Win Start: 2011-04-26   Win End: 2011-07-20
+
+Total Capital: 91048.3246       Cum Return: -0.093780
+Today: 2011-07-21       Win Start: 2011-04-27   Win End: 2011-07-21
+
+Total Capital: 91094.2300       Cum Return: -0.093276
+Today: 2011-07-22       Win Start: 2011-04-28   Win End: 2011-07-22
+
+Total Capital: 90647.4746       Cum Return: -0.098192
+Today: 2011-07-25       Win Start: 2011-04-29   Win End: 2011-07-25
+
+Total Capital: 90631.6147       Cum Return: -0.098367
+Today: 2011-07-26       Win Start: 2011-05-02   Win End: 2011-07-26
+
+Total Capital: 90239.6576       Cum Return: -0.102701
+Today: 2011-07-27       Win Start: 2011-05-03   Win End: 2011-07-27
+
+Total Capital: 90171.6469       Cum Return: -0.103455
+Today: 2011-07-28       Win Start: 2011-05-04   Win End: 2011-07-28
+
+Total Capital: 89739.9318       Cum Return: -0.108254
+Today: 2011-07-29       Win Start: 2011-05-05   Win End: 2011-07-29
+
+Total Capital: 89944.1950       Cum Return: -0.105981
+Today: 2011-08-01       Win Start: 2011-05-06   Win End: 2011-08-01
+
+Total Capital: 90186.4316       Cum Return: -0.103291
+Today: 2011-08-02       Win Start: 2011-05-09   Win End: 2011-08-02
+
+Total Capital: 90490.3347       Cum Return: -0.099927
+Today: 2011-08-03       Win Start: 2011-05-10   Win End: 2011-08-03
+
+Total Capital: 90697.3347       Cum Return: -0.097642
+Today: 2011-08-04       Win Start: 2011-05-11   Win End: 2011-08-04
+
+Total Capital: 90626.9483       Cum Return: -0.098419
+Today: 2011-08-05       Win Start: 2011-05-12   Win End: 2011-08-05
+
+Total Capital: 91683.2001       Cum Return: -0.086831
+Today: 2011-08-08       Win Start: 2011-05-13   Win End: 2011-08-08
+
+Total Capital: 91179.0718       Cum Return: -0.092345
+Today: 2011-08-09       Win Start: 2011-05-16   Win End: 2011-08-09
+
+Total Capital: 91480.1833       Cum Return: -0.089048
+Today: 2011-08-10       Win Start: 2011-05-17   Win End: 2011-08-10
+
+Total Capital: 91572.9034       Cum Return: -0.088035
+Today: 2011-08-11       Win Start: 2011-05-18   Win End: 2011-08-11
+
+Total Capital: 91328.8939       Cum Return: -0.090703
+Today: 2011-08-12       Win Start: 2011-05-19   Win End: 2011-08-12
+
+Total Capital: 91081.6998       Cum Return: -0.093413
+Today: 2011-08-15       Win Start: 2011-05-20   Win End: 2011-08-15
+
+Total Capital: 90920.7977       Cum Return: -0.095181
+Today: 2011-08-16       Win Start: 2011-05-23   Win End: 2011-08-16
+
+Total Capital: 91115.0691       Cum Return: -0.093047
+Today: 2011-08-17       Win Start: 2011-05-24   Win End: 2011-08-17
+
+Total Capital: 91517.2751       Cum Return: -0.088642
+Today: 2011-08-18       Win Start: 2011-05-25   Win End: 2011-08-18
+
+Total Capital: 91874.9145       Cum Return: -0.084742
+Today: 2011-08-19       Win Start: 2011-05-26   Win End: 2011-08-19
+
+Total Capital: 91940.8578       Cum Return: -0.084025
+Today: 2011-08-22       Win Start: 2011-05-27   Win End: 2011-08-22
+
+Total Capital: 92785.6576       Cum Return: -0.074878
+Today: 2011-08-23       Win Start: 2011-05-31   Win End: 2011-08-23
+
+Total Capital: 92772.9795       Cum Return: -0.075015
+Today: 2011-08-24       Win Start: 2011-06-01   Win End: 2011-08-24
+
+Total Capital: 92850.9324       Cum Return: -0.074175
+Today: 2011-08-25       Win Start: 2011-06-02   Win End: 2011-08-25
+
+Total Capital: 93274.8521       Cum Return: -0.069620
+Today: 2011-08-26       Win Start: 2011-06-03   Win End: 2011-08-26
+
+Total Capital: 93460.8678       Cum Return: -0.067627
+Today: 2011-08-29       Win Start: 2011-06-06   Win End: 2011-08-29
+
+Total Capital: 93952.4338       Cum Return: -0.062382
+Today: 2011-08-30       Win Start: 2011-06-07   Win End: 2011-08-30
+
+Total Capital: 93768.8394       Cum Return: -0.064338
+Today: 2011-08-31       Win Start: 2011-06-08   Win End: 2011-08-31
+
+Total Capital: 93743.2241       Cum Return: -0.064611
+Today: 2011-09-01       Win Start: 2011-06-09   Win End: 2011-09-01
+
+Total Capital: 93728.9689       Cum Return: -0.064763
+Today: 2011-09-02       Win Start: 2011-06-10   Win End: 2011-09-02
+
+Total Capital: 93805.4322       Cum Return: -0.063947
+Today: 2011-09-06       Win Start: 2011-06-13   Win End: 2011-09-06
+
+Total Capital: 94176.8191       Cum Return: -0.059996
+Today: 2011-09-07       Win Start: 2011-06-14   Win End: 2011-09-07
+
+Total Capital: 94052.8104       Cum Return: -0.061314
+Today: 2011-09-08       Win Start: 2011-06-15   Win End: 2011-09-08
+
+Clustering...
+Cointegrating...
+Total Capital: 94006.6360       Cum Return: -0.061805
+Today: 2011-09-09       Win Start: 2011-06-16   Win End: 2011-09-09
+
+Total Capital: 94280.1786       Cum Return: -0.058899
+Today: 2011-09-12       Win Start: 2011-06-17   Win End: 2011-09-12
+
+Total Capital: 95263.7060       Cum Return: -0.048521
+Today: 2011-09-13       Win Start: 2011-06-20   Win End: 2011-09-13
+
+Total Capital: 95367.0234       Cum Return: -0.047437
+Today: 2011-09-14       Win Start: 2011-06-21   Win End: 2011-09-14
+
+Total Capital: 95650.2065       Cum Return: -0.044472
+Today: 2011-09-15       Win Start: 2011-06-22   Win End: 2011-09-15
+
+Total Capital: 95046.7010       Cum Return: -0.050802
+Today: 2011-09-16       Win Start: 2011-06-23   Win End: 2011-09-16
+
+Total Capital: 95376.4872       Cum Return: -0.047338
+Today: 2011-09-19       Win Start: 2011-06-24   Win End: 2011-09-19
+
+Total Capital: 95189.4533       Cum Return: -0.049301
+Today: 2011-09-20       Win Start: 2011-06-27   Win End: 2011-09-20
+
+Total Capital: 94346.1167       Cum Return: -0.058200
+Today: 2011-09-21       Win Start: 2011-06-28   Win End: 2011-09-21
+
+Total Capital: 94077.2494       Cum Return: -0.061054
+Today: 2011-09-22       Win Start: 2011-06-29   Win End: 2011-09-22
+
+Total Capital: 93068.6337       Cum Return: -0.071833
+Today: 2011-09-23       Win Start: 2011-06-30   Win End: 2011-09-23
+
+Total Capital: 92887.0968       Cum Return: -0.073785
+Today: 2011-09-26       Win Start: 2011-07-01   Win End: 2011-09-26
+
+Total Capital: 92667.2359       Cum Return: -0.076155
+Today: 2011-09-27       Win Start: 2011-07-05   Win End: 2011-09-27
+
+Total Capital: 92394.3278       Cum Return: -0.079105
+Today: 2011-09-28       Win Start: 2011-07-06   Win End: 2011-09-28
+
+Total Capital: 92031.7715       Cum Return: -0.083036
+Today: 2011-09-29       Win Start: 2011-07-07   Win End: 2011-09-29
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 92037.7194       Cum Return: -0.082972
+Today: 2011-09-30       Win Start: 2011-07-08   Win End: 2011-09-30
+
+Total Capital: 92268.3272       Cum Return: -0.080469
+Today: 2011-10-03       Win Start: 2011-07-11   Win End: 2011-10-03
+
+Total Capital: 92376.0019       Cum Return: -0.079303
+Today: 2011-10-04       Win Start: 2011-07-12   Win End: 2011-10-04
+
+Total Capital: 92912.0755       Cum Return: -0.073517
+Today: 2011-10-05       Win Start: 2011-07-13   Win End: 2011-10-05
+
+Total Capital: 93033.1002       Cum Return: -0.072215
+Today: 2011-10-06       Win Start: 2011-07-14   Win End: 2011-10-06
+
+Total Capital: 93184.2401       Cum Return: -0.070592
+Today: 2011-10-07       Win Start: 2011-07-15   Win End: 2011-10-07
+
+Total Capital: 93733.7518       Cum Return: -0.064712
+Today: 2011-10-10       Win Start: 2011-07-18   Win End: 2011-10-10
+
+Total Capital: 93533.8789       Cum Return: -0.066846
+Today: 2011-10-11       Win Start: 2011-07-19   Win End: 2011-10-11
+
+Total Capital: 93140.2267       Cum Return: -0.071064
+Today: 2011-10-12       Win Start: 2011-07-20   Win End: 2011-10-12
+
+Total Capital: 93149.2398       Cum Return: -0.070967
+Today: 2011-10-13       Win Start: 2011-07-21   Win End: 2011-10-13
+
+Total Capital: 93707.5005       Cum Return: -0.064992
+Today: 2011-10-14       Win Start: 2011-07-22   Win End: 2011-10-14
+
+Total Capital: 93984.2439       Cum Return: -0.062043
+Today: 2011-10-17       Win Start: 2011-07-25   Win End: 2011-10-17
+
+Total Capital: 94366.1061       Cum Return: -0.057988
+Today: 2011-10-18       Win Start: 2011-07-26   Win End: 2011-10-18
+
+Total Capital: 95208.0585       Cum Return: -0.049106
+Today: 2011-10-19       Win Start: 2011-07-27   Win End: 2011-10-19
+
+Total Capital: 94953.0543       Cum Return: -0.051788
+Days Traded: 900         Time taken: 4526.6261s
+Today: 2011-10-20       Win Start: 2011-07-28   Win End: 2011-10-20
+
+Total Capital: 94791.3654       Cum Return: -0.053492
+Today: 2011-10-21       Win Start: 2011-07-29   Win End: 2011-10-21
+
+Total Capital: 94581.9688       Cum Return: -0.055703
+Today: 2011-10-24       Win Start: 2011-08-01   Win End: 2011-10-24
+
+Total Capital: 94396.9751       Cum Return: -0.057661
+Today: 2011-10-25       Win Start: 2011-08-02   Win End: 2011-10-25
+
+Total Capital: 94262.0703       Cum Return: -0.059091
+Today: 2011-10-26       Win Start: 2011-08-03   Win End: 2011-10-26
+
+Total Capital: 94016.2338       Cum Return: -0.061703
+Today: 2011-10-27       Win Start: 2011-08-04   Win End: 2011-10-27
+
+Total Capital: 94036.7588       Cum Return: -0.061484
+Today: 2011-10-28       Win Start: 2011-08-05   Win End: 2011-10-28
+
+Total Capital: 93785.0724       Cum Return: -0.064164
+Today: 2011-10-31       Win Start: 2011-08-08   Win End: 2011-10-31
+
+Total Capital: 95149.6347       Cum Return: -0.049719
+Today: 2011-11-01       Win Start: 2011-08-09   Win End: 2011-11-01
+
+Total Capital: 95115.1942       Cum Return: -0.050081
+Today: 2011-11-02       Win Start: 2011-08-10   Win End: 2011-11-02
+
+Total Capital: 93845.9282       Cum Return: -0.063516
+Today: 2011-11-03       Win Start: 2011-08-11   Win End: 2011-11-03
+
+Total Capital: 93810.8898       Cum Return: -0.063889
+Today: 2011-11-04       Win Start: 2011-08-12   Win End: 2011-11-04
+
+Total Capital: 93714.2133       Cum Return: -0.064920
+Today: 2011-11-07       Win Start: 2011-08-15   Win End: 2011-11-07
+
+Total Capital: 93597.3719       Cum Return: -0.066168
+Today: 2011-11-08       Win Start: 2011-08-16   Win End: 2011-11-08
+
+Total Capital: 93312.4359       Cum Return: -0.069217
+Today: 2011-11-09       Win Start: 2011-08-17   Win End: 2011-11-09
+
+Total Capital: 93414.8911       Cum Return: -0.068119
+Today: 2011-11-10       Win Start: 2011-08-18   Win End: 2011-11-10
+
+Total Capital: 93567.5072       Cum Return: -0.066487
+Today: 2011-11-11       Win Start: 2011-08-19   Win End: 2011-11-11
+
+Total Capital: 93714.3774       Cum Return: -0.064919
+Today: 2011-11-14       Win Start: 2011-08-22   Win End: 2011-11-14
+
+Total Capital: 93461.3666       Cum Return: -0.067622
+Today: 2011-11-15       Win Start: 2011-08-23   Win End: 2011-11-15
+
+Total Capital: 94208.4877       Cum Return: -0.059660
+Today: 2011-11-16       Win Start: 2011-08-24   Win End: 2011-11-16
+
+Total Capital: 93522.2355       Cum Return: -0.066971
+Today: 2011-11-17       Win Start: 2011-08-25   Win End: 2011-11-17
+
+Total Capital: 93619.7590       Cum Return: -0.065929
+Today: 2011-11-18       Win Start: 2011-08-26   Win End: 2011-11-18
+
+Total Capital: 93368.0952       Cum Return: -0.068620
+Today: 2011-11-21       Win Start: 2011-08-29   Win End: 2011-11-21
+
+Total Capital: 93736.8190       Cum Return: -0.064679
+Today: 2011-11-22       Win Start: 2011-08-30   Win End: 2011-11-22
+
+Total Capital: 93732.5089       Cum Return: -0.064725
+Today: 2011-11-23       Win Start: 2011-08-31   Win End: 2011-11-23
+
+Total Capital: 93558.8845       Cum Return: -0.066579
+Today: 2011-11-25       Win Start: 2011-09-01   Win End: 2011-11-25
+
+Total Capital: 93862.9131       Cum Return: -0.063335
+Today: 2011-11-28       Win Start: 2011-09-02   Win End: 2011-11-28
+
+Total Capital: 93886.8999       Cum Return: -0.063079
+Today: 2011-11-29       Win Start: 2011-09-06   Win End: 2011-11-29
+
+Total Capital: 93823.2361       Cum Return: -0.063758
+Today: 2011-11-30       Win Start: 2011-09-07   Win End: 2011-11-30
+
+Total Capital: 93525.3001       Cum Return: -0.066938
+Today: 2011-12-01       Win Start: 2011-09-08   Win End: 2011-12-01
+
+Total Capital: 94503.2596       Cum Return: -0.056536
+Today: 2011-12-02       Win Start: 2011-09-09   Win End: 2011-12-02
+
+Clustering...
+Cointegrating...
+Total Capital: 94456.5822       Cum Return: -0.057030
+Today: 2011-12-05       Win Start: 2011-09-12   Win End: 2011-12-05
+
+Total Capital: 94564.3288       Cum Return: -0.055890
+Today: 2011-12-06       Win Start: 2011-09-13   Win End: 2011-12-06
+
+Total Capital: 94447.6939       Cum Return: -0.057124
+Today: 2011-12-07       Win Start: 2011-09-14   Win End: 2011-12-07
+
+Total Capital: 93440.3302       Cum Return: -0.067847
+Today: 2011-12-08       Win Start: 2011-09-15   Win End: 2011-12-08
+
+Total Capital: 94103.6601       Cum Return: -0.060773
+Today: 2011-12-09       Win Start: 2011-09-16   Win End: 2011-12-09
+
+Total Capital: 93613.9499       Cum Return: -0.065991
+Today: 2011-12-12       Win Start: 2011-09-19   Win End: 2011-12-12
+
+Total Capital: 93066.9044       Cum Return: -0.071852
+Today: 2011-12-13       Win Start: 2011-09-20   Win End: 2011-12-13
+
+Total Capital: 93105.9097       Cum Return: -0.071433
+Today: 2011-12-14       Win Start: 2011-09-21   Win End: 2011-12-14
+
+Total Capital: 93203.3117       Cum Return: -0.070387
+Today: 2011-12-15       Win Start: 2011-09-22   Win End: 2011-12-15
+
+Total Capital: 92734.7255       Cum Return: -0.075427
+Today: 2011-12-16       Win Start: 2011-09-23   Win End: 2011-12-16
+
+Total Capital: 92232.4566       Cum Return: -0.080858
+Today: 2011-12-19       Win Start: 2011-09-26   Win End: 2011-12-19
+
+Total Capital: 92970.2181       Cum Return: -0.072891
+Today: 2011-12-20       Win Start: 2011-09-27   Win End: 2011-12-20
+
+Total Capital: 93374.5397       Cum Return: -0.068551
+Today: 2011-12-21       Win Start: 2011-09-28   Win End: 2011-12-21
+
+Total Capital: 93663.8031       Cum Return: -0.065458
+Today: 2011-12-22       Win Start: 2011-09-29   Win End: 2011-12-22
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 93729.1902       Cum Return: -0.064761
+Today: 2011-12-23       Win Start: 2011-09-30   Win End: 2011-12-23
+
+Total Capital: 93443.4468       Cum Return: -0.067814
+Today: 2011-12-27       Win Start: 2011-10-03   Win End: 2011-12-27
+
+Total Capital: 93355.1447       Cum Return: -0.068759
+Today: 2011-12-28       Win Start: 2011-10-04   Win End: 2011-12-28
+
+Total Capital: 93644.4196       Cum Return: -0.065665
+Today: 2011-12-29       Win Start: 2011-10-05   Win End: 2011-12-29
+
+Total Capital: 93489.3217       Cum Return: -0.067323
+Today: 2011-12-30       Win Start: 2011-10-06   Win End: 2011-12-30
+
+Total Capital: 93571.1074       Cum Return: -0.066449
+Today: 2012-01-03       Win Start: 2011-10-07   Win End: 2012-01-03
+
+Total Capital: 93443.4897       Cum Return: -0.067813
+Today: 2012-01-04       Win Start: 2011-10-10   Win End: 2012-01-04
+
+Total Capital: 93419.5404       Cum Return: -0.068070
+Today: 2012-01-05       Win Start: 2011-10-11   Win End: 2012-01-05
+
+Total Capital: 93291.3485       Cum Return: -0.069443
+Today: 2012-01-06       Win Start: 2011-10-12   Win End: 2012-01-06
+
+Total Capital: 93120.9299       Cum Return: -0.071271
+Today: 2012-01-09       Win Start: 2011-10-13   Win End: 2012-01-09
+
+Total Capital: 93086.7236       Cum Return: -0.071639
+Today: 2012-01-10       Win Start: 2011-10-14   Win End: 2012-01-10
+
+Total Capital: 93344.9295       Cum Return: -0.068869
+Today: 2012-01-11       Win Start: 2011-10-17   Win End: 2012-01-11
+
+Total Capital: 93247.7857       Cum Return: -0.069910
+Today: 2012-01-12       Win Start: 2011-10-18   Win End: 2012-01-12
+
+Total Capital: 93592.9524       Cum Return: -0.066215
+Today: 2012-01-13       Win Start: 2011-10-19   Win End: 2012-01-13
+
+Total Capital: 93688.8578       Cum Return: -0.065191
+Today: 2012-01-17       Win Start: 2011-10-20   Win End: 2012-01-17
+
+Total Capital: 93111.4479       Cum Return: -0.071373
+Today: 2012-01-18       Win Start: 2011-10-21   Win End: 2012-01-18
+
+Total Capital: 92348.9353       Cum Return: -0.079596
+Today: 2012-01-19       Win Start: 2011-10-24   Win End: 2012-01-19
+
+Total Capital: 92597.6389       Cum Return: -0.076907
+Today: 2012-01-20       Win Start: 2011-10-25   Win End: 2012-01-20
+
+Total Capital: 92857.4765       Cum Return: -0.074104
+Today: 2012-01-23       Win Start: 2011-10-26   Win End: 2012-01-23
+
+Total Capital: 92528.6251       Cum Return: -0.077652
+Today: 2012-01-24       Win Start: 2011-10-27   Win End: 2012-01-24
+
+Total Capital: 93535.6728       Cum Return: -0.066827
+Today: 2012-01-25       Win Start: 2011-10-28   Win End: 2012-01-25
+
+Total Capital: 92925.2752       Cum Return: -0.073375
+Today: 2012-01-26       Win Start: 2011-10-31   Win End: 2012-01-26
+
+Total Capital: 93011.4763       Cum Return: -0.072447
+Today: 2012-01-27       Win Start: 2011-11-01   Win End: 2012-01-27
+
+Total Capital: 93387.9199       Cum Return: -0.068408
+Today: 2012-01-30       Win Start: 2011-11-02   Win End: 2012-01-30
+
+Total Capital: 93421.0467       Cum Return: -0.068054
+Today: 2012-01-31       Win Start: 2011-11-03   Win End: 2012-01-31
+
+Total Capital: 93697.0564       Cum Return: -0.065103
+Today: 2012-02-01       Win Start: 2011-11-04   Win End: 2012-02-01
+
+Total Capital: 93628.7655       Cum Return: -0.065833
+Today: 2012-02-02       Win Start: 2011-11-07   Win End: 2012-02-02
+
+Total Capital: 93851.7752       Cum Return: -0.063454
+Today: 2012-02-03       Win Start: 2011-11-08   Win End: 2012-02-03
+
+Total Capital: 94022.4462       Cum Return: -0.061637
+Today: 2012-02-06       Win Start: 2011-11-09   Win End: 2012-02-06
+
+Total Capital: 94032.8974       Cum Return: -0.061525
+Today: 2012-02-07       Win Start: 2011-11-10   Win End: 2012-02-07
+
+Total Capital: 94322.9020       Cum Return: -0.058446
+Today: 2012-02-08       Win Start: 2011-11-11   Win End: 2012-02-08
+
+Total Capital: 94513.5761       Cum Return: -0.056427
+Today: 2012-02-09       Win Start: 2011-11-14   Win End: 2012-02-09
+
+Total Capital: 94508.6593       Cum Return: -0.056479
+Today: 2012-02-10       Win Start: 2011-11-15   Win End: 2012-02-10
+
+Total Capital: 94247.9949       Cum Return: -0.059241
+Today: 2012-02-13       Win Start: 2011-11-16   Win End: 2012-02-13
+
+Total Capital: 94045.5086       Cum Return: -0.061391
+Today: 2012-02-14       Win Start: 2011-11-17   Win End: 2012-02-14
+
+Total Capital: 93979.2082       Cum Return: -0.062097
+Today: 2012-02-15       Win Start: 2011-11-18   Win End: 2012-02-15
+
+Total Capital: 94225.2439       Cum Return: -0.059482
+Today: 2012-02-16       Win Start: 2011-11-21   Win End: 2012-02-16
+
+Total Capital: 94823.9794       Cum Return: -0.053148
+Today: 2012-02-17       Win Start: 2011-11-22   Win End: 2012-02-17
+
+Total Capital: 94376.7032       Cum Return: -0.057876
+Today: 2012-02-21       Win Start: 2011-11-23   Win End: 2012-02-21
+
+Total Capital: 94196.3966       Cum Return: -0.059788
+Today: 2012-02-22       Win Start: 2011-11-25   Win End: 2012-02-22
+
+Total Capital: 94636.1092       Cum Return: -0.055131
+Today: 2012-02-23       Win Start: 2011-11-28   Win End: 2012-02-23
+
+Total Capital: 94288.4168       Cum Return: -0.058812
+Today: 2012-02-24       Win Start: 2011-11-29   Win End: 2012-02-24
+
+Total Capital: 94395.4690       Cum Return: -0.057677
+Today: 2012-02-27       Win Start: 2011-11-30   Win End: 2012-02-27
+
+Total Capital: 94510.4569       Cum Return: -0.056460
+Today: 2012-02-28       Win Start: 2011-12-01   Win End: 2012-02-28
+
+Total Capital: 94114.4442       Cum Return: -0.060659
+Today: 2012-02-29       Win Start: 2011-12-02   Win End: 2012-02-29
+
+Total Capital: 94425.8853       Cum Return: -0.057355
+Today: 2012-03-01       Win Start: 2011-12-05   Win End: 2012-03-01
+
+Clustering...
+Cointegrating...
+Total Capital: 94382.3825       Cum Return: -0.057816
+Today: 2012-03-02       Win Start: 2011-12-06   Win End: 2012-03-02
+
+Total Capital: 94382.3825       Cum Return: -0.057816
+Today: 2012-03-05       Win Start: 2011-12-07   Win End: 2012-03-05
+
+Total Capital: 94046.9881       Cum Return: -0.061376
+Today: 2012-03-06       Win Start: 2011-12-08   Win End: 2012-03-06
+
+Total Capital: 93964.6022       Cum Return: -0.062252
+Today: 2012-03-07       Win Start: 2011-12-09   Win End: 2012-03-07
+
+Total Capital: 94046.9953       Cum Return: -0.061376
+Today: 2012-03-08       Win Start: 2011-12-12   Win End: 2012-03-08
+
+Total Capital: 93944.8627       Cum Return: -0.062462
+Today: 2012-03-09       Win Start: 2011-12-13   Win End: 2012-03-09
+
+Total Capital: 93707.1481       Cum Return: -0.064996
+Today: 2012-03-12       Win Start: 2011-12-14   Win End: 2012-03-12
+
+Total Capital: 93685.2364       Cum Return: -0.065230
+Today: 2012-03-13       Win Start: 2011-12-15   Win End: 2012-03-13
+
+Total Capital: 93337.8633       Cum Return: -0.068944
+Today: 2012-03-14       Win Start: 2011-12-16   Win End: 2012-03-14
+
+Total Capital: 93449.4133       Cum Return: -0.067750
+Days Traded: 1000        Time taken: 5149.7764s
+Today: 2012-03-15       Win Start: 2011-12-19   Win End: 2012-03-15
+
+Total Capital: 93459.7294       Cum Return: -0.067640
+Today: 2012-03-16       Win Start: 2011-12-20   Win End: 2012-03-16
+
+Total Capital: 93256.4510       Cum Return: -0.069817
+Today: 2012-03-19       Win Start: 2011-12-21   Win End: 2012-03-19
+
+Total Capital: 93146.7682       Cum Return: -0.070994
+Today: 2012-03-20       Win Start: 2011-12-22   Win End: 2012-03-20
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 93050.2389       Cum Return: -0.072031
+Today: 2012-03-21       Win Start: 2011-12-23   Win End: 2012-03-21
+
+Total Capital: 92926.2949       Cum Return: -0.073364
+Today: 2012-03-22       Win Start: 2011-12-27   Win End: 2012-03-22
+
+Total Capital: 92982.3047       Cum Return: -0.072761
+Today: 2012-03-23       Win Start: 2011-12-28   Win End: 2012-03-23
+
+Total Capital: 92814.3571       Cum Return: -0.074569
+Today: 2012-03-26       Win Start: 2011-12-29   Win End: 2012-03-26
+
+Total Capital: 92962.1801       Cum Return: -0.072977
+Today: 2012-03-27       Win Start: 2011-12-30   Win End: 2012-03-27
+
+Total Capital: 93261.0207       Cum Return: -0.069768
+Today: 2012-03-28       Win Start: 2012-01-03   Win End: 2012-03-28
+
+Total Capital: 93041.9836       Cum Return: -0.072119
+Today: 2012-03-29       Win Start: 2012-01-04   Win End: 2012-03-29
+
+Total Capital: 93088.8392       Cum Return: -0.071616
+Today: 2012-03-30       Win Start: 2012-01-05   Win End: 2012-03-30
+
+Total Capital: 93445.0895       Cum Return: -0.067796
+Today: 2012-04-02       Win Start: 2012-01-06   Win End: 2012-04-02
+
+Total Capital: 93455.5708       Cum Return: -0.067684
+Today: 2012-04-03       Win Start: 2012-01-09   Win End: 2012-04-03
+
+Total Capital: 93369.6508       Cum Return: -0.068604
+Today: 2012-04-04       Win Start: 2012-01-10   Win End: 2012-04-04
+
+Total Capital: 92873.1079       Cum Return: -0.073936
+Today: 2012-04-05       Win Start: 2012-01-11   Win End: 2012-04-05
+
+Total Capital: 92884.1854       Cum Return: -0.073817
+Today: 2012-04-09       Win Start: 2012-01-12   Win End: 2012-04-09
+
+Total Capital: 92662.5220       Cum Return: -0.076206
+Today: 2012-04-10       Win Start: 2012-01-13   Win End: 2012-04-10
+
+Total Capital: 92576.2713       Cum Return: -0.077137
+Today: 2012-04-11       Win Start: 2012-01-17   Win End: 2012-04-11
+
+Total Capital: 92348.6600       Cum Return: -0.079599
+Today: 2012-04-12       Win Start: 2012-01-18   Win End: 2012-04-12
+
+Total Capital: 92551.9812       Cum Return: -0.077400
+Today: 2012-04-13       Win Start: 2012-01-19   Win End: 2012-04-13
+
+Total Capital: 91796.9186       Cum Return: -0.085591
+Today: 2012-04-16       Win Start: 2012-01-20   Win End: 2012-04-16
+
+Total Capital: 92138.6527       Cum Return: -0.081876
+Today: 2012-04-17       Win Start: 2012-01-23   Win End: 2012-04-17
+
+Total Capital: 92106.7589       Cum Return: -0.082222
+Today: 2012-04-18       Win Start: 2012-01-24   Win End: 2012-04-18
+
+Total Capital: 92392.0180       Cum Return: -0.079130
+Today: 2012-04-19       Win Start: 2012-01-25   Win End: 2012-04-19
+
+Total Capital: 92629.5642       Cum Return: -0.076562
+Today: 2012-04-20       Win Start: 2012-01-26   Win End: 2012-04-20
+
+Total Capital: 91902.8119       Cum Return: -0.084439
+Today: 2012-04-23       Win Start: 2012-01-27   Win End: 2012-04-23
+
+Total Capital: 91669.7738       Cum Return: -0.086977
+Today: 2012-04-24       Win Start: 2012-01-30   Win End: 2012-04-24
+
+Total Capital: 91624.1131       Cum Return: -0.087476
+Today: 2012-04-25       Win Start: 2012-01-31   Win End: 2012-04-25
+
+Total Capital: 92835.2456       Cum Return: -0.074344
+Today: 2012-04-26       Win Start: 2012-02-01   Win End: 2012-04-26
+
+Total Capital: 92793.3190       Cum Return: -0.074796
+Today: 2012-04-27       Win Start: 2012-02-02   Win End: 2012-04-27
+
+Total Capital: 92745.4453       Cum Return: -0.075312
+Today: 2012-04-30       Win Start: 2012-02-03   Win End: 2012-04-30
+
+Total Capital: 93265.5373       Cum Return: -0.069720
+Today: 2012-05-01       Win Start: 2012-02-06   Win End: 2012-05-01
+
+Total Capital: 93393.4718       Cum Return: -0.068349
+Today: 2012-05-02       Win Start: 2012-02-07   Win End: 2012-05-02
+
+Total Capital: 93041.6511       Cum Return: -0.072123
+Today: 2012-05-03       Win Start: 2012-02-08   Win End: 2012-05-03
+
+Total Capital: 92818.4170       Cum Return: -0.074525
+Today: 2012-05-04       Win Start: 2012-02-09   Win End: 2012-05-04
+
+Total Capital: 92184.0135       Cum Return: -0.081383
+Today: 2012-05-07       Win Start: 2012-02-10   Win End: 2012-05-07
+
+Total Capital: 91923.4326       Cum Return: -0.084214
+Today: 2012-05-08       Win Start: 2012-02-13   Win End: 2012-05-08
+
+Total Capital: 92075.9656       Cum Return: -0.082556
+Today: 2012-05-09       Win Start: 2012-02-14   Win End: 2012-05-09
+
+Total Capital: 92332.5672       Cum Return: -0.079773
+Today: 2012-05-10       Win Start: 2012-02-15   Win End: 2012-05-10
+
+Total Capital: 92156.8314       Cum Return: -0.081678
+Today: 2012-05-11       Win Start: 2012-02-16   Win End: 2012-05-11
+
+Total Capital: 92106.1368       Cum Return: -0.082229
+Today: 2012-05-14       Win Start: 2012-02-17   Win End: 2012-05-14
+
+Total Capital: 92337.0509       Cum Return: -0.079725
+Today: 2012-05-15       Win Start: 2012-02-21   Win End: 2012-05-15
+
+Total Capital: 92597.7201       Cum Return: -0.076906
+Today: 2012-05-16       Win Start: 2012-02-22   Win End: 2012-05-16
+
+Total Capital: 92181.1768       Cum Return: -0.081414
+Today: 2012-05-17       Win Start: 2012-02-23   Win End: 2012-05-17
+
+Total Capital: 92318.4265       Cum Return: -0.079926
+Today: 2012-05-18       Win Start: 2012-02-24   Win End: 2012-05-18
+
+Total Capital: 92368.8538       Cum Return: -0.079380
+Today: 2012-05-21       Win Start: 2012-02-27   Win End: 2012-05-21
+
+Total Capital: 92885.5108       Cum Return: -0.073803
+Today: 2012-05-22       Win Start: 2012-02-28   Win End: 2012-05-22
+
+Total Capital: 92801.8479       Cum Return: -0.074704
+Today: 2012-05-23       Win Start: 2012-02-29   Win End: 2012-05-23
+
+Total Capital: 92769.3654       Cum Return: -0.075054
+Today: 2012-05-24       Win Start: 2012-03-01   Win End: 2012-05-24
+
+Total Capital: 92420.8625       Cum Return: -0.078817
+Today: 2012-05-25       Win Start: 2012-03-02   Win End: 2012-05-25
+
+Clustering...
+Cointegrating...
+Total Capital: 92383.3768       Cum Return: -0.079223
+Today: 2012-05-29       Win Start: 2012-03-05   Win End: 2012-05-29
+
+Total Capital: 93125.6451       Cum Return: -0.071221
+Today: 2012-05-30       Win Start: 2012-03-06   Win End: 2012-05-30
+
+Total Capital: 92974.0753       Cum Return: -0.072849
+Today: 2012-05-31       Win Start: 2012-03-07   Win End: 2012-05-31
+
+Total Capital: 93442.3337       Cum Return: -0.067826
+Today: 2012-06-01       Win Start: 2012-03-08   Win End: 2012-06-01
+
+Total Capital: 93495.1394       Cum Return: -0.067261
+Today: 2012-06-04       Win Start: 2012-03-09   Win End: 2012-06-04
+
+Total Capital: 93226.2433       Cum Return: -0.070141
+Today: 2012-06-05       Win Start: 2012-03-12   Win End: 2012-06-05
+
+Total Capital: 93592.0688       Cum Return: -0.066225
+Today: 2012-06-06       Win Start: 2012-03-13   Win End: 2012-06-06
+
+Total Capital: 93968.5495       Cum Return: -0.062210
+Today: 2012-06-07       Win Start: 2012-03-14   Win End: 2012-06-07
+
+Total Capital: 93869.7692       Cum Return: -0.063262
+Today: 2012-06-08       Win Start: 2012-03-15   Win End: 2012-06-08
+
+Total Capital: 93631.3340       Cum Return: -0.065805
+Today: 2012-06-11       Win Start: 2012-03-16   Win End: 2012-06-11
+
+Total Capital: 93618.8397       Cum Return: -0.065939
+Today: 2012-06-12       Win Start: 2012-03-19   Win End: 2012-06-12
+
+Total Capital: 93459.7999       Cum Return: -0.067639
+Today: 2012-06-13       Win Start: 2012-03-20   Win End: 2012-06-13
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 93752.8363       Cum Return: -0.064508
+Today: 2012-06-14       Win Start: 2012-03-21   Win End: 2012-06-14
+
+Total Capital: 94167.9711       Cum Return: -0.060090
+Today: 2012-06-15       Win Start: 2012-03-22   Win End: 2012-06-15
+
+Total Capital: 94328.3468       Cum Return: -0.058388
+Today: 2012-06-18       Win Start: 2012-03-23   Win End: 2012-06-18
+
+Total Capital: 94859.3453       Cum Return: -0.052775
+Today: 2012-06-19       Win Start: 2012-03-26   Win End: 2012-06-19
+
+Total Capital: 94713.7709       Cum Return: -0.054311
+Today: 2012-06-20       Win Start: 2012-03-27   Win End: 2012-06-20
+
+Total Capital: 94200.7555       Cum Return: -0.059742
+Today: 2012-06-21       Win Start: 2012-03-28   Win End: 2012-06-21
+
+Total Capital: 94644.5877       Cum Return: -0.055041
+Today: 2012-06-22       Win Start: 2012-03-29   Win End: 2012-06-22
+
+Total Capital: 94357.0944       Cum Return: -0.058084
+Today: 2012-06-25       Win Start: 2012-03-30   Win End: 2012-06-25
+
+Total Capital: 94202.6681       Cum Return: -0.059722
+Today: 2012-06-26       Win Start: 2012-04-02   Win End: 2012-06-26
+
+Total Capital: 94229.1989       Cum Return: -0.059440
+Today: 2012-06-27       Win Start: 2012-04-03   Win End: 2012-06-27
+
+Total Capital: 94653.5467       Cum Return: -0.054947
+Today: 2012-06-28       Win Start: 2012-04-04   Win End: 2012-06-28
+
+Total Capital: 95572.2725       Cum Return: -0.045287
+Today: 2012-06-29       Win Start: 2012-04-05   Win End: 2012-06-29
+
+Total Capital: 95614.0102       Cum Return: -0.044851
+Today: 2012-07-02       Win Start: 2012-04-09   Win End: 2012-07-02
+
+Total Capital: 95362.9189       Cum Return: -0.047480
+Today: 2012-07-03       Win Start: 2012-04-10   Win End: 2012-07-03
+
+Total Capital: 95504.6195       Cum Return: -0.045996
+Today: 2012-07-05       Win Start: 2012-04-11   Win End: 2012-07-05
+
+Total Capital: 95405.1484       Cum Return: -0.047038
+Today: 2012-07-06       Win Start: 2012-04-12   Win End: 2012-07-06
+
+Total Capital: 95715.6428       Cum Return: -0.043788
+Today: 2012-07-09       Win Start: 2012-04-13   Win End: 2012-07-09
+
+Total Capital: 95821.0631       Cum Return: -0.042688
+Today: 2012-07-10       Win Start: 2012-04-16   Win End: 2012-07-10
+
+Total Capital: 96375.6376       Cum Return: -0.036917
+Today: 2012-07-11       Win Start: 2012-04-17   Win End: 2012-07-11
+
+Total Capital: 96367.2430       Cum Return: -0.037004
+Today: 2012-07-12       Win Start: 2012-04-18   Win End: 2012-07-12
+
+Total Capital: 96224.4645       Cum Return: -0.038487
+Today: 2012-07-13       Win Start: 2012-04-19   Win End: 2012-07-13
+
+Total Capital: 96364.7876       Cum Return: -0.037029
+Today: 2012-07-16       Win Start: 2012-04-20   Win End: 2012-07-16
+
+Total Capital: 96140.4312       Cum Return: -0.039360
+Today: 2012-07-17       Win Start: 2012-04-23   Win End: 2012-07-17
+
+Total Capital: 96519.3423       Cum Return: -0.035427
+Today: 2012-07-18       Win Start: 2012-04-24   Win End: 2012-07-18
+
+Total Capital: 96240.4596       Cum Return: -0.038320
+Today: 2012-07-19       Win Start: 2012-04-25   Win End: 2012-07-19
+
+Total Capital: 96098.8441       Cum Return: -0.039793
+Today: 2012-07-20       Win Start: 2012-04-26   Win End: 2012-07-20
+
+Total Capital: 96068.2388       Cum Return: -0.040111
+Today: 2012-07-23       Win Start: 2012-04-27   Win End: 2012-07-23
+
+Total Capital: 96724.9056       Cum Return: -0.033299
+Today: 2012-07-24       Win Start: 2012-04-30   Win End: 2012-07-24
+
+Total Capital: 96562.4071       Cum Return: -0.034981
+Today: 2012-07-25       Win Start: 2012-05-01   Win End: 2012-07-25
+
+Total Capital: 96262.1797       Cum Return: -0.038095
+Today: 2012-07-26       Win Start: 2012-05-02   Win End: 2012-07-26
+
+Total Capital: 96578.6097       Cum Return: -0.034813
+Today: 2012-07-27       Win Start: 2012-05-03   Win End: 2012-07-27
+
+Total Capital: 96393.7254       Cum Return: -0.036729
+Today: 2012-07-30       Win Start: 2012-05-04   Win End: 2012-07-30
+
+Total Capital: 96614.3021       Cum Return: -0.034443
+Today: 2012-07-31       Win Start: 2012-05-07   Win End: 2012-07-31
+
+Total Capital: 96935.4649       Cum Return: -0.031125
+Today: 2012-08-01       Win Start: 2012-05-08   Win End: 2012-08-01
+
+Total Capital: 97524.8941       Cum Return: -0.025063
+Today: 2012-08-02       Win Start: 2012-05-09   Win End: 2012-08-02
+
+Total Capital: 97482.1610       Cum Return: -0.025501
+Today: 2012-08-03       Win Start: 2012-05-10   Win End: 2012-08-03
+
+Total Capital: 97062.4673       Cum Return: -0.029815
+Today: 2012-08-06       Win Start: 2012-05-11   Win End: 2012-08-06
+
+Total Capital: 96771.1513       Cum Return: -0.032821
+Days Traded: 1100        Time taken: 5644.4696s
+Today: 2012-08-07       Win Start: 2012-05-14   Win End: 2012-08-07
+
+Total Capital: 97065.0335       Cum Return: -0.029789
+Today: 2012-08-08       Win Start: 2012-05-15   Win End: 2012-08-08
+
+Total Capital: 96804.7055       Cum Return: -0.032475
+Today: 2012-08-09       Win Start: 2012-05-16   Win End: 2012-08-09
+
+Total Capital: 97074.3541       Cum Return: -0.029693
+Today: 2012-08-10       Win Start: 2012-05-17   Win End: 2012-08-10
+
+Total Capital: 96657.8310       Cum Return: -0.033993
+Today: 2012-08-13       Win Start: 2012-05-18   Win End: 2012-08-13
+
+Total Capital: 96725.5452       Cum Return: -0.033293
+Today: 2012-08-14       Win Start: 2012-05-21   Win End: 2012-08-14
+
+Total Capital: 96781.0322       Cum Return: -0.032719
+Today: 2012-08-15       Win Start: 2012-05-22   Win End: 2012-08-15
+
+Total Capital: 96972.8484       Cum Return: -0.030739
+Today: 2012-08-16       Win Start: 2012-05-23   Win End: 2012-08-16
+
+Total Capital: 97252.9605       Cum Return: -0.027855
+Today: 2012-08-17       Win Start: 2012-05-24   Win End: 2012-08-17
+
+Total Capital: 96936.6645       Cum Return: -0.031112
+Today: 2012-08-20       Win Start: 2012-05-25   Win End: 2012-08-20
+
+Total Capital: 97415.0310       Cum Return: -0.026190
+Today: 2012-08-21       Win Start: 2012-05-29   Win End: 2012-08-21
+
+Clustering...
+Cointegrating...
+Total Capital: 97368.7142       Cum Return: -0.026665
+Today: 2012-08-22       Win Start: 2012-05-30   Win End: 2012-08-22
+
+Total Capital: 97138.2608       Cum Return: -0.029035
+Today: 2012-08-23       Win Start: 2012-05-31   Win End: 2012-08-23
+
+Total Capital: 97122.6577       Cum Return: -0.029195
+Today: 2012-08-24       Win Start: 2012-06-01   Win End: 2012-08-24
+
+Total Capital: 97384.7943       Cum Return: -0.026500
+Today: 2012-08-27       Win Start: 2012-06-04   Win End: 2012-08-27
+
+Total Capital: 97158.3113       Cum Return: -0.028828
+Today: 2012-08-28       Win Start: 2012-06-05   Win End: 2012-08-28
+
+Total Capital: 97297.1307       Cum Return: -0.027401
+Today: 2012-08-29       Win Start: 2012-06-06   Win End: 2012-08-29
+
+Total Capital: 96659.0382       Cum Return: -0.033980
+Today: 2012-08-30       Win Start: 2012-06-07   Win End: 2012-08-30
+
+Total Capital: 96570.5189       Cum Return: -0.034897
+Today: 2012-08-31       Win Start: 2012-06-08   Win End: 2012-08-31
+
+Total Capital: 96916.8153       Cum Return: -0.031317
+Today: 2012-09-04       Win Start: 2012-06-11   Win End: 2012-09-04
+
+Total Capital: 96426.3478       Cum Return: -0.036391
+Today: 2012-09-05       Win Start: 2012-06-12   Win End: 2012-09-05
+
+Total Capital: 96327.7770       Cum Return: -0.037413
+Today: 2012-09-06       Win Start: 2012-06-13   Win End: 2012-09-06
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 96418.4862       Cum Return: -0.036472
+Today: 2012-09-07       Win Start: 2012-06-14   Win End: 2012-09-07
+
+Total Capital: 95811.1764       Cum Return: -0.042791
+Today: 2012-09-10       Win Start: 2012-06-15   Win End: 2012-09-10
+
+Total Capital: 95636.3856       Cum Return: -0.044617
+Today: 2012-09-11       Win Start: 2012-06-18   Win End: 2012-09-11
+
+Total Capital: 95835.0512       Cum Return: -0.042542
+Today: 2012-09-12       Win Start: 2012-06-19   Win End: 2012-09-12
+
+Total Capital: 95834.9367       Cum Return: -0.042543
+Today: 2012-09-13       Win Start: 2012-06-20   Win End: 2012-09-13
+
+Total Capital: 95720.4671       Cum Return: -0.043738
+Today: 2012-09-14       Win Start: 2012-06-21   Win End: 2012-09-14
+
+Total Capital: 95961.8281       Cum Return: -0.041220
+Today: 2012-09-17       Win Start: 2012-06-22   Win End: 2012-09-17
+
+Total Capital: 96185.6943       Cum Return: -0.038890
+Today: 2012-09-18       Win Start: 2012-06-25   Win End: 2012-09-18
+
+Total Capital: 96070.9891       Cum Return: -0.040083
+Today: 2012-09-19       Win Start: 2012-06-26   Win End: 2012-09-19
+
+Total Capital: 96138.6995       Cum Return: -0.039378
+Today: 2012-09-20       Win Start: 2012-06-27   Win End: 2012-09-20
+
+Total Capital: 96283.0517       Cum Return: -0.037878
+Today: 2012-09-21       Win Start: 2012-06-28   Win End: 2012-09-21
+
+Total Capital: 95939.6157       Cum Return: -0.041451
+Today: 2012-09-24       Win Start: 2012-06-29   Win End: 2012-09-24
+
+Total Capital: 95615.9441       Cum Return: -0.044831
+Today: 2012-09-25       Win Start: 2012-07-02   Win End: 2012-09-25
+
+Total Capital: 95093.6200       Cum Return: -0.050308
+Today: 2012-09-26       Win Start: 2012-07-03   Win End: 2012-09-26
+
+Total Capital: 95176.1114       Cum Return: -0.049441
+Today: 2012-09-27       Win Start: 2012-07-05   Win End: 2012-09-27
+
+Total Capital: 95346.8612       Cum Return: -0.047649
+Today: 2012-09-28       Win Start: 2012-07-06   Win End: 2012-09-28
+
+Total Capital: 95301.0705       Cum Return: -0.048129
+Today: 2012-10-01       Win Start: 2012-07-09   Win End: 2012-10-01
+
+Total Capital: 95441.7096       Cum Return: -0.046654
+Today: 2012-10-02       Win Start: 2012-07-10   Win End: 2012-10-02
+
+Total Capital: 95540.8494       Cum Return: -0.045616
+Today: 2012-10-03       Win Start: 2012-07-11   Win End: 2012-10-03
+
+Total Capital: 95837.9976       Cum Return: -0.042511
+Today: 2012-10-04       Win Start: 2012-07-12   Win End: 2012-10-04
+
+Total Capital: 95930.8766       Cum Return: -0.041542
+Today: 2012-10-05       Win Start: 2012-07-13   Win End: 2012-10-05
+
+Total Capital: 95983.2436       Cum Return: -0.040997
+Today: 2012-10-08       Win Start: 2012-07-16   Win End: 2012-10-08
+
+Total Capital: 95538.2383       Cum Return: -0.045644
+Today: 2012-10-09       Win Start: 2012-07-17   Win End: 2012-10-09
+
+Total Capital: 95320.4753       Cum Return: -0.047926
+Today: 2012-10-10       Win Start: 2012-07-18   Win End: 2012-10-10
+
+Total Capital: 95699.1286       Cum Return: -0.043961
+Today: 2012-10-11       Win Start: 2012-07-19   Win End: 2012-10-11
+
+Total Capital: 95421.9772       Cum Return: -0.046861
+Today: 2012-10-12       Win Start: 2012-07-20   Win End: 2012-10-12
+
+Total Capital: 95587.4077       Cum Return: -0.045129
+Today: 2012-10-15       Win Start: 2012-07-23   Win End: 2012-10-15
+
+Total Capital: 95270.3843       Cum Return: -0.048451
+Today: 2012-10-16       Win Start: 2012-07-24   Win End: 2012-10-16
+
+Total Capital: 96309.0615       Cum Return: -0.037608
+Today: 2012-10-17       Win Start: 2012-07-25   Win End: 2012-10-17
+
+Total Capital: 96622.6468       Cum Return: -0.034357
+Today: 2012-10-18       Win Start: 2012-07-26   Win End: 2012-10-18
+
+Total Capital: 96229.3998       Cum Return: -0.038435
+Today: 2012-10-19       Win Start: 2012-07-27   Win End: 2012-10-19
+
+Total Capital: 95381.7637       Cum Return: -0.047283
+Today: 2012-10-22       Win Start: 2012-07-30   Win End: 2012-10-22
+
+Total Capital: 95165.0479       Cum Return: -0.049557
+Today: 2012-10-23       Win Start: 2012-07-31   Win End: 2012-10-23
+
+Total Capital: 96028.0752       Cum Return: -0.040530
+Today: 2012-10-24       Win Start: 2012-08-01   Win End: 2012-10-24
+
+Total Capital: 95577.0738       Cum Return: -0.045237
+Today: 2012-10-25       Win Start: 2012-08-02   Win End: 2012-10-25
+
+Total Capital: 95524.6128       Cum Return: -0.045786
+Today: 2012-10-26       Win Start: 2012-08-03   Win End: 2012-10-26
+
+Total Capital: 96127.5283       Cum Return: -0.039494
+Today: 2012-10-31       Win Start: 2012-08-06   Win End: 2012-10-31
+
+Total Capital: 95400.0494       Cum Return: -0.047091
+Today: 2012-11-01       Win Start: 2012-08-07   Win End: 2012-11-01
+
+Total Capital: 95402.2562       Cum Return: -0.047068
+Today: 2012-11-02       Win Start: 2012-08-08   Win End: 2012-11-02
+
+Total Capital: 95375.3169       Cum Return: -0.047350
+Today: 2012-11-05       Win Start: 2012-08-09   Win End: 2012-11-05
+
+Total Capital: 95326.6372       Cum Return: -0.047861
+Today: 2012-11-06       Win Start: 2012-08-10   Win End: 2012-11-06
+
+Total Capital: 95643.7498       Cum Return: -0.044540
+Today: 2012-11-07       Win Start: 2012-08-13   Win End: 2012-11-07
+
+Total Capital: 95548.1377       Cum Return: -0.045540
+Today: 2012-11-08       Win Start: 2012-08-14   Win End: 2012-11-08
+
+Total Capital: 95116.3313       Cum Return: -0.050070
+Today: 2012-11-09       Win Start: 2012-08-15   Win End: 2012-11-09
+
+Total Capital: 95296.0045       Cum Return: -0.048182
+Today: 2012-11-12       Win Start: 2012-08-16   Win End: 2012-11-12
+
+Total Capital: 95593.8512       Cum Return: -0.045062
+Today: 2012-11-13       Win Start: 2012-08-17   Win End: 2012-11-13
+
+Total Capital: 95389.3957       Cum Return: -0.047203
+Today: 2012-11-14       Win Start: 2012-08-20   Win End: 2012-11-14
+
+Total Capital: 95536.3970       Cum Return: -0.045663
+Today: 2012-11-15       Win Start: 2012-08-21   Win End: 2012-11-15
+
+Total Capital: 95452.3220       Cum Return: -0.046543
+Today: 2012-11-16       Win Start: 2012-08-22   Win End: 2012-11-16
+
+Clustering...
+Cointegrating...
+Total Capital: 95414.1229       Cum Return: -0.046944
+Today: 2012-11-19       Win Start: 2012-08-23   Win End: 2012-11-19
+
+Total Capital: 95433.4878       Cum Return: -0.046741
+Today: 2012-11-20       Win Start: 2012-08-24   Win End: 2012-11-20
+
+Total Capital: 95530.9352       Cum Return: -0.045720
+Today: 2012-11-21       Win Start: 2012-08-27   Win End: 2012-11-21
+
+Total Capital: 95910.3739       Cum Return: -0.041756
+Today: 2012-11-23       Win Start: 2012-08-28   Win End: 2012-11-23
+
+Total Capital: 95988.9564       Cum Return: -0.040937
+Today: 2012-11-26       Win Start: 2012-08-29   Win End: 2012-11-26
+
+Total Capital: 96130.9235       Cum Return: -0.039459
+Today: 2012-11-27       Win Start: 2012-08-30   Win End: 2012-11-27
+
+Total Capital: 96429.0309       Cum Return: -0.036363
+Today: 2012-11-28       Win Start: 2012-08-31   Win End: 2012-11-28
+
+Total Capital: 96735.6002       Cum Return: -0.033189
+Today: 2012-11-29       Win Start: 2012-09-04   Win End: 2012-11-29
+
+Total Capital: 97223.3171       Cum Return: -0.028160
+Today: 2012-11-30       Win Start: 2012-09-05   Win End: 2012-11-30
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 97236.3455       Cum Return: -0.028026
+Today: 2012-12-03       Win Start: 2012-09-06   Win End: 2012-12-03
+
+Total Capital: 97364.8786       Cum Return: -0.026705
+Today: 2012-12-04       Win Start: 2012-09-07   Win End: 2012-12-04
+
+Total Capital: 97223.2210       Cum Return: -0.028161
+Today: 2012-12-05       Win Start: 2012-09-10   Win End: 2012-12-05
+
+Total Capital: 97198.8857       Cum Return: -0.028411
+Today: 2012-12-06       Win Start: 2012-09-11   Win End: 2012-12-06
+
+Total Capital: 97478.9618       Cum Return: -0.025534
+Today: 2012-12-07       Win Start: 2012-09-12   Win End: 2012-12-07
+
+Total Capital: 97760.2279       Cum Return: -0.022652
+Today: 2012-12-10       Win Start: 2012-09-13   Win End: 2012-12-10
+
+Total Capital: 97885.0526       Cum Return: -0.021376
+Today: 2012-12-11       Win Start: 2012-09-14   Win End: 2012-12-11
+
+Total Capital: 98066.8522       Cum Return: -0.019521
+Today: 2012-12-12       Win Start: 2012-09-17   Win End: 2012-12-12
+
+Total Capital: 98035.1767       Cum Return: -0.019844
+Today: 2012-12-13       Win Start: 2012-09-18   Win End: 2012-12-13
+
+Total Capital: 98029.2713       Cum Return: -0.019904
+Today: 2012-12-14       Win Start: 2012-09-19   Win End: 2012-12-14
+
+Total Capital: 98284.9173       Cum Return: -0.017300
+Today: 2012-12-17       Win Start: 2012-09-20   Win End: 2012-12-17
+
+Total Capital: 98585.3165       Cum Return: -0.014248
+Today: 2012-12-18       Win Start: 2012-09-21   Win End: 2012-12-18
+
+Total Capital: 98369.3962       Cum Return: -0.016440
+Today: 2012-12-19       Win Start: 2012-09-24   Win End: 2012-12-19
+
+Total Capital: 98828.4686       Cum Return: -0.011784
+Today: 2012-12-20       Win Start: 2012-09-25   Win End: 2012-12-20
+
+Total Capital: 99081.7153       Cum Return: -0.009225
+Today: 2012-12-21       Win Start: 2012-09-26   Win End: 2012-12-21
+
+Total Capital: 98826.9595       Cum Return: -0.011800
+Today: 2012-12-24       Win Start: 2012-09-27   Win End: 2012-12-24
+
+Total Capital: 98712.9098       Cum Return: -0.012954
+Today: 2012-12-26       Win Start: 2012-09-28   Win End: 2012-12-26
+
+Total Capital: 98709.5396       Cum Return: -0.012989
+Today: 2012-12-27       Win Start: 2012-10-01   Win End: 2012-12-27
+
+Total Capital: 98490.7601       Cum Return: -0.015207
+Today: 2012-12-28       Win Start: 2012-10-02   Win End: 2012-12-28
+
+Total Capital: 98515.5144       Cum Return: -0.014956
+Today: 2012-12-31       Win Start: 2012-10-03   Win End: 2012-12-31
+
+Total Capital: 98382.7875       Cum Return: -0.016304
+Days Traded: 1200        Time taken: 6184.6151s
+Today: 2013-01-02       Win Start: 2012-10-04   Win End: 2013-01-02
+
+Total Capital: 98520.8237       Cum Return: -0.014902
+Today: 2013-01-03       Win Start: 2012-10-05   Win End: 2013-01-03
+
+Total Capital: 98596.7372       Cum Return: -0.014132
+Today: 2013-01-04       Win Start: 2012-10-08   Win End: 2013-01-04
+
+Total Capital: 98469.5590       Cum Return: -0.015423
+Today: 2013-01-07       Win Start: 2012-10-09   Win End: 2013-01-07
+
+Total Capital: 98633.2291       Cum Return: -0.013762
+Today: 2013-01-08       Win Start: 2012-10-10   Win End: 2013-01-08
+
+Total Capital: 98660.7108       Cum Return: -0.013483
+Today: 2013-01-09       Win Start: 2012-10-11   Win End: 2013-01-09
+
+Total Capital: 98651.2760       Cum Return: -0.013579
+Today: 2013-01-10       Win Start: 2012-10-12   Win End: 2013-01-10
+
+Total Capital: 98636.4356       Cum Return: -0.013729
+Today: 2013-01-11       Win Start: 2012-10-15   Win End: 2013-01-11
+
+Total Capital: 98742.3091       Cum Return: -0.012657
+Today: 2013-01-14       Win Start: 2012-10-16   Win End: 2013-01-14
+
+Total Capital: 98795.2757       Cum Return: -0.012120
+Today: 2013-01-15       Win Start: 2012-10-17   Win End: 2013-01-15
+
+Total Capital: 98785.8957       Cum Return: -0.012215
+Today: 2013-01-16       Win Start: 2012-10-18   Win End: 2013-01-16
+
+Total Capital: 98764.8941       Cum Return: -0.012428
+Today: 2013-01-17       Win Start: 2012-10-19   Win End: 2013-01-17
+
+Total Capital: 98722.7050       Cum Return: -0.012855
+Today: 2013-01-18       Win Start: 2012-10-22   Win End: 2013-01-18
+
+Total Capital: 98595.9199       Cum Return: -0.014140
+Today: 2013-01-22       Win Start: 2012-10-23   Win End: 2013-01-22
+
+Total Capital: 98550.0777       Cum Return: -0.014605
+Today: 2013-01-23       Win Start: 2012-10-24   Win End: 2013-01-23
+
+Total Capital: 98486.1791       Cum Return: -0.015254
+Today: 2013-01-24       Win Start: 2012-10-25   Win End: 2013-01-24
+
+Total Capital: 98076.1589       Cum Return: -0.019426
+Today: 2013-01-25       Win Start: 2012-10-26   Win End: 2013-01-25
+
+Total Capital: 98138.4982       Cum Return: -0.018790
+Today: 2013-01-28       Win Start: 2012-10-31   Win End: 2013-01-28
+
+Total Capital: 98529.0167       Cum Return: -0.014819
+Today: 2013-01-29       Win Start: 2012-11-01   Win End: 2013-01-29
+
+Total Capital: 98494.2935       Cum Return: -0.015172
+Today: 2013-01-30       Win Start: 2012-11-02   Win End: 2013-01-30
+
+Total Capital: 98516.2424       Cum Return: -0.014949
+Today: 2013-01-31       Win Start: 2012-11-05   Win End: 2013-01-31
+
+Total Capital: 98352.1860       Cum Return: -0.016615
+Today: 2013-02-01       Win Start: 2012-11-06   Win End: 2013-02-01
+
+Total Capital: 98148.0287       Cum Return: -0.018693
+Today: 2013-02-04       Win Start: 2012-11-07   Win End: 2013-02-04
+
+Total Capital: 97944.9337       Cum Return: -0.020765
+Today: 2013-02-05       Win Start: 2012-11-08   Win End: 2013-02-05
+
+Total Capital: 98264.2727       Cum Return: -0.017510
+Today: 2013-02-06       Win Start: 2012-11-09   Win End: 2013-02-06
+
+Total Capital: 98153.4758       Cum Return: -0.018638
+Today: 2013-02-07       Win Start: 2012-11-12   Win End: 2013-02-07
+
+Total Capital: 98393.8448       Cum Return: -0.016192
+Today: 2013-02-08       Win Start: 2012-11-13   Win End: 2013-02-08
+
+Total Capital: 98400.0347       Cum Return: -0.016129
+Today: 2013-02-11       Win Start: 2012-11-14   Win End: 2013-02-11
+
+Total Capital: 98741.4304       Cum Return: -0.012666
+Today: 2013-02-12       Win Start: 2012-11-15   Win End: 2013-02-12
+
+Total Capital: 98671.2141       Cum Return: -0.013377
+Today: 2013-02-13       Win Start: 2012-11-16   Win End: 2013-02-13
+
+Total Capital: 98382.9671       Cum Return: -0.016302
+Today: 2013-02-14       Win Start: 2012-11-19   Win End: 2013-02-14
+
+Clustering...
+Cointegrating...
+Total Capital: 98334.9481       Cum Return: -0.016791
+Today: 2013-02-15       Win Start: 2012-11-20   Win End: 2013-02-15
+
+Total Capital: 98463.2735       Cum Return: -0.015487
+Today: 2013-02-19       Win Start: 2012-11-21   Win End: 2013-02-19
+
+Total Capital: 97543.1323       Cum Return: -0.024876
+Today: 2013-02-20       Win Start: 2012-11-23   Win End: 2013-02-20
+
+Total Capital: 97085.3282       Cum Return: -0.029580
+Today: 2013-02-21       Win Start: 2012-11-26   Win End: 2013-02-21
+
+Total Capital: 97622.4341       Cum Return: -0.024063
+Today: 2013-02-22       Win Start: 2012-11-27   Win End: 2013-02-22
+
+Total Capital: 97223.4048       Cum Return: -0.028159
+Today: 2013-02-25       Win Start: 2012-11-28   Win End: 2013-02-25
+
+Total Capital: 97572.4599       Cum Return: -0.024575
+Today: 2013-02-26       Win Start: 2012-11-29   Win End: 2013-02-26
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 97498.8232       Cum Return: -0.025330
+Today: 2013-02-27       Win Start: 2012-11-30   Win End: 2013-02-27
+
+Total Capital: 97646.9685       Cum Return: -0.023812
+Today: 2013-02-28       Win Start: 2012-12-03   Win End: 2013-02-28
+
+Total Capital: 97127.7364       Cum Return: -0.029143
+Today: 2013-03-01       Win Start: 2012-12-04   Win End: 2013-03-01
+
+Total Capital: 96988.3805       Cum Return: -0.030579
+Today: 2013-03-04       Win Start: 2012-12-05   Win End: 2013-03-04
+
+Total Capital: 97129.7082       Cum Return: -0.029123
+Today: 2013-03-05       Win Start: 2012-12-06   Win End: 2013-03-05
+
+Total Capital: 96872.9991       Cum Return: -0.031769
+Today: 2013-03-06       Win Start: 2012-12-07   Win End: 2013-03-06
+
+Total Capital: 96361.9533       Cum Return: -0.037059
+Today: 2013-03-07       Win Start: 2012-12-10   Win End: 2013-03-07
+
+Total Capital: 96458.2063       Cum Return: -0.036060
+Today: 2013-03-08       Win Start: 2012-12-11   Win End: 2013-03-08
+
+Total Capital: 96348.9132       Cum Return: -0.037194
+Today: 2013-03-11       Win Start: 2012-12-12   Win End: 2013-03-11
+
+Total Capital: 96370.9286       Cum Return: -0.036966
+Today: 2013-03-12       Win Start: 2012-12-13   Win End: 2013-03-12
+
+Total Capital: 96232.3610       Cum Return: -0.038404
+Today: 2013-03-13       Win Start: 2012-12-14   Win End: 2013-03-13
+
+Total Capital: 96073.1150       Cum Return: -0.040061
+Today: 2013-03-14       Win Start: 2012-12-17   Win End: 2013-03-14
+
+Total Capital: 95911.5285       Cum Return: -0.041744
+Today: 2013-03-15       Win Start: 2012-12-18   Win End: 2013-03-15
+
+Total Capital: 96113.8328       Cum Return: -0.039637
+Today: 2013-03-18       Win Start: 2012-12-19   Win End: 2013-03-18
+
+Total Capital: 95949.7358       Cum Return: -0.041346
+Today: 2013-03-19       Win Start: 2012-12-20   Win End: 2013-03-19
+
+Total Capital: 95485.8245       Cum Return: -0.046192
+Today: 2013-03-20       Win Start: 2012-12-21   Win End: 2013-03-20
+
+Total Capital: 95007.0656       Cum Return: -0.051219
+Today: 2013-03-21       Win Start: 2012-12-24   Win End: 2013-03-21
+
+Total Capital: 94885.8396       Cum Return: -0.052496
+Today: 2013-03-22       Win Start: 2012-12-26   Win End: 2013-03-22
+
+Total Capital: 94686.8179       Cum Return: -0.054595
+Today: 2013-03-25       Win Start: 2012-12-27   Win End: 2013-03-25
+
+Total Capital: 94700.2237       Cum Return: -0.054454
+Today: 2013-03-26       Win Start: 2012-12-28   Win End: 2013-03-26
+
+Total Capital: 94747.9522       Cum Return: -0.053950
+Today: 2013-03-27       Win Start: 2012-12-31   Win End: 2013-03-27
+
+Total Capital: 94961.4083       Cum Return: -0.051700
+Today: 2013-03-28       Win Start: 2013-01-02   Win End: 2013-03-28
+
+Total Capital: 94831.9851       Cum Return: -0.053063
+Today: 2013-04-01       Win Start: 2013-01-03   Win End: 2013-04-01
+
+Total Capital: 94898.4729       Cum Return: -0.052363
+Today: 2013-04-02       Win Start: 2013-01-04   Win End: 2013-04-02
+
+Total Capital: 94925.8849       Cum Return: -0.052074
+Today: 2013-04-03       Win Start: 2013-01-07   Win End: 2013-04-03
+
+Total Capital: 95418.5747       Cum Return: -0.046897
+Today: 2013-04-04       Win Start: 2013-01-08   Win End: 2013-04-04
+
+Total Capital: 95287.3659       Cum Return: -0.048273
+Today: 2013-04-05       Win Start: 2013-01-09   Win End: 2013-04-05
+
+Total Capital: 95831.9428       Cum Return: -0.042574
+Today: 2013-04-08       Win Start: 2013-01-10   Win End: 2013-04-08
+
+Total Capital: 95892.5007       Cum Return: -0.041942
+Today: 2013-04-09       Win Start: 2013-01-11   Win End: 2013-04-09
+
+Total Capital: 96398.7768       Cum Return: -0.036677
+Today: 2013-04-10       Win Start: 2013-01-14   Win End: 2013-04-10
+
+Total Capital: 96233.5402       Cum Return: -0.038392
+Today: 2013-04-11       Win Start: 2013-01-15   Win End: 2013-04-11
+
+Total Capital: 96595.5839       Cum Return: -0.034637
+Today: 2013-04-12       Win Start: 2013-01-16   Win End: 2013-04-12
+
+Total Capital: 95930.9457       Cum Return: -0.041542
+Today: 2013-04-15       Win Start: 2013-01-17   Win End: 2013-04-15
+
+Total Capital: 96328.0532       Cum Return: -0.037411
+Today: 2013-04-16       Win Start: 2013-01-18   Win End: 2013-04-16
+
+Total Capital: 95946.9702       Cum Return: -0.041375
+Today: 2013-04-17       Win Start: 2013-01-22   Win End: 2013-04-17
+
+Total Capital: 95721.6545       Cum Return: -0.043726
+Today: 2013-04-18       Win Start: 2013-01-23   Win End: 2013-04-18
+
+Total Capital: 96783.9725       Cum Return: -0.032689
+Today: 2013-04-19       Win Start: 2013-01-24   Win End: 2013-04-19
+
+Total Capital: 96689.8227       Cum Return: -0.033662
+Today: 2013-04-22       Win Start: 2013-01-25   Win End: 2013-04-22
+
+Total Capital: 96631.1833       Cum Return: -0.034269
+Today: 2013-04-23       Win Start: 2013-01-28   Win End: 2013-04-23
+
+Total Capital: 96987.2540       Cum Return: -0.030591
+Today: 2013-04-24       Win Start: 2013-01-29   Win End: 2013-04-24
+
+Total Capital: 97089.5185       Cum Return: -0.029537
+Today: 2013-04-25       Win Start: 2013-01-30   Win End: 2013-04-25
+
+Total Capital: 96948.0687       Cum Return: -0.030995
+Today: 2013-04-26       Win Start: 2013-01-31   Win End: 2013-04-26
+
+Total Capital: 96745.6239       Cum Return: -0.033085
+Today: 2013-04-29       Win Start: 2013-02-01   Win End: 2013-04-29
+
+Total Capital: 95985.6110       Cum Return: -0.040972
+Today: 2013-04-30       Win Start: 2013-02-04   Win End: 2013-04-30
+
+Total Capital: 97003.4685       Cum Return: -0.030423
+Today: 2013-05-01       Win Start: 2013-02-05   Win End: 2013-05-01
+
+Total Capital: 97083.8741       Cum Return: -0.029595
+Today: 2013-05-02       Win Start: 2013-02-06   Win End: 2013-05-02
+
+Total Capital: 96960.1706       Cum Return: -0.030870
+Today: 2013-05-03       Win Start: 2013-02-07   Win End: 2013-05-03
+
+Total Capital: 97183.5744       Cum Return: -0.028568
+Today: 2013-05-06       Win Start: 2013-02-08   Win End: 2013-05-06
+
+Total Capital: 97398.6757       Cum Return: -0.026358
+Today: 2013-05-07       Win Start: 2013-02-11   Win End: 2013-05-07
+
+Total Capital: 97686.4291       Cum Return: -0.023408
+Today: 2013-05-08       Win Start: 2013-02-12   Win End: 2013-05-08
+
+Total Capital: 97924.6690       Cum Return: -0.020972
+Today: 2013-05-09       Win Start: 2013-02-13   Win End: 2013-05-09
+
+Total Capital: 97973.2960       Cum Return: -0.020475
+Today: 2013-05-10       Win Start: 2013-02-14   Win End: 2013-05-10
+
+Total Capital: 97479.4926       Cum Return: -0.025528
+Today: 2013-05-13       Win Start: 2013-02-15   Win End: 2013-05-13
+
+Clustering...
+Cointegrating...
+Total Capital: 97431.7969       Cum Return: -0.026018
+Today: 2013-05-14       Win Start: 2013-02-19   Win End: 2013-05-14
+
+Total Capital: 97275.1499       Cum Return: -0.027627
+Today: 2013-05-15       Win Start: 2013-02-20   Win End: 2013-05-15
+
+Total Capital: 97477.0085       Cum Return: -0.025554
+Today: 2013-05-16       Win Start: 2013-02-21   Win End: 2013-05-16
+
+Total Capital: 97677.8248       Cum Return: -0.023496
+Today: 2013-05-17       Win Start: 2013-02-22   Win End: 2013-05-17
+
+Total Capital: 98397.0750       Cum Return: -0.016159
+Today: 2013-05-20       Win Start: 2013-02-25   Win End: 2013-05-20
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 98503.4466       Cum Return: -0.015079
+Today: 2013-05-21       Win Start: 2013-02-26   Win End: 2013-05-21
+
+Total Capital: 98790.4420       Cum Return: -0.012169
+Today: 2013-05-22       Win Start: 2013-02-27   Win End: 2013-05-22
+
+Total Capital: 98331.0797       Cum Return: -0.016830
+Today: 2013-05-23       Win Start: 2013-02-28   Win End: 2013-05-23
+
+Total Capital: 98308.8189       Cum Return: -0.017056
+Today: 2013-05-24       Win Start: 2013-03-01   Win End: 2013-05-24
+
+Total Capital: 98276.3712       Cum Return: -0.017387
+Days Traded: 1300        Time taken: 6708.2813s
+Today: 2013-05-28       Win Start: 2013-03-04   Win End: 2013-05-28
+
+Total Capital: 98103.4487       Cum Return: -0.019148
+Today: 2013-05-29       Win Start: 2013-03-05   Win End: 2013-05-29
+
+Total Capital: 97768.3567       Cum Return: -0.022569
+Today: 2013-05-30       Win Start: 2013-03-06   Win End: 2013-05-30
+
+Total Capital: 98101.4345       Cum Return: -0.019168
+Today: 2013-05-31       Win Start: 2013-03-07   Win End: 2013-05-31
+
+Total Capital: 98674.3193       Cum Return: -0.013345
+Today: 2013-06-03       Win Start: 2013-03-08   Win End: 2013-06-03
+
+Total Capital: 98607.1216       Cum Return: -0.014027
+Today: 2013-06-04       Win Start: 2013-03-11   Win End: 2013-06-04
+
+Total Capital: 97778.5771       Cum Return: -0.022465
+Today: 2013-06-05       Win Start: 2013-03-12   Win End: 2013-06-05
+
+Total Capital: 97546.1440       Cum Return: -0.024845
+Today: 2013-06-06       Win Start: 2013-03-13   Win End: 2013-06-06
+
+Total Capital: 97501.9116       Cum Return: -0.025298
+Today: 2013-06-07       Win Start: 2013-03-14   Win End: 2013-06-07
+
+Total Capital: 97401.3591       Cum Return: -0.026330
+Today: 2013-06-10       Win Start: 2013-03-15   Win End: 2013-06-10
+
+Total Capital: 97595.7654       Cum Return: -0.024336
+Today: 2013-06-11       Win Start: 2013-03-18   Win End: 2013-06-11
+
+Total Capital: 97751.0021       Cum Return: -0.022747
+Today: 2013-06-12       Win Start: 2013-03-19   Win End: 2013-06-12
+
+Total Capital: 97648.9565       Cum Return: -0.023791
+Today: 2013-06-13       Win Start: 2013-03-20   Win End: 2013-06-13
+
+Total Capital: 97005.6139       Cum Return: -0.030401
+Today: 2013-06-14       Win Start: 2013-03-21   Win End: 2013-06-14
+
+Total Capital: 97532.0188       Cum Return: -0.024989
+Today: 2013-06-17       Win Start: 2013-03-22   Win End: 2013-06-17
+
+Total Capital: 97356.3121       Cum Return: -0.026793
+Today: 2013-06-18       Win Start: 2013-03-25   Win End: 2013-06-18
+
+Total Capital: 96964.7578       Cum Return: -0.030823
+Today: 2013-06-19       Win Start: 2013-03-26   Win End: 2013-06-19
+
+Total Capital: 96715.7386       Cum Return: -0.033394
+Today: 2013-06-20       Win Start: 2013-03-27   Win End: 2013-06-20
+
+Total Capital: 97409.5518       Cum Return: -0.026246
+Today: 2013-06-21       Win Start: 2013-03-28   Win End: 2013-06-21
+
+Total Capital: 97565.8577       Cum Return: -0.024643
+Today: 2013-06-24       Win Start: 2013-04-01   Win End: 2013-06-24
+
+Total Capital: 97555.1958       Cum Return: -0.024752
+Today: 2013-06-25       Win Start: 2013-04-02   Win End: 2013-06-25
+
+Total Capital: 97827.1552       Cum Return: -0.021968
+Today: 2013-06-26       Win Start: 2013-04-03   Win End: 2013-06-26
+
+Total Capital: 98401.0553       Cum Return: -0.016119
+Today: 2013-06-27       Win Start: 2013-04-04   Win End: 2013-06-27
+
+Total Capital: 98306.8647       Cum Return: -0.017076
+Today: 2013-06-28       Win Start: 2013-04-05   Win End: 2013-06-28
+
+Total Capital: 99122.4063       Cum Return: -0.008815
+Today: 2013-07-01       Win Start: 2013-04-08   Win End: 2013-07-01
+
+Total Capital: 99122.5324       Cum Return: -0.008813
+Today: 2013-07-02       Win Start: 2013-04-09   Win End: 2013-07-02
+
+Total Capital: 98862.5614       Cum Return: -0.011440
+Today: 2013-07-03       Win Start: 2013-04-10   Win End: 2013-07-03
+
+Total Capital: 99080.2242       Cum Return: -0.009240
+Today: 2013-07-05       Win Start: 2013-04-11   Win End: 2013-07-05
+
+Total Capital: 99182.2549       Cum Return: -0.008211
+Today: 2013-07-08       Win Start: 2013-04-12   Win End: 2013-07-08
+
+Total Capital: 98759.2529       Cum Return: -0.012485
+Today: 2013-07-09       Win Start: 2013-04-15   Win End: 2013-07-09
+
+Total Capital: 99751.7999       Cum Return: -0.002485
+Today: 2013-07-10       Win Start: 2013-04-16   Win End: 2013-07-10
+
+Total Capital: 100847.5405      Cum Return: 0.008440
+Today: 2013-07-11       Win Start: 2013-04-17   Win End: 2013-07-11
+
+Total Capital: 100908.3976      Cum Return: 0.009043
+Today: 2013-07-12       Win Start: 2013-04-18   Win End: 2013-07-12
+
+Total Capital: 101304.7529      Cum Return: 0.012963
+Today: 2013-07-15       Win Start: 2013-04-19   Win End: 2013-07-15
+
+Total Capital: 101567.7938      Cum Return: 0.015556
+Today: 2013-07-16       Win Start: 2013-04-22   Win End: 2013-07-16
+
+Total Capital: 100440.8364      Cum Return: 0.004399
+Today: 2013-07-17       Win Start: 2013-04-23   Win End: 2013-07-17
+
+Total Capital: 99428.3293       Cum Return: -0.005733
+Today: 2013-07-18       Win Start: 2013-04-24   Win End: 2013-07-18
+
+Total Capital: 98717.0507       Cum Return: -0.012913
+Today: 2013-07-19       Win Start: 2013-04-25   Win End: 2013-07-19
+
+Total Capital: 98650.8511       Cum Return: -0.013583
+Today: 2013-07-22       Win Start: 2013-04-26   Win End: 2013-07-22
+
+Total Capital: 98203.3760       Cum Return: -0.018130
+Today: 2013-07-23       Win Start: 2013-04-29   Win End: 2013-07-23
+
+Total Capital: 98095.4527       Cum Return: -0.019229
+Today: 2013-07-24       Win Start: 2013-04-30   Win End: 2013-07-24
+
+Total Capital: 97936.3289       Cum Return: -0.020853
+Today: 2013-07-25       Win Start: 2013-05-01   Win End: 2013-07-25
+
+Total Capital: 98342.4899       Cum Return: -0.016714
+Today: 2013-07-26       Win Start: 2013-05-02   Win End: 2013-07-26
+
+Total Capital: 98310.3074       Cum Return: -0.017041
+Today: 2013-07-29       Win Start: 2013-05-03   Win End: 2013-07-29
+
+Total Capital: 98376.4242       Cum Return: -0.016369
+Today: 2013-07-30       Win Start: 2013-05-06   Win End: 2013-07-30
+
+Total Capital: 98699.4074       Cum Return: -0.013091
+Today: 2013-07-31       Win Start: 2013-05-07   Win End: 2013-07-31
+
+Total Capital: 99143.2353       Cum Return: -0.008605
+Today: 2013-08-01       Win Start: 2013-05-08   Win End: 2013-08-01
+
+Total Capital: 101271.5997      Cum Return: 0.012636
+Today: 2013-08-02       Win Start: 2013-05-09   Win End: 2013-08-02
+
+Total Capital: 101117.0005      Cum Return: 0.011108
+Today: 2013-08-05       Win Start: 2013-05-10   Win End: 2013-08-05
+
+Total Capital: 100834.8907      Cum Return: 0.008314
+Today: 2013-08-06       Win Start: 2013-05-13   Win End: 2013-08-06
+
+Total Capital: 101167.2573      Cum Return: 0.011605
+Today: 2013-08-07       Win Start: 2013-05-14   Win End: 2013-08-07
+
+Clustering...
+Cointegrating...
+Total Capital: 101131.2533      Cum Return: 0.011249
+Today: 2013-08-08       Win Start: 2013-05-15   Win End: 2013-08-08
+
+Total Capital: 101574.9536      Cum Return: 0.015627
+Today: 2013-08-09       Win Start: 2013-05-16   Win End: 2013-08-09
+
+Total Capital: 101886.5781      Cum Return: 0.018690
+Today: 2013-08-12       Win Start: 2013-05-17   Win End: 2013-08-12
+
+- Engineering intraday volatility...
+
+- Engineering intraday volatility...
+
+Total Capital: 101522.9966      Cum Return: 0.015115
+Today: 2013-08-13       Win Start: 2013-05-20   Win End: 2013-08-13
+
+Total Capital: 101190.7033      Cum Return: 0.011837
+Today: 2013-08-14       Win Start: 2013-05-21   Win End: 2013-08-14
+
+Total Capital: 101393.1851      Cum Return: 0.013836
+Today: 2013-08-15       Win Start: 2013-05-22   Win End: 2013-08-15
+
+Total Capital: 101184.7898      Cum Return: 0.011778
+Today: 2013-08-16       Win Start: 2013-05-23   Win End: 2013-08-16
+
+Total Capital: 101792.0455      Cum Return: 0.017762
+Today: 2013-08-19       Win Start: 2013-05-24   Win End: 2013-08-19
+
+Total Capital: 101460.5299      Cum Return: 0.014500
+Today: 2013-08-20       Win Start: 2013-05-28   Win End: 2013-08-20
+
+Total Capital: 101013.6345      Cum Return: 0.010085
+Today: 2013-08-21       Win Start: 2013-05-29   Win End: 2013-08-21
+
+Total Capital: 101011.6777      Cum Return: 0.010066
+Today: 2013-08-22       Win Start: 2013-05-30   Win End: 2013-08-22
+
+Total Capital: 100919.7559      Cum Return: 0.009156
+Today: 2013-08-23       Win Start: 2013-05-31   Win End: 2013-08-23
+
+Total Capital: 100659.9087      Cum Return: 0.006577
+Today: 2013-08-26       Win Start: 2013-06-03   Win End: 2013-08-26
+
+Total Capital: 100617.8819      Cum Return: 0.006160
+Today: 2013-08-27       Win Start: 2013-06-04   Win End: 2013-08-27
+
+Total Capital: 100174.8069      Cum Return: 0.001747
+Today: 2013-08-28       Win Start: 2013-06-05   Win End: 2013-08-28
+
+Total Capital: 100316.6737      Cum Return: 0.003162
+Today: 2013-08-29       Win Start: 2013-06-06   Win End: 2013-08-29
+
+Total Capital: 100264.5014      Cum Return: 0.002642
+Today: 2013-08-30       Win Start: 2013-06-07   Win End: 2013-08-30
+
+Total Capital: 99641.2247       Cum Return: -0.003594
+Today: 2013-09-03       Win Start: 2013-06-10   Win End: 2013-09-03
+
+Total Capital: 99673.9363       Cum Return: -0.003266
+Today: 2013-09-04       Win Start: 2013-06-11   Win End: 2013-09-04
+
+Total Capital: 99410.8703       Cum Return: -0.005909
+Today: 2013-09-05       Win Start: 2013-06-12   Win End: 2013-09-05
+
+Total Capital: 99839.5636       Cum Return: -0.001606
+Today: 2013-09-06       Win Start: 2013-06-13   Win End: 2013-09-06
+
+Total Capital: 99616.2101       Cum Return: -0.003845
+Today: 2013-09-09       Win Start: 2013-06-14   Win End: 2013-09-09
+
+Total Capital: 99740.2161       Cum Return: -0.002601
+Today: 2013-09-10       Win Start: 2013-06-17   Win End: 2013-09-10
+
+Total Capital: 99721.6801       Cum Return: -0.002787
+Today: 2013-09-11       Win Start: 2013-06-18   Win End: 2013-09-11
+
+Total Capital: 99898.1869       Cum Return: -0.001019
+Today: 2013-09-12       Win Start: 2013-06-19   Win End: 2013-09-12
+
+Total Capital: 100264.2002      Cum Return: 0.002639
+Today: 2013-09-13       Win Start: 2013-06-20   Win End: 2013-09-13
+
+Total Capital: 100642.8635      Cum Return: 0.006408
+Today: 2013-09-16       Win Start: 2013-06-21   Win End: 2013-09-16
+
+Total Capital: 100388.3337      Cum Return: 0.003876
+Today: 2013-09-17       Win Start: 2013-06-24   Win End: 2013-09-17
+
+Total Capital: 100750.8086      Cum Return: 0.007480
+Today: 2013-09-18       Win Start: 2013-06-25   Win End: 2013-09-18
+
+Total Capital: 101118.4408      Cum Return: 0.011122
+Today: 2013-09-19       Win Start: 2013-06-26   Win End: 2013-09-19
+
+Total Capital: 101203.7235      Cum Return: 0.011965
+Today: 2013-09-20       Win Start: 2013-06-27   Win End: 2013-09-20
+
+Total Capital: 101404.5795      Cum Return: 0.013948
+Today: 2013-09-23       Win Start: 2013-06-28   Win End: 2013-09-23
+
+Total Capital: 101862.3502      Cum Return: 0.018452
+Today: 2013-09-24       Win Start: 2013-07-01   Win End: 2013-09-24
+
+Total Capital: 101782.2727      Cum Return: 0.017666
+Today: 2013-09-25       Win Start: 2013-07-02   Win End: 2013-09-25
+
+Total Capital: 101902.4548      Cum Return: 0.018846
+Today: 2013-09-26       Win Start: 2013-07-03   Win End: 2013-09-26
+
+Total Capital: 101693.1317      Cum Return: 0.016790
+Today: 2013-09-27       Win Start: 2013-07-05   Win End: 2013-09-27
+
+Total Capital: 101632.7305      Cum Return: 0.016195
+Today: 2013-09-30       Win Start: 2013-07-08   Win End: 2013-09-30
+
+Total Capital: 101797.6090      Cum Return: 0.017816
+Today: 2013-10-01       Win Start: 2013-07-09   Win End: 2013-10-01
+
+Total Capital: 102119.1096      Cum Return: 0.020970
+Today: 2013-10-02       Win Start: 2013-07-10   Win End: 2013-10-02
+
+Total Capital: 102123.9301      Cum Return: 0.021017
+Today: 2013-10-03       Win Start: 2013-07-11   Win End: 2013-10-03
+
+Total Capital: 102400.2556      Cum Return: 0.023719
+Today: 2013-10-04       Win Start: 2013-07-12   Win End: 2013-10-04
+
+Total Capital: 102094.0557      Cum Return: 0.020724
+Today: 2013-10-07       Win Start: 2013-07-15   Win End: 2013-10-07
+
+Total Capital: 102173.8707      Cum Return: 0.021506
+Today: 2013-10-08       Win Start: 2013-07-16   Win End: 2013-10-08
+
+Total Capital: 102331.6772      Cum Return: 0.023049
+Today: 2013-10-09       Win Start: 2013-07-17   Win End: 2013-10-09
+
+Total Capital: 102391.9824      Cum Return: 0.023638
+Today: 2013-10-10       Win Start: 2013-07-18   Win End: 2013-10-10
+
+Total Capital: 102537.1675      Cum Return: 0.025055
+Today: 2013-10-11       Win Start: 2013-07-19   Win End: 2013-10-11
+
+Total Capital: 102684.4808      Cum Return: 0.026491
+Today: 2013-10-14       Win Start: 2013-07-22   Win End: 2013-10-14
+
+Total Capital: 102495.4266      Cum Return: 0.024648
+Today: 2013-10-15       Win Start: 2013-07-23   Win End: 2013-10-15
+
+Total Capital: 102889.5194      Cum Return: 0.028486
+Today: 2013-10-16       Win Start: 2013-07-24   Win End: 2013-10-16
+
+Total Capital: 103243.4100      Cum Return: 0.031919
+Days Traded: 1400        Time taken: 7034.5949s
+Today: 2013-10-17       Win Start: 2013-07-25   Win End: 2013-10-17
+
+Total Capital: 103242.6617      Cum Return: 0.031912
+Today: 2013-10-18       Win Start: 2013-07-26   Win End: 2013-10-18
+
+Total Capital: 103288.4717      Cum Return: 0.032356
+Today: 2013-10-21       Win Start: 2013-07-29   Win End: 2013-10-21
+
+Total Capital: 103464.4226      Cum Return: 0.034058
+Today: 2013-10-22       Win Start: 2013-07-30   Win End: 2013-10-22
+
+Total Capital: 103466.3186      Cum Return: 0.034076
+Today: 2013-10-23       Win Start: 2013-07-31   Win End: 2013-10-23
+
+Total Capital: 103486.2469      Cum Return: 0.034269
+Today: 2013-10-24       Win Start: 2013-08-01   Win End: 2013-10-24
+
+Total Capital: 103493.9996      Cum Return: 0.034343
+Today: 2013-10-25       Win Start: 2013-08-02   Win End: 2013-10-25
+
+Total Capital: 103555.7994      Cum Return: 0.034940
+Today: 2013-10-28       Win Start: 2013-08-05   Win End: 2013-10-28
+
+Total Capital: 103951.8577      Cum Return: 0.038758
+Today: 2013-10-29       Win Start: 2013-08-06   Win End: 2013-10-29
+
+Total Capital: 103802.3068      Cum Return: 0.037318
+Today: 2013-10-30       Win Start: 2013-08-07   Win End: 2013-10-30
+
+Total Capital: 104215.9829      Cum Return: 0.041295
+Today: 2013-10-31       Win Start: 2013-08-08   Win End: 2013-10-31
+
+Clustering...
+Cointegrating...
