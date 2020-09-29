@@ -1,11 +1,7 @@
-
-
 import logging
 import time
 from datetime import date, timedelta, datetime
 from typing import Optional
-import sys
-sys.path.append('F:\Code\Python\statarb')
 
 from src.Clusterer import Clusterer
 from src.Cointegrator import Cointegrator, AdfPrecisions
@@ -157,7 +153,6 @@ if __name__ == '__main__':
     ).trade()
 
     print(f"Backtest took {time.time() - start_time:.4f}s to run.")
-
 
 # DONE ----- 7) FEATURE ENGINEERING
 # DONE ----- 5) CLUSTERING

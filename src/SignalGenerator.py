@@ -1,7 +1,4 @@
 from typing import List
-
-import numpy as np
-
 from src.Cointegrator import CointegratedPair
 from src.Portfolio import Portfolio, Position
 from src.util.Features import PositionType
@@ -44,11 +41,11 @@ class SignalGenerator:
         for coint_pair in pairs:
         # if coint_pair not invested, check if we need to open position
             if coint_pair.pair not in current_posn_pairs:
-
                 if coint_pair.recent_dev_scaled > self.entry_z:
                     # l = long pair = long x short y
                     p1, p2 = coint_pair.pair
-                    shock = self.filter.run_volume_shock_filter_single_pair(coint_pair.pair, self.port.current_window)
+                    shock = self.filter.run_volume_shock_filter_single_pair(coint_pair.pair,
+                                                                            self.port.current_window)
                     if not shock:
                         decisions.append(
                             Decision(
@@ -71,7 +68,8 @@ class SignalGenerator:
                 elif coint_pair.recent_dev_scaled < - self.entry_z:
                     # s = short pair = long y short x
                     p1, p2 = coint_pair.pair
-                    shock = self.filter.run_volume_shock_filter_single_pair(coint_pair.pair, self.port.current_window)
+                    shock = self.filter.run_volume_shock_filter_single_pair(coint_pair.pair,
+                                                                            self.port.current_window)
                     if not shock:
 
                         decisions.append(
@@ -110,7 +108,8 @@ class SignalGenerator:
                 coint_pair = pairs[idx]
                 # if position passed time limit, exit position
                 # if recent_dev is still high, position will be opened again tmr, so don't exit in such situation
-                if today > (position.init_date + timedelta(self.time_stop_loss)) and (abs(coint_pair.recent_dev_scaled) < self.entry_z):
+                if today > (position.init_date + timedelta(self.time_stop_loss)) and \
+                        (abs(coint_pair.recent_dev_scaled) < self.entry_z):
                     decisions.append(
                         Decision(
                             position=position,
@@ -121,7 +120,8 @@ class SignalGenerator:
                 else:
                     if position.position_type is PositionType.LONG:
                         natural_close_required = coint_pair.recent_dev_scaled < self.exit_z
-                        emergency_close_required = coint_pair.recent_dev_scaled > (self.emergency_delta_z + position.init_z)
+                        emergency_close_required = coint_pair.recent_dev_scaled > \
+                                                   (self.emergency_delta_z + position.init_z)
 
                         if natural_close_required or emergency_close_required:
                             decisions.append(
@@ -146,7 +146,8 @@ class SignalGenerator:
                     elif position.position_type is PositionType.SHORT:
 
                         natural_close_required = coint_pair.recent_dev_scaled > -self.exit_z
-                        emergency_close_required = coint_pair.recent_dev_scaled < (position.init_z - self.emergency_delta_z)
+                        emergency_close_required = coint_pair.recent_dev_scaled < \
+                                                   (position.init_z - self.emergency_delta_z)
 
                         if natural_close_required or emergency_close_required:
                             decisions.append(
@@ -167,8 +168,8 @@ class SignalGenerator:
                                     old_action=PositionType.SHORT,
                                     new_action=PositionType.SHORT)
                             )
-        # print("open count: ", self.open_count)
-        # print("natural close count: ", self.natural_close_count)
-        # print("emergency close count: ", self.emergency_close_count)
-        # print("time stop-loss close count: ", self.time_stop_loss_count)
+        print("open count: ", self.open_count)
+        print("natural close count: ", self.natural_close_count)
+        print("emergency close count: ", self.emergency_close_count)
+        print("time stop-loss close count: ", self.time_stop_loss_count)
         return decisions

@@ -1,0 +1,689 @@
+2020-07-03 22:25:00,828 - __main__ - INFO - Creating new portfolio...
+2020-07-03 22:25:13,107 - __main__ - INFO - Executing trades for 2008-03-28
+2020-07-03 22:25:24,847 - __main__ - INFO - Executing trades for 2008-03-31
+2020-07-03 22:25:25,925 - __main__ - INFO - Executing trades for 2008-04-01
+2020-07-03 22:25:27,018 - __main__ - INFO - Executing trades for 2008-04-02
+2020-07-03 22:25:28,205 - __main__ - INFO - Executing trades for 2008-04-03
+2020-07-03 22:25:29,299 - __main__ - INFO - Executing trades for 2008-04-04
+2020-07-03 22:25:30,377 - __main__ - INFO - Executing trades for 2008-04-07
+2020-07-03 22:25:31,471 - __main__ - INFO - Executing trades for 2008-04-08
+2020-07-03 22:25:32,549 - __main__ - INFO - Executing trades for 2008-04-09
+2020-07-03 22:25:33,658 - __main__ - INFO - Executing trades for 2008-04-10
+2020-07-03 22:25:34,782 - __main__ - INFO - Executing trades for 2008-04-11
+2020-07-03 22:25:35,892 - __main__ - INFO - Executing trades for 2008-04-14
+2020-07-03 22:25:36,985 - __main__ - INFO - Executing trades for 2008-04-15
+2020-07-03 22:25:38,110 - __main__ - INFO - Executing trades for 2008-04-16
+2020-07-03 22:25:39,203 - __main__ - INFO - Executing trades for 2008-04-17
+2020-07-03 22:25:40,281 - __main__ - INFO - Executing trades for 2008-04-18
+2020-07-03 22:25:41,375 - __main__ - INFO - Executing trades for 2008-04-21
+2020-07-03 22:25:42,468 - __main__ - INFO - Executing trades for 2008-04-22
+2020-07-03 22:25:43,562 - __main__ - INFO - Executing trades for 2008-04-23
+2020-07-03 22:25:44,640 - __main__ - INFO - Executing trades for 2008-04-24
+2020-07-03 22:25:45,717 - __main__ - INFO - Executing trades for 2008-04-25
+2020-07-03 22:25:46,795 - __main__ - INFO - Executing trades for 2008-04-28
+2020-07-03 22:25:47,920 - __main__ - INFO - Executing trades for 2008-04-29
+2020-07-03 22:25:48,998 - __main__ - INFO - Executing trades for 2008-04-30
+2020-07-03 22:25:50,076 - __main__ - INFO - Executing trades for 2008-05-01
+2020-07-03 22:25:51,138 - __main__ - INFO - Executing trades for 2008-05-02
+2020-07-03 22:25:52,205 - __main__ - INFO - Executing trades for 2008-05-05
+2020-07-03 22:25:53,283 - __main__ - INFO - Executing trades for 2008-05-06
+2020-07-03 22:25:54,361 - __main__ - INFO - Executing trades for 2008-05-07
+2020-07-03 22:25:55,454 - __main__ - INFO - Executing trades for 2008-05-08
+2020-07-03 22:26:06,733 - __main__ - INFO - Executing trades for 2008-05-09
+2020-07-03 22:26:07,842 - __main__ - INFO - Executing trades for 2008-05-12
+2020-07-03 22:26:09,014 - __main__ - INFO - Executing trades for 2008-05-13
+2020-07-03 22:26:10,138 - __main__ - INFO - Executing trades for 2008-05-14
+2020-07-03 22:26:10,138 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:10,138 - __main__ - INFO - Asset 1: SnpTickers.AAP @$33.23 Quantity: 300 Value: 9969.23
+2020-07-03 22:26:10,138 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$138.29 Quantity: -52 Value: -7191.08
+2020-07-03 22:26:10,138 - __main__ - INFO - Cash balance: $97213.2718969737
+2020-07-03 22:26:11,263 - __main__ - INFO - Executing trades for 2008-05-15
+2020-07-03 22:26:12,388 - __main__ - INFO - Executing trades for 2008-05-16
+2020-07-03 22:26:12,388 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:26:12,388 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.37 Quantity: 300
+2020-07-03 22:26:12,388 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$135.49 Quantity: -52
+2020-07-03 22:26:12,388 - __main__ - INFO - Realised PnL for position: 1387.42
+2020-07-03 22:26:13,528 - __main__ - INFO - Executing trades for 2008-05-19
+2020-07-03 22:26:14,669 - __main__ - INFO - Executing trades for 2008-05-20
+2020-07-03 22:26:14,669 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 1: SnpTickers.A @$23.26 Quantity: -312 Value: -7256.22
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$132.27 Quantity: 75 Value: 9920.25
+2020-07-03 22:26:14,669 - __main__ - INFO - Cash balance: $98697.09698910844
+2020-07-03 22:26:14,669 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 1: SnpTickers.A @$23.26 Quantity: -405 Value: -9419.14
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.72 Quantity: 404 Value: 9985.96
+2020-07-03 22:26:14,669 - __main__ - INFO - Cash balance: $98120.57692122128
+2020-07-03 22:26:14,669 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 1: SnpTickers.A @$23.26 Quantity: 429 Value: 9977.31
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 2: SnpTickers.URI @$20.09 Quantity: -487 Value: -9783.83
+2020-07-03 22:26:14,669 - __main__ - INFO - Cash balance: $97917.21779649054
+2020-07-03 22:26:14,669 - __main__ - INFO - SnpTickers.A, SnpTickers.SNPS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 1: SnpTickers.A @$23.26 Quantity: -412 Value: -9581.94
+2020-07-03 22:26:14,669 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$24.71 Quantity: 404 Value: 9982.84
+2020-07-03 22:26:14,669 - __main__ - INFO - Cash balance: $97506.53320368436
+2020-07-03 22:26:15,778 - __main__ - INFO - Executing trades for 2008-05-21
+2020-07-03 22:26:15,778 - __main__ - INFO - SnpTickers.AAP, SnpTickers.INTU are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:15,778 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.16 Quantity: 269 Value: 9995.61
+2020-07-03 22:26:15,778 - __main__ - INFO - Asset 2: SnpTickers.INTU @$25.65 Quantity: -357 Value: -9155.69
+2020-07-03 22:26:15,778 - __main__ - INFO - Cash balance: $96657.03796767535
+2020-07-03 22:26:15,778 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:15,778 - __main__ - INFO - Asset 1: SnpTickers.A @$23.31 Quantity: -405
+2020-07-03 22:26:15,778 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.06 Quantity: 404
+2020-07-03 22:26:15,778 - __main__ - INFO - Realised PnL for position: -286.06
+2020-07-03 22:26:16,918 - __main__ - INFO - Executing trades for 2008-05-22
+2020-07-03 22:26:16,934 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:16,934 - __main__ - INFO - Asset 1: SnpTickers.A @$23.52 Quantity: -401 Value: -9430.84
+2020-07-03 22:26:16,934 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.15 Quantity: 414 Value: 9999.47
+2020-07-03 22:26:16,934 - __main__ - INFO - Cash balance: $96349.86811495556
+2020-07-03 22:26:18,058 - __main__ - INFO - Executing trades for 2008-05-23
+2020-07-03 22:26:18,058 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:18,058 - __main__ - INFO - Asset 1: SnpTickers.AAP @$36.51 Quantity: 273 Value: 9968.16
+2020-07-03 22:26:18,058 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$11.17 Quantity: -486 Value: -5428.62
+2020-07-03 22:26:18,058 - __main__ - INFO - Cash balance: $91802.6302400041
+2020-07-03 22:26:18,058 - __main__ - INFO - SnpTickers.AAP, SnpTickers.SYK are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:18,058 - __main__ - INFO - Asset 1: SnpTickers.AAP @$36.51 Quantity: -242 Value: -8836.24
+2020-07-03 22:26:18,058 - __main__ - INFO - Asset 2: SnpTickers.SYK @$53.19 Quantity: 187 Value: 9947.13
+2020-07-03 22:26:18,058 - __main__ - INFO - Cash balance: $90682.35428467579
+2020-07-03 22:26:18,058 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:18,058 - __main__ - INFO - Asset 1: SnpTickers.A @$23.46 Quantity: -401
+2020-07-03 22:26:18,058 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.72 Quantity: 414
+2020-07-03 22:26:18,058 - __main__ - INFO - Realised PnL for position: -155.12
+2020-07-03 22:26:19,214 - __main__ - INFO - Executing trades for 2008-05-27
+2020-07-03 22:26:19,214 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:19,214 - __main__ - INFO - Asset 1: SnpTickers.A @$23.78 Quantity: -396 Value: -9416.67
+2020-07-03 22:26:19,214 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.39 Quantity: 410 Value: 9998.14
+2020-07-03 22:26:19,214 - __main__ - INFO - Cash balance: $90495.07242325513
+2020-07-03 22:26:19,214 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:26:19,214 - __main__ - INFO - Asset 1: SnpTickers.A @$23.78 Quantity: -312
+2020-07-03 22:26:19,214 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$131.31 Quantity: 75
+2020-07-03 22:26:19,214 - __main__ - INFO - Realised PnL for position: -234.97
+2020-07-03 22:26:20,316 - __main__ - INFO - Executing trades for 2008-05-28
+2020-07-03 22:26:20,316 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 1: SnpTickers.A @$24.13 Quantity: -301 Value: -7261.78
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$134.13 Quantity: 74 Value: 9925.62
+2020-07-03 22:26:20,316 - __main__ - INFO - Cash balance: $90243.06024289783
+2020-07-03 22:26:20,316 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.42 Quantity: -204 Value: -7837.57
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$134.13 Quantity: 74 Value: 9925.62
+2020-07-03 22:26:20,316 - __main__ - INFO - Cash balance: $88146.12818636592
+2020-07-03 22:26:20,316 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.42 Quantity: 273
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$11.26 Quantity: -486
+2020-07-03 22:26:20,316 - __main__ - INFO - Realised PnL for position: 476.61
+2020-07-03 22:26:20,316 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.SYK. Closing position...
+2020-07-03 22:26:20,316 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.42 Quantity: -242
+2020-07-03 22:26:20,332 - __main__ - INFO - Asset 2: SnpTickers.SYK @$54.06 Quantity: 187
+2020-07-03 22:26:20,332 - __main__ - INFO - Realised PnL for position: -299.54
+2020-07-03 22:26:20,332 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:20,332 - __main__ - INFO - Asset 1: SnpTickers.A @$24.13 Quantity: -396
+2020-07-03 22:26:20,332 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.22 Quantity: 410
+2020-07-03 22:26:20,332 - __main__ - INFO - Realised PnL for position: -205.1
+2020-07-03 22:26:21,441 - __main__ - INFO - Executing trades for 2008-05-29
+2020-07-03 22:26:21,457 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:21,457 - __main__ - INFO - Asset 1: SnpTickers.A @$24.24 Quantity: -389 Value: -9430.55
+2020-07-03 22:26:21,457 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$24.6 Quantity: 406 Value: 9988.21
+2020-07-03 22:26:21,457 - __main__ - INFO - Cash balance: $93755.20034546108
+2020-07-03 22:26:21,457 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.URI. Closing position...
+2020-07-03 22:26:21,457 - __main__ - INFO - Asset 1: SnpTickers.A @$24.24 Quantity: 429
+2020-07-03 22:26:21,457 - __main__ - INFO - Asset 2: SnpTickers.URI @$20.42 Quantity: -487
+2020-07-03 22:26:21,457 - __main__ - INFO - Realised PnL for position: 262.25
+2020-07-03 22:26:21,457 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:26:21,457 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.08 Quantity: -204
+2020-07-03 22:26:21,457 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$131.94 Quantity: 74
+2020-07-03 22:26:21,457 - __main__ - INFO - Realised PnL for position: -297.56
+2020-07-03 22:26:22,581 - __main__ - INFO - Executing trades for 2008-05-30
+2020-07-03 22:26:22,581 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:22,581 - __main__ - INFO - Asset 1: SnpTickers.A @$24.41 Quantity: 409 Value: 9984.84
+2020-07-03 22:26:22,581 - __main__ - INFO - Asset 2: SnpTickers.URI @$20.59 Quantity: -475 Value: -9780.25
+2020-07-03 22:26:22,581 - __main__ - INFO - Cash balance: $95767.90372899166
+2020-07-03 22:26:23,690 - __main__ - INFO - Executing trades for 2008-06-02
+2020-07-03 22:26:23,706 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:23,706 - __main__ - INFO - Asset 1: SnpTickers.A @$24.09 Quantity: -389
+2020-07-03 22:26:23,706 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.85 Quantity: 406
+2020-07-03 22:26:23,706 - __main__ - INFO - Realised PnL for position: -244.87
+2020-07-03 22:26:24,815 - __main__ - INFO - Executing trades for 2008-06-03
+2020-07-03 22:26:24,815 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:24,815 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.0 Quantity: -201 Value: -7838.4
+2020-07-03 22:26:24,815 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$132.77 Quantity: 75 Value: 9957.75
+2020-07-03 22:26:24,815 - __main__ - INFO - Cash balance: $93942.92824419787
+2020-07-03 22:26:24,831 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:24,831 - __main__ - INFO - Asset 1: SnpTickers.A @$24.08 Quantity: -391 Value: -9415.21
+2020-07-03 22:26:24,831 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.77 Quantity: 420 Value: 9984.03
+2020-07-03 22:26:24,831 - __main__ - INFO - Cash balance: $93364.40795550626
+2020-07-03 22:26:24,831 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:24,831 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.0 Quantity: 256 Value: 9983.24
+2020-07-03 22:26:24,831 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$11.23 Quantity: -483 Value: -5424.09
+2020-07-03 22:26:24,831 - __main__ - INFO - Cash balance: $88797.55188110423
+2020-07-03 22:26:24,831 - __main__ - INFO - SnpTickers.AAP, SnpTickers.SYK are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:24,831 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.0 Quantity: -227 Value: -8852.33
+2020-07-03 22:26:24,831 - __main__ - INFO - Asset 2: SnpTickers.SYK @$54.38 Quantity: 183 Value: 9952.17
+2020-07-03 22:26:24,831 - __main__ - INFO - Cash balance: $87688.30709371285
+2020-07-03 22:26:25,971 - __main__ - INFO - Executing trades for 2008-06-04
+2020-07-03 22:26:25,971 - __main__ - INFO - SnpTickers.A, SnpTickers.ULTA are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:25,971 - __main__ - INFO - Asset 1: SnpTickers.A @$24.15 Quantity: 414 Value: 9998.78
+2020-07-03 22:26:25,971 - __main__ - INFO - Asset 2: SnpTickers.ULTA @$13.18 Quantity: -647 Value: -8529.07
+2020-07-03 22:26:25,971 - __main__ - INFO - Cash balance: $86209.33778341858
+2020-07-03 22:26:27,112 - __main__ - INFO - Executing trades for 2008-06-05
+2020-07-03 22:26:27,112 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.URI. Closing position...
+2020-07-03 22:26:27,112 - __main__ - INFO - Asset 1: SnpTickers.A @$24.58 Quantity: 409
+2020-07-03 22:26:27,112 - __main__ - INFO - Asset 2: SnpTickers.URI @$20.07 Quantity: -475
+2020-07-03 22:26:27,112 - __main__ - INFO - Realised PnL for position: 316.43
+2020-07-03 22:26:28,221 - __main__ - INFO - Executing trades for 2008-06-06
+2020-07-03 22:26:28,236 - __main__ - INFO - SnpTickers.A, SnpTickers.URI are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:28,236 - __main__ - INFO - Asset 1: SnpTickers.A @$23.84 Quantity: 419 Value: 9988.22
+2020-07-03 22:26:28,236 - __main__ - INFO - Asset 2: SnpTickers.URI @$19.6 Quantity: -499 Value: -9780.4
+2020-07-03 22:26:28,236 - __main__ - INFO - Cash balance: $86502.85767579016
+2020-07-03 22:26:29,404 - __main__ - INFO - Executing trades for 2008-06-09
+2020-07-03 22:26:29,404 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.SNPS. Closing position...
+2020-07-03 22:26:29,404 - __main__ - INFO - Asset 1: SnpTickers.A @$24.11 Quantity: -412
+2020-07-03 22:26:29,404 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$25.13 Quantity: 404
+2020-07-03 22:26:29,404 - __main__ - INFO - Realised PnL for position: -180.03
+2020-07-03 22:26:29,419 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:26:29,419 - __main__ - INFO - Asset 1: SnpTickers.A @$24.11 Quantity: -301
+2020-07-03 22:26:29,419 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$126.55 Quantity: 74
+2020-07-03 22:26:29,419 - __main__ - INFO - Realised PnL for position: -555.03
+2020-07-03 22:26:29,419 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.BKNG. Closing position...
+2020-07-03 22:26:29,419 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.55 Quantity: -201
+2020-07-03 22:26:29,419 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$126.55 Quantity: 75
+2020-07-03 22:26:29,419 - __main__ - INFO - Realised PnL for position: -576.79
+2020-07-03 22:26:29,419 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:29,419 - __main__ - INFO - Asset 1: SnpTickers.A @$24.11 Quantity: -391
+2020-07-03 22:26:29,419 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.27 Quantity: 420
+2020-07-03 22:26:29,419 - __main__ - INFO - Realised PnL for position: -219.37
+2020-07-03 22:26:30,544 - __main__ - INFO - Executing trades for 2008-06-10
+2020-07-03 22:26:30,544 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 1: SnpTickers.A @$23.99 Quantity: -302 Value: -7246.47
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$127.38 Quantity: 78 Value: 9935.64
+2020-07-03 22:26:30,544 - __main__ - INFO - Cash balance: $87990.11367342765
+2020-07-03 22:26:30,544 - __main__ - INFO - SnpTickers.AAP, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.24 Quantity: -200 Value: -7847.54
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$127.38 Quantity: 78 Value: 9935.64
+2020-07-03 22:26:30,544 - __main__ - INFO - Cash balance: $85893.12333960996
+2020-07-03 22:26:30,544 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 1: SnpTickers.A @$23.99 Quantity: -393 Value: -9430.01
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$23.41 Quantity: 427 Value: 9998.03
+2020-07-03 22:26:30,544 - __main__ - INFO - Cash balance: $85315.38643127236
+2020-07-03 22:26:30,544 - __main__ - INFO - SnpTickers.A, SnpTickers.SNPS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 1: SnpTickers.A @$23.99 Quantity: -399 Value: -9573.98
+2020-07-03 22:26:30,544 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$24.98 Quantity: 400 Value: 9992.0
+2020-07-03 22:26:30,544 - __main__ - INFO - Cash balance: $84887.58308564435
+2020-07-03 22:26:31,669 - __main__ - INFO - Executing trades for 2008-06-11
+2020-07-03 22:26:31,669 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:31,669 - __main__ - INFO - Asset 1: SnpTickers.A @$23.67 Quantity: -393
+2020-07-03 22:26:31,669 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.71 Quantity: 427
+2020-07-03 22:26:31,669 - __main__ - INFO - Realised PnL for position: -172.95
+2020-07-03 22:26:32,794 - __main__ - INFO - Executing trades for 2008-06-12
+2020-07-03 22:26:32,794 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:32,794 - __main__ - INFO - Asset 1: SnpTickers.A @$24.09 Quantity: -391 Value: -9417.76
+2020-07-03 22:26:32,794 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.93 Quantity: 436 Value: 9998.87
+2020-07-03 22:26:32,794 - __main__ - INFO - Cash balance: $84682.33598960815
+2020-07-03 22:26:32,794 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.BKNG. Closing position...
+2020-07-03 22:26:32,794 - __main__ - INFO - Asset 1: SnpTickers.A @$24.09 Quantity: -302
+2020-07-03 22:26:32,794 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$122.26 Quantity: 78
+2020-07-03 22:26:32,794 - __main__ - INFO - Realised PnL for position: -426.97
+2020-07-03 22:26:33,934 - __main__ - INFO - Executing trades for 2008-06-13
+2020-07-03 22:26:33,934 - __main__ - INFO - SnpTickers.A, SnpTickers.BKNG are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:33,934 - __main__ - INFO - Asset 1: SnpTickers.A @$24.36 Quantity: -298 Value: -7259.45
+2020-07-03 22:26:33,934 - __main__ - INFO - Asset 2: SnpTickers.BKNG @$126.9 Quantity: 78 Value: 9898.2
+2020-07-03 22:26:33,934 - __main__ - INFO - Cash balance: $84288.80747555371
+2020-07-03 22:26:35,059 - __main__ - INFO - Executing trades for 2008-06-16
+2020-07-03 22:26:36,168 - __main__ - INFO - Executing trades for 2008-06-17
+2020-07-03 22:26:36,168 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:26:36,168 - __main__ - INFO - Asset 1: SnpTickers.AAP @$39.68 Quantity: 256
+2020-07-03 22:26:36,168 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.84 Quantity: -483
+2020-07-03 22:26:36,168 - __main__ - INFO - Realised PnL for position: 363.34
+2020-07-03 22:26:37,293 - __main__ - INFO - Executing trades for 2008-06-18
+2020-07-03 22:26:37,293 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.61 Quantity: 258 Value: 9961.49
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.82 Quantity: -502 Value: -5431.64
+2020-07-03 22:26:37,293 - __main__ - INFO - Cash balance: $84666.06110826606
+2020-07-03 22:26:37,293 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.ULTA. Closing position...
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 1: SnpTickers.A @$24.41 Quantity: 414
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 2: SnpTickers.ULTA @$12.08 Quantity: -647
+2020-07-03 22:26:37,293 - __main__ - INFO - Realised PnL for position: 815.64
+2020-07-03 22:26:37,293 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.SNPS. Closing position...
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 1: SnpTickers.A @$24.41 Quantity: -399
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$24.97 Quantity: 400
+2020-07-03 22:26:37,293 - __main__ - INFO - Realised PnL for position: -168.13
+2020-07-03 22:26:37,293 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 1: SnpTickers.A @$24.41 Quantity: -391
+2020-07-03 22:26:37,293 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.62 Quantity: 436
+2020-07-03 22:26:37,293 - __main__ - INFO - Realised PnL for position: -262.61
+2020-07-03 22:26:38,417 - __main__ - INFO - Executing trades for 2008-06-19
+2020-07-03 22:26:38,417 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:38,417 - __main__ - INFO - Asset 1: SnpTickers.A @$24.75 Quantity: -381 Value: -9428.15
+2020-07-03 22:26:38,417 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$22.53 Quantity: 443 Value: 9982.91
+2020-07-03 22:26:38,417 - __main__ - INFO - Cash balance: $86926.8097789506
+2020-07-03 22:26:38,417 - __main__ - INFO - SnpTickers.A, SnpTickers.ULTA are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:38,417 - __main__ - INFO - Asset 1: SnpTickers.A @$24.75 Quantity: 404 Value: 9997.3
+2020-07-03 22:26:38,417 - __main__ - INFO - Asset 2: SnpTickers.ULTA @$12.09 Quantity: -706 Value: -8538.84
+2020-07-03 22:26:38,417 - __main__ - INFO - Cash balance: $85459.07370724376
+2020-07-03 22:26:39,604 - __main__ - INFO - Executing trades for 2008-06-20
+2020-07-03 22:26:39,604 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.CTAS. Closing position...
+2020-07-03 22:26:39,604 - __main__ - INFO - Asset 1: SnpTickers.A @$24.53 Quantity: -381
+2020-07-03 22:26:39,604 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$21.9 Quantity: 443
+2020-07-03 22:26:39,604 - __main__ - INFO - Realised PnL for position: -201.03
+2020-07-03 22:26:51,927 - __main__ - INFO - Executing trades for 2008-06-23
+2020-07-03 22:26:53,052 - __main__ - INFO - Executing trades for 2008-06-24
+2020-07-03 22:26:54,167 - __main__ - INFO - Executing trades for 2008-06-25
+2020-07-03 22:26:54,182 - __main__ - INFO - SnpTickers.A, SnpTickers.CTAS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:54,182 - __main__ - INFO - Asset 1: SnpTickers.A @$24.12 Quantity: -391 Value: -9430.53
+2020-07-03 22:26:54,182 - __main__ - INFO - Asset 2: SnpTickers.CTAS @$21.78 Quantity: 459 Value: 9996.78
+2020-07-03 22:26:54,182 - __main__ - INFO - Cash balance: $85227.3131961571
+2020-07-03 22:26:54,182 - __main__ - INFO - SnpTickers.A, SnpTickers.SNPS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:54,182 - __main__ - INFO - Asset 1: SnpTickers.A @$24.12 Quantity: -397 Value: -9575.24
+2020-07-03 22:26:54,182 - __main__ - INFO - Asset 2: SnpTickers.SNPS @$24.85 Quantity: 402 Value: 9989.7
+2020-07-03 22:26:54,182 - __main__ - INFO - Cash balance: $84803.07109577936
+2020-07-03 22:26:55,291 - __main__ - INFO - Executing trades for 2008-06-26
+2020-07-03 22:26:55,291 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.AAP, SnpTickers.CDNS. Closing position...
+2020-07-03 22:26:55,291 - __main__ - INFO - Asset 1: SnpTickers.AAP @$38.08 Quantity: 258
+2020-07-03 22:26:55,291 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.54 Quantity: -502
+2020-07-03 22:26:55,291 - __main__ - INFO - Realised PnL for position: 3.76
+2020-07-03 22:26:55,291 - __main__ - INFO - Closing/emergency threshold is passed for active pair SnpTickers.A, SnpTickers.ULTA. Closing position...
+2020-07-03 22:26:55,291 - __main__ - INFO - Asset 1: SnpTickers.A @$23.31 Quantity: 404
+2020-07-03 22:26:55,291 - __main__ - INFO - Asset 2: SnpTickers.ULTA @$10.37 Quantity: -706
+2020-07-03 22:26:55,291 - __main__ - INFO - Realised PnL for position: 634.53
+2020-07-03 22:26:56,425 - __main__ - INFO - Executing trades for 2008-06-27
+2020-07-03 22:26:56,425 - __main__ - INFO - SnpTickers.AAP, SnpTickers.CDNS are cointegrated and zscore is in trading range. Opening position....
+2020-07-03 22:26:56,425 - __main__ - INFO - Asset 1: SnpTickers.AAP @$37.98 Quantity: 263 Value: 9989.74
+2020-07-03 22:26:56,425 - __main__ - INFO - Asset 2: SnpTickers.CDNS @$10.14 Quantity: -535 Value: -5424.9
+2020-07-03 22:26:56,425 - __main__ - INFO - Cash balance: $86841.19962371237
+2020-07-03 22:26:57,583 - __main__ - INFO - Executing trades for 2008-06-30
+2020-07-03 22:26:58,791 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): query1.finance.yahoo.com:443
+2020-07-03 22:26:58,916 - urllib3.connectionpool - DEBUG - https://query1.finance.yahoo.com:443 "GET /v8/finance/chart/%5EGSPC?period1=1206576000&period2=1214866800&interval=1d&includePrePost=False&events=div%2Csplits HTTP/1.1" 200 None
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-BoldOblique.ttf) oblique normal bold normal>) = 11.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmmi10' (cmmi10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans' (DejaVuSans-BoldOblique.ttf) oblique normal bold normal>) = 1.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-BoldItalic.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal bold normal>) = 0.33499999999999996
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmss10' (cmss10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Oblique.ttf) oblique normal 400 normal>) = 1.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmex10' (cmex10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmtt10' (cmtt10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,182 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmb10' (cmb10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXGeneral' (STIXGeneral.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Serif Display' (DejaVuSerifDisplay.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmr10' (cmr10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'cmsy10' (cmsy10.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans Display' (DejaVuSansDisplay.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_BLAR.TTF) normal normal black normal>) = 10.525
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'icon-ui' (icon-ui.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Curlz MT' (CURLZ___.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Courier New' (couri.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Yu Gothic' (YuGothB.ttc) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Nirmala UI' (Nirmala.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Roboto' (Roboto-Light.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft JhengHei' (msjhbd.ttc) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Bright' (LBRITED.TTF) normal normal demibold normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Maiandra GD' (MAIAN.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Candara' (Candarai.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans MT' (GILBI___.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Roboto' (Roboto-Regular.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Book Antiqua' (ANTQUABI.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tahoma' (tahoma.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Sans Serif' (micross.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Garamond' (GARABD.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Handwriting' (LHANDW.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Stencil' (STENCIL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Californian FB' (CALIFR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bahnschrift' (bahnschrift.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans MT' (GIL_____.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Georgia' (georgiai.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Cambria' (cambriai.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Uighur' (MSUIGHUR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Leelawadee' (LEELAWAD.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Fax' (LFAXI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Times New Roman' (times.ttf) normal normal roman normal>) = 10.145
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Goudy Old Style' (GOUDOSI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Schoolbook' (SCHLBKB.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Castellar' (CASTELAR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Comic Sans MS' (comicz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Schoolbook' (SCHLBKI.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bookshelf Symbol 7' (BSSYM7.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans Typewriter' (LTYPEBO.TTF) oblique normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Consolas' (consolab.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft PhagsPa' (phagspab.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Niagara Solid' (NIAGSOL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Demi' (FRADM.TTF) normal normal demi normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bernard MT Condensed' (BERNHC.TTF) normal normal 400 condensed>) = 10.25
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MT Extra' (MTEXTRA.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calibri' (calibrii.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MS Gothic' (msgothic.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Gothic' (GOTHICBI.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Tai Le' (taile.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bell MT' (BELL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Demi' (FRADMIT.TTF) italic normal demi normal>) = 11.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_I.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Goudy Old Style' (GOUDOSB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Roboto' (Roboto-Medium.ttf) normal normal medium normal>) = 10.145
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'ZWAdobeF' (ZWAdobeF.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Felix Titling' (FELIXTI.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Myanmar Text' (mmrtextb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (segoeuil.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_BI.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Bright' (LBRITEI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Algerian' (ALGER.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Times New Roman' (timesbi.ttf) italic normal roman normal>) = 11.145
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft YaHei' (msyh.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gadugi' (gadugi.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Dubai' (DUBAI-MEDIUM.TTF) normal normal medium normal>) = 10.145
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Goudy Old Style' (GOUDOS.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Corbel' (corbelz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_BLAI.TTF) italic normal black normal>) = 11.525
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft New Tai Lue' (ntailub.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Palatino Linotype' (palabi.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Elephant' (ELEPHNTI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Perpetua Titling MT' (PERTIBD.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Constantia' (constani.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bell MT' (BELLI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell' (ROCKBI.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Berlin Sans FB' (BRLNSB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Book Antiqua' (BKANT.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Verdana' (verdanaz.ttf) italic normal bold normal>) = 4.971363636363637
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Colonna MT' (COLONNA.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'HoloLens MDL2 Assets' (holomdl2.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Palatino Linotype' (palai.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bookman Old Style' (BOOKOSB.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Corbel' (corbel.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Georgia' (georgia.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Viner Hand ITC' (VINERITC.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Imprint MT Shadow' (IMPRISHA.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT Condensed Extra Bold' (TCCEB.TTF) normal normal bold condensed>) = 10.535
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Myanmar Text' (mmrtext.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Book Antiqua' (ANTQUAB.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Showcard Gothic' (SHOWG.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Courier New' (courbd.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Parchment' (PARCHM.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Gothic' (GOTHICB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Perpetua' (PERI____.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell' (ROCK.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Comic Sans MS' (comic.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Copperplate Gothic Bold' (COPRGTB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Matura MT Script Capitals' (MATURASC.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Sylfaen' (sylfaen.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Script MT Bold' (SCRIPTBL.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rage Italic' (RAGE.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Times New Roman' (timesbd.ttf) normal normal roman normal>) = 10.145
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century' (CENTURY.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans Typewriter' (LTYPE.TTF) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Niagara Engraved' (NIAGENG.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Ebrima' (ebrima.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans MT Ext Condensed Bold' (GLSNECB.TTF) normal normal bold condensed>) = 10.535
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calisto MT' (CALISTBI.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Trebuchet MS' (trebucbi.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_CBI.TTF) italic normal bold condensed>) = 11.535
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (ARIALNB.TTF) normal normal bold condensed>) = 6.8986363636363635
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Engravers MT' (ENGR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Yu Gothic' (YuGothL.ttc) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (seguili.ttf) italic normal light normal>) = 11.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Leelawadee UI' (LeelUIsl.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT' (TCMI____.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (ARIALNI.TTF) italic normal 400 condensed>) = 7.613636363636363
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (arial.ttf) normal normal 400 normal>) = 6.413636363636363
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Constantia' (constanz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Kristen ITC' (ITCKRIST.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Agency FB' (AGENCYR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_PSTC.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Book Antiqua' (ANTQUAI.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Candara' (Candara.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Old English Text MT' (OLDENGL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe Script' (segoescb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Footlight MT Light' (FTLTLT.TTF) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Verdana' (verdana.ttf) normal normal 400 normal>) = 3.6863636363636365
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Palatino Linotype' (palab.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Candara' (Candaraz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (arialbd.ttf) normal normal bold normal>) = 6.698636363636363
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'High Tower Text' (HTOWERT.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Candara' (Candarali.ttf) italic normal light normal>) = 11.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Roboto' (Roboto-Thin.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Yu Gothic' (YuGothR.ttc) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Webdings' (webdings.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (ARIALNBI.TTF) italic normal bold condensed>) = 7.8986363636363635
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans MT' (GILB____.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Garamond' (GARAIT.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Vladimir Script' (VLADIMIR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'OCR A Extended' (OCRAEXT.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI Symbol' (seguisym.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'SimSun-ExtB' (simsunb.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'French Script MT' (FRSCRIPT.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans Typewriter' (LTYPEO.TTF) oblique normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Brush Script MT' (BRUSHSCI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calibri' (calibrib.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Adobe Devanagari' (AdobeDevanagari-Italic.otf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Schoolbook' (SCHLBKBI.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Broadway' (BROADW.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Perpetua' (PERBI___.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calibri' (calibrili.ttf) italic normal light normal>) = 11.24
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans Unicode' (l_10646.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Cambria' (cambria.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calibri' (calibri.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Book' (FRABK.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,197 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Mongolian Baiti' (monbaiti.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Fax' (LFAXD.TTF) normal normal demibold normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Monotype Corsiva' (MTCORSVA.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft JhengHei' (msjhl.ttc) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Yi Baiti' (msyi.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Centaur' (CENTAUR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Book' (FRABKIT.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Malgun Gothic' (malgunsl.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft New Tai Lue' (ntailu.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Times New Roman' (timesi.ttf) italic normal roman normal>) = 11.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calibri' (calibril.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Berlin Sans FB Demi' (BRLNSDB.TTF) normal normal demi normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Fax' (LFAXDI.TTF) italic normal demibold normal>) = 11.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (seguisb.ttf) normal normal semibold normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Forte' (FORTE.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Candara' (Candarab.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calisto MT' (CALIST.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Calligraphy' (LCALLIG.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bookman Old Style' (BOOKOS.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe Script' (segoesc.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Marlett' (marlett.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft PhagsPa' (phagspa.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Jokerman' (JOKERMAN.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Haettenschweiler' (HATTEN.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Trebuchet MS' (trebucit.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell Condensed' (ROCC____.TTF) normal normal 400 condensed>) = 10.25
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Sitka Small' (SitkaI.ttc) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'SimSun' (simsun.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Cambria' (cambriab.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Eras Light ITC' (ERASLGHT.TTF) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Wide Latin' (LATINWD.TTF) normal normal 400 expanded>) = 10.25
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Bright' (LBRITEDI.TTF) italic normal demibold normal>) = 11.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Dubai' (DUBAI-LIGHT.TTF) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Californian FB' (CALIFB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gabriola' (Gabriola.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Baskerville Old Face' (BASKVILL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (ariblk.ttf) normal normal black normal>) = 6.888636363636364
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans' (LSANSD.TTF) normal normal roman normal>) = 10.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Onyx' (ONYX.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans Typewriter' (LTYPEB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT Condensed' (TCCM____.TTF) normal normal 400 condensed>) = 10.25
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT' (TCBI____.TTF) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (segoeuib.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Corbel' (corbelli.ttf) italic normal light normal>) = 11.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Californian FB' (CALIFI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Sitka Small' (Sitka.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Playbill' (PLAYBILL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Mistral' (MISTRAL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Wingdings 3' (WINGDNG3.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bookman Old Style' (BOOKOSI.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Heavy' (FRAHVIT.TTF) italic normal heavy normal>) = 11.43
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MS Reference Sans Serif' (REFSAN.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'GLYPHICONS Halflings' (glyphicons-halflings-regular.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell' (ROCKI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Harlow Solid Italic' (HARLOWSI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Juice ITC' (JUICE___.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Leelawadee UI' (LeelaUIb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT' (TCB_____.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Javanese Text' (javatext.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Sitka Small' (SitkaB.ttc) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Impact' (impact.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (seguibli.ttf) italic normal black normal>) = 11.525
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Courier New' (courbi.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Roboto' (Roboto-Black.ttf) normal normal black normal>) = 10.525
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (segoeuisl.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Dubai' (DUBAI-REGULAR.TTF) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tahoma' (tahomabd.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MV Boli' (mvboli.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Ink Free' (Inkfree.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Constantia' (constan.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans' (LSANSDI.TTF) italic normal demibold normal>) = 11.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Leelawadee UI' (LeelawUI.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans' (LSANS.TTF) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Gothic' (GOTHICI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Magneto' (MAGNETOB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (arialbi.ttf) italic normal bold normal>) = 7.698636363636363
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bauhaus 93' (BAUHS93.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Harrington' (HARNGTON.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'FontAwesome' (fontawesome-webfont.ttf) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (segoeui.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Eras Medium ITC' (ERASMD.TTF) normal normal medium normal>) = 10.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Ebrima' (ebrimabd.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Dubai' (DUBAI-BOLD.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Pristina' (PRISTINA.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Eras Demi ITC' (ERASDEMI.TTF) normal normal demi normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans MT' (GILI____.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft YaHei' (msyhbd.ttc) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Elephant' (ELEPHNT.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Heavy' (FRAHV.TTF) normal normal heavy normal>) = 10.43
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Yu Gothic' (YuGothM.ttc) normal normal medium normal>) = 10.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe Print' (segoeprb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'icon-brand' (icon-brand.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gigi' (GIGI.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Eras Bold ITC' (ERASBD.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI Emoji' (seguiemj.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calisto MT' (CALISTI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Blackadder ITC' (ITCBLKAD.TTF) normal normal black normal>) = 10.525
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Bright' (LBRITE.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Goudy Stout' (GOUDYSTO.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calibri' (calibriz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Consolas' (consola.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans MT Condensed' (GILC____.TTF) normal normal 400 condensed>) = 10.25
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Perpetua' (PERB____.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (seguisbi.ttf) italic normal semibold normal>) = 11.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe Print' (segoepr.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Console' (lucon.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (seguibl.ttf) normal normal black normal>) = 10.525
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Wingdings' (wingding.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Cooper Black' (COOPBL.TTF) normal normal black normal>) = 10.525
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Corbel' (corbelb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Candara' (Candaral.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Medium' (framd.ttf) normal normal medium normal>) = 10.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Malgun Gothic' (malgunbd.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Adobe Devanagari' (AdobeDevanagari-BoldItalic.otf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'High Tower Text' (HTOWERTI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Roboto' (Roboto-Bold.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gadugi' (gadugib.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft JhengHei' (msjh.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Demi Cond' (FRADMCN.TTF) normal normal demi condensed>) = 10.44
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (segoeuii.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Verdana' (verdanai.ttf) italic normal 400 normal>) = 4.6863636363636365
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans Ultra Bold' (GILSANUB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Papyrus' (PAPYRUS.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Wingdings 2' (WINGDNG2.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Perpetua' (PER_____.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Medium' (framdit.ttf) italic normal medium normal>) = 11.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Britannic Bold' (BRITANIC.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (ARIALN.TTF) normal normal 400 condensed>) = 6.613636363636363
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Courier New' (cour.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Georgia' (georgiab.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Comic Sans MS' (comicbd.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Calisto MT' (CALISTB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Nirmala UI' (NirmalaS.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tempus Sans ITC' (TEMPSITC.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Himalaya' (himalaya.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Tai Le' (taileb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (segoeuiz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gill Sans Ultra Bold Condensed' (GILLUBCD.TTF) normal normal bold condensed>) = 10.535
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Malgun Gothic' (malgun.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Leelawadee' (LEELAWDB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Franklin Gothic Medium Cond' (FRAMDCN.TTF) normal normal medium condensed>) = 10.344999999999999
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MS Reference Specialty' (REFSPCL.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Comic Sans MS' (comici.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'icon-large' (icon-large.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Gothic' (GOTHIC.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Fax' (LFAX.TTF) normal normal regular normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT' (TCM_____.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Informal Roman' (INFROMAN.TTF) normal normal roman normal>) = 10.145
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI Historic' (seguihis.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell Extra Bold' (ROCKEB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Nirmala UI' (NirmalaB.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Sitka Small' (SitkaZ.ttc) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bookman Old Style' (BOOKOSBI.TTF) italic normal book normal>) = 11.05
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe UI' (seguisli.ttf) italic normal light normal>) = 11.24
+2020-07-03 22:26:59,213 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Palatino Linotype' (pala.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Lucida Sans' (LSANSI.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_B.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_CI.TTF) italic normal 400 condensed>) = 11.25
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Berlin Sans FB' (BRLNSR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Consolas' (consolaz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Snap ITC' (SNAP____.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft Uighur' (MSUIGHUB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell Condensed' (ROCCB___.TTF) normal normal bold condensed>) = 10.535
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Adobe Devanagari' (AdobeDevanagari-Regular.otf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Trebuchet MS' (trebuc.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Georgia' (georgiaz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Segoe MDL2 Assets' (segmdl2.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Garamond' (GARA.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial Rounded MT Bold' (ARLRDBD.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MS Outlook' (OUTLOOK.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Agency FB' (AGENCYB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Gloucester MT Extra Condensed' (GLECB.TTF) normal normal 400 condensed>) = 10.25
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Kunstler Script' (KUNSTLER.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Microsoft YaHei' (msyhl.ttc) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Perpetua Titling MT' (PERTILI.TTF) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Freestyle Script' (FREESCPT.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_R.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Vivaldi' (VIVALDII.TTF) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Palace Script MT' (PALSCRI.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Edwardian Script ITC' (ITCEDSCR.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Ravie' (RAVIE.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Modern No. 20' (MOD20.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'MingLiU-ExtB' (mingliub.ttc) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Adobe Devanagari' (AdobeDevanagari-Bold.otf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Poor Richard' (POORICH.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Tw Cen MT Condensed' (TCCB____.TTF) normal normal bold condensed>) = 10.535
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Consolas' (consolai.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Chiller' (CHILLER.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Trebuchet MS' (trebucbd.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Century Schoolbook' (CENSCBK.TTF) normal normal book normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Symbol' (symbol.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Rockwell' (ROCKB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_CB.TTF) normal normal bold condensed>) = 10.535
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Cambria' (cambriaz.ttf) italic normal bold normal>) = 11.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'icon-small' (icon-small.ttf) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bodoni MT' (BOD_CR.TTF) normal normal 400 condensed>) = 10.25
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Copperplate Gothic Light' (COPRGTL.TTF) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Corbel' (corbeli.ttf) italic normal 400 normal>) = 11.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Corbel' (corbell.ttf) normal normal light normal>) = 10.24
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bell MT' (BELLB.TTF) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Arial' (ariali.ttf) italic normal 400 normal>) = 7.413636363636363
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Bradley Hand ITC' (BRADHITC.TTF) normal normal 400 normal>) = 10.05
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Verdana' (verdanab.ttf) normal normal bold normal>) = 3.9713636363636367
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: score(<Font 'Constantia' (constanb.ttf) normal normal bold normal>) = 10.335
+2020-07-03 22:26:59,228 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('C:\\Users\\simon\\Anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf') with score of 0.050000.
